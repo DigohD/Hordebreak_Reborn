@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_stone_wall</id>
+		<pathingCost>50</pathingCost>
+		<heatTransferFactor>0.95</heatTransferFactor>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>T1 Stone Wall</editorName>
+		<editorCategoryName>T1 Walls</editorCategoryName>
+		<onHitEffectPath>Prefabs/VFX/HitEffects/ZombieHitEffect</onHitEffectPath>
+		<onDeathEffectPath>Prefabs/VFX/StructureDeath/WallDeath</onDeathEffectPath>
+		<entityViewVariations>
+			<viewRef>eo_stone_wall_view_1</viewRef>
+			<viewRef>eo_stone_wall_view_2</viewRef>
+			<viewRef>eo_stone_wall_view_3</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>2500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>addon_stone_wall_door</addonRef>
+				</addonRefs>
+			</DataComponent>
+		</components>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+		<isMountable>true</isMountable>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>eo_stone_wall_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_stone_wall_view_1</entityMeshData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_stone_wall_view_2</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_stone_wall_view_2</entityMeshData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_stone_wall_view_3</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_stone_wall_view_3</entityMeshData>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_stone_wall_door</id>
+		<requiredMaterials>
+			
+		</requiredMaterials>
+		<productRef>eo_stone_wall_door</productRef>
+		<nameRef>building_stone_wall_door_name</nameRef>
+		<iconRef>stone_wall_door_icon</iconRef>
+		<addonColor>#00ffff</addonColor>
+	</DataDef>
+
+</Defs>

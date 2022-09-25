@@ -1,0 +1,67 @@
+ManifestFileVersion: 0
+CRC: 311336149
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 098bf359bc0142191ae132363c4e72ce
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_BaseMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush_Sapling/KrystBerry_Sapling_Bush_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Seedling/potatoplot_Seedling_DefaultMaterial_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Rock_Small/Rock_1_R_LP_Stone_Material_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_1/Pine_1_Mask.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Tree/Tree_Albedo.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Rock_Large/Rock_2_R_LP_Stone_Material_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_2/Pine_2_Height.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Tall_Grass/TallGrass_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View3/Rock3_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View3/Rock3_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View1/Rock1_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush_Sapling/KrystBerry_Sapling_Bush_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Rock_Large/Rock_2_R_LP_Stone_Material_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Small/IronRichRocks_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Cotton/Cotton_Bush_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_1/Pine_1_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View1/Rock1_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Rock_Small/Rock_1_R_LP_Stone_Material_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush/KrystBerry_Bush_Emissive.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Tree/Tree_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_BaseMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush_Sapling/KrystBerry_Sapling_Bush_Albedo.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Tall_Grass/TallGrass_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View2/Rock2_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Small/IronRichRocks_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Cotton/Cotton_Bush_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_BaseMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_2/Pine_2_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush/KrystBerry_Bush_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_BaseMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_2/Pine_2_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View2/Rock2_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View1/Rock1_BaseColor.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Pine/View_1/Pine_1_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Seedling/potatoplot_Seedling_DefaultMaterial_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush/KrystBerry_Bush_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View3/Rock3_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Potato/Seedling/potatoplot_Seedling_DefaultMaterial_BaseMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Krystberry_Bush/KrystBerry_Bush_Albedo.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Plant/Cotton/Cotton_Bush_Albedo.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_MaskMap.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Small/IronRichRocks_Normal.png
+- Assets/Resources/Texture/AssetBundles/Biomes/Mudplains/Nature/Minerals/Iron_Rock_Large/View2/Rock2_Normal.png
+Dependencies: []

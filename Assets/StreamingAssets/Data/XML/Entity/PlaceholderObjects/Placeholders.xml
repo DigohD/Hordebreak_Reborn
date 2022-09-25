@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- EDGE OBJECT -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>ph_edgeobject_mesh</id>
+		<meshPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\SimplePlaceholder_EdgeObj.glb</meshPath>
+		<albedoPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeAlbedo.png</albedoPath>
+		<!-- <maskMapPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeMask.png</maskMapPath>
+        <normalPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeNormal.png</normalPath> -->
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>ph_edgeobject_mesh_concrete</id>
+		<meshPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\SimplePlaceholder_EdgeObj.glb</meshPath>
+		<albedoPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeConcrete.png</albedoPath>
+		<!-- <maskMapPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeMask.png</maskMapPath>
+        <normalPath>Data\XML\Entity\PlaceholderObjects\EdgeObject\EdgeNormal.png</normalPath> -->
+	</DataDef>
+
+
+	<!-- TILE OBJECT -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>ph_tileobject_mesh</id>
+		<meshPath>Data\XML\Entity\PlaceholderObjects\TileObject\SimplePlaceholder_TileObj.glb</meshPath>
+		<albedoPath>Data\XML\Entity\PlaceholderObjects\TileObject\TileAlbedo.png</albedoPath>
+		<!-- <maskMapPath>Data\XML\Entity\PlaceholderObjects\TileObject\TileMask.png</maskMapPath>
+        <normalPath>Data\XML\Entity\PlaceholderObjects\TileObject\TileNormal.png</normalPath> -->
+	</DataDef>
+
+	<!-- MOUNTABLE OBJECT -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>ph_mountableobject_mesh</id>
+		<meshPath>Data\XML\Entity\PlaceholderObjects\MountableObject\SimplePlaceholder_MountableObj.glb</meshPath>
+		<albedoPath>Data\XML\Entity\PlaceholderObjects\MountableObject\MountableAlbedo.png</albedoPath>
+		<!-- <maskMapPath>Data\XML\Entity\PlaceholderObjects\MountableObject\MountableMask.png</maskMapPath>
+        <normalPath>Data\XML\Entity\PlaceholderObjects\MountableObject\MountableNormal.png</normalPath> -->
+	</DataDef>
+
+</Defs>

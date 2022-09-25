@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_cement_mixer</id>
+		<blocking>true</blocking>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Cement Mixer</editorName>
+		<editorCategoryName>Machines</editorCategoryName>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="RefinementComponentData">
+				<recipes>
+					<recipeRef>refinement_concrete</recipeRef>
+					<recipeRef>refinement_biofuel</recipeRef>
+					<recipeRef>refinement_compound_fuel</recipeRef>
+				</recipes>
+				<startSFXRef>sfx_cement_mixer_start</startSFXRef>
+				<stopSFXRef>sfx_cement_mixer_stop</stopSFXRef>
+				<activeSFXLoopRef>sfx_cement_mixer_loop</activeSFXLoopRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<unsatisfiedMod>0.3</unsatisfiedMod>
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent>
+
+			<DataComponent xsi:type="ConsumerComponentData">
+				<resources>
+					<ResourceConsumptionData>
+						<resourceRef>room_power</resourceRef>
+						<amount>1</amount>
+					</ResourceConsumptionData>
+
+					<ResourceConsumptionData>
+						<resourceRef>room_water</resourceRef>
+						<amount>1</amount>
+					</ResourceConsumptionData>
+				</resources>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>4</minRolls>
+					<maxRolls>4</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>cement_mixer_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>cement_mixer_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_cement_mixer</entityMeshData>
+		<scaleMod>0.009</scaleMod>
+		<animations>
+			<AnimationData>
+				<animPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\CementMixer\CementMixer_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+		
+</Defs>

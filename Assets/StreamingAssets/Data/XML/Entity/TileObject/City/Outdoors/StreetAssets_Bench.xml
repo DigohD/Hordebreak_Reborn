@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_streetassets_bench</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Bench</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_streetassets_bench_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_streetassets_bench_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_bench_view</entityMeshData>
+		<entityTextureData>texture_city_streetassets_bench_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_bench_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Outdoors/StreetAssets_Bench.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_bench_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Albedo</albedoName>
+		<normalMapName>StreetAssets_Normal</normalMapName>
+		<maskMapName>StreetAssets_MaskMap</maskMapName>
+		<emissiveMapName>StreetAssets_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

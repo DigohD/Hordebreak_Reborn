@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="ECSEnemy" xsi:type="FNEEntityData">
+		<id>default_zombie_v2</id>
+    	<hittable>true</hittable>
+		<viewRef>default_zombie_view</viewRef>
+		<components>
+			<DataComponent xsi:type="EnemyStatsComponentData">
+				<behaviour>Aggressive</behaviour>
+				<aggroRange>12</aggroRange>
+				<hitboxRadius>0.5</hitboxRadius>
+				<agentRadius>0.1</agentRadius>
+				<minSpeed>1.47</minSpeed>
+				<maxSpeed>1.53</maxSpeed>
+				<scale>0.3</scale>
+				<lungeDistance>2.5</lungeDistance>
+				<lungeSpeedMod>1.5</lungeSpeedMod>
+				<projectileType>salvage_handgun</projectileType>
+				<damage>10.0</damage>
+				<damageTypeRef>bludgeoning</damageTypeRef>
+				<attackCooldown>2</attackCooldown>
+				<attackRange>1</attackRange>
+				<attackTimestamp>0.5</attackTimestamp>
+				<budgetCost>5</budgetCost>
+			</DataComponent>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>25</startHealth>
+				<defenseTypeRef>defense_flesh</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="GPUAnimationComponentData">
+				<blobShadowHeightOffset>1.0</blobShadowHeightOffset>
+				<blobShadowScale>80.0</blobShadowScale>
+				<animations>
+					<GPUAnimationData>
+						<isUsed>true</isUsed>
+						<action>Idle</action>
+						<speed>1.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>true</isUsed>
+						<action>Walk</action>
+						<speed>1.5</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>true</isUsed>
+						<action>Run</action>
+						<speed>1.1</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>true</isUsed>
+						<action>Attack</action>
+						<speed>1.25</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Attack2</action>
+						<speed>0.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Attack3</action>
+						<speed>0.0</speed>
+					</GPUAnimationData>
+				</animations> 
+			</DataComponent>
+		</components>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_rock_large</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Large Rock</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>1</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</HitLootTable>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+				<ExcavatableBonuses>
+					<ExcavatableBonusData>
+						<chance>50</chance>
+						<bonusTime>0.2</bonusTime>
+						<colorRef>dark_grey</colorRef>
+						<LootTable>
+							<minRolls>1</minRolls>
+							<maxRolls>4</maxRolls>
+							<table>
+								<LootEntry>
+									<itemRef>item_stone</itemRef>
+									<probability>100</probability>
+									<guaranteed>false</guaranteed>
+									<unique>false</unique>
+								</LootEntry>
+							</table>
+						</LootTable>
+					</ExcavatableBonusData>
+				</ExcavatableBonuses>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Mineral</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_rock_large_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_rock_large_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_rock_large</entityMeshData>
+		<entityTextureData>texture_rock_large</entityTextureData>
+		<scaleMod>2</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_rock_large</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Rock_Large/Rock_Large.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_rock_large</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Rock_2_R_LP_Stone_Material_BaseColor</albedoName>
+		<normalMapName>Rock_2_R_LP_Stone_Material_Normal</normalMapName>
+	</DataDef>
+
+</Defs>

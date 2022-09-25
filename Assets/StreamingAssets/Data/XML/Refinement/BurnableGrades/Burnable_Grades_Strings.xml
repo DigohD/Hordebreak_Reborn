@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="StringData">
+		<id>burnable_one_name</id>
+		<en>I</en>
+		<sv>I</sv>
+	</DataDef>
+
+   <DataDef xsi:type="StringData">
+		<id>burnable_two_name</id>
+		<en>II</en>
+		<sv>II</sv>
+	</DataDef>
+
+  <DataDef xsi:type="StringData">
+		<id>burnable_three_name</id>
+		<en>III</en>
+		<sv>III</sv>
+	</DataDef>
+
+  <DataDef xsi:type="StringData">
+		<id>burnable_four_name</id>
+		<en>IV</en>
+		<sv>IV</sv>
+	</DataDef>
+
+</Defs>

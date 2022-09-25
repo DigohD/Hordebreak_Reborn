@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_mud_plains_pine</id>
+		<pathingCost>50</pathingCost>
+		<seeThrough>true</seeThrough>
+        <hittable>true</hittable>
+		<editorName>Mud plains pine</editorName>
+        <blocking>true</blocking>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>200</startHealth>
+				<defenseTypeRef>defense_tree</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>1</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_log</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_pine_1_view</viewRef>
+			<viewRef>to_pine_2_view</viewRef>
+			<viewRef>to_pine_3_view</viewRef>
+			<viewRef>to_pine_4_view</viewRef>
+			<viewRef>to_pine_5_view</viewRef>
+			<viewRef>to_pine_6_view</viewRef>
+			<viewRef>to_pine_7_view</viewRef>
+			<viewRef>to_pine_8_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_1_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_1_view</entityMeshData>
+		<entityTextureData>texture_pine_1</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.01</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_2_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_1_view</entityMeshData>
+		<entityTextureData>texture_pine_1</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.008</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_3_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_1_view</entityMeshData>
+		<entityTextureData>texture_pine_1</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.011</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_4_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_1_view</entityMeshData>
+		<entityTextureData>texture_pine_1</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.009</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_5_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_2_view</entityMeshData>
+		<entityTextureData>texture_pine_2</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.005</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_6_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_2_view</entityMeshData>
+		<entityTextureData>texture_pine_2</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.006</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_7_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_2_view</entityMeshData>
+		<entityTextureData>texture_pine_2</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.007</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_8_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_2_view</entityMeshData>
+		<entityTextureData>texture_pine_2</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.008</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_pine_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Pine/View_1/Pine_1.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_pine_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Pine/View_2/Pine_2.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_pine_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Pine_1_BaseColor</albedoName>
+		<normalMapName>Pine_1_Normal</normalMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_pine_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Pine_2_BaseColor</albedoName>
+		<normalMapName>Pine_2_Normal</normalMapName>
+	</DataDef>
+
+</Defs>

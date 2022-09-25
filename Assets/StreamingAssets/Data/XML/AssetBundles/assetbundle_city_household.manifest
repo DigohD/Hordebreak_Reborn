@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3076442467
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0793dcfcee06bbfb797f22bf1b2e949b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Household/Household_Assets_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Household/Household_Assets_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Household/Household_Assets_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Household/Household_Assets_Emissive.png
+Dependencies: []

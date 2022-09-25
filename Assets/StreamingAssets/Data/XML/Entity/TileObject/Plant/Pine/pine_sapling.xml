@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_pine_sapling</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+        <hittable>0</hittable>
+		<editorName>Pine sapling</editorName>
+        <blocking>false</blocking>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="CropComponentData">
+				<matureEntityRef>to_mud_plains_pine</matureEntityRef>
+				<growthTimeTicks>1500</growthTimeTicks>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_pine_sapling_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_pine_sapling_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pine_sapling</entityMeshData>
+		<entityTextureData>texture_pine_sapling</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>0.002</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_pine_sapling</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Pine/View_1/Pine_1.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_pine_sapling</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Pine_1_BaseColor</albedoName>
+		<normalMapName>Pine_1_Normal</normalMapName>
+	</DataDef>
+
+</Defs>

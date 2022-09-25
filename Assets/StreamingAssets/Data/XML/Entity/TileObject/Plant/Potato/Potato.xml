@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_potato_plant</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Potato Plant</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="CropComponentData">
+				<consumedOnHarvest>true</consumedOnHarvest>
+				<growthTimeTicks>300</growthTimeTicks>
+
+				<harvestEffectRef>effect_plant_harvest</harvestEffectRef>
+                <harvestableViewRef>to_potato_mature_view</harvestableViewRef>
+
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>4</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_budroot</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>0</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_budroot</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_fertile_soil</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+				<!-- <ExcavatableBonuses>
+					<ExcavatableBonusData>
+						<chance>30</chance>
+						<bonusTime>0.1</bonusTime>
+						<colorRef>brown</colorRef>
+						<LootTable>
+							<minRolls>1</minRolls>
+							<maxRolls>3</maxRolls>
+							<table>
+								<LootEntry>
+									<itemRef>item_fertile_soil</itemRef>
+									<probability>100</probability>
+									<guaranteed>false</guaranteed>
+									<unique>false</unique>
+								</LootEntry>
+							</table>
+						</LootTable>
+					</ExcavatableBonusData>
+				</ExcavatableBonuses> -->
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_potato_seedling_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_potato_seedling_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_potato_mature</entityMeshData>
+		<entityTextureData>texture_potato_seedling</entityTextureData>		
+		<isTransparent>true</isTransparent>
+        <scaleMod>0.006</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_potato_seedling</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Potato/Seedling/PotatoPlot_Seedling.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_potato_seedling</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>potatoplot_Seedling_DefaultMaterial_BaseMap</albedoName>
+		<normalMapName>potatoplot_Seedling_DefaultMaterial_Normal</normalMapName>
+		<maskMapName>potatoplot_Seedling_DefaultMaterial_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_potato_mature_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_potato_mature</entityMeshData>	
+		<entityTextureData>texture_potato_mature</entityTextureData>			
+		<isTransparent>true</isTransparent>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_potato_mature</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Potato/Mature/PotatoPlot_Mature.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_potato_mature</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>PlantBox_Potato_Mature_DefaultMaterial_BaseMap</albedoName>
+		<normalMapName>PlantBox_Potato_Mature_DefaultMaterial_Normal</normalMapName>
+		<maskMapName>PlantBox_Potato_Mature_DefaultMaterial_MaskMap</maskMapName>
+	</DataDef>
+</Defs>

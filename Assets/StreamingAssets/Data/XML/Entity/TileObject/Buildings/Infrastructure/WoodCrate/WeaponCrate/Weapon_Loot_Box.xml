@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>weapon_loot_box</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Weapon Loot Crate</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+            <DataComponent xsi:type="InventoryComponentData">
+				<destroyWhenEmpty>true</destroyWhenEmpty>
+				<width>8</width>
+				<height>4</height>
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>1</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>rusty_pistol</itemRef>
+							<probability>5</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>rusty_blunder_buss</itemRef>
+							<probability>2</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>rusty_repeater_musket</itemRef>
+							<probability>1</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>	
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_weapon_loot_box_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_weapon_loot_box_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_weapon_loot_box_view</entityMeshData>
+		<animations>
+			<AnimationData>
+				<animPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+        <scaleMod>0.00075</scaleMod>
+	</DataDef>
+    
+</Defs>

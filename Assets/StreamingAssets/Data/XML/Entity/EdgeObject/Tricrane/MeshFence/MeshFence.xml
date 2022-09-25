@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_tricrane_mesh_fence</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Mesh Fence</editorName>
+		<isMountable>true</isMountable>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_tricrane_mesh_fence_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_tricrane_mesh_fence_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_tricrane_mesh_fence_view</entityMeshData>
+		<isTransparent>true</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>0.1</scaleMod>
+	</DataDef>
+</Defs>

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="WorldGenData">
+		<id>default_world</id>
+        <chunkSize>32</chunkSize>
+        <octaves>3</octaves>
+        <roughness>0.5</roughness>
+        <layerFrequency>0.01</layerFrequency>
+        <layerWeight>1.0</layerWeight>
+        <tilesInBiome>
+            <BiomeTileData>
+                <tileRef>water_tile</tileRef>
+                <height>-0.5</height>
+            </BiomeTileData>
+            <BiomeTileData>
+                <tileRef>mud</tileRef>
+                <height>-0.1</height>
+            </BiomeTileData>
+            <BiomeTileData>
+                <tileRef>muddy_dirt</tileRef>
+                <height>0.1</height>
+            </BiomeTileData>
+            <BiomeTileData>
+                <tileRef>dirt</tileRef>
+                <height>0.4</height>
+            </BiomeTileData>
+            <BiomeTileData>
+                <tileRef>grassy_dirt</tileRef>
+                <height>0.7</height>
+            </BiomeTileData>
+            <BiomeTileData>
+                <tileRef>grass</tileRef>
+                <height>1</height>
+            </BiomeTileData>
+        </tilesInBiome>
+
+        <sites>
+            <!-- SITES -->
+            <SiteEntry>
+                <siteRef>site_new_nautre_site_1</siteRef>
+                <weight>400</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_site_factory</siteRef>
+                <weight>400</weight>
+            </SiteEntry>
+
+            <!-- LANDMARKS -->
+            <SiteEntry>
+                <siteRef>mudplains_landmark_abandoned_house</siteRef>
+                <weight>350</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_landmark_monument</siteRef>
+                <weight>300</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_landmark_scrapyard</siteRef>
+                <weight>300</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_landmark_warehouse</siteRef>
+                <weight>250</weight>
+            </SiteEntry>
+
+            <!-- PLOTS -->
+            <SiteEntry>
+                <siteRef>mudplains_plot_1</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_2</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_3</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_4</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_5</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_6</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_7</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_8</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_9</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_10</siteRef>
+                <weight>100</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_11</siteRef>
+                <weight>20</weight>
+            </SiteEntry>
+            <SiteEntry>
+                <siteRef>mudplains_plot_12</siteRef>
+                <weight>10</weight>
+            </SiteEntry>
+        </sites>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="AmbienceData">
+		<id>night</id>
+		<filePath>Data/XML/Audio/Ambience/AmbienceFiles/Night.ogg</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="AmbienceData">
+		<id>day</id>
+		<filePath>Data/XML/Audio/Ambience/AmbienceFiles/Day.ogg</filePath>
+	</DataDef>
+	
+</Defs>

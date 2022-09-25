@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>weapon_explolauncher</id>
+		<nameRef>weapon_explolauncher_name</nameRef>
+		<infoRef>weapon_explolauncher_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+
+		<components>	
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>60</triggersPerMinute>
+				<effectRef>explolauncher_fire</effectRef>
+				<reloadEffectRef>rusty_pistol_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>8</ammoClipSize>
+				<reloadTimeInSeconds>3</reloadTimeInSeconds>
+
+				<scaleMod>1.1</scaleMod>
+				<weaponPosture>Heavy</weaponPosture>
+				<itemMeshRef>mesh_weapon_explolauncher</itemMeshRef>
+				<itemTextureRef>texture_weapon_explolauncher</itemTextureRef>
+				<muzzleOffsetForward>0.4</muzzleOffsetForward>
+
+				<iconScaleMod>1.9</iconScaleMod>
+				<iconOffsetRight>-0.21</iconOffsetRight>
+				<iconOffsetUp>-0.11</iconOffsetUp>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_weapon_explolauncher</id>
+        <meshPath>Data/XML/Item/Weapon/ExploLauncher/ExploLauncher.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_weapon_explolauncher</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>ExploLauncher_Albedo</albedoName>
+		<normalMapName>ExploLauncher_Normal</normalMapName>
+		<maskMapName>ExploLauncher_MaskMap</maskMapName>
+		<emissiveMapName>ExploLauncher_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>explolauncher_fire</id>
+		<sfxRef>sfx_energy_lancer_fire</sfxRef>
+		<vfxRef>vfx_explolauncher_muzzle</vfxRef>
+		<enemyAlertDistance>40</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>20</speed>
+            <inaccuracy>4</inaccuracy>
+			<projectileVfxRef>vfx_explosive_projectile</projectileVfxRef>
+            <onDeathEffectRef>vfx_explolauncher_projectile_death</onDeathEffectRef>
+            <damage>10</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>1</screenShake>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>vfx_explolauncher_projectile_death</id>
+		<vfxRef>vfx_explosion</vfxRef>
+		<sfxRef>sfx_energy_lancer_impact</sfxRef>
+		<screenShake>8</screenShake>
+		<realEffectData xsi:type="ExplosionEffectData">
+			<minRadius>1</minRadius>
+			<maxRadius>4</maxRadius>
+			<damage>350</damage>
+			<targetsPlayers>true</targetsPlayers>
+			<targetsEnemies>true</targetsEnemies>
+			<damageTypeRef>explosive</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+
+</Defs>

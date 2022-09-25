@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_brick_wall_glass_broken</id>
+		<blocking>false</blocking>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>4</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Brick Wall (Full Glass Broken)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Brick Walls (Standard)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_brick_wall_glass_broken_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_brick_wall_glass_broken_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_brick_wall_glass_broken</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_glass_broken</entityTextureData>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_glass_broken</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Glass_Broken.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_glass_broken</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+		<emissiveMap>BrickWall_Emissive</emissiveMap>
+	</DataDef>
+
+</Defs>

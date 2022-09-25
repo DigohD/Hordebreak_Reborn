@@ -1,0 +1,815 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="StringData">
+		<id>test_gun_name</id>
+		<en>Test Gun</en>
+		<sv>Testpistol</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>test_gun_info</id>
+		<en>Test Gun for testing guns</en>
+		<sv>Test Pistol för testande av pistoler</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_pistol_name</id>
+		<en>Rusty Pistol</en>
+		<sv>Rostig Pistol</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_pistol_info</id>
+		<en>Basic gun with a small amount of damage.</en>
+		<sv>Standard Pistol med låg skada.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_handgun_name</id>
+		<en>Salvage Handgun</en>
+		<sv>Omgjord Pistol</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_handgun_info</id>
+		<en>Similiar to rusty pistol but slower with higher amount of damage.</en>
+		<sv>Liknar rostig pistol men är lånsammare med högre skada.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>simple_safety_gun_name</id>
+		<en>Simple Safety Gun</en>
+		<sv>Simpel Säkerhetspistol</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>simple_safety_gun_info</id>
+		<en>A small handgun. Just barely enough to ward off trouble...</en>
+		<sv>En liten pistol. Precis kraftig nog att hålla trubbel på avstånd...</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_repeater_musket_name</id>
+		<en>Rusty Repeater Musket</en>
+		<sv>Rostig Repeter Musköt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_repeater_musket_info</id>
+		<en>Long distance rifle with higher amount of damage than handguns but small ammo clip size.</en>
+		<sv>Långdistans gevär med högre skada än omgjord pistol men med mindre magasin.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_machinegun_name</id>
+		<en>Salvage Machinegun</en>
+		<sv>Omgjord Automatkarbin</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_machinegun_info</id>
+		<en>Full automatic with a high amount rpm and short distance weapon.</en>
+		<sv>Helautomatiskt vapen för närstrid med hög rpm.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>weapon_explolauncher_name</id>
+		<en>ExploLauncher™</en>
+		<sv>ExploKastare™</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>weapon_explolauncher_info</id>
+		<en>Fires explosive amunition. Good for clearing hordes.</en>
+		<sv>Kastar explosiv ammunition. Bra för att resnsa massor.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>weapon_energy_lancer_name</id>
+		<en>Energy Lancer</en>
+		<sv>Energilansiär</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>weapon_energy_lancer_info</id>
+		<en>Energy weapon shooting high velocity plasma balls.</en>
+		<sv>Energivapen som skjuter plasma bollar med hög hastighet.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_blunder_buss_name</id>
+		<en>Rusty Blunderbuss</en>
+		<sv>Rostig Muskedunder</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>rusty_blunder_buss_info</id>
+		<en>Effective short range weapon with a really high amount of damage.</en>
+		<sv>Effektivt närstridsvapen med mycket hög skada.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_shotgun_name</id>
+		<en>Salvage Shotgun</en>
+		<sv>Omgjort Hagelgevär</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>salvage_shotgun_info</id>
+		<en>Effective short range weapon with a smaller amount of damage than the bluss but a higher firerate.</en>
+		<sv>Effektivt närstridsvapen med mindre skada än Muskedundern men snabbare eldgivning.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>compound_discus_name</id>
+		<sv>Explosiv Diskus</sv>
+		<en>Compound Discus</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>compound_discus_info</id>
+		<sv>Vem vare som kasta!?</sv>
+		<en>Throwable discus that explodes on impact or after a short while</en>
+	</DataDef>
+			
+	<DataDef xsi:type="StringData">
+		<id>cryst_berry_name</id>
+		<en>Cryst Berry</en>
+		<sv>Cryst Bär</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cryst_berry_info</id>
+		<en>It glows in the dark. A mysterious, soothing source of light.</en>
+		<sv>Lyser upp mörkret. Ett mystiskt, lugnande ljuskälla.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>x_dust_name</id>
+		<en>X Dust</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>x_dust_info</id>
+		<en>Shimmering compound X powder.</en>
+		<sv>Glimmrande sammansatt X pulver.</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>baked_potato_name</id>
+		<en>Baked Potato</en>
+		<sv>Bakad potatis</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>baked_potato_info</id>
+		<en>Seriously delicious.</en>
+		<sv>Extremt gott.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cloth_name</id>
+		<en>Cloth</en>
+		<sv>Tyg</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cloth_info</id>
+		<en>A basic textile material</en>
+		<sv>En enkel textil</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>bandage_name</id>
+		<en>Cotton Bandage</en>
+		<sv>Lakritsrulltårta</sv> <!--Bomullsbandage</sv>-->
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>bandage_info</id>
+		<en>A basic cotton bandage to heal wounds.</en>
+		<sv>Äckelpäckel, varför skulle nån äta detta!?.</sv><!--Ett enkelt bomullsbandage för att läka dina sår</sv>-->
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cotton_seeds_name</id>
+		<en>Cotton Seeds</en>
+		<sv>Bomullsfrön</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cotton_seeds_info</id>
+		<en>Seeds to grow cotton in a planter.</en>
+		<sv>Frön för att så bomull i en planteringslåda.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>charcoal_name</id>
+		<en>Charcoal</en>
+		<sv>Kol</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>charcoal_info</id>
+		<en>Basic source of energy, with many other purposes.</en>
+		<sv>Standard källa för energi, med många andra syften.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazerleaf_name</id>
+		<en>Tazer Leaf</en>
+		<sv>Schocklöv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazerleaf_info</id>
+		<en>Small leaf that houses a faint electrical current</en>
+		<sv>Litet löv med en svag elektrisk ström</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazerleaf_dried_name</id>
+		<en>Dried Tazer Leaf</en>
+		<sv>Torkat Schocklöv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazerleaf_dried_info</id>
+		<en>A dried Tazer Leaf. No electrical current, but lots of nutrition</en>
+		<sv>Ett torkat Schocklöv. Ingen ström, men mycket näring</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazershot_name</id>
+		<en>Tazershot</en>
+		<sv>Shockspruta</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>tazershot_info</id>
+		<en>A shot made out of Tazer Leaf. Replenishes a small amount of HP</en>
+		<sv>En spruta gjord på Schocklöv. Återställer en liten mängd HP.</sv>
+	</DataDef>
+
+	<!-- <DataDef xsi:type="StringData">
+		<id>biofuel_name</id>
+		<en>Biofuel</en>
+		<sv>Biobränsle</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>biofuel_info</id>
+		<en>Low-grade fuel, but still explodes!</en>
+		<sv>Bränsle av låg kvalitét, men exploderar fortfarande!</sv>
+	</DataDef> -->
+
+	<DataDef xsi:type="StringData">
+		<id>petrol_name</id>
+		<en>Petrol</en>
+		<sv>Bensin</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>petrol_info</id>
+		<en>Low-grade fuel, but still explodes!</en>
+		<sv>Bränsle av låg kvalitét, men exploderar fortfarande!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>compound_fuel_name</id>
+		<en>Compound Fuel</en>
+		<sv>Kompositumbränsle</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>compound_fuel_info</id>
+		<en>Fuel enhanced with small amounts of kryst compounds. Do not drink.</en>
+		<sv>Bränsle berikad med små andelar krystkompositum. Drick ej.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>compound_gel_name</id>
+		<en>Compound Gel</en>
+		<sv>Kompositumgel</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>compound_gel_info</id>
+		<en>Gel extracted from kryst berries. Smells sweet, tastes like death.</en>
+		<sv>Gel utvunnen från krystbär. Luktar sött, smakar dött.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>steel_part_name</id>
+		<en>Steel Part</en>
+		<sv>Ståldel</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>steel_part_info</id>
+		<en>Used in the construction of machines and weapons of war</en>
+		<sv>Användbar för konstruktion av maskiner och vapen</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>steel_ingot_name</id>
+		<en>Steel Ingot</en>
+		<sv>Ståltacka</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>steel_ingot_info</id>
+		<en>Steel is pretty good</en>
+		<sv>Stål är rätt bra</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_part_name</id>
+		<en>Iron Part</en>
+		<sv>Järndel</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_part_info</id>
+		<en>Parts useful for various constructions and crafts</en>
+		<sv>Delar användbara för olika konstruktioner</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_ingot_name</id>
+		<en>Iron Ingot</en>
+		<sv>Järntacka</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_ingot_info</id>
+		<en>Staple resource, used for a lot of crafting recipes.</en>
+		<sv>Stapelresurs, används till flera crafting recept</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_ore_name</id>
+		<en>Iron ore</en>
+		<sv>Järnmalm</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>iron_ore_info</id>
+		<en>Can refined into iron ingots.</en>
+		<sv>Kan raffineras till järntackor.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>stone_name</id>
+		<en>Stone</en>
+		<sv>Sten</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>stone_info</id>
+		<en>A simple material and makeshift weapon.</en>
+		<sv>Ett enkelt material och kan göras till vapen.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pinecone_name</id>
+		<en>Pinecone</en>
+		<sv>Kotte</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pinecone_info</id>
+		<en>Even the mightiest of trees had a humble beginning.</en>
+		<sv>Även de mäktigaste av träd har ett blygsamt ursprung.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>kryst_berry_seed_name</id>
+		<en>Krystberry Seed</en>
+		<sv>Krystbärsfrö</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>kryst_berry_seed_info</id>
+		<en>With the ability to extract kryst compounds from the earth</en>
+		<sv>Med förmågan att extrahera kryst-sammansättningar ur marken</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>stone_block_name</id>
+		<en>Stone Block</en>
+		<sv>Stenblock</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>stone_block_info</id>
+		<en>Mostly used in building recipes.</en>
+		<sv>Används för det mesta till byggrecept.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>wood_log_name</id>
+		<en>Wood Log</en>
+		<sv>Trädstock</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>wood_log_info</id>
+		<en>Basic raw material, mainly used for construstion.</en>
+		<sv>Rent material, används för att bygga med.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>wood_planks_name</id>
+		<en>Wood Planks</en>
+		<sv>Träplankor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>wood_planks_info</id>
+		<en>Used in many building recipes and crafting recipes.</en>
+		<sv>Används i många byggrecept och crafting recept.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_item_scrap_metal_name</id>
+		<sv>Metallskrot</sv>
+		<en>Scrap Metal</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>string_item_scrap_metal_info</id>
+		<sv>Sliten metall</sv>
+		<en>Weathered metal</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_item_scrap_wiring_name</id>
+		<sv>Skrotkablar</sv>
+		<en>Scrap Wiring</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>string_item_scrap_wiring_info</id>
+		<sv>Slitna kablar, men duger kanske till något</sv>
+		<en>Old wires in poor condition, maybe good for something</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_item_gravel_name</id>
+		<sv>Grus</sv>
+		<en>Gravel</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>string_item_gravel_info</id>
+		<sv>Småsten i en hög</sv>
+		<en>Small pieces of rock in a pile</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_item_fertile_soil_name</id>
+		<sv>Bördig Jord</sv>
+		<en>Fertile Soil</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>string_item_fertile_soil_info</id>
+		<sv>Passande för plantering av diverse växter</sv>
+		<en>Suitable for planting various plants</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_jacket_name</id>
+		<en>Purgecorp Jacket</en>
+		<sv>Purgecorp-jacka</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_jacket_info</id>
+		<en>Provides some protection against harm</en>
+		<sv>Skyddar något mot yttre hot</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_pants_name</id>
+		<en>Purgecorp Pants</en>
+		<sv>Purgecorp-byxor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_pants_info</id>
+		<en>Standard pair of pants of dubious quality</en>
+		<sv>Ett par vanliga byxor av tveksam kvalitét</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_boots_name</id>
+		<en>Military Boots</en>
+		<sv>Militärkängor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_start_gear_boots_info</id>
+		<en>At least you were equipped with decent footwear</en>
+		<sv>Du fick i alla fall ett par dugliga skor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_simpa_mod_jacket_name</id>
+		<en>Simpa's Jacket</en>
+		<sv>Simpas Jacka</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_simpa_mod_jacket_info</id>
+		<en>An unbelievably dorky jacket. LAME!</en>
+		<sv>En otroligt töntig jacka. TRÅKIGT!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cotton_name</id>
+		<en>Cotton</en>
+		<sv>Bomull</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cotton_info</id>
+		<en>A sturdy material, useful for crafting textiles</en>
+		<sv>Ett stark material, användbart för tillverkning av textiler</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>budroot_name</id>
+		<en>Budroot</en>
+		<sv>Knölrot</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>budroot_info</id>
+		<en>Nutritious and delicious</en>
+		<sv>Näringsrik och delikat</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>budroot_baked_name</id>
+		<en>Baked Budroot</en>
+		<sv>Bakad Knölrot</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>budroot_baked_info</id>
+		<en>Nutritious and delicious. Even better when baked!</en>
+		<sv>Näringsrik och delikat. Ännu bättre bakad!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>circuitboard_name</id>
+		<en>Circuitboard</en>
+		<sv>Kretskort</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>circuitboard_info</id>
+		<en>Technology component. Rare and complicated to manufacture.</en>
+		<sv>Teknisk komponent. Sällsynt och svår att tillverka</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pylon_component_name</id>
+		<en>Pylon Component</en>
+		<sv>Basstolpskomponent</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pylon_component_info</id>
+		<en>Building component. Use this to construct a Base Pylon (required for base building).</en>
+		<sv>Byggnadskomponent. Använd denna för att tillverka en Basstolpe (krävs för basbygge).</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_small_accelerator_name</id>
+		<en>Small Accelerator</en>
+		<sv>Liten Accelerator</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_small_accelerator_info</id>
+		<en>Increases a weapon's damage and projectile speed.</en>
+		<sv>Ökar ett vapens skada och projektilhastighet.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_turbo_clip_name</id>
+		<en>Turbo Clip</en>
+		<sv>Turbomagasin</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_turbo_clip_info</id>
+		<en>Increases a weapons fire rate.</en>
+		<sv>Ökar ett vapens eldhastighet.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_extended_clip_name</id>
+		<en>Extended Clip</en>
+		<sv>Förlängt Magasin</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_extended_clip_info</id>
+		<en>Increases a weapon's clip size.</en>
+		<sv>Ökar ett vapens magasinstorlek.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_quick_draw_clip_name</id>
+		<en>Quick Draw Clip</en>
+		<sv>Snabbmagasin</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_quick_draw_clip_info</id>
+		<en>Increases a weapon's reload speed.</en>
+		<sv>Ökar ett vapens laddningshastighet.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_compound_injector_name</id>
+		<en>Compound Injector</en>
+		<sv>Komposituminjicerare</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_compound_injector_info</id>
+		<en>Makes projectiles explode on impact.</en>
+		<sv>Ger projektiler en explosiv effekt.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_muzzle_addon_name</id>
+		<en>Muzzle Addon</en>
+		<sv>Extra Pipa</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_mod_muzzle_addon_info</id>
+		<en>Allows a weapon to fire additional pellets.</en>
+		<sv>Ger vapnet möjligheten att skjuta multipla projektiler.</sv>
+	</DataDef>
+
+    <!-- High Tech Gear -->
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_helmet_name</id>
+		<en>High Tech Helmet</en>
+		<sv>Teknologisk Hjälm</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_helmet_name_red</id>
+		<en>(Red set) High Tech Helmet</en>
+		<sv>Röd Teknologisk Hjälm</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_helmet_name_gold</id>
+		<en>(Gold set) High Tech Helmet</en>
+		<sv>Gyllene Teknologisk Hjälm</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_helmet_name_green</id>
+		<en>(Green set) High Tech Helmet</en>
+		<sv>Mossig Teknologisk Hjälm</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_helmet_info</id>
+		<en>High quality advanced helmet</en>
+		<sv>Högkvalitativ avancerad hjälm</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_chest_name</id>
+		<en>High Tech Armor (Torso)</en>
+		<sv>Teknologisk Rustning (Överdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_chest_name_red</id>
+		<en>(Red set) High Tech Armor (Torso)</en>
+		<sv>Röd Teknologisk Rustning (Överdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_chest_name_gold</id>
+		<en>(Gold set) High Tech Armor (Torso)</en>
+		<sv>Gyllene Teknologisk Rustning (Överdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_chest_name_green</id>
+		<en>(Green set) High Tech Armor (Torso)</en>
+		<sv>Mossig Teknologisk Rustning (Överdel)</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_chest_info</id>
+		<en>High quality advanced armor</en>
+		<sv>Högkvalitativ avancerad rustning</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_gloves_name</id>
+		<en>High Tech Gloves</en>
+		<sv>Teknologiska Handskar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_gloves_name_red</id>
+		<en>(Red set) High Tech Gloves</en>
+		<sv>Röda Teknologiska Handskar</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_gloves_name_gold</id>
+		<en>(Gold set) High Tech Gloves</en>
+		<sv>Gyllene Teknologiska Handskar</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_gloves_name_green</id>
+		<en>(Green set) High Tech Gloves</en>
+		<sv>Mossiga Teknologiska Handskar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_gloves_info</id>
+		<en>High quality advanced gloves</en>
+		<sv>Högkvalitativa avancerade handskar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_pants_name</id>
+		<en>High Tech Armor (Pants)</en>
+		<sv>Teknologisk Rustning (Underdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_pants_name_red</id>
+		<en>(Red set) High Tech Armor (Pants)</en>
+		<sv>Röd Teknologisk Rustning (Underdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_pants_name_gold</id>
+		<en>(Gold set) High Tech Armor (Pants)</en>
+		<sv>Gyllene Teknologisk Rustning (Underdel)</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_pants_name_green</id>
+		<en>(Green set) High Tech Armor (Pants)</en>
+		<sv>Mossig Teknologisk Rustning (Underdel)</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_pants_info</id>
+		<en>High quality advanced pants</en>
+		<sv>Högkvalitativa avancerade byxor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_boots_name</id>
+		<en>High Tech Boots</en>
+		<sv>Teknologiska kängor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_boots_name_red</id>
+		<en>(Red set) High Tech Boots</en>
+		<sv>Röda Teknologiska kängor</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_boots_name_gold</id>
+		<en>(Gold set) High Tech Boots</en>
+		<sv>Gyllene Teknologiska kängor</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_boots_name_green</id>
+		<en>(Green set) High Tech Boots</en>
+		<sv>Mossiga Teknologiska kängor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_hi_tech_boots_info</id>
+		<en>High quality advanced footwear</en>
+		<sv>Högkvalitativa avancerade skor</sv>
+	</DataDef>
+
+</Defs>

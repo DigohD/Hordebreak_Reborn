@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>placeholder_mountableobject</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>MountableObjectPlaceholder</editorName>
+		<viewVariations>
+			<viewRef>ph_mountableobject_view</viewRef>
+		</viewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>ph_mountableobject_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>ph_mountableobject_mesh</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+		
+</Defs>

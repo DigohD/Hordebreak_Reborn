@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>wood_storage_box_2</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Wood Crate</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+            <DataComponent xsi:type="InventoryComponentData">
+				<destroyWhenEmpty>false</destroyWhenEmpty>
+				<width>8</width>
+				<height>6</height>
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+			</DataComponent>	
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>6</minRolls>
+					<maxRolls>6</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>true</guaranteed>
+							<unique>true</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>		
+
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_wood_storage_box_view_2</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+  <DataDef xsi:type="FNEEntityViewData">
+		<id>to_wood_storage_box_view_2</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_wood_storage_box_t2_view</entityMeshData>
+		<animations>
+			<AnimationData>
+				<animPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+    <scaleMod>0.00085</scaleMod>
+	</DataDef>
+    
+</Defs>

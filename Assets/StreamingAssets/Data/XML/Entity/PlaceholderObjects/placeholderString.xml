@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="StringData">
+		<id>ph_edgeobject_name</id>
+		<sv>Kantobjekt</sv>
+		<en>Edge object</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>ph_edgeobject_desc</id>
+		<sv>Ett simpelt kantobjekt</sv>
+		<en>A simple edge object</en>
+	</DataDef>    	
+
+	<DataDef xsi:type="StringData">
+		<id>ph_tileobject_name</id>
+		<sv>Rutobjekt</sv>
+		<en>Tile object</en>
+	</DataDef>    	
+
+	<DataDef xsi:type="StringData">
+		<id>ph_tileobject_desc</id>
+		<sv>Ett simpelt rutobjekt</sv>
+		<en>A simple tile object</en>
+	</DataDef>    	
+
+	<DataDef xsi:type="StringData">
+		<id>ph_mountableobject_name</id>
+		<sv>Monterbart objekt</sv>
+		<en>Mountable object</en>
+	</DataDef>    	
+
+	<DataDef xsi:type="StringData">
+		<id>ph_mountableobject_desc</id>
+		<sv>Ett simpelt monterbart objekt</sv>
+		<en>A simple mountable object</en>
+	</DataDef>
+        	
+</Defs>

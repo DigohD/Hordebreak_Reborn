@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_iron_rock_hit</id>
+		<vfxRef>vfx_iron_rock_hit</vfxRef>
+		<sfxRef>sfx_rocks_hit_2</sfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="EffectData">
+		<id>effect_iron_rock_death</id>
+		<vfxRef>vfx_iron_rock_death</vfxRef>
+		<sfxRef>sfx_rocks_destroy</sfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+        <id>vfx_iron_rock_hit</id>
+		<prefabPath>Prefab/Effects/VFX/GroundPoof/GroundPoof_VFX</prefabPath>
+    </DataDef>
+
+     <DataDef xsi:type="VFXData">
+        <id>vfx_iron_rock_death</id>
+		<prefabPath>Prefab/Effects/VFX/GroundPoof/GroundPoof_VFX</prefabPath>
+    </DataDef>
+
+    <DataDef xsi:type="EffectData">
+		<id>effect_wood_hit</id>
+		<vfxRef>vfx_iron_rock_hit</vfxRef>
+		<sfxRef>sfx_wood_hit_excavator</sfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="EffectData">
+		<id>effect_wood_death</id>
+		<vfxRef>vfx_iron_rock_death</vfxRef>
+		<sfxRef>sfx_wood_destroy</sfxRef>
+	</DataDef>
+
+</Defs>

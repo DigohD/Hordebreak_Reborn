@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_wood_planks</id>
+		<productRef>item_wood_planks</productRef>
+		<productAmount>2</productAmount>
+		<craftSFXRef>sfx_craft_wood</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+	
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_gravel</id>
+		<productRef>item_gravel</productRef>
+		<productAmount>4</productAmount>
+		<craftSFXRef>sfx_craft_stone</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_stone</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<!-- <DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_scrap_wiring</id>
+		<productRef>item_scrap_wiring</productRef>
+		<productAmount>2</productAmount>
+		<craftSFXRef>sfx_craft_metal</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef> -->
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_compound_discus</id>
+		<productRef>item_compound_discus</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_compound_gel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_salvage_handgun</id>
+		<productRef>salvage_handgun</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>5</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_salvage_machinegun</id>
+		<productRef>salvage_machinegun</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_salvage_shotgun</id>
+		<productRef>salvage_shotgun</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_energy_lancer</id>
+		<productRef>weapon_energy_lancer</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+	
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_explolauncher</id>
+		<productRef>weapon_explolauncher</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_tazershot</id>
+		<productRef>item_tazershot</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_metal</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_tazerleaf</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+	
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_cotton_bandage</id>
+		<productRef>item_bandage</productRef>
+		<productAmount>2</productAmount>
+		<craftSFXRef>sfx_craft_metal</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+	
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_cloth</id>
+		<productRef>item_cloth</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_metal</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cotton</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_weapon_mod_small_accelerator</id>
+		<productRef>item_mod_small_accelerator</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_compound_gel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_weapon_mod_turbo_clip</id>
+		<productRef>item_mod_turbo_clip</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_compound_gel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_weapon_mod_extended_clip</id>
+		<productRef>item_mod_extended_clip</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_compound_gel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_weapon_mod_quick_draw_clip</id>
+		<productRef>item_mod_quick_draw_clip</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_compound_gel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+</Defs>
+

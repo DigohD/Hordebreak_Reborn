@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="StringData">
+		<id>quest_start_title_string</id>
+		<sv></sv>
+		<en>Crashlanded</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_start_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Take the{/color} {color=green}Base Core{/color} {color=orange}from the Drop Pod and place it{/color}
+		
+You have successfully made it to the planet surface, it is time to get to work. The Base Core is nessecary for building a base. Placing it down will allow you to build in the area around it.
+
+Approach the drop pod and interact (E) with it to open it. Take the Base Core and place it in your inventory on the right (left click to pick up, left click to put down).
+
+To place the Base Core, open your inventory (I) and place the base core in one of your three Utility slots.
+
+To use your utility slot, close the inventory, and select the slot by pressing the corresponding hotkey (3-5).
+
+Place the Base Core (Left click) in any free space near you.</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>quest_build_workbench_title_string</id>
+		<sv></sv>
+		<en>Time to Craft</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_workbench_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Build a{/color} {color=#00ffffff}Labor Stub{/color}
+
+Crafting is important for our survival and progression. To craft we need to build crafting stations.
+
+The most basic crafting station is the labor stub. To build, open the build menu (B) while inside the build area of the Base Core.
+
+Building requires resources. Use your extractor (Q) on the surrounding environment to get the resources you need.</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>quest_build_room_title_string</id>
+		<sv></sv>
+		<en>Base of Operations</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_room_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Build a Room that is Fully Indoors{/color}
+		
+Now that we have a Labor Stub, we can get down to crafting. Approach the Labor Stub and interact with it (E) to open the crafting UI. Here you can craft planks among other things.
+
+Planks are needed to build shelter. Craft some wood planks from wood logs and fully encircle an area with walls to create a room. Clicking a wall in your base while in build mode allows you to build a door.
+
+While in a room, you can see the properties of the room on the top left. Rooms surrounded by walls are partially indoors. Cover the ground with floor to make the room fully indoors.</en>
+	</DataDef>
+	
+<DataDef xsi:type="StringData">
+		<id>quest_build_weaponbench_title_string</id>
+		<sv></sv>
+		<en>Safety Gun my Ass</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_weaponbench_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Build a{/color} {color=#00ffffff}Weapons Bench{/color}
+		
+The Simple Safety Gun we arrived with won't do us much good against any serious threat. We can create a better weapon, but to do so we need a crafting station with more niche tools.
+
+Building a Weapons Bench will require some planks, as well as some scrap metal. Scrap metal can be found scattered in the environment, but also in larger quantities at Landmarks.
+
+On your map (M) you can see ? symbols. These are indicators for locations of interest. Approaching them will reveal the location, and allow you to hover over the icon to get information about what resources can be found there, as well as an indication of threats. Gather the nessecary scrap metal and build a Weapons Bench.</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>quest_craft_salvage_handgun_title_string</id>
+		<sv></sv>
+		<en>Gun Nut</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_craft_salvage_handgun_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Craft a{/color} {color=green}Salvage Handgun{/color}
+		
+Now that we have a Weapons Workbench, it is time for an upgrade. Craft yourself a proper gun!</en>
+	</DataDef>
+	
+<DataDef xsi:type="StringData">
+		<id>quest_build_furnace_title_string</id>
+		<sv></sv>
+		<en>Fire it Up</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_furnace_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Build a{/color} {color=#00ffffff}Furnace{/color}
+		
+Time to get some proper refinement going. We need to smelt this rusty scrap metal into some proper steel. Gather Concrete Blocks from surrounding landmarks and build a Furnace.</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>quest_get_circuit_board_title_string</id>
+		<sv></sv>
+		<en>Time to Tier Up</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_get_circuit_board_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Retrieve a{/color} {color=green}Circuit Board{/color} {color=orange}from the marked event{/color}
+		
+We need to upgrade our Base Core if we want a chance to survive on this horrid planet. Upgrading our base core will allow us to build much more advanced buildings and gear.
+
+However, we need some serious computing power. Go to one of the abandoned factoried marked on the map and retrieve a circuit board. Do not forget to bring decent arms.</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_pylon_2_title_string</id>
+		<sv></sv>
+		<en>Tier 2 here we Go</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_build_pylon_2_desc_string</id>
+		<sv></sv>
+		<en>{color=orange}Upgrade the{/color} {color=#00ffffff}Base Core{/color} {color=orange}to Tier 2{/color}
+		
+Great job, you have successfully retrieved the circuit board.
+
+Clicking the Base Core in build mode will show the upgrade options. The main component of the upgrade will be the Curcuit Board.</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_city_event_title_string</id>
+		<sv></sv>
+		<en>Take back the city!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_city_event_desc_string</id>
+		<sv></sv>
+		<en>It is time for the final challenge. Prepare yourself and head to the red marker on your map. Take back the city from the hordes!
+
+This event is added to show a real horde fight usually found in the mid to late game. We have given you access to a new weapon bench with some cheap recipes for powerful weapons. We strongly recommend you craft them before heading out. Good luck!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_game_over_string</id>
+		<sv></sv>
+		<en>Congratulations!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_game_over_title_string</id>
+		<sv></sv>
+		<en>{color=#00ff00ff}You completed the demo! You are a true Hordebreaker!{/color}</en>
+	</DataDef>
+	
+</Defs>

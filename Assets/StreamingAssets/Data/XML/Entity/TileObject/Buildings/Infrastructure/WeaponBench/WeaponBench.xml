@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_weaponbench</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Weapon bench</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="CraftingComponentData">
+				<recipes>
+					<recipeRef>crafting_compound_discus</recipeRef>
+					<recipeRef>crafting_salvage_handgun</recipeRef>
+					<recipeRef>crafting_salvage_machinegun</recipeRef>
+					<recipeRef>crafting_salvage_shotgun</recipeRef>
+					<recipeRef>crafting_weapon_mod_extended_clip</recipeRef>
+					<recipeRef>crafting_weapon_mod_quick_draw_clip</recipeRef>
+					<recipeRef>crafting_weapon_mod_turbo_clip</recipeRef>
+					<recipeRef>crafting_weapon_mod_small_accelerator</recipeRef>
+					<recipeRef>crafting_hi_tech_jacket</recipeRef>
+					<recipeRef>crafting_hi_tech_pants</recipeRef>
+					<recipeRef>crafting_hi_tech_boots</recipeRef>
+					<recipeRef>crafting_hi_tech_helmet</recipeRef>
+					<recipeRef>crafting_hi_tech_gloves</recipeRef>
+				</recipes>
+			</DataComponent>
+
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</HitLootTable>
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>8</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_weaponbench_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+  <DataDef xsi:type="FNEEntityViewData">
+		<id>to_weaponbench_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_weaponbench_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+    <scaleMod>0.01</scaleMod>
+
+		<!-- <entityLightSourceData>
+			<intensity>50</intensity>
+			<range>20</range>
+			<color>#FFAA55</color>
+			<offsetX>0</offsetX>
+			<offsetY>1.4</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData> -->
+	</DataDef>
+    
+</Defs>

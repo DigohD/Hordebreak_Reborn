@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>shepherd_main</id>
+		<meshPath>Data/XML/Entity/Enemy/ForestShepherd/Main/ForestShepherd_Animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/Enemy/ForestShepherd/Main/ForestShepherd_low_Shepherd_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/Enemy/ForestShepherd/Main/ForestShepherd_low_Shepherd_MaskMap.png</maskMapPath>
+		<normalPath>Data/XML/Entity/Enemy/ForestShepherd/Main/ForestShepherd_low_Shepherd_Normal.png</normalPath>
+		<emissivePath>Data/XML/Entity/Enemy/ForestShepherd/Main/ForestShepherd_low_Shepherd_Emissive.png</emissivePath>
+		<emissiveFactor>1.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>shepherd_staff</id>
+		<meshPath>Data/XML/Entity/Enemy/ForestShepherd/Staff/ForestShepherd_Staff_Pointer.glb</meshPath>
+		<albedoPath>Data/XML/Entity/Enemy/ForestShepherd/Staff/StaffTMP_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/Enemy/ForestShepherd/Staff/StaffTMP_mask.png</maskMapPath>
+		<normalPath>Data/XML/Entity/Enemy/ForestShepherd/Staff/StaffTMP_normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+        <id>shepherd_main_view</id>
+        <viewIsGameObject>true</viewIsGameObject>
+        <entityMeshData>shepherd_main</entityMeshData>
+        <scaleMod>1</scaleMod>
+    </DataDef>
+
+</Defs>

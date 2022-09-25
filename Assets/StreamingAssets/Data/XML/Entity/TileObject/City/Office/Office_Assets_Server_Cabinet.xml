@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_office_assets_server_cabinet</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>false</seeThrough>
+		<editorName>Server Cabinet</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Office</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_office_assets_server_cabinet_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_office_assets_server_cabinet_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_city_office_assets_server_cabinet_view</entityMeshData>
+		<entityTextureData>texture_city_office_assets_server_cabinet_view</entityTextureData>
+		<emissiveColor>#222222</emissiveColor>
+		
+		<entityLightSourceData>
+			<lightType>Spot</lightType>
+			<spotOuterAngle>90</spotOuterAngle>
+			<spotInnerAnglePercent>0</spotInnerAnglePercent>
+			<rotationX>90</rotationX>
+			<rotationY>0</rotationY>
+			<rotationZ>0</rotationZ>
+
+			<intensity>50</intensity>
+			<range>5</range>
+			<color>#FBD425</color>
+			<offsetX>0</offsetX>
+			<offsetY>2</offsetY>
+			<offsetZ>-0.6</offsetZ>
+		</entityLightSourceData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_office_assets_server_cabinet_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Office/Office_Assets_Server_Cabinet.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_office_assets_server_cabinet_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_office</assetBundlePath>
+		<albedoName>Office_Assets_Albedo</albedoName>
+		<normalMapName>Office_Assets_Normal</normalMapName>
+		<maskMapName>Office_Assets_MaskMap</maskMapName>
+		<emissiveMapName>Office_Assets_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

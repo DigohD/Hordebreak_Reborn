@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_biome_1_rock_large</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Rock Large</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</HitLootTable>
+				<DestroyLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Biome 1</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_biome_1_rock_large_var_1_view</viewRef>
+			<viewRef>to_biome_1_rock_large_var_2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_biome_1_rock_large_var_1_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_biome_1_rock_large_var_1</entityMeshData>
+		<entityTextureData>texture_biome_1_rock_large_var_1</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_rock_large_var_1</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Biome_1_Rock_A/Biome_1_Rocks_A_var_1.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_biome_1_rock_large_var_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Biome_1_Rock_A_var_1_Albedo</albedoName>
+		<normalMapName>Biome_1_Rock_A_var_1_Normal</normalMapName>
+		<maskMapName>Biome_1_Rock_A_var_1_MaskMap</maskMapName>
+	</DataDef>
+
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_biome_1_rock_large_var_2_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_biome_1_rock_large_var_2</entityMeshData>
+		<entityTextureData>texture_biome_1_rock_large_var_2</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_rock_large_var_2</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Biome_1_Rock_A/Biome_1_Rocks_A_var_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_biome_1_rock_large_var_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Biome_1_Rock_A_var_2_Albedo</albedoName>
+		<normalMapName>Biome_1_Rock_A_var_2_Normal</normalMapName>
+		<maskMapName>Biome_1_Rock_A_var_2_MaskMap</maskMapName>
+	</DataDef>
+</Defs>

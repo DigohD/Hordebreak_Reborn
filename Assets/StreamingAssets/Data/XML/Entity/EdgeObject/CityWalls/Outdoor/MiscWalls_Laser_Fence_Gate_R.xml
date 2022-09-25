@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_miscwalls_laser_fence_gate_r</id>
+		<blocking>false</blocking>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Laser Fence (Gate - 3 wide - Right)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>City</editorCategoryName>
+		<components>            	
+			<DataComponent xsi:type="DoorComponentData">
+				<openAnimationName>Open</openAnimationName>
+				<closeAnimationName>Close</closeAnimationName>
+				<!-- <openSFXRef>sfx_door_open</openSFXRef>
+				<closeSFXRef>sfx_door_close</closeSFXRef> -->
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>eo_city_miscwalls_laser_fence_gate_r_view</viewRef>
+		</entityViewVariations>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+        <viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_miscwalls_laser_fence_gate_r_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_city_miscwalls_laser_fence_gate_r_view</entityMeshData>
+		<entityTextureData>texture_city_miscwalls_laser_fence_gate_r_view</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>1</scaleMod>
+		<animations>
+			<AnimationData>
+				<animPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/CityMiscWalls_Laser_Fence_Gate_R.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_miscwalls_laser_fence_gate_r_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/CityMiscWalls_Laser_Fence_Gate_R.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_miscwalls_laser_fence_gate_r_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>Miscwalls_Laserwalls_Albedo</albedoName>
+		<normalMapName>Miscwalls_Laserwalls_Normal</normalMapName>
+		<maskMapName>Miscwalls_Laserwalls_MaskMap</maskMapName>
+		<emissiveMapName>Miscwalls_Laserwalls_Emissive</emissiveMapName>
+	</DataDef>
+    	
+</Defs>

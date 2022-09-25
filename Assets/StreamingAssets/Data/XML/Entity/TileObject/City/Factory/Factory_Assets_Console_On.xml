@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_assets_console_on</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Console (On)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Factory</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_factory_assets_console_on_view</viewRef>
+		</entityViewVariations>
+		<components>
+			<!-- <DataComponent xsi:type="InteractionEventComponentData">
+                <transformedEntityRef>to_city_factory_assets_console_broken</transformedEntityRef>
+                <effectRef>effect_alarm_init</effectRef>
+ 			</DataComponent> -->
+		</components>
+	</DataDef>
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_assets_console_event</id>
+		<pathingCost>255</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Console Event</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<components>
+			<DataComponent xsi:type="InteractionEventComponentData">
+                <transformedEntityRef>to_city_factory_assets_console_on</transformedEntityRef>
+				<eventRef>big_event_survival</eventRef>
+                <effectRef>effect_alarm_init</effectRef>
+ 			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_city_factory_assets_console_on_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_assets_console_event_success</id>
+		<pathingCost>255</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Console Event Success</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<components>
+			<DataComponent xsi:type="InventoryComponentData">
+				<width>1</width>
+				<height>1</height>
+				<destroyWhenEmpty>false</destroyWhenEmpty>
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>1</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_kryst_berry_seed</itemRef>
+							<probability>100</probability>
+							<guaranteed>true</guaranteed>
+							<unique>true</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_city_factory_assets_console_on_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_factory_assets_console_on_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_city_factory_assets_console_on_view</entityMeshData>
+		<entityTextureData>texture_city_factory_assets_console_on_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_factory_assets_console_on_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Factory/Factory_Assets_Console_On.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_factory_assets_console_on_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_factory</assetBundlePath>
+		<albedoName>Factory_Assets_Albedo</albedoName>
+		<normalMapName>Factory_Assets_Normal</normalMapName>
+		<maskMapName>Factory_Assets_MaskMap</maskMapName>
+		<emissiveMapName>Factory_Assets_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

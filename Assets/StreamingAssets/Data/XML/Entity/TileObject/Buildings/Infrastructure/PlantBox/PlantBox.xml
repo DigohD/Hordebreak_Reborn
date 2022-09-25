@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_plant_box</id>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>addon_plant_box_kryst</addonRef>
+					<addonRef>addon_plant_box_potato</addonRef>
+					<addonRef>addon_plant_box_cotton</addonRef>
+				</addonRefs>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_fertile_soil</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>50</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_plant_box_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_plant_box_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_plant_box</entityMeshData>
+		<scaleMod>0.013</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_plant_box_kryst</id>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_kryst_berry_seed</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<productRef>to_plant_box_kryst_seedling</productRef>
+		<nameRef>string_plant_box_kryst_name</nameRef>
+		<iconRef>kryst_bush_sapling_icon</iconRef>
+		<addonColor>#ff00ff</addonColor>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_plant_box_potato</id>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_budroot</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<productRef>to_plant_box_potato_seedling</productRef>
+		<nameRef>string_plant_box_budroot_name</nameRef>
+		<iconRef>potato_plant_icon</iconRef>
+		<addonColor>#ffff00</addonColor>
+	</DataDef>
+	
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_plant_box_cotton</id>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cotton_seed</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<productRef>to_plant_box_cotton_seedling</productRef>
+		<nameRef>string_plant_box_cotton_name</nameRef>
+		<iconRef>cotton_bush_icon</iconRef>
+		<addonColor>#00ffff</addonColor>
+	</DataDef>
+    	
+</Defs>

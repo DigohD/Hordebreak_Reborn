@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tricrane_fence_ground</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Fence (Ground)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tricrane_fence_ground_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_tricrane_fence_ground_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<isTransparent>true</isTransparent>
+		<entityMeshData>mesh_tricrane_fence_ground_view</entityMeshData>
+		<scaleMod>1.28</scaleMod>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<!--<DataDef xsi:type="BuildingData">
+		<id>building_labor_stub</id>
+		<productRef>to_labor_stub</productRef>
+		<categoryRef>building_category_crafting</categoryRef>
+		<nameRef>building_labor_stub_name</nameRef>
+		<descriptionRef>building_labor_stub_ref</descriptionRef>
+		<iconRef>labor_stub_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<unlockRefs>
+			<unlockRef>building_workbench</unlockRef>
+			<unlockRef>building_wood_tile</unlockRef>
+			<unlockRef>building_wood_wall</unlockRef>
+		</unlockRefs>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+            <MaterialDef>
+				<itemRef>item_stone</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>-->
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_workbench</id>
+		<productRef>to_workbench</productRef>
+		<categoryRef>building_category_crafting</categoryRef>
+		<nameRef>building_labor_stub_name</nameRef>
+		<descriptionRef>building_labor_stub_ref</descriptionRef>
+		<iconRef>labor_stub_icon</iconRef>
+		<unlockRefs>
+			<unlockRef>building_wood_wall</unlockRef>
+			<unlockRef>building_wood_tile</unlockRef>
+			<unlockRef>building_wood_fence</unlockRef>
+			<unlockRef>building_gravel_tile</unlockRef>
+			<unlockRef>building_storage_box</unlockRef>
+			<unlockRef>building_plant_box</unlockRef>
+			<unlockRef>building_cooking_pot</unlockRef>
+			<unlockRef>building_weaponbench</unlockRef>
+		</unlockRefs>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_stone</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_weaponbench</id>
+		<productRef>to_weaponbench</productRef>
+		<categoryRef>building_category_crafting</categoryRef>
+		<nameRef>building_weaponbench_name</nameRef>
+		<descriptionRef>building_weaponbench_info</descriptionRef>
+		<iconRef>workbench_icon</iconRef>
+		<unlockRefs>
+			<unlockRef>building_stone_floor_tile</unlockRef>
+			<unlockRef>building_furnace</unlockRef>
+		</unlockRefs>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>16</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+	
+	<DataDef xsi:type="BuildingData">
+		<id>building_weaponbench_t2</id>
+		<productRef>to_weaponbench_t2</productRef>
+		<categoryRef>building_category_crafting</categoryRef>
+		<nameRef>building_weaponbench_t2_name</nameRef>
+		<descriptionRef>building_weaponbench_t2_info</descriptionRef>
+		<iconRef>workbench_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+</Defs>

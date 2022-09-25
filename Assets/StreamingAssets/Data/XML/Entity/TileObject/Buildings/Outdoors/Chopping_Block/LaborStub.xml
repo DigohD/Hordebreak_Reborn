@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_labor_stub</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Labor Stub</editorName>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="CraftingComponentData">
+				<recipes>
+					<recipeRef>crafting_wood_planks</recipeRef>
+					<recipeRef>crafting_gravel</recipeRef>
+				</recipes>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_wood_log</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_chopping_block_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_chopping_block_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_chopping_block_view</entityMeshData>
+	</DataDef>
+    
+</Defs>

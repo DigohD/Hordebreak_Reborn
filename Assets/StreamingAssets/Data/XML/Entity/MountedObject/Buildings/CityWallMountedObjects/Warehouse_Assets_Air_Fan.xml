@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_city_warehouse_assets_air_fan</id>
+		<viewVariations>
+			<viewRef>wo_city_warehouse_assets_air_fan_view</viewRef>
+		</viewVariations>
+		<editorName>Air fan</editorName>
+		<editorCategoryName>Industrial</editorCategoryName>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_city_warehouse_assets_air_fan_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_warehouse_assets_air_fan_view</entityMeshData>
+		<entityTextureData>texture_city_warehouse_assets_air_fan_view</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_warehouse_assets_air_fan_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/CityWallMountedObjects/Warehouse_Assets_Air_Fan.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_warehouse_assets_air_fan_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_warehouse</assetBundlePath>
+		<albedoName>Warehouse_Assets_Albedo</albedoName>
+		<normalMapName>Warehouse_Assets_Normal</normalMapName>
+		<maskMapName>Warehouse_Assets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

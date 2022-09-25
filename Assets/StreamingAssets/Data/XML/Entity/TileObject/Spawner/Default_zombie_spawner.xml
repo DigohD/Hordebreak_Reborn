@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_default_zombie_spawner</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Default Zombie Spawner</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Misc</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_default_zombie_spawner_view</viewRef>
+		</entityViewVariations>
+		<components>
+			<!-- <DataComponent xsi:type="SpawnerComponentData">
+				<spawnInterval>1</spawnInterval>
+				<spawnAmount>7</spawnAmount>
+				<enemyRef>default_zombie</enemyRef>
+			</DataComponent> -->
+			<DataComponent xsi:type="SpawnPointComponentData"></DataComponent>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_default_zombie_spawner_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_default_zombie_spawner_view</entityMeshData>
+		<entityTextureData>texture_default_zombie_spawner_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_default_zombie_spawner_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Spawner/ShrubberHole.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_default_zombie_spawner_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_misc</assetBundlePath>
+		<albedoName>ShrubberHole_Albedo</albedoName>
+		<normalMapName>ShrubberHole_Normal</normalMapName>
+		<maskMapName>ShrubberHole_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

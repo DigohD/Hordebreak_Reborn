@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>salvage_handgun</id>
+		<nameRef>salvage_handgun_name</nameRef>
+		<infoRef>salvage_handgun_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>64</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+    	<components>
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>150</triggersPerMinute>
+				<effectRef>effect_salvage_handgun</effectRef>
+				<reloadEffectRef>salvage_handgun_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>6</ammoClipSize>
+				<reloadTimeInSeconds>1.3</reloadTimeInSeconds>
+
+				<weaponPosture>Light</weaponPosture>
+				<itemMeshRef>mesh_salvage_handgun</itemMeshRef>
+				<itemTextureRef>texture_salvage_handgun</itemTextureRef>
+				<muzzleOffsetForward>0.1</muzzleOffsetForward>
+
+				<iconScaleMod>3</iconScaleMod>
+				<iconOffsetRight>-0.16</iconOffsetRight>
+				<iconOffsetUp>-0.16</iconOffsetUp>
+
+				<modSlotGen>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+				</modSlotGen>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_salvage_handgun</id>
+        <meshPath>Data/XML/Item/Weapon/SalvageHandgun/Salvage_Handgun.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_salvage_handgun</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Salvage_Handgun_Albedo</albedoName>
+		<normalMapName>Salvage_Handgun_Normal</normalMapName>
+		<maskMapName>Salvage_Handgun_MaskMap</maskMapName>
+		<emissiveMapName>Salvage_Handgun_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_salvage_handgun</id>
+		<alertsEnemies>true</alertsEnemies>
+		<enemyAlertDistance>20</enemyAlertDistance>
+		<vfxRef>vfx_salvage_handgun_fire</vfxRef>
+		<sfxRef>sfx_salvage_hand_gun_fire</sfxRef>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>30</speed>
+            <inaccuracy>2</inaccuracy>
+            <projectileVfxRef>vfx_salvage_handgun_proj</projectileVfxRef>
+            <onDeathEffectRef>salvage_handgun_projectile_death</onDeathEffectRef>
+            <damage>60</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>2</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_handgun_reload</id>
+		<sfxRef>sfx_salvage_hand_gun_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_handgun_projectile_death</id>
+		<vfxRef>vfx_salvage_handgun_proj_impact</vfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+		<id>vfx_salvage_handgun_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageHandgun/SalvageHandgun_VFX</prefabPath>
+			<heightPosition>1</heightPosition>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_handgun_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageHandgun/PistolProj</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_handgun_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageHandgun/PistolImpact</prefabPath>
+	</DataDef>
+
+</Defs>

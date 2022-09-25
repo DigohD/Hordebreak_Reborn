@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>rusty_repeater_musket</id>
+		<nameRef>rusty_repeater_musket_name</nameRef>
+		<infoRef>rusty_repeater_musket_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>64</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>90</triggersPerMinute>
+				<effectRef>rusty_repeater_musket_fire</effectRef>
+				<reloadEffectRef>rusty_repeater_musket_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>4</ammoClipSize>
+				<reloadTimeInSeconds>1.5</reloadTimeInSeconds>
+
+				<weaponPosture>Rifle</weaponPosture>
+				<itemMeshRef>mesh_rusty_repeater_musket</itemMeshRef>
+				<itemTextureRef>texture_rusty_repeater_musket</itemTextureRef>
+				<muzzleOffsetForward>0.35</muzzleOffsetForward>
+
+				<iconScaleMod>1.25</iconScaleMod>
+				<iconOffsetRight>-0.1</iconOffsetRight>
+				<iconOffsetUp>-0.05</iconOffsetUp>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_rusty_repeater_musket</id>
+        <meshPath>Data/XML/Item/Weapon/RustyRepeaterMusket/Rusty_Repeater_Musket.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_rusty_repeater_musket</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Rusty_Repeater_Musket_Albedo</albedoName>
+		<normalMapName>Rusty_Repeater_Musket_Normal</normalMapName>
+		<maskMapName>Rusty_Repeater_Musket_MaskMap</maskMapName>
+		<emissiveMapName>Rusty_Repeater_Musket_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_repeater_musket_fire</id>
+		<vfxRef>vfx_rusty_repeater_musket_muzzlefire</vfxRef>
+		<sfxRef>sfx_rusty_repeater_fire</sfxRef>
+		<enemyAlertDistance>30</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>30</speed>
+			
+            <inaccuracy>1</inaccuracy>
+            <projectileVfxRef>vfx_rusty_repeater_musket_projectile</projectileVfxRef>
+            <onDeathEffectRef>rusty_repeater_musket_projectile_death</onDeathEffectRef>
+            <damage>100</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>4</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_repeater_musket_reload</id>
+		<sfxRef>sfx_rusty_repeater_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_repeater_musket_projectile_death</id>
+		<vfxRef>vfx_rusty_repeater_musket_proj_impact</vfxRef>
+	</DataDef>
+
+  	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_repeater_musket_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyRepeaterMusket/RepeaterMusketeer_VFX</prefabPath>
+			<heightPosition>1</heightPosition>
+			<effectScale>1.01</effectScale>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_repeater_musket_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyRepeaterMusket/RifleProj</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_repeater_musket_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyRepeaterMusket/RifleImpact</prefabPath>
+	</DataDef>
+
+</Defs>

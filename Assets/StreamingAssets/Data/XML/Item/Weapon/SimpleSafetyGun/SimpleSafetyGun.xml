@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>simple_safety_gun</id>
+		<nameRef>simple_safety_gun_name</nameRef>
+		<infoRef>simple_safety_gun_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+
+		<components>	
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>200</triggersPerMinute>
+				<effectRef>simple_safety_gun_fire</effectRef>
+				<reloadEffectRef>simple_safety_gun_reload</reloadEffectRef>
+				<isAutomatic>true</isAutomatic>
+				<ammoClipSize>1</ammoClipSize>
+				<reloadTimeInSeconds>0.3</reloadTimeInSeconds>
+
+				<weaponPosture>Light</weaponPosture>
+				<itemMeshRef>mesh_simple_safety_gun</itemMeshRef>
+				<itemTextureRef>texture_simple_safety_gun</itemTextureRef>
+				<muzzleOffsetForward>0.1</muzzleOffsetForward>
+
+				<iconScaleMod>3</iconScaleMod>
+				<iconOffsetRight>-0.15</iconOffsetRight>
+				<iconOffsetUp>-0.14</iconOffsetUp>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_simple_safety_gun</id>
+        <meshPath>Data/XML/Item/Weapon/SimpleSafetyGun/SimpleSafetyGun.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_simple_safety_gun</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>SimpleSafetyGun_BaseMap</albedoName>
+		<normalMapName>SimpleSafetyGun_Normal</normalMapName>
+		<maskMapName>SimpleSafetyGun_MaskMap</maskMapName>
+		<emissiveMapName>SimpleSafetyGun_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>simple_safety_gun_fire</id>
+		<vfxRef>vfx_simple_safety_gun_muzzle</vfxRef>
+		<sfxRef>sfx_excavator_fire1</sfxRef>
+		<enemyAlertDistance>8</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>0.03</lifetime>
+            <speed>20</speed>
+            <inaccuracy>1</inaccuracy>
+            <damage>5</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+			<projectileVfxRef>vfx_rusty_pistol_projectile</projectileVfxRef>
+        </realEffectData>
+		<screenShake>0.3</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>simple_safety_gun_reload</id>
+		<sfxRef>sfx_rusty_pistol_reload</sfxRef>
+	</DataDef>
+</Defs>

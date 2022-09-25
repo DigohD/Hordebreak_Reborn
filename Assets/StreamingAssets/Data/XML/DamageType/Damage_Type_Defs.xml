@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+    <DataDef xsi:type="DamageTypeData">
+		<id>projectile</id>
+	</DataDef>
+
+    <DataDef xsi:type="DamageTypeData">
+		<id>explosive</id>
+	</DataDef>
+
+    <DataDef xsi:type="DamageTypeData">
+		<id>cut</id>
+	</DataDef>
+	
+    <DataDef xsi:type="DamageTypeData">
+		<id>bludgeoning</id>
+	</DataDef>
+	
+	<DataDef xsi:type="DamageTypeData">
+		<id>true_damage</id>
+	</DataDef>
+
+    <!-- OBS, DENNA ÄR HÅRDKODAD I SYSTEMET -->
+    <DataDef xsi:type="DamageTypeData">
+		<id>critical_player_needs</id>
+	</DataDef>
+
+    <!-- OBS, DENNA ÄR HÅRDKODAD I SYSTEMET -->
+    <DataDef xsi:type="DamageTypeData">
+		<id>zombie_melee</id>
+	</DataDef>
+
+</Defs>

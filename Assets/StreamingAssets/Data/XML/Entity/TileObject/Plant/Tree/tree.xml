@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_mud_plains_tree_1</id>
+		<pathingCost>50</pathingCost>
+		<seeThrough>true</seeThrough>
+        <hittable>true</hittable>
+		<editorName>Mud plains tree 1</editorName>
+        <blocking>true</blocking>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>300</startHealth>
+				<defenseTypeRef>defense_tree</defenseTypeRef>
+			</DataComponent>
+
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>5</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<LootTableData>
+						<minRolls>0</minRolls>
+						<maxRolls>2</maxRolls>
+						<table>
+							<LootEntry>
+								<itemRef>item_wood_log</itemRef>
+								<probability>100</probability>
+								<guaranteed>false</guaranteed>
+								<unique>false</unique>
+							</LootEntry>
+						</table>
+					</LootTableData>
+				</HitLootTable>
+				<DestroyLootTable>
+					<LootTableData>
+						<minRolls>2</minRolls>
+						<maxRolls>8</maxRolls>
+						<table>
+							<LootEntry>
+								<itemRef>item_wood_log</itemRef>
+								<probability>100</probability>
+								<guaranteed>false</guaranteed>
+								<unique>false</unique>
+							</LootEntry>
+						</table>
+					</LootTableData>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tree_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_tree_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tree</entityMeshData>
+		<entityTextureData>texture_tree</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tree</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Tree/Tree_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_tree</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Tree_Albedo</albedoName>
+		<normalMapName>Tree_Normal</normalMapName>
+	</DataDef>
+
+</Defs>

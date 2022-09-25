@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 3057202354
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 965f759f52aa0fe6a46fdd00737f250e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_Normal.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_Normal.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Spawner/ShrubberHole_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedRobot/Crashed_Robot_DefaultMaterial_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_Normal.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Spawner/ShrubberHole_Normal.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/DropPod/DropPod64_WallsUnfolded_SingleMesh_None_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Misc/Wrecks/CrashedPod/Crashed_Pod_DefaultMaterial_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Spawner/ShrubberHole_Albedo.png
+Dependencies: []

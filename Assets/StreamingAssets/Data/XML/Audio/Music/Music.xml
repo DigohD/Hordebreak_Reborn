@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="MusicData">
+		<id>blazing</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/Blazing.ogg</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="MusicData">
+		<id>neonplaza</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/NeonPlaza.ogg</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="MusicData">
+		<id>peacockavenue</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/PeacockAvenue.ogg</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="MusicData">
+		<id>ruins</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/Ruins.ogg</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="MusicData">
+		<id>solarflare</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/Solarflare.ogg</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="MusicData">
+		<id>intro_music</id>
+		<filePath>Data/XML/Audio/Music/MusicFiles/Intro/Shimmerlands.ogg</filePath>
+	</DataDef>
+
+</Defs>

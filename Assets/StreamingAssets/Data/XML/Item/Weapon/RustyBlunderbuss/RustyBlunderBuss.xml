@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>rusty_blunder_buss</id>
+		<nameRef>rusty_blunder_buss_name</nameRef>
+		<infoRef>rusty_blunder_buss_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>64</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>120</triggersPerMinute>
+				<effectRef>effect_rusty_blunder_buss</effectRef>
+				<reloadEffectRef>rusty_blunder_buss_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>6</ammoClipSize>
+				<reloadTimeInSeconds>2</reloadTimeInSeconds>
+				<weaponPosture>Rifle</weaponPosture>
+				<itemMeshRef>mesh_rusty_blunderbuss</itemMeshRef>
+				<itemTextureRef>texture_rusty_blunderbuss</itemTextureRef>
+				<muzzleOffsetForward>0.2</muzzleOffsetForward>
+				<scaleMod>0.01</scaleMod>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_rusty_blunderbuss</id>
+        <meshPath>Data/XML/Item/Weapon/RustyBlunderbuss/Rusty_Blunderbuss.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_rusty_blunderbuss</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Rusty_Blunderbuss_Albedo</albedoName>
+		<normalMapName>Rusty_Blunderbuss_Normal</normalMapName>
+		<maskMapName>Rusty_Blunderbuss_MaskMap</maskMapName>
+		<emissiveMapName>Rusty_Blunderbuss_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_rusty_blunder_buss</id>
+		<vfxRef>vfx_rusty_blunder_buss_fire</vfxRef>
+		<sfxRef>sfx_rusty_blunderbuss_fire</sfxRef>
+		<enemyAlertDistance>25</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>30</speed>
+            <inaccuracy>4</inaccuracy>
+            <projectileVfxRef>vfx_rusty_blunder_buss_proj</projectileVfxRef>
+            <onDeathEffectRef>rusty_blunder_buss_projectile_death</onDeathEffectRef>
+            <damage>50</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>4</pellets>
+        </realEffectData>
+		<screenShake>3</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_blunder_buss_reload</id>
+		<sfxRef>sfx_rusty_blunderbuss_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_blunder_buss_projectile_death</id>
+		<vfxRef>vfx_rusty_blunder_buss_proj_impact</vfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+		<id>vfx_rusty_blunder_buss_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyBlunderBuss/Blunderbuss_VFX</prefabPath>
+			<heightPosition>1</heightPosition>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_blunder_buss_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyBlunderBuss/BlunderProj</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_blunder_buss_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyBlunderBuss/BlunderImpact</prefabPath>
+	</DataDef>
+
+</Defs>

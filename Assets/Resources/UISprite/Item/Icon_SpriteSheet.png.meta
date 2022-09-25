@@ -1,0 +1,2734 @@
+fileFormatVersion: 2
+guid: 302a32d9115f2db49a9d6f2191eefa65
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Icon_Glass
+  - first:
+      213: 21300002
+    second: Icon_Metal_Scrap
+  - first:
+      213: 21300004
+    second: Icon_Metal_Plates
+  - first:
+      213: 21300006
+    second: Icon_Wood
+  - first:
+      213: 21300008
+    second: Icon_Plastic_Scrap
+  - first:
+      213: 21300010
+    second: Icon_Plastics
+  - first:
+      213: 21300012
+    second: Icon_Bullets
+  - first:
+      213: 21300014
+    second: Icon_Electric_Components
+  - first:
+      213: 21300016
+    second: Icon_Circuitboard
+  - first:
+      213: 21300018
+    second: Icon_Shotgun_Shells
+  - first:
+      213: 21300020
+    second: Icon_Chemical_Waste
+  - first:
+      213: 21300022
+    second: Icon_Chemicals
+  - first:
+      213: 21300024
+    second: Icon_Bullets_Small
+  - first:
+      213: 21300026
+    second: Icon_Rubber_Scrap
+  - first:
+      213: 21300028
+    second: Icon_Rubber
+  - first:
+      213: 21300030
+    second: Icon_Textile_Scraps
+  - first:
+      213: 21300032
+    second: Icon_Textiles
+  - first:
+      213: 21300034
+    second: Icon_Arrow
+  - first:
+      213: 21300036
+    second: Icon_VHNS
+  - first:
+      213: 21300038
+    second: Icon_Power_Cell
+  - first:
+      213: 21300040
+    second: Icon_Tech_Floppy_T1
+  - first:
+      213: 21300042
+    second: Icon_Tech_Floppy_T2
+  - first:
+      213: 21300044
+    second: Icon_Kotte
+  - first:
+      213: 21300046
+    second: Icon_T_Shirt
+  - first:
+      213: 21300048
+    second: Icon_Tire
+  - first:
+      213: 21300050
+    second: Icon_Metal_Pot
+  - first:
+      213: 21300052
+    second: Icon_Laptop
+  - first:
+      213: 21300054
+    second: Icon_Lavalamp
+  - first:
+      213: 21300056
+    second: Icon_2x3_Backplate
+  - first:
+      213: 21300058
+    second: Icon_2x2_Backplate
+  - first:
+      213: 21300060
+    second: Icon_2x1_Backplate
+  - first:
+      213: 21300062
+    second: Icon_1x2_Backplate
+  - first:
+      213: 21300064
+    second: Icon_1x1_Backplate
+  - first:
+      213: 21300066
+    second: Icon_Health_Pack_T1
+  - first:
+      213: 21300068
+    second: Icon_Health_Pack_T2
+  - first:
+      213: 21300070
+    second: Icon_Grenade
+  - first:
+      213: 21300072
+    second: Icon_3x2_Backplate
+  - first:
+      213: 21300074
+    second: Icon_4x2_Backplate
+  - first:
+      213: 21300076
+    second: Icon_5x2_Backplate
+  - first:
+      213: 21300078
+    second: Icon_Build_Chest
+  - first:
+      213: 21300080
+    second: Icon_Build_Crafting
+  - first:
+      213: 21300082
+    second: Icon_Build_Weapon_Assembler
+  - first:
+      213: 21300084
+    second: Icon_Build_Weapon_Mod
+  - first:
+      213: 21300086
+    second: Icon_Build_Crusher
+  - first:
+      213: 21300088
+    second: Icon_Build_Generator_Fuel
+  - first:
+      213: 21300090
+    second: Icon_Build_Pillar
+  - first:
+      213: 21300092
+    second: Icon_Build_Wall
+  - first:
+      213: 21300094
+    second: Icon_Build_Lamp_Wall
+  - first:
+      213: 21300096
+    second: Icon_Build_Lamp_Standing
+  - first:
+      213: 21300098
+    second: Icon_Build_Lamp_Sitting
+  - first:
+      213: 21300100
+    second: Icon_Build_Research_Station
+  - first:
+      213: 21300102
+    second: Icon_Build_Floor_Wood
+  - first:
+      213: 21300104
+    second: Icon_Build_Radio_Tower
+  - first:
+      213: 21300106
+    second: SemiAutomaticLoader_Inv
+  - first:
+      213: 21300108
+    second: WoodStock_Inv
+  - first:
+      213: 21300110
+    second: WoodBumpStock_Inv
+  - first:
+      213: 21300112
+    second: DoubleBarrel_Inv
+  - first:
+      213: 21300114
+    second: IronSights_Inv
+  - first:
+      213: 21300116
+    second: RustyMagazine_Inv
+  - first:
+      213: 21300118
+    second: PumpLoader_Inv
+  - first:
+      213: 21300120
+    second: SawedOffBarrel_Inv
+  - first:
+      213: 21300122
+    second: ScrapBarrel_Inv
+  - first:
+      213: 21300124
+    second: ShellMagazine_Inv
+  - first:
+      213: 21300126
+    second: Shellrack_Inv
+  - first:
+      213: 21300128
+    second: SmallRustyMagazine_Inv
+  - first:
+      213: 21300130
+    second: ScrapSuppressor_Inv
+  - first:
+      213: 21300132
+    second: Icon_Build_Generator_Wind
+  - first:
+      213: 21300134
+    second: Icon_Build_Wall_Window
+  - first:
+      213: 21300136
+    second: Icon_Build_Wall_Door
+  - first:
+      213: 21300138
+    second: Icon_Build_Turret
+  - first:
+      213: 21300140
+    second: Icon_Build_Battery_Station
+  - first:
+      213: 21300142
+    second: Icon_Build_Server
+  - first:
+      213: 21300144
+    second: Icon_Siren
+  - first:
+      213: -1690880546569447655
+    second: Building_Category_Icon_Special
+  - first:
+      213: 5771441939510871973
+    second: Building_Category_Icon_Power
+  - first:
+      213: 4068433234517166164
+    second: Building_Category_Icon_Refinement
+  - first:
+      213: 4091845368406525769
+    second: Building_Category_Icon_Assets
+  - first:
+      213: 2352884069643921779
+    second: Building_Category_Icon_Extraction
+  - first:
+      213: 6313525262267272111
+    second: Building_Category_Icon_LowTech
+  - first:
+      213: -9141442830736947951
+    second: Icon_Build_Loadout_Station
+  - first:
+      213: 4367381586300876631
+    second: Icon_Build_Nail_Shelf
+  - first:
+      213: -8620508569568058477
+    second: Icon_Build_Scrap_Windmill
+  - first:
+      213: 7955149484839096682
+    second: Icon_Build_Architect_Table
+  - first:
+      213: 5998721516582914030
+    second: Building_Category_Icon_Architecture
+  - first:
+      213: 6313525262267272111
+    second: Icon_SpriteSheet_0
+  - first:
+      213: 7009611414837458016
+    second: Icon_Potato
+  - first:
+      213: 1112905903654919798
+    second: Icon_Onion
+  - first:
+      213: 3185639202913029599
+    second: Icon_Gooseberry
+  - first:
+      213: -2999692778293580709
+    second: Icon_Potato_Seed
+  - first:
+      213: -4413291638180827007
+    second: Icon_Onion_Seed
+  - first:
+      213: -3815153079694342940
+    second: Icon_Gooseberry_Seed
+  - first:
+      213: -4847007847251426376
+    second: Icon_Soil
+  - first:
+      213: 5366166437498972779
+    second: Building_Category_Icon_Agriculture
+  - first:
+      213: -1348111749242379564
+    second: Icon_Rock
+  - first:
+      213: -6573118875471173539
+    second: Icon_Stick
+  - first:
+      213: -899007126866553025
+    second: Icon_Axe
+  - first:
+      213: -3075504715576281973
+    second: Icon_Potato_Baked
+  - first:
+      213: 8272905724213410416
+    second: Ingot_Magic_4
+  - first:
+      213: -8990683261887202372
+    second: Ingot_Magic_3
+  - first:
+      213: -3378944467514841367
+    second: Ingot_Magic_2
+  - first:
+      213: -2964374035118453169
+    second: Ingot_Magic_1
+  - first:
+      213: -4100487864052988826
+    second: Ingot_Gold
+  - first:
+      213: -8171365864071123500
+    second: Ingot_Steel
+  - first:
+      213: 3910048313498629603
+    second: Ingot_Iron
+  - first:
+      213: -3959551556152656654
+    second: Ingot_Copper
+  - first:
+      213: 8272905724213410416
+    second: Icon_SpriteSheet_1
+  - first:
+      213: -8990683261887202372
+    second: Icon_SpriteSheet_2
+  - first:
+      213: -3378944467514841367
+    second: Icon_SpriteSheet_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Icon_Glass
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1940
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b133350e5d0374697f73f68b4bb154
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Metal_Scrap
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1939
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca04c4b0391c5742ae36b8041fd4a58
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Metal_Plates
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1939
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303f9e542d7cddb4993f0afbe2f1e722
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Wood
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1840
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f312e4542ac0ec49884d92ae53a1cc0
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Plastic_Scrap
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1840
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b01a2f830a0fbd48a98711eb24448e6
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Plastics
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1840
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85333ef4a873cb846a1ce3c2a9518615
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Bullets
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1741
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b899a6b5f401c499be17b2e2497d8f
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Electric_Components
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1740
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05dc7069e07227489a2bfded56c7a4c
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Circuitboard
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1740
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7811ca9d040a2946810073dddd7213c
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Shotgun_Shells
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1639
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f04b0ae0dd39d542ac2bb71391ce675
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Chemical_Waste
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1640
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e243dcd0f25d94dbd7e932adf1119f
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Chemicals
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1639
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35feaee2e7fae6c46ae1c7b9453660bb
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Bullets_Small
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1539
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad3b96ee253c124d8ff62656b2aa8b8
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Rubber_Scrap
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1538
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3dda272a4944e499165ae4360d3901
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Rubber
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1537
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0c0d8f30446d74ebd5363e33b959e3
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Textile_Scraps
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1439
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e6363934d1f504fbe25cb18fb21353
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Textiles
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1440
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbee2d9b6183ea747881d9a699dde68c
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Arrow
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1340
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d4b1eccbd3aa64499304b9dfe975e5
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_VHNS
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1340
+        width: 200
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f586ae4f9f2454b8fd5c1f24002402
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Power_Cell
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1242
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d816f0bb76253249825832bf7573b8b
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Tech_Floppy_T1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1242
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0364505fcd6de2b4dbd336532a30f1e7
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Tech_Floppy_T2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1242
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa9dd1be581914468d75a7ad8ce1b0c
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Kotte
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 1243
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73289864fc7ce3046b9f067990acac6a
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_T_Shirt
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 1345
+        width: 200
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f4cc331ab3e244bb9a70d8e566f2b7
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Tire
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 1339
+        width: 200
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a85daebc7ffa34f841a47f6a696219
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Metal_Pot
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1641
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6670357ce7f9204488de69b063400c2a
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Laptop
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1837
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238a00114199b1c488f093edc348cda4
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Lavalamp
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1837
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f37e91a987a344cadf0f3febd210b5
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_2x3_Backplate
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1739
+        width: 200
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ffc5a1886c3e94f8a0614bd045bd88
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_2x2_Backplate
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1840
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade6269a77717564ebc93ea0ceb7f562
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_2x1_Backplate
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 1731
+        width: 200
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04413f33c76597f44b6ee387194b6f3e
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_1x2_Backplate
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 1524
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2eb6e5b510fb14a995501420474bf1
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_1x1_Backplate
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1629
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89bc18c5548a2ab46831784c173cd088
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Health_Pack_T1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1042
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6293fd768f346840a1ae7d4c8baff55
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Health_Pack_T2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1042
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54498460988728438dbb016cecdb39b
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Grenade
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1733
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffec3bc66929bb4e8f7c629fa08980a
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_3x2_Backplate
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 1840
+        width: 300
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6fee7845f0faf4aa128c02fa956733
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_4x2_Backplate
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1840
+        width: 400
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28943b7c1785900429f24494591be0a4
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_5x2_Backplate
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1629
+        width: 500
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8145e2ac8807e4f9aea9295b425487
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Chest
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efced40aded16a5428db1baf1ca6312d
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Crafting
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 11
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251654ba21af97146863f0326af12632
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Weapon_Assembler
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 2
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79559ed5a6bd63747860c3d800899e66
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Weapon_Mod
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 13
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f67874ab67818845b872279a9dfca6a
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Crusher
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af441e63e1ad3b499df99fe18143a22
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Generator_Fuel
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410748bf1f7d9854e9c556117226c5db
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Pillar
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6391d93bfd999540b4fafc151df425b
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Wall
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77d5bdfa3396b34e95fce42df7c3fba
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Lamp_Wall
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 239
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28728ea0c4fc5744b412edbf05c4c9c
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Lamp_Standing
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 258
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f4ed316429cc4498d6eded6cdd6240
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Lamp_Sitting
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 236
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351b3b22fce3fde4ea81109b72d0cacc
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Research_Station
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 234
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ebd5a7215e4514b8867ec37c19b2d3
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Floor_Wood
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 261
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c829a1919022ea4083ec017821f4fce
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Radio_Tower
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 249
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f7b9845aa88ee41a2a4335acbac9a5
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SemiAutomaticLoader_Inv
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 908
+        width: 100
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97be13ea8ac73234cb181391bc6284e0
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodStock_Inv
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 931
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2f4866d51c358418faa4b97dd8ee1f
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodBumpStock_Inv
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 930
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c83d3fd37410740b6242ef62b73982
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleBarrel_Inv
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 930
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbf7be805dccd145bb3ffe007561a83
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IronSights_Inv
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 925
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9635511176ade054ebf97055f7d4c48b
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RustyMagazine_Inv
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 909
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672ab319fd28af24c9a436d36f050810
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PumpLoader_Inv
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 934
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90430ce8beec0de4da09dc6a4365b762
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SawedOffBarrel_Inv
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 931
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13a6e2a5d60375d4c873403e78b25681
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapBarrel_Inv
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 932
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d599545ff1f34e34284137cc6a0c1eb5
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShellMagazine_Inv
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 932
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a111af025337d43889f721a43c2512
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shellrack_Inv
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 928
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed19bc61e8613bd489e2bf93b9548410
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallRustyMagazine_Inv
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 936
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eff15875f92ab64fbea193f39d78b73
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapSuppressor_Inv
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 931
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312fdcf84cbb9ce42946299eb32e43a7
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Generator_Wind
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 247
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83844a5bcf01f04f9500c95db93edf0
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Wall_Window
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 253
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2621138a0a237418d85beeaa109e06
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Wall_Door
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0065488d8c0f7849a25c5133632fc10
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Turret
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 249
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ce338186b106b479e8e08238317cae
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Battery_Station
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 520
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0407ab6b7c739646923683c731820de
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Server
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 520
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527f7417e74d0c4488f59453b4510c19
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Siren
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1329
+        width: 200
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b2b55dd0e5e534b961ca7367a1bb2a
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Special
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 772
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd340a7eaf8ff6439bd7a3db04016b5
+      internalID: -1690880546569447655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Power
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 788
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e12415e46fe1c64bb5dabf083e76772
+      internalID: 5771441939510871973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Refinement
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 950
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1751184d0b7894aaa354a257e10996
+      internalID: 4068433234517166164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Assets
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 950
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30009c7180a43794a9fc3e2473893441
+      internalID: 4091845368406525769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Extraction
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 788
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0061b8724114a5b41a52805cc819b729
+      internalID: 2352884069643921779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_LowTech
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 922
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df134d6c5b3cbd145b5e1592de049d44
+      internalID: 6313525262267272111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Loadout_Station
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 524
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d45a921c636324d9132ee2afe26cd4
+      internalID: -9141442830736947951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Nail_Shelf
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 506
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b74410d919fdc468724dbd7bef626c
+      internalID: 4367381586300876631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Scrap_Windmill
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 529
+        width: 210
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b581e0c6230081247a9974487db4264a
+      internalID: -8620508569568058477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Build_Architect_Table
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 519
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: debf7aeacaeb0454db14ad6008f6bad8
+      internalID: 7955149484839096682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Architecture
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 946
+        width: 117
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95aa7f8a92631a44d9f0043b8ef628c3
+      internalID: 5998721516582914030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1244
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e505427c992c5e7499ad453a4f4bb96c
+      internalID: 6313525262267272111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Potato
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1490
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e551f3cefe4b284b9556815327548d2
+      internalID: 7009611414837458016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Onion
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 1493
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076d7c64a50fbc04bb9991ea7ddcb18d
+      internalID: 1112905903654919798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Gooseberry
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1486
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b456c5b1329c33429e84914bb564b64
+      internalID: 3185639202913029599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Potato_Seed
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 1488
+        width: 113
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064fb3825473f444cb4d9d0c37123636
+      internalID: -2999692778293580709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Onion_Seed
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 1486
+        width: 113
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ed2283e826f5048984eec6af80fc14
+      internalID: -4413291638180827007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Gooseberry_Seed
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 1482
+        width: 113
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ba1f37b99a898498bf8e92a97817eb
+      internalID: -3815153079694342940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Soil
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 1436
+        width: 75
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b5850218472b74a8481a61acd829b4
+      internalID: -4847007847251426376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Building_Category_Icon_Agriculture
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 945
+        width: 130
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d75987daae5c940b4b30fe85ca0473
+      internalID: 5366166437498972779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Rock
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1240
+        width: 112
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba657801525a424eabbeb26d34c1565
+      internalID: -1348111749242379564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Stick
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1036
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d8aceb519319dc4ea751925cf1a7975
+      internalID: -6573118875471173539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Axe
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1052
+        width: 139
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6c2c9714684934883fe21f95bbff73
+      internalID: -899007126866553025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Potato_Baked
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1488
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2f26f1074f4be409b347f6df529ec4
+      internalID: -3075504715576281973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Magic_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 793
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8df5c2f9f246b049b20787f825537b3
+      internalID: 8272905724213410416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Magic_3
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 796
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d88fe122da3cfe438da35e3506f967d
+      internalID: -8990683261887202372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Magic_2
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 797
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370d07f0fdd775f47bef2524596f1f81
+      internalID: -3378944467514841367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Magic_1
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 797
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb270ca913110e147a5f422d5dc7a5b6
+      internalID: -2964374035118453169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Gold
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 798
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7192b91e04b495d48bf9ce3710809788
+      internalID: -4100487864052988826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Steel
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 799
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b967d0a175b2c8c479f044d00fd2960d
+      internalID: -8171365864071123500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Iron
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 799
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fd5789b2ba2c64aacc2b8fd8eafd7e
+      internalID: 3910048313498629603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ingot_Copper
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 798
+        width: 114
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78b29781f5fdfb4aa6f6e8615547ec9
+      internalID: -3959551556152656654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 793
+        width: 114
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5388719, y: 0.48021698}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6830528af5f60ea47aa735e46a0c7381
+      internalID: 8272905724213410416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 1049
+        width: 139
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4798c57332fd1414ea5c663913e833a9
+      internalID: -8990683261887202372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1048
+        width: 139
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1f49b41fb45654fb52be6a60e12aa7
+      internalID: -3378944467514841367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 53a242698c361a3459125d2843f363d6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

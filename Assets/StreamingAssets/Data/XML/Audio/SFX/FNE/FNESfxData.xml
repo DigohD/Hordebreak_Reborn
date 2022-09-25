@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_campfire_start</id>
+		<filePath>Data/XML/Audio/SFX/FNE/campfire_start_sfx.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_campfire_stop</id>
+		<filePath>Data/XML/Audio/SFX/FNE/campfire_stop_sfx.wav</filePath>	
+		<distance>1</distance>	
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_campfire_burning</id>
+		<filePath>Data/XML/Audio/SFX/FNE/campfire_burning_sfx.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_furnace_start</id>
+		<filePath>Data/XML/Audio/SFX/FNE/furnace_start_sfx.wav</filePath>	
+		<distance>1</distance>	
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_furnace_stop</id>
+		<filePath>Data/XML/Audio/SFX/FNE/furnace_stop_sfx.wav</filePath>	
+		<distance>1</distance>	
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_furnace_burning</id>
+		<filePath>Data/XML/Audio/SFX/FNE/furnace_burning_sfx.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_cement_mixer_start</id>
+		<filePath>Data/XML/Audio/SFX/FNE/cement_mixer_start.wav</filePath>	
+		<distance>1</distance>	
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_cement_mixer_stop</id>
+		<filePath>Data/XML/Audio/SFX/FNE/cement_mixer_end.wav</filePath>	
+		<distance>1</distance>	
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_cement_mixer_loop</id>
+		<filePath>Data/XML/Audio/SFX/FNE/cement_mixer_loop.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_excavator_channel</id>
+		<filePath>Data/XML/Audio/SFX/FNE/excavator_channel.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_excavator_complete</id>
+		<filePath>Data/XML/Audio/SFX/FNE/excavator_complete.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_excavator_loadup_fne</id>
+		<filePath>Data/XML/Audio/SFX/FNE/excavator_loadup.wav</filePath>		
+		<distance>1</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_build</id>
+		<filePath>Data/XML/Audio/SFX/FNE/build.wav</filePath>		
+		<distance>25</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_craft_wood</id>
+		<filePath>Data/XML/Audio/SFX/FNE/craft_wood.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_craft_stone</id>
+		<filePath>Data/XML/Audio/SFX/FNE/craft_stone.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_craft_metal</id>
+		<filePath>Data/XML/Audio/SFX/FNE/craft_metal.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_craft_cloth</id>
+		<filePath>Data/XML/Audio/SFX/FNE/craft_cloth.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_craft_weapon</id>
+		<filePath>Data/XML/Audio/SFX/FNE/craft_weapon.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_harvest_plant</id>
+		<filePath>Data/XML/Audio/SFX/FNE/harvest_plant.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_harvest_kryst_plant</id>
+		<filePath>Data/XML/Audio/SFX/FNE/harvest_kryst_plant.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_compound_discus_throw</id>
+		<filePath>Data/XML/Audio/SFX/FNE/compound_discus_throw.wav</filePath>		
+		<distance>5</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_compound_discus_explode</id>
+		<filePath>Data/XML/Audio/SFX/FNE/compound_discus_explode.wav</filePath>		
+		<distance>25</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_shepherd_death</id>
+		<filePath>Data/XML/Audio/SFX/FNE/shepherd_death.wav</filePath>		
+		<distance>25</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_wood_hit</id>
+		<filePath>Data/XML/Audio/SFX/FNE/wood_hit.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_metal_hit</id>
+		<filePath>Data/XML/Audio/SFX/FNE/metal_impact.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_concrete_hit</id>
+		<filePath>Data/XML/Audio/SFX/FNE/Concrete_Impact.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_zombie_death</id>
+		<filePath>Data/XML/Audio/SFX/FNE/zombie_death.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_zombie_death_big</id>
+		<filePath>Data/XML/Audio/SFX/FNE/zombie_death_big.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_zombie_hit</id>
+		<filePath>Data/XML/Audio/SFX/FNE/zombie_hit.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_shrubber_death</id>
+		<filePath>Data/XML/Audio/SFX/FNE/shrubber_death.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_player_hurt</id>
+		<filePath>Data/XML/Audio/SFX/FNE/Player_Hurt.wav</filePath>		
+		<distance>20</distance>
+	</DataDef>
+</Defs>

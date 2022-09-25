@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>water_edge</id>
+		<entityMeshData>mesh_water_edge</entityMeshData>
+		<entityTextureData>texture_city_factory_assets_abyss_wall_edge_view</entityTextureData>
+		<viewIsGameObject>false</viewIsGameObject>
+		<seeThrough>true</seeThrough>
+		<hittable>false</hittable>
+		<seeThroughRange>255</seeThroughRange>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_water_edge</id>
+		<meshPath>Data/XML/World/Tile/TileMaps/Mudplains/Water/WaterEdge.glb</meshPath>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_miscwalls_rod_fence_gate_l</id>
+		<blocking>false</blocking>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Rod Fence (Gate - 3 wide - Left)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>City</editorCategoryName>
+		<components>            	
+			<DataComponent xsi:type="DoorComponentData">
+				<openAnimationName>Open</openAnimationName>
+				<closeAnimationName>Close</closeAnimationName>
+				<!-- <openSFXRef>sfx_door_open</openSFXRef>
+				<closeSFXRef>sfx_door_close</closeSFXRef> -->
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>eo_city_miscwalls_rod_fence_gate_l_view</viewRef>
+		</entityViewVariations>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+        <viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_miscwalls_rod_fence_gate_l_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_city_miscwalls_rod_fence_gate_l_view</entityMeshData>
+		<entityTextureData>texture_city_miscwalls_rod_fence_gate_l_view</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>1</scaleMod>
+		<animations>
+			<AnimationData>
+				<animPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/CityMiscWalls_Rod_Fence_Gate_L.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_miscwalls_rod_fence_gate_l_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/CityMiscWalls_Rod_Fence_Gate_L.glb</meshPath>
+	</DataDef>
+    	
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_miscwalls_rod_fence_gate_l_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>MiscWalls_FenceGate_Albedo</albedoName>
+		<normalMapName>MiscWalls_FenceGate_Normal</normalMapName>
+		<maskMapName>MiscWalls_FenceGate_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

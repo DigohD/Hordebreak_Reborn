@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="EffectData">
+		<id>item_stone_throw_effect</id>
+		<delay>0.2</delay>
+		<sfxRef>sfx_rocks_hit_1</sfxRef>
+		<realEffectData xsi:type="ProjectileEffectData">
+			<lifetime>0.3</lifetime>
+			<speed>20.0</speed>
+			<pellets>1</pellets>
+			<damage>5.0</damage>
+			<inaccuracy>5.0</inaccuracy>
+			<targetsPlayers>true</targetsPlayers>
+			<targetsEnemies>true</targetsEnemies>
+			<projectileVfxRef>vfx_rusty_repeater_musket_proj</projectileVfxRef>
+			<onDeathEffectRef>rusty_pistol_projectile_death</onDeathEffectRef>
+			<damageTypeRef>projectile</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+</Defs>

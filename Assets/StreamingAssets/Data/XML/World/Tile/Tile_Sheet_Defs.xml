@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="TileSheetData">
+		<id>floor_tilemap</id>
+		<tileSheetPath>Texture/TileSheet/FloorTilemap</tileSheetPath>
+	</DataDef>
+
+	<DataDef xsi:type="TileSheetData">
+		<id>wilderness_tilemap</id>
+		<tileSheetPath>Texture/TileSheet/Wilderness_Floor_Tilemap</tileSheetPath>
+		<lootableObjects>
+			<LootableObjectData>
+				<objectRef>scrap_pile</objectRef>
+				<spawnFactor>0.75</spawnFactor>
+			</LootableObjectData>
+			<LootableObjectData>
+				<objectRef>car_wreck</objectRef>
+				<spawnFactor>1.5</spawnFactor>
+			</LootableObjectData>
+			<LootableObjectData>
+				<objectRef>rusty_pod</objectRef>
+				<spawnFactor>2.0</spawnFactor>
+			</LootableObjectData>
+			<LootableObjectData>
+				<objectRef>wild_safe</objectRef>
+				<spawnFactor>3.0</spawnFactor>
+			</LootableObjectData>
+		</lootableObjects>
+	</DataDef>
+
+	<DataDef xsi:type="TileSheetData">
+		<id>editor_tilemap</id>
+		<tileSheetPath>Texture/TileSheet/Editor_Tilemap</tileSheetPath>
+	</DataDef>
+
+</Defs>

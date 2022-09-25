@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- =============== STONE BRICK TILES =============== -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_small_stone_brick</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Small_Stone_Bricks_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Small_Stone_Bricks_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Small_Stone_Bricks_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000000</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>tile_site_large_stone_brick</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Large_Stone_Bricks_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Large_Stone_Bricks_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Large_Stone_Bricks_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000011</mapColor>
+		<chanceToSpawnTileObject>50</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>tile_site_fulltile_stone_brick</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Full_Stone_Tile_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Full_Stone_Tile_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/StoneTiles/Full_Stone_Tile_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<mapColor>#000022</mapColor>
+		<hardEdges>true</hardEdges>
+		<chanceToSpawnTileObject>100</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+	<!-- ================================================= -->
+
+	<!-- ================= ASPHALT TILES ================= -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000033</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_horizontal</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Horizontal_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000044</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_horizontal_left_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Horizontal_Left_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000055</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_horizontal_right_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Horizontal_Right_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000066</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_vertical</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Vertical_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000077</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_vertical_bottom_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Vertical_Bottom_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000088</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_line_vertical_top_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Line_Vertical_Top_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000099</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_left_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Left_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000aa</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_right_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Right_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000bb</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_top_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Top_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000cc</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_asphalt_bottom_stop</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Bottom_Stop_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Asphalt/Asphalt_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000dd</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+	<!-- ================================================= -->
+
+	<!-- ================= CARPET TILES ================= -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_carpet_1</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_1_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000ee</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_carpet_2</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_2_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0000ff</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_carpet_3</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_3_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001100</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_carpet_4</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_4_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Carpet/Carpet_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001111</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+
+	<!-- ===================================================== -->
+
+	<!-- ================= FACTORY FLOOR TILES ================= -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_factory_floor_1</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_1_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_1_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001122</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_factory_floor_2</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_2_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_2_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001133</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_factory_floor_3</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_3_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_3_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/FactoryFloor/Factory_Floor_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001144</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+	<!-- ===================================================== -->
+	
+	<!-- ================= WOOD FLOOR TILES ================= -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_wood_floor_1</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_1_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_1_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_1_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001155</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_wood_floor_2</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_2_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_2_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_2_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001166</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_wood_floor_3</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_3_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_3_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/WoodenFloor/Wood_Floor_3_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001177</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+	<!-- ===================================================== -->
+
+	<!-- ================= CONCRETE TILES ================= -->
+
+    <DataDef xsi:type="TileData">
+		<id>tile_site_concrete_polished</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001188</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_concrete_polished_road</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Road_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Road_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Road_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#001199</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_concrete_polished_person_path</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Person_Path_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Person_Path_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Polished_Person_Path_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0011aa</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+    <DataDef xsi:type="TileData">
+		<id>tile_site_concrete_rough</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Rough_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Rough_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Sites/Concrete/Concrete_Rough_Normal.png</normalpath>
+		<overlapPriority>42</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#0011bb</mapColor>
+		<chanceToSpawnTileObject>0</chanceToSpawnTileObject>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef> <!-- Change this later -->
+	</DataDef>
+	
+	<!-- ===================================================== -->
+
+</Defs>

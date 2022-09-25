@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_wood_wall</id>
+		<pathingCost>20</pathingCost>
+		<heatTransferFactor>0.95</heatTransferFactor>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>T1 Base Wall</editorName>
+		<editorCategoryName>T1 Walls</editorCategoryName>
+		<onHitEffectPath>Prefabs/VFX/HitEffects/ZombieHitEffect</onHitEffectPath>
+		<onDeathEffectPath>Prefabs/VFX/StructureDeath/WallDeath</onDeathEffectPath>
+		<entityViewVariations>
+			<!-- <viewRef>eo_wood_wall_view_1</viewRef>
+			<viewRef>eo_wood_wall_view_2</viewRef>
+			<viewRef>eo_wood_wall_view_3</viewRef> -->
+			<viewRef>eo_wood_wall_view_4</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1000</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>addon_wood_wall_door</addonRef>
+				</addonRefs>
+			</DataComponent>
+			
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>1</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_log</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<roomPropertyRefs>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+		<isMountable>true</isMountable>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>eo_wood_wall_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_wood_wall_view_1</entityMeshData>
+        <scaleMod>0.001</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_wood_wall_view_2</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_wood_wall_view_2</entityMeshData>
+        <scaleMod>0.001</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_wood_wall_view_3</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_wood_wall_view_3</entityMeshData>
+        <scaleMod>0.001</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_wood_wall_view_4</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_wood_wall_view_4</entityMeshData>
+        <scaleMod>0.01</scaleMod>
+		<onHitEffectRef>effect_entity_hit_wood</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_wood_wall_door</id>
+		<requiredMaterials>
+			
+		</requiredMaterials>
+		<productRef>eo_wood_wall_door</productRef>
+		<nameRef>building_wood_wall_door_name</nameRef>
+		<iconRef>wood_wall_door_icon</iconRef>
+		<addonColor>#00ffff</addonColor>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 319962686
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f8fcb88d4ffb85ea05b4401f19cfcc15
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Office/Office_Assets_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Office/Office_Assets_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Office/Office_Assets_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Office/Office_Assets_Normal.png
+Dependencies: []

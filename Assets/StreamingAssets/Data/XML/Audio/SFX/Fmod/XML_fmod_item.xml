@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+	<!-- Hard Item Sounds -->
+
+	<!-- Bag of small semi-hard objects -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_1_small_objects</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup1.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_1_small_objects</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown1.wav</filePath>		
+	</DataDef>
+
+	<!-- Metal pipe / small metal sheet -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_2_metal_pipe</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup2.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_2_metal_pipe</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown2.wav</filePath>		
+	</DataDef>
+
+	<!-- Books / Papers -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_3_papers</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup3.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_3_papers</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown3.wav</filePath>		
+	</DataDef>
+
+	<!-- Paper baggy sound -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_4_paper_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup4.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_4_paper_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown4.wav</filePath>		
+	</DataDef>
+
+	<!-- Plastic container sound -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_5_plastic</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup5.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_5_plastic</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown5.wav</filePath>		
+	</DataDef>
+
+	<!-- Small metal/plastic object -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_6_small_plastic</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup6.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_6_small_plastic</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown6.wav</filePath>		
+	</DataDef>
+
+	<!-- Damp sound, almost like a stone dimping into grass -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_7_damp</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup7.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_7_damp</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown7.wav</filePath>		
+	</DataDef>
+
+	<!-- Handful of screws -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_8_screws</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup8.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_8_screws</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown8.wav</filePath>		
+	</DataDef>
+
+	<!-- Wood -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup_9_wood</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Pickup9.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown_9_wood</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Hard_Laydown9.wav</filePath>		
+	</DataDef>
+
+	<!-- Soft Item Sounds -->
+
+	<!-- Laptop bag with metal details -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_1_bag_with_metal_details</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup1.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_1_bag_with_metal_details</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown1.wav</filePath>		
+	</DataDef>
+
+	<!-- Medium bag -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_2_medium_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup2.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_2_medium_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown2.wav</filePath>		
+	</DataDef>
+
+	<!-- Heavy bag -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_3_heavy_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup3.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_3_heavy_bag</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown3.wav</filePath>		
+	</DataDef>
+
+	<!-- Military gear -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_4_military_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup4.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_4_military_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown4.wav</filePath>		
+	</DataDef>
+
+	<!-- Leather gear -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_5_leather_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup5.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_5_leather_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown5.wav</filePath>		
+	</DataDef>
+
+	<!-- Cardboard -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_6_cardboard</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup6.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_6_cardboard</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown6.wav</filePath>		
+	</DataDef>
+
+	<!-- Rubbery gear -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_7_rubbery_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Pickup7.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_7_rubbery_gear</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Soft_Laydown7.wav</filePath>		
+	</DataDef>
+
+	<!-- Cloth -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup_8_cloth</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Clothes_Pickup.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown_8_cloth</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Clothes_Laydown.wav</filePath>		
+	</DataDef>
+
+	<!-- Squishy Item Sounds -->
+
+	<!-- Squishy big -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_bio_pickup_1_squishy_big</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Bio_Pickup1.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_bio_laydown_1_squishy_big</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Bio_Laydown1.wav</filePath>		
+	</DataDef>
+
+	<!-- Squishy smaller -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_item_bio_pickup_2_squishy_smaller</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Bio_Pickup2.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_bio_laydown_2_squishy_smaller</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Bio_Laydown2.wav</filePath>		
+	</DataDef>
+
+</Defs>

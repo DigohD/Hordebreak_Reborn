@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>player_hair_option_1_view</id>
+		<entityMeshData>hair_option_1</entityMeshData>
+		<entityTextureData>texture_player_hair</entityTextureData>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>hair_option_1</id>
+		<meshPath>Data/XML/Entity/Player/PlayerMesh/Hair/Option1/PlayerChar_Default_Hair.gltf</meshPath>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_player_hair</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>PlayerCharTxBake_low_Hair_BaseColor</albedoName>
+		<normalMapName>PlayerCharTxBake_low_Hair_Normal</normalMapName>
+		<maskMapName>PlayerCharTxBake_low_Hair_MaskMap</maskMapName>
+	</DataDef>
+	
+</Defs>

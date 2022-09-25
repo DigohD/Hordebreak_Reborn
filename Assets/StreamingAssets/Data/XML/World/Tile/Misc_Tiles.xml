@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="TileData">
+		<id>default_tile</id>
+		<category>constructed</category>
+		<albedopath>Data/Xml/World/Tile/TileMaps/DefaultAlbedo.png</albedopath>
+		<normalpath>Data/Xml/World/Tile/TileMaps/DefaultNormal.png</normalpath>
+		<maskmappath>Data/Xml/World/Tile/TileMaps/DefaultMask.png</maskmappath>
+		<overlapPriority>0</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#ff00ff</mapColor>
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>transparent_tile</id>
+		<category>constructed</category>
+		<overlapPriority>0</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#FFFF00</mapColor>
+		<isTransparent>true</isTransparent>
+		<TransparentTileData>
+			<edgeMeshRef>eo_city_brick_wall_dark_var_1_view</edgeMeshRef>
+			<tileHeightOffset>2</tileHeightOffset>
+		</TransparentTileData>
+		<isBlocking>true</isBlocking>
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>transparent_tile_2</id>
+		<category>constructed</category>
+		<overlapPriority>0</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#000000</mapColor>
+		<isTransparent>true</isTransparent>
+		<TransparentTileData>
+			<edgeMeshRef>eo_city_factory_assets_abyss_wall_edge_view</edgeMeshRef>
+			<tileHeightOffset>-4.5</tileHeightOffset>
+		</TransparentTileData>
+		<isBlocking>true</isBlocking>
+	</DataDef>
+	
+	<DataDef xsi:type="TileData">
+		<id>transparent_tile_3</id>
+		<category>constructed</category>
+		<overlapPriority>0</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#66FFFF</mapColor>
+		<isTransparent>true</isTransparent>
+		<isBlocking>true</isBlocking>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="RoomResourceData">
+      <id>room_power</id>
+      <nameRef>room_power_name</nameRef>
+	    <iconRef>power_icon</iconRef>
+    </DataDef>
+
+    <DataDef xsi:type="RoomResourceData">
+      <id>room_water</id>
+      <nameRef>room_water_name</nameRef>
+	    <iconRef>water_icon</iconRef>
+    </DataDef>
+
+</Defs>

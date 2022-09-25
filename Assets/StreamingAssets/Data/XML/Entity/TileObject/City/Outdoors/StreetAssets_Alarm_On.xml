@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_streetassets_alarm_on</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Alarm (On)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_streetassets_alarm_on_view</viewRef>
+		</entityViewVariations>
+		<components>
+			<DataComponent xsi:type="InteractionEventComponentData">
+                <transformedEntityRef>to_city_streetassets_alarm_off</transformedEntityRef>
+ 			</DataComponent>
+		</components>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_streetassets_alarm_on_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<isTransparent>true</isTransparent> <!-- For sidewalk edge -->
+		<entityMeshData>mesh_city_streetassets_alarm_on_view</entityMeshData>
+		<entityTextureData>texture_city_streetassets_alarm_on_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+		
+		<entityLightSourceData>
+			<lightType>Point</lightType>
+			<intensity>200</intensity>
+			<range>3</range>
+			<color>#FF0000</color>
+			<offsetX>0</offsetX>
+			<offsetY>1.87</offsetY>
+			<offsetZ>-0.19</offsetZ>
+			
+			<flickerIntensity>1</flickerIntensity>
+			<flickerSmoothness>0</flickerSmoothness>
+			<flickerIntervalMin>1</flickerIntervalMin>
+			<flickerIntervalMax>1</flickerIntervalMax>
+		</entityLightSourceData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_alarm_on_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Outdoors/StreetAssets_Alarm.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_alarm_on_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Alarm_Albedo</albedoName>
+		<normalMapName>StreetAssets_Alarm_Normal</normalMapName>
+		<maskMapName>StreetAssets_Alarm_MaskMap</maskMapName>
+		<emissiveMapName>Setpiece_Robot_monument_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

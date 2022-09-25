@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_industrial_wall_carport_r</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>Industrial Wall (Carport R)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Industrial Walls (Standard)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_industrial_wall_carport_r_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_industrial_wall_carport_r_view</id>
+		<entityMeshData>mesh_city_industrial_wall_carport_r_view</entityMeshData>
+		<entityTextureData>texture_city_industrial_wall_carport_r_view</entityTextureData>
+		<viewIsGameObject>false</viewIsGameObject>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_industrial_wall_carport_r_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Industrial/IndustrialWall_Carport_R.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_industrial_wall_carport_r_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_industrialwall</assetBundlePath>
+		<albedoName>IndustrialWall_Albedo</albedoName>
+		<normalMapName>IndustrialWall_Normal</normalMapName>
+		<maskMapName>IndustrialWall_MaskMap</maskMapName>
+		<emissiveMapName>IndustrialWall_Emissive_Closed</emissiveMapName>
+	</DataDef>
+
+</Defs>

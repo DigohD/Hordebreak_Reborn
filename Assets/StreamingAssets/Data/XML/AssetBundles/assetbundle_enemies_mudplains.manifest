@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 236717297
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 59ce742252cae9d53dbe3c90d11a1e2f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/ForestShepherd/ForestShepherd_low_Shepherd_Normal.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/DefaultZombie/ZombieComplete_CompleteBody_AlbedoTransparency2.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/BigZombie/BigZombie_BigZombie_Normal.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/DefaultZombie/ZombieComplete_CompleteBody_Normal.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/DefaultZombie/ZombieComplete_CompleteBody_MetallicSmoothness.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/Shrubber/Shrubber_low_Shrubber_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/BigZombie/BigZombie_BigZombie_MetallicSmoothness.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/Shrubber/Shrubber_low_Shrubber_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/Shrubber/Shrubber_low_Shrubber_Normal.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/ForestShepherd/ForestShepherd_low_Shepherd_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/BigZombie/BigZombie_BigZombie_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/ForestShepherd/ForestShepherd_low_Shepherd_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/BigZombie/BigZombie_BigZombie_Emission.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/Shrubber/Shrubber_low_Shrubber_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/DefaultZombie/ZombieComplete_CompleteBody_Emission.png
+- Assets/Resources/AssetBundles/Textures/Enemies/Mudplains/ForestShepherd/ForestShepherd_low_Shepherd_Emissive.png
+Dependencies: []

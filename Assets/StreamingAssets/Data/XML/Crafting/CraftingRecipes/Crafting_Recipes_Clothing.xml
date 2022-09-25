@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_start_jacket</id>
+		<productRef>armor_start_gear_jacket</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_cloth</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>16</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_start_pants</id>
+		<productRef>armor_start_gear_pants</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_cloth</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>12</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_start_boots</id>
+		<productRef>armor_start_gear_boots</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_cloth</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_hi_tech_jacket</id>
+		<productRef>armor_hi_tech_chest</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>armor_start_gear_jacket</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>6</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_hi_tech_pants</id>
+		<productRef>armor_hi_tech_pants</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>armor_start_gear_pants</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>5</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>6</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_hi_tech_boots</id>
+		<productRef>armor_hi_tech_boots</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>armor_start_gear_boots</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_hi_tech_helmet</id>
+		<productRef>armor_hi_tech_helmet</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>5</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="CraftingRecipeData">
+		<id>crafting_hi_tech_gloves</id>
+		<productRef>armor_hi_tech_gloves</productRef>
+		<productAmount>1</productAmount>
+		<craftSFXRef>sfx_craft_weapon</craftSFXRef>
+		<craftVFXRef>vfx_crafting</craftVFXRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_cloth</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+</Defs>
+

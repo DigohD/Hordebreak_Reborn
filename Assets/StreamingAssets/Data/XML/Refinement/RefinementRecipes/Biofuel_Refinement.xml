@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_biofuel</id>
+		<processNameRef>refine_biofuel_name</processNameRef>
+		<processDescriptionRef>refine_biofuel_info</processDescriptionRef>
+		<processIconRef>biofuel_icon</processIconRef>
+		<processTime>30</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_budroot</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_budroot_baked</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+</Defs>

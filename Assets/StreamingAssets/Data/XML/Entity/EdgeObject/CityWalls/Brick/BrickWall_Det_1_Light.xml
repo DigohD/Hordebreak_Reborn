@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_brick_wall_light_det_1</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>Brick Wall (Vent)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Brick Walls (Light)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_brick_wall_light_det_1_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_brick_wall_light_det_1_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_brick_wall_light_det_1</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_light_det_1</entityTextureData>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_light_det_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Det_1.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_light_det_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo_Beige</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

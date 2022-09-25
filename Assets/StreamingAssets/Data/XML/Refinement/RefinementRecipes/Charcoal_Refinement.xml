@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_charcoal</id>
+		<processNameRef>refinement_charcoal_name</processNameRef>
+		<processDescriptionRef>refinement_charcoal_info</processDescriptionRef>
+		<processIconRef>charcoal_icon</processIconRef>
+		<processTime>15</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_charcoal</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+</Defs>

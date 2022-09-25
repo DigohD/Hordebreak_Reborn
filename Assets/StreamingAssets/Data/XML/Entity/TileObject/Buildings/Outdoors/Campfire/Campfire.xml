@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>campfire</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Campfire</editorName>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<!--<DataComponent xsi:type="RefinementComponentData">
+				<burnGradeRef>burnable_one</burnGradeRef>
+				<recipes>
+				
+				</recipes>
+				<startSFXRef>sfx_campfire_start</startSFXRef>
+				<stopSFXRef>sfx_campfire_stop</stopSFXRef>
+				<activeSFXLoopRef>sfx_campfire_burning</activeSFXLoopRef>
+			</DataComponent>-->
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_campfire_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_campfire_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+        <emissiveColor>#FFAA00</emissiveColor>
+        <scaleMod>0.001</scaleMod>
+
+		<entityMeshData>mesh_campfire_view</entityMeshData>
+		
+	</DataDef>
+    
+</Defs>

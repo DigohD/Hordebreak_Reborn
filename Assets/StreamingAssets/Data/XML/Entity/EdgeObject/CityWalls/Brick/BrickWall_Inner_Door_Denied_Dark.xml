@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_brick_wall_dark_door_inner_denied</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>Brick Wall (Inner Door Unusable)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Brick Walls (Dark)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_brick_wall_dark_door_inner_denied_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_brick_wall_dark_door_inner_denied_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_brick_wall_dark_door_inner_denied</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_dark_door_inner_denied</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_dark_door_inner_denied</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Inner_Door.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_dark_door_inner_denied</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo_Grey</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+		<emissiveMap>BrickWall_Emissive_AccessDenied</emissiveMap>
+	</DataDef>
+
+</Defs>

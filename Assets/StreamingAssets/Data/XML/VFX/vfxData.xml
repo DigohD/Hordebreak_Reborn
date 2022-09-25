@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_build_tile_object</id>
+		<prefabPath>Prefab/Effects/VFX_Build_Tile_Object</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_build_tile</id>
+		<prefabPath>Prefab/Effects/VFX_Build_Tile</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_build_edge_object</id>
+		<prefabPath>Prefab/Effects/VFX_Build_Edge_Object</prefabPath>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_mjolnir</id>
+		<prefabPath>Prefab/Effects/VFX_Mjolnir_Lightning</prefabPath>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_campfire</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>FireAndSmoke_V2</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_teleport</id>
+		<prefabPath>Prefab/Effects/VFX_Teleport</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_morning_mist</id>
+		<prefabPath>Prefab/Effects/DayNight_TileEffects/Mist/Morning_Mist</prefabPath>
+		<lifetime>120</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_fireflies</id>
+		<prefabPath>Prefab/Effects/DayNight_TileEffects/Fireflies/Night_Fireflies</prefabPath>
+		<lifetime>60</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_placeholder_enemy_death</id>
+		<prefabPath>Prefab/Effects/ShurikenEnemy/ShepherdDeath</prefabPath>
+		<lifetime>3</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_placeholder_enemy_hit</id>
+		<prefabPath>Prefab/Effects/ShurikenEnemy/EnemyHit2</prefabPath>
+		<lifetime>0.5</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_entity_hit_wood</id>
+		<prefabPath>Prefab/Effects/VFX/HitEffects/WoodHitPrefab</prefabPath>
+		<lifetime>1.5</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_entity_hit_metal</id>
+		<prefabPath>Prefab/Effects/VFX/HitEffects/MetalHitPrefab</prefabPath>
+		<lifetime>1</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_entity_hit_concrete</id>
+		<prefabPath>Prefab/Effects/VFX/HitEffects/ConcreteHitPrefab</prefabPath>
+		<lifetime>1.5</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_tile_debug</id>
+		<prefabPath>Prefab/Effects/VFX_Tile_Debug</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_tile_debug2</id>
+		<prefabPath>Prefab/Effects/VFX_Tile_Debug2</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_tile_debug3</id>
+		<prefabPath>Prefab/Effects/VFX_Tile_Debug3</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_foot_step</id>
+		<prefabPath>Prefab/Effects/Playuer/FootStep</prefabPath>
+	</DataDef>
+  
+	<DataDef xsi:type="VFXData">
+		<id>vfx_bush</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>Bush_VFX</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_crystberry_harvest</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<!-- <effectName>CrystberryHarvest_VFX</effectName> -->
+		<!-- <effectName>CrystberryHarvest_VFX_V2</effectName> -->
+		<effectName>CrystberryHarvest_VFX_V3</effectName>
+		<lifetime>3</lifetime>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_groundpoof</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>GroundPoof_VFX</effectName>
+		<lifetime>3</lifetime>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_plantpoof</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>PlantPoof_VFX_V2</effectName>
+		<lifetime>3</lifetime>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rocksplinters</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>RockSplinters_VFX_V2</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_tilecreation</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>TileCreation_VFX_V2</effectName>
+		<lifetime>3</lifetime>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_wallcreation</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>WallCreation_VFX_V2</effectName>
+		<lifetime>3</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_furnace</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>FireAndSmoke_V3</effectName>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_compound_discus_explosion</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>CompoundDiscus_Explosion_v2</effectName>
+		<heightPosition>1.0</heightPosition>
+		<lifetime>3.2</lifetime>
+		<lightData>
+			<range>10</range>
+			<intensity>200</intensity>
+			<startColor>#FACC88</startColor>
+			<endColor>#EA55FF</endColor>
+			<fadeTime>0.6</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_compound_discus_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>CompoundDiscus_Projectile</effectName>
+		<effectScale>3.0</effectScale>
+		<heightPosition>1.0</heightPosition>
+		<lifetime>0.5</lifetime>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_stone_object_hit</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>RockSplinters_VFX_V2</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_stone_object_destroyed</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>RockSplinters_VFX_V2</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_wood_object_hit</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>RockSplinters_VFX_V2</effectName>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_wood_object_destroyed</id>
+		<assetBundleName>vfx01</assetBundleName>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<effectName>RockSplinters_VFX_V2</effectName>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_pistol_muzzleflash</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>RustyPistol_Muzzle</effectName>
+		<lifetime>0.1</lifetime>
+		<lightData>
+			<range>0.6</range>
+			<intensity>100</intensity>
+			<startColor>#FFFFCC</startColor>
+			<endColor>#FFFFAA</endColor>
+			<fadeTime>0.09</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_pistol_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>RustyPistol_Projectile</effectName>
+		<lifetime>1</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_machinegun_muzzleflash</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>SalvageMachinegun_Muzzle</effectName>
+		<effectScale>1.5</effectScale>
+		<lifetime>0.08</lifetime>
+		<lightData>
+			<range>0.7</range>
+			<intensity>100</intensity>
+			<startColor>#FFFFCC</startColor>
+			<endColor>#FFFFAA</endColor>
+			<fadeTime>0.08</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_machinegun_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>SalvageMachinegun_Projectile</effectName>
+		<effectScale>1</effectScale>
+		<lifetime>0.5</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_repeater_musket_muzzlefire</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>RustyRepeaterMusket_Muzzle</effectName>
+		<lifetime>1.0</lifetime>
+		<lightData>
+			<range>1</range>
+			<intensity>175</intensity>
+			<startColor>#FFFFCC</startColor>
+			<endColor>#FFFFAA</endColor>
+			<fadeTime>0.12</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_repeater_musket_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>RustyRepeaterMusket_Projectile</effectName>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_shotgun_muzzle</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>SalvageShotgun_Muzzle</effectName>
+		<lifetime>1.0</lifetime>
+		<lightData>
+			<range>1</range>
+			<intensity>175</intensity>
+			<startColor>#FFFFCC</startColor>
+			<endColor>#FFFFAA</endColor>
+			<fadeTime>0.12</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_shotgun_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>SalvageShotgun_Projectile</effectName>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_energy_explosion</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Energy_Hit</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>0.7</effectScale>
+		<lifetime>1.0</lifetime>
+		<lightData>
+			<range>4</range>
+			<intensity>500</intensity>
+			<startColor>#ADFFFF</startColor>
+			<endColor>#1C4157</endColor>
+			<fadeTime>0.3</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_energy_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Energy_Orb_Projectile</effectName>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_energy_lancer_muzzle</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Energy_Lancer_Muzzle_vfx</effectName>
+		<lifetime>1.0</lifetime>
+		<effectScale>0.3</effectScale>
+		<lightData>
+			<range>5</range>
+			<intensity>200</intensity>
+			<startColor>#ADFFFF</startColor>
+			<endColor>#1C4157</endColor>
+			<fadeTime>0.12</fadeTime>
+		</lightData>
+	</DataDef>
+	
+	<DataDef xsi:type="VFXData">
+		<id>vfx_explosion</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Effects_Explosion_vfx</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>0.4</effectScale>
+		<lifetime>5.0</lifetime>
+		<lightData>
+			<range>5</range>
+			<intensity>600</intensity>
+			<startColor>#FCA503</startColor>
+			<endColor>#9E4210</endColor>
+			<fadeTime>0.3</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_explosive_projectile</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_explolauncher_projectile_vfx</effectName>
+		<lifetime>1.0</lifetime>
+		<effectScale>0.5</effectScale>
+		<lightData>
+			<range>3</range>
+			<intensity>200</intensity>
+			<startColor>#FCA503</startColor>
+			<endColor>#9E4210</endColor>
+			<fadeTime>4</fadeTime>
+		</lightData>
+	</DataDef>
+
+		<DataDef xsi:type="VFXData">
+		<id>vfx_explolauncher_muzzle</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Explolauncher_muzzle_vfx</effectName>
+		<lifetime>1.0</lifetime>
+		<effectScale>0.3</effectScale>
+		<lightData>
+			<range>5</range>
+			<intensity>400</intensity>
+			<startColor>#FCA503</startColor>
+			<endColor>#9E4210</endColor>
+			<fadeTime>0.12</fadeTime>
+		</lightData>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_shrubber_death</id>
+		<screenShake>3</screenShake>
+		<vfxRef>vfx_shrubber_death</vfxRef>
+		<sfxRef>sfx_shrubber_death</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_shrubber_death</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>ShrubberDeath</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_shrubber_on_hit</id>
+		<screenShake>2</screenShake>
+		<vfxRef>vfx_shrubber_on_hit</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_shrubber_on_hit</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Shrubber_OnHit</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_alarm_init</id>
+		<screenShake>0</screenShake>
+		<vfxRef>vfx_alarm_init</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_alarm_init</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Alarm_Init</effectName>
+		<heightPosition>1.7</heightPosition>
+		<effectScale>2</effectScale>
+		<lifetime>1.0</lifetime>
+		<!-- <entityLightSourceData>
+			<intensity>50</intensity>
+			<range>20</range>
+			<color>#FDCC99</color>
+			<offsetX>0</offsetX>
+			<offsetY>2</offsetY>
+			<offsetZ>0</offsetZ>
+			<flickerIntensity>1</flickerIntensity>
+			<flickerSmoothness>10</flickerSmoothness>
+			<flickerIntervalMin>1</flickerIntervalMin>
+			<flickerIntervalMax>1</flickerIntervalMax>
+    	</entityLightSourceData> -->
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_alarm_active</id>
+		<screenShake>0</screenShake>
+		<vfxRef>vfx_shrubber_on_hit</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_alarm_active</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Alarm_Active</effectName>
+		<heightPosition>1.7</heightPosition>
+		<effectScale>2</effectScale>
+		<lifetime>1.0</lifetime>
+		<!-- <entityLightSourceData>
+			<intensity>50</intensity>
+			<range>20</range>
+			<color>#FDCC99</color>
+			<offsetX>0</offsetX>
+			<offsetY>2</offsetY>
+			<offsetZ>0</offsetZ>
+			<flickerIntensity>1</flickerIntensity>
+			<flickerSmoothness>10</flickerSmoothness>
+			<flickerIntervalMin>1</flickerIntervalMin>
+			<flickerIntervalMax>1</flickerIntervalMax>
+    	</entityLightSourceData> -->
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_zombie_on_hit</id>
+		<screenShake>2</screenShake>
+		<vfxRef>vfx_zombie_on_hit</vfxRef>
+		<sfxRef>sfx_zombie_hit</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_zombie_on_hit</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Zombie_OnHit</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_zombie_death</id>
+		<screenShake>1.5</screenShake>
+		<vfxRef>vfx_zombie_death</vfxRef>
+		<sfxRef>sfx_zombie_death</sfxRef>
+		<hasBlood>true</hasBlood>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_zombie_death</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Zombie_Death</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_big_zombie_death</id>
+		<screenShake>4</screenShake>
+		<vfxRef>vfx_big_zombie_death</vfxRef>
+		<hasBlood>true</hasBlood>
+		<sfxRef>sfx_zombie_death_big</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_big_zombie_death</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>BigZombie_Death</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_crafting</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>FNZ_Crafting_VFX</effectName>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>0.3</effectScale>
+		<lifetime>1.0</lifetime>
+	</DataDef>
+
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_player_on_hit</id>
+		<screenShake>2</screenShake>
+		<vfxRef>vfx_player_on_hit</vfxRef>
+		<sfxRef>sfx_player_hurt</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_player_on_hit</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>Player_OnHit</effectName>
+		<heightPosition>1.5</heightPosition>
+		<effectScale>1</effectScale>
+		<lifetime>0.4</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_simple_safety_gun_muzzle</id>
+		<assetBundlePath>Data/XML/AssetBundles/vfx01</assetBundlePath>
+		<assetBundleName>vfx01</assetBundleName>
+		<effectName>SimpleSafetyGun_Muzzle</effectName>
+		<lifetime>0.2</lifetime>
+		<lightData>
+			<range>0.3</range>
+			<intensity>100</intensity>
+			<startColor>#AACCFF</startColor>
+			<endColor>#AACCFF</endColor>
+			<fadeTime>0.1</fadeTime>
+		</lightData>
+	</DataDef>
+		
+</Defs>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef xsi:type="WorldEventData">
+		<id>event_survival</id>
+        <eventType>Survival</eventType>
+        <onSuccessEventRef>event_survival_success</onSuccessEventRef>
+        <onFailureEventRef>event_survival_failure</onFailureEventRef>
+        <playerRangeRadius>8</playerRangeRadius>
+        <spawnRadius>50</spawnRadius>
+        <duration>60</duration>
+        <spawnFrequency>1</spawnFrequency>
+        <spawnBudget>15</spawnBudget>
+        <nameRef>event_point_survival_title</nameRef>
+        <descriptionRef>event_point_survival_description</descriptionRef>
+        <difficulty>2</difficulty>
+        <effectRef>effect_alarm_init</effectRef>
+        <enemies>
+            <EnemySpawnData>
+                <enemyRef>zombie_big</enemyRef>
+                <weight>1</weight>
+            </EnemySpawnData>
+            <EnemySpawnData>
+                <enemyRef>default_zombie</enemyRef>
+                <weight>50</weight>
+            </EnemySpawnData>
+        </enemies>
+        <rewards>
+            <itemRef>item_circuitboard</itemRef>
+        </rewards>
+	</DataDef>
+
+    <DataDef xsi:type="WorldEventData">
+		<id>event_survival_success</id>
+        <eventType>ReplaceTileObject</eventType>
+        <transformedEntityRef>to_city_streetassets_terminal_event_success</transformedEntityRef>
+        <effectRef>effect_kryst_berry_harvest</effectRef>
+    </DataDef>
+
+    <DataDef xsi:type="WorldEventData">
+		<id>event_survival_failure</id>
+        <eventType>ReplaceTileObject</eventType>
+        <transformedEntityRef>to_city_streetassets_terminal_event</transformedEntityRef>
+        <effectRef>effect_rock_harvest</effectRef>
+	</DataDef>
+
+
+    <!--  Big site event  -->
+
+    <DataDef xsi:type="WorldEventData">
+		<id>big_event_survival</id>
+        <eventType>Survival</eventType>
+        <onSuccessEventRef>event_survival_success</onSuccessEventRef>
+        <onFailureEventRef>event_survival_failure</onFailureEventRef>
+        <playerRangeRadius>14</playerRangeRadius>
+        <spawnRadius>80</spawnRadius>
+        <duration>200</duration>
+        <spawnFrequency>3</spawnFrequency>
+        <spawnBudget>200</spawnBudget>
+        <nameRef>event_point_survival_title</nameRef>
+        <descriptionRef>event_point_survival_description</descriptionRef>
+        <difficulty>4</difficulty>
+        <effectRef>effect_alarm_init</effectRef>
+        <enemies>
+            <EnemySpawnData>
+                <enemyRef>zombie_big</enemyRef>
+                <weight>1</weight>
+            </EnemySpawnData>
+            <EnemySpawnData>
+                <enemyRef>default_zombie_v2</enemyRef>
+                <weight>100</weight>
+            </EnemySpawnData>
+        </enemies>
+        <rewards>
+            <itemRef>item_circuitboard</itemRef>
+            <itemRef>item_steel_ingot</itemRef>
+        </rewards>
+	</DataDef>
+
+     <!--  Shrubber Ambush  -->
+
+    <DataDef xsi:type="WorldEventData">
+		<id>shrubber_ambush_event</id>
+        <eventType>ConstantSpawningAmbush</eventType>
+        <spawnRadius>10</spawnRadius>
+        <duration>10</duration>
+        <spawnFrequency>0.5</spawnFrequency>
+        <spawnBudget>5</spawnBudget>
+        <enemySpawnEffectRef>effect_kryst_berry_harvest</enemySpawnEffectRef>
+        <nameRef>event_point_survival_title</nameRef>
+        <descriptionRef>event_point_survival_description</descriptionRef>
+        <difficulty>2</difficulty>
+        <enemies>
+            <EnemySpawnData>
+                <enemyRef>shrubber</enemyRef>
+                <weight>50</weight>
+            </EnemySpawnData>
+        </enemies>
+	</DataDef>
+
+     <!--  Mock Loot Drop Pod Event  -->
+
+    <DataDef xsi:type="WorldEventData">
+		<id>player_loot_drop_pod_event</id>
+        <eventType>DropPod</eventType>
+        <effectRef>effect_rock_harvest</effectRef>
+        <nameRef>event_player_loot_drop_pod_title</nameRef>
+        <descriptionRef>event_player_loot_drop_pod_description</descriptionRef>
+	</DataDef>
+
+</Defs>

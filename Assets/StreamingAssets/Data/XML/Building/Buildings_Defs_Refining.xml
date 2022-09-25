@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- <DataDef xsi:type="BuildingData">
+		<id>building_cement_mixer</id>
+		<productRef>to_cement_mixer</productRef>
+		<categoryRef>building_category_refining</categoryRef>
+		<nameRef>building_cement_mixer_name</nameRef>
+		<descriptionRef>building_cement_mixer_info</descriptionRef>
+		<iconRef>generator_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_wiring</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>	 -->
+
+    <DataDef xsi:type="BuildingData">
+		<id>building_furnace</id>
+		<productRef>furnace</productRef>
+		<categoryRef>building_category_refining</categoryRef>
+		<nameRef>building_furnace_name</nameRef>
+		<descriptionRef>building_furnace_info</descriptionRef>
+		<iconRef>furnace_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_concrete_block</itemRef>
+				<amount>16</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+    <DataDef xsi:type="BuildingData">
+		<id>building_cooking_pot</id>
+		<productRef>cooking_pot</productRef>
+		<categoryRef>building_category_refining</categoryRef>
+		<nameRef>building_cooking_pot_name</nameRef>
+		<descriptionRef>building_cooking_pot_info</descriptionRef>
+		<iconRef>furnace_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+</Defs>

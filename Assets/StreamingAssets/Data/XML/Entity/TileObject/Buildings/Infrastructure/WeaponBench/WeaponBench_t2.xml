@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_weaponbench_t2</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Weapon bench T2</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="CraftingComponentData">
+				<recipes>
+					<recipeRef>crafting_energy_lancer</recipeRef>
+					<recipeRef>crafting_explolauncher</recipeRef>
+				</recipes>
+			</DataComponent>
+
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</HitLootTable>
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>8</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T2 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_weaponbench_y2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+  <DataDef xsi:type="FNEEntityViewData">
+		<id>to_weaponbench_y2_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_weaponbench_t2_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+    	<scaleMod>0.01</scaleMod>
+	</DataDef>
+    
+</Defs>

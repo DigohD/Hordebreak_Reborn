@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_big_iron_rock_1</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Big Iron Rock 1</editorName>
+		<blocking>true</blocking>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>4</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_iron_ore</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Mineral</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_big_iron_rock_view_1</viewRef>
+			<viewRef>to_big_iron_rock_view_2</viewRef>
+			<viewRef>to_big_iron_rock_view_3</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_big_iron_rock_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_big_iron_rock_1</entityMeshData>
+		<entityTextureData>texture_big_iron_rock_1</entityTextureData>
+		<scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_big_iron_rock_1</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Big_Iron_Rock/View1/Rock_1.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_big_iron_rock_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Rock1_BaseColor</albedoName>
+		<normalMapName>Rock1_Normal</normalMapName>
+		<maskMapName>Rock1_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_big_iron_rock_view_2</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_big_iron_rock_2</entityMeshData>
+		<entityTextureData>texture_big_iron_rock_2</entityTextureData>
+		<scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_big_iron_rock_2</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Big_Iron_Rock/View2/Rock_2.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_big_iron_rock_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Rock2_BaseColor</albedoName>
+		<normalMapName>Rock2_Normal</normalMapName>
+		<maskMapName>Rock2_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_big_iron_rock_view_3</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_big_iron_rock_3</entityMeshData>
+		<entityTextureData>texture_big_iron_rock_3</entityTextureData>
+		<scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_big_iron_rock_3</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Big_Iron_Rock/View3/Rock_3.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_big_iron_rock_3</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Rock3_BaseColor</albedoName>
+		<normalMapName>Rock3_Normal</normalMapName>
+		<maskMapName>Rock3_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

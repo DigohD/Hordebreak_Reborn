@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_tricrane_banner_wall_bottom</id>
+		<viewVariations>
+			<viewRef>wo_tricrane_banner_wall_bottom_view</viewRef>
+		</viewVariations>
+		<editorName>Banner (Bottom)</editorName>
+		<editorCategoryName>Tricrane</editorCategoryName>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_tricrane_banner_wall_bottom_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tricrane_banner_wall_bottom_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+</Defs>

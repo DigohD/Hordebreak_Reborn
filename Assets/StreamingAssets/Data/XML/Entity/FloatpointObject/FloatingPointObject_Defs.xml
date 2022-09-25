@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!--
+	<DataDef entityType="FloatpointObject" xsi:type="FNEEntityData">
+		<id>car_wreck_1</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<prefabPaths>
+			<string>Prefab/Entity/FPObject/Props/006_L_Car</string>
+		</prefabPaths>
+		<seeThrough>true</seeThrough>
+    <hittable>true</hittable>
+		<editorName>Car Wreck 1</editorName>
+		<editorCategoryName>Props</editorCategoryName>
+	</DataDef>
+	-->
+</Defs>

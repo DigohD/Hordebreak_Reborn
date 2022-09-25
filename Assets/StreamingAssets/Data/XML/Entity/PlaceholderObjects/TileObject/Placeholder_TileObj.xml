@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>placeholder_tileobject</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>TileObjectPlaceholder</editorName>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>ph_tileobject_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>ph_tileobject_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>ph_tileobject_mesh</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+    
+</Defs>

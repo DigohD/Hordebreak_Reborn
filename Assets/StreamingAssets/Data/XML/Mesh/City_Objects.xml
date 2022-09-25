@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+<!-- ========================= EDGE OBJECTS ========================= -->
+
+  	<!-- SIDE WALK -->
+
+
+  	<!-- CITY FENCE -->
+
+	
+  	<!-- CITY FENCE WEAKENED -->
+
+	
+  	<!-- CITY FENCE BROKEN -->
+
+
+	<!-- ROD FENCE -->
+
+	
+  	<!-- ROD FENCE WEAKENED -->
+
+	
+  	<!-- ROD FENCE BROKEN -->
+
+
+	<!-- ROD FENCE GATE RIGHT -->
+
+	
+	<!-- ROD FENCE GATE LEFT -->
+
+
+	<!-- LASER FENCE -->
+
+	
+	<!-- LASER FENCE WEAKENED -->
+
+	
+	<!-- LASER FENCE BROKEN -->
+
+
+	<!-- LASER FENCE GATE LEFT -->
+
+	
+	<!-- LASER FENCE GATE RIGHT -->
+
+	
+  	<!-- SAFETY FENCE -->
+
+
+
+<!-- ================================================================ -->
+
+<!-- ========================= WALL MOUNTED OBJECTS ========================= -->
+
+  	<!-- NEON SIGN SMALL -->
+
+    
+  	<!-- NEON SIGN LARGE -->
+
+
+  	<!-- NEON SIGN SMALL ORTAGONAL -->
+
+    
+  	<!-- NEON SIGN LARGE ORTAGONAL -->
+
+
+	<!-- NEON SIGN STANDING -->
+
+
+	<!-- HOLO SIGN -->
+
+	
+	<!-- HOLO SIGN LARGE -->
+
+	
+	<!-- PARABOLICS BOTH -->
+
+
+	<!-- PARABOLICS SMALL -->
+
+
+	<!-- PARABOLICS LARGE -->
+
+	
+	<!-- LADDER -->
+
+	
+	<!-- LADDER TOP -->
+
+	
+	<!-- LADDER BOTTOM-->
+
+	
+	<!-- AC BOTH -->
+
+	
+	<!-- AC SMALL -->
+
+	
+	<!-- AC LARGE -->
+
+<!-- ================================================================ -->
+
+<!-- ========================= TILE OBJECTS ========================= -->
+	
+	<!-- BENCH -->
+	
+	
+	<!-- BENCH BROKEN -->
+	
+	
+	<!-- TRASHBIN -->
+	
+	
+	<!-- VENTS -->
+	
+
+	<!-- VENTS SINGLE -->
+	
+	
+	<!-- STREETLIGHT SINGLE -->
+	
+	
+	<!-- STREETLIGHT TRIO -->
+	
+
+	<!-- STREETLIGHT SPOTLIGHT -->
+	
+	
+	<!-- ROAD ARC 4 -->
+	
+	
+	<!-- ROAD ARC 3 -->
+	
+	
+	<!-- ROAD ARC 2 -->
+	
+
+	<!-- TERMINAL -->
+	
+	
+	<!-- TRASH CONTAINER CLOSED -->
+	
+	
+	<!-- TRASH CONTAINER EMPTY -->
+	
+	
+	<!-- TRASH CONTAINER TRASH -->
+	
+	
+	<!-- LOOTBOX -->
+	
+
+	<!-- LOOTBOX OPEN -->
+	
+	
+	<!-- LOOTBOX ANIMATED -->
+	
+	
+	<!-- SETPIECE_ROBOT_MONUMENT -->
+	
+	
+	<!-- ALARM OFF -->
+	
+
+	<!-- ALARM ON -->
+	
+
+<!-- ================================================================ -->
+
+</Defs>

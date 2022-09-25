@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <DataDef xsi:type="SFXData">
+		<id>sfx_excavator_fire1</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Excavator_Fire1.wav</filePath>
+		<distance>10</distance>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_excavator_fire2</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Excavator_Fire2.wav</filePath>
+		<distance>10</distance>				
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_excavator_loadup</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Excavator_Loadup_2.wav</filePath>	
+		<distance>10</distance>			
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_excavator_dry</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Excavator_Dry.wav</filePath>
+		<distance>10</distance>				
+	</DataDef>
+
+</Defs>

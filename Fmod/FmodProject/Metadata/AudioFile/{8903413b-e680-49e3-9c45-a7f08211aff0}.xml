@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{8903413b-e680-49e3-9c45-a7f08211aff0}">
+		<property name="assetPath">
+			<value>Hard_Laydown2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.74913832199546482</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d4e3f988-6816-4ddb-b707-7e0c3be44616}</destination>
+		</relationship>
+	</object>
+</objects>

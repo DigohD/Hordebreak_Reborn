@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<!--<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_outdoors</id>
+		<iconRef>outdoors_icon</iconRef>
+		<nameRef>building_category_outdoors_name</nameRef>
+		<preferredIndex>0</preferredIndex>
+	</DataDef>-->
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_walls</id>
+		<iconRef>walls_icon</iconRef>
+		<nameRef>building_category_walls_name</nameRef>
+		<preferredIndex>0</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_tiles</id>
+		<iconRef>tiles_icon</iconRef>
+		<nameRef>building_category_tiles_name</nameRef>
+		<preferredIndex>1</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_infrastructure</id>
+		<iconRef>infrastructure_icon</iconRef>
+		<nameRef>building_category_infrastructure_name</nameRef>
+		<preferredIndex>2</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_crafting</id>
+		<iconRef>craft_notification_icon</iconRef>
+		<nameRef>building_category_crafting_name</nameRef>
+		<preferredIndex>3</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_refining</id>
+		<nameRef>building_category_refining_name</nameRef>
+		<iconRef>machines_category_icon</iconRef>
+		<preferredIndex>4</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_resources</id>
+		<iconRef>resources_category_icon</iconRef>
+		<nameRef>building_category_resources_name</nameRef>
+		<preferredIndex>5</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_environment</id>
+		<nameRef>building_category_environment_name</nameRef>
+		<iconRef>environment_category_icon</iconRef>
+		<preferredIndex>6</preferredIndex>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingCategoryData">
+		<id>building_category_wall_objects</id>
+		<iconRef>wall_objects_icon</iconRef>
+		<nameRef>building_category_wall_objects_name</nameRef>
+		<preferredIndex>7</preferredIndex>
+	</DataDef>
+
+</Defs>

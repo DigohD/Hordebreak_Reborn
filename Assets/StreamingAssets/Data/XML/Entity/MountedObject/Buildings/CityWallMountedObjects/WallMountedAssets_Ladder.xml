@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_city_wallmountedobjects_ladder</id>
+		<viewVariations>
+			<viewRef>wo_city_wallmountedobjects_ladder_view</viewRef>
+		</viewVariations>
+		<editorName>Ladder (Middle)</editorName>
+		<editorCategoryName>City</editorCategoryName>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_city_wallmountedobjects_ladder_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_wallmountedobjects_ladder_view</entityMeshData>
+		<entityTextureData>texture_city_wallmountedobjects_ladder_view</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_wallmountedobjects_ladder_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/CityWallMountedObjects/WallMountedAssets_Ladder.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_wallmountedobjects_ladder_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_wallmounted</assetBundlePath>
+		<albedoName>WallMountedAssets_Albedo</albedoName>
+		<normalMapName>WallMountedAssets_Normal</normalMapName>
+		<maskMapName>WallMountedAssets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

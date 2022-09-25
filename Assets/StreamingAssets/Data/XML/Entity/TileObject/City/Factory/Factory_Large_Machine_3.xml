@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_large_assets_large_machine_3</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>false</seeThrough>
+		<editorName>Large Machine 3</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Factory</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_factory_large_assets_large_machine_3_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_factory_large_assets_large_machine_3_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_factory_large_assets_large_machine_3_view</entityMeshData>
+		<entityTextureData>texture_city_factory_large_assets_large_machine_3_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_factory_large_assets_large_machine_3_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Factory/Factory_Large_Machine_3.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_factory_large_assets_large_machine_3_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_factory</assetBundlePath>
+		<albedoName>Factory_Large_Machines_Albedo</albedoName>
+		<normalMapName>Factory_Large_Machines_Normal</normalMapName>
+		<maskMapName>Factory_Large_Machines_MaskMap</maskMapName>
+		<emissiveMapName>Factory_Large_Machines_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

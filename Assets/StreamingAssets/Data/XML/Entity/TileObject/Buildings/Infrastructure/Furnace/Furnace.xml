@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>furnace</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Furnace</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="RefinementComponentData">
+				<burnGradeRef>burnable_one</burnGradeRef>
+				<recipes>
+					<recipeRef>refinement_steel_ingot_scrap</recipeRef>
+					<recipeRef>refinement_steel_ingot_iron_ore</recipeRef>
+				</recipes>
+				<recipes>
+					<recipeRef>refinement_charcoal</recipeRef>
+				</recipes>
+				<startSFXRef>sfx_furnace_start</startSFXRef>
+				<stopSFXRef>sfx_furnace_stop</stopSFXRef>
+				<activeSFXLoopRef>sfx_furnace_burning</activeSFXLoopRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_fireproof</propertyRef>
+						<level>1</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+				<unsatisfiedMod>0.1</unsatisfiedMod>
+			</DataComponent>
+		
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>5</minRolls>
+					<maxRolls>5</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>10</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>40</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_furnace_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_furnace_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_furnace_view</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+		<isTransparent>false</isTransparent>
+        <scaleMod>0.01</scaleMod>
+		<onHitEffectRef>effect_entity_hit_metal</onHitEffectRef>
+
+		<entityLightSourceData>
+			<intensity>100</intensity>
+			<range>20</range>
+			<color>#FFaa00</color>
+			<offsetX>0</offsetX>
+			<offsetY>0.6</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData>
+
+		<entityVfxData>
+			<vfxRef>vfx_furnace</vfxRef>
+			<alwaysOn>true</alwaysOn>
+			<scaleMod>1</scaleMod>
+			<offsetX>0</offsetX>
+			<offsetY>0</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityVfxData>
+	</DataDef>
+    
+</Defs>

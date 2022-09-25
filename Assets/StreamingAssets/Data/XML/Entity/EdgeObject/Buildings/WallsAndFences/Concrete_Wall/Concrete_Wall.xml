@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_concrete_wall</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>Concrete Wall</editorName>
+		<isMountable>true</isMountable>
+		<editorCategoryName>Walls</editorCategoryName>
+		<components>
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>addon_concrete_wall_door</addonRef>
+				</addonRefs>
+			</DataComponent>
+
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_concrete_block</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>eo_concrete_wall_view</viewRef>
+		</entityViewVariations>
+		<roomPropertyRefs>
+			<propertyRef>room_property_indoors</propertyRef>
+            <propertyRef>room_property_fireproof</propertyRef>
+		</roomPropertyRefs>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_concrete_wall_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_concrete_wall</entityMeshData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_concrete_wall_door</id>
+		<requiredMaterials>
+			
+		</requiredMaterials>
+		<productRef>eo_concrete_wall_door</productRef>
+		<nameRef>building_concrete_wall_door_name</nameRef>
+		<iconRef>stone_wall_door_icon</iconRef>
+		<addonColor>#00ffff</addonColor>
+	</DataDef>
+</Defs>

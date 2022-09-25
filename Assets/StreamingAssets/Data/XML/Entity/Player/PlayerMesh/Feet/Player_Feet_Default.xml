@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>player_feet_option_1_view</id>
+		<entityMeshData>feet_option_1</entityMeshData>
+		<entityTextureData>texture_player_feet</entityTextureData>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>feet_option_1</id>
+		<meshPath>Data/XML/Entity/Player/PlayerMesh/Feet/Option1/PlayerChar_Default_Feet.gltf</meshPath>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_player_feet</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>PlayerCharTxBake_low_Feet_BaseColor</albedoName>
+		<normalMapName>PlayerCharTxBake_low_Feet_Normal</normalMapName>
+		<maskMapName>PlayerCharTxBake_low_Feet_MaskMap</maskMapName>
+	</DataDef>
+	
+</Defs>

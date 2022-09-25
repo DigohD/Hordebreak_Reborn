@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>rusty_pistol</id>
+		<nameRef>rusty_pistol_name</nameRef>
+		<infoRef>rusty_pistol_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+
+		<components>	
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>200</triggersPerMinute>
+				<effectRef>rusty_pistol_fire</effectRef>
+				<reloadEffectRef>rusty_pistol_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>12</ammoClipSize>
+				<reloadTimeInSeconds>1</reloadTimeInSeconds>
+
+				<weaponPosture>Light</weaponPosture>
+				<itemMeshRef>mesh_rusty_pistol</itemMeshRef>
+				<itemTextureRef>texture_rusty_pistol</itemTextureRef>
+				<muzzleOffsetForward>0.1</muzzleOffsetForward>
+
+				<iconScaleMod>3</iconScaleMod>
+				<iconOffsetRight>-0.15</iconOffsetRight>
+				<iconOffsetUp>-0.14</iconOffsetUp>
+
+				<modSlotGen>
+					<ModSlotGenData>
+						<chanceInPercent>50</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>10</weight>
+								<modColor>Black</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>5</weight>
+								<modColor>Green</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+					<ModSlotGenData>
+						<chanceInPercent>25</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>10</weight>
+								<modColor>Black</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>5</weight>
+								<modColor>Green</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+					<ModSlotGenData>
+						<chanceInPercent>10</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>10</weight>
+								<modColor>Black</modColor>
+							</ModTypeGenData>
+							<ModTypeGenData>
+								<weight>5</weight>
+								<modColor>Green</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+				</modSlotGen>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_rusty_pistol</id>
+        <meshPath>Data/XML/Item/Weapon/RustyPistol/Rusty_Pistol.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_rusty_pistol</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Rusty_Pistol_Albedo</albedoName>
+		<normalMapName>Rusty_Pistol_Normal</normalMapName>
+		<maskMapName>Rusty_Pistol_MaskMap</maskMapName>
+		<emissiveMapName>Rusty_Pistol_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_pistol_fire</id>
+		<vfxRef>vfx_rusty_pistol_muzzleflash</vfxRef>
+		<sfxRef>sfx_rusty_pistol_fire</sfxRef>
+		<enemyAlertDistance>32</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>3</lifetime>
+            <speed>20</speed>
+            <inaccuracy>2</inaccuracy>
+            <projectileVfxRef>vfx_rusty_pistol_projectile</projectileVfxRef>
+            <onDeathEffectRef>rusty_pistol_projectile_death</onDeathEffectRef>
+            <damage>25</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>1.5</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_pistol_reload</id>
+		<sfxRef>sfx_rusty_pistol_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>rusty_pistol_projectile_death</id>
+		<vfxRef>vfx_rusty_pistol_proj_impact</vfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+		<id>vfx_rusty_pistol_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyPistol/PistolFire_VFX</prefabPath>
+		<heightPosition>1</heightPosition>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_pistol_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyPistol/PistolProj</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_rusty_pistol_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/RustyPistol/PistolImpact</prefabPath>
+	</DataDef>
+</Defs>

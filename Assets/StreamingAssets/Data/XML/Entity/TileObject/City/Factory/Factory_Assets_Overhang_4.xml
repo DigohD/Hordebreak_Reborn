@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_assets_overhang_4</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Overhang (4 tiles)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>Factory</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_factory_assets_overhang_4_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_factory_assets_overhang_4_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_factory_assets_overhang_4_view</entityMeshData>
+		<entityTextureData>texture_city_factory_assets_overhang_4_view</entityTextureData>
+		<isTransparent>true</isTransparent>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_factory_assets_overhang_4_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Factory/Factory_Assets_Overhang_4.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_factory_assets_overhang_4_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_factory</assetBundlePath>
+		<albedoName>Factory_Assets_Albedo</albedoName>
+		<normalMapName>Factory_Assets_Normal</normalMapName>
+		<maskMapName>Factory_Assets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

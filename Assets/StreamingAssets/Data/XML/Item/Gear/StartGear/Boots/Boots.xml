@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="ItemData">
+		<id>armor_start_gear_boots</id>
+		<nameRef>armor_start_gear_boots_name</nameRef>
+        <infoRef>armor_start_gear_boots_info</infoRef>
+        <width>2</width>
+		<height>2</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_7_rubbery_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_7_rubbery_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ClothingItemComponentData">
+				<equipmentType>Feet</equipmentType>
+				<itemMeshRef>mesh_start_gear_boots</itemMeshRef>
+				<itemTextureRef>texture_start_gear_boots</itemTextureRef>
+				<statModList>
+					<StatModData>
+						<modType>Armor</modType>
+						<amount>5</amount>
+					</StatModData>
+				</statModList>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_start_gear_boots</id>
+        <meshPath>Data/XML/Item/Gear/StartGear/Boots/Boots.gltf</meshPath>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_start_gear_boots</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>Boots_BaseColor</albedoName>
+		<normalMapName>Boots_Normal</normalMapName>
+		<maskMapName>Boots_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

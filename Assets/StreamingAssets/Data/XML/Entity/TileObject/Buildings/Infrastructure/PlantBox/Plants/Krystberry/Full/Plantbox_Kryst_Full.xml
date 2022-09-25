@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_plant_box_kryst_full</id>
+		<seeThrough>true</seeThrough>
+		<editorName>editor_label</editorName>
+		<editorCategoryName>editor_category</editorCategoryName>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="CropComponentData">
+				<consumedOnHarvest>false</consumedOnHarvest>
+				<growthTimeTicks>1500</growthTimeTicks>
+
+				<harvestEffectRef>effect_kryst_berry_harvest</harvestEffectRef>
+                <harvestableViewRef>to_plant_box_kryst_full_view</harvestableViewRef>
+
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_kryst_berry</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>4</minRolls>
+					<maxRolls>4</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>25</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_fertile_soil</itemRef>
+							<probability>50</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_plant_box_kryst_empty_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_plant_box_kryst_full_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_plant_box_kryst_full</entityMeshData>
+		<scaleMod>0.013</scaleMod>
+		<emissiveColor>#FFFFFF</emissiveColor>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_plant_box_kryst_empty_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_plant_box_kryst_empty</entityMeshData>
+		<scaleMod>0.013</scaleMod>
+	</DataDef>
+    	
+</Defs>

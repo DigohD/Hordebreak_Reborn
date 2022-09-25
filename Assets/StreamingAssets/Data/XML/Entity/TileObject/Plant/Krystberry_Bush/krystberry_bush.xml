@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_krystberry_bush_wild</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Krystberry bush (Berries)</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="CropComponentData">
+				<consumedOnHarvest>false</consumedOnHarvest>
+				<growthTimeTicks>300</growthTimeTicks>
+
+				<harvestEffectRef>effect_kryst_berry_harvest</harvestEffectRef>
+                <harvestableViewRef>to_krystberry_bush_wild_full_view</harvestableViewRef>
+
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_kryst_berry</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_kryst_berry_seed</itemRef>
+							<probability>25</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_fertile_soil</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+				<!-- <ExcavatableBonuses>
+					<ExcavatableBonusData>
+						<chance>30</chance>
+						<bonusTime>0.1</bonusTime>
+						<colorRef>brown</colorRef>
+						<LootTable>
+							<minRolls>1</minRolls>
+							<maxRolls>3</maxRolls>
+							<table>
+								<LootEntry>
+									<itemRef>item_fertile_soil</itemRef>
+									<probability>100</probability>
+									<guaranteed>false</guaranteed>
+									<unique>false</unique>
+								</LootEntry>
+							</table>
+						</LootTable>
+					</ExcavatableBonusData>
+				</ExcavatableBonuses> -->
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_krystberry_bush_wild_empty_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_krystberry_bush_wild_empty_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_krystberry_bush_empty</entityMeshData>
+		<entityTextureData>texture_krystberry_bush_empty</entityTextureData>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_krystberry_bush_empty</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Krystberry_Bush/ViewEmpty/KrystBerryBush_Empty.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_krystberry_bush_empty</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>KrystBerry_Bush_Albedo</albedoName>
+		<normalMapName>KrystBerry_Bush_Normal</normalMapName>
+		<maskMapName>KrystBerry_Bush_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_krystberry_bush_wild_full_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_krystberry_bush_full</entityMeshData>
+		<entityTextureData>texture_krystberry_bush_full</entityTextureData>
+        <emissiveColor>#ff00ff</emissiveColor>
+		<LightSourceData>
+			<intensity>10</intensity>
+			<range>2</range>
+			<color>#FF00FF</color>
+			<offsetX>0</offsetX>
+			<offsetY>0</offsetY>
+			<offsetZ>-0.3</offsetZ>
+		</LightSourceData>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_krystberry_bush_full</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Krystberry_Bush/ViewFull/KrystBerryBush_Full.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_krystberry_bush_full</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>KrystBerry_Bush_Albedo</albedoName>
+		<normalMapName>KrystBerry_Bush_Normal</normalMapName>
+		<maskMapName>KrystBerry_Bush_MaskMap</maskMapName>
+		<emissiveMapName>KrystBerry_Bush_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_workbench</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Workbench</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="CraftingComponentData">
+				<recipes>
+					<recipeRef>crafting_wood_planks</recipeRef>
+					<recipeRef>crafting_gravel</recipeRef>
+					<recipeRef>crafting_cloth</recipeRef>
+					<recipeRef>crafting_cotton_bandage</recipeRef>
+					<!-- <recipeRef>crafting_scrap_wiring</recipeRef> -->
+					<!-- <recipeRef>crafting_cloth</recipeRef> -->
+					<!-- <recipeRef>crafting_start_jacket</recipeRef>
+					<recipeRef>crafting_start_pants</recipeRef>
+					<recipeRef>crafting_start_boots</recipeRef> -->
+				</recipes>
+			</DataComponent>
+
+			<!-- <DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent> -->
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<HitLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_stone</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</HitLootTable>
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>8</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_log</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_chopping_block_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_workbench_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_workbench_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+        <scaleMod>0.01</scaleMod>
+
+		<!-- <entityLightSourceData>
+			<intensity>50</intensity>
+			<range>20</range>
+			<color>#CCCCCC</color>
+			<offsetX>0</offsetX>
+			<offsetY>1.4</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData> -->
+	</DataDef>
+    
+</Defs>

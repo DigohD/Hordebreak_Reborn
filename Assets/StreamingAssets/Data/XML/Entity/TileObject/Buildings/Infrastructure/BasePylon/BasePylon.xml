@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- PYLON 1 -->
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_base_pylon</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Base Pylon (Rank 1)</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500000</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>addon_base_pylon_2</addonRef>
+				</addonRefs>
+			</DataComponent>
+
+			<DataComponent xsi:type="BaseTerminalComponentData">
+
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_pylon_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+<!-- PYLON 2 -->
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_base_pylon_2</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Base Pylon (Rank 2)</editorName>
+		<blocking>true</blocking>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500000</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_pylon_2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+
+<!-- VIEW DATA -->
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pylon_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_buildable_base_pylon</entityMeshData>
+		<entityTextureData>texture_buildable_base_pylon</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1</scaleMod>
+		<onHitEffectRef>effect_entity_hit_metal</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_buildable_base_pylon</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\BasePylon/BaseCore_Rank_1.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_buildable_base_pylon</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>BaseCore_r1_Albedo</albedoName>
+		<normalMapName>BaseCore_r1_Normal</normalMapName>
+		<maskMapName>BaseCore_r1_MaskMap</maskMapName>
+		<emissiveMapName>BaseCore_r1_Emissive</emissiveMapName>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_pylon_2_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_buildable_base_pylon_2</entityMeshData>
+		<entityTextureData>texture_buildable_base_pylon_2</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1</scaleMod>
+		<onHitEffectRef>effect_entity_hit_metal</onHitEffectRef>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_buildable_base_pylon_2</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\BasePylon/BaseCore_Rank_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_buildable_base_pylon_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>BaseCore_Albedo</albedoName>
+		<normalMapName>BaseCore_Normal</normalMapName>
+		<maskMapName>BaseCore_MaskMap</maskMapName>
+		<emissiveMapName>BaseCore_Emissive</emissiveMapName>
+	</DataDef>
+
+	<!-- ADDON DATA -->
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>addon_base_pylon_2</id>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>10</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_circuitboard</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<productRef>to_base_pylon_2</productRef>
+		<nameRef>building_base_pylon_2_name</nameRef>
+		<!-- <descriptionRef>building_base_pylon_2_info</descriptionRef> -->
+		<iconRef>indoors_icon</iconRef>
+		<addonColor>#77bbee</addonColor>
+	</DataDef>
+    
+</Defs>

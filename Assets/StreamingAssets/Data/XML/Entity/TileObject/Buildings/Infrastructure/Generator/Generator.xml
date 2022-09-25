@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>generator</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Generator</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+		
+
+			<DataComponent xsi:type="ProducerComponentData">
+				<resources>
+					<ResourceProductionData>
+						<resourceRef>room_power</resourceRef>
+						<amount>50</amount>
+					</ResourceProductionData>
+				</resources>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_generator_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_generator_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_generator_view</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+    
+</Defs>

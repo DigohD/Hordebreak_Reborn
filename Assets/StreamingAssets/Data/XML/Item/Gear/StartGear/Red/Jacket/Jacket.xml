@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="ItemData">
+		<id>red_jacket</id>
+		<nameRef>armor_start_gear_jacket_name</nameRef>
+        <infoRef>armor_start_gear_jacket_info</infoRef>
+        <width>2</width>
+		<height>3</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_3_heavy_bag</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_3_heavy_bag</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ClothingItemComponentData">
+				<equipmentType>Torso</equipmentType>
+				<itemMeshRef>mesh_start_gear_jacket_red</itemMeshRef>
+				<itemTextureRef>texture_start_gear_jacket_red</itemTextureRef>
+				<statModList>
+					<StatModData>
+						<modType>Armor</modType>
+						<amount>2</amount>
+					</StatModData>
+				</statModList>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_start_gear_jacket_red</id>
+        <meshPath>Data/XML/Item/Gear/StartGear/Red/Jacket/Jacket.gltf</meshPath>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_start_gear_jacket_red</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>Jacket_BaseColor_Red</albedoName>
+		<normalMapName>Jacket_Normal</normalMapName>
+		<maskMapName>Jacket_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

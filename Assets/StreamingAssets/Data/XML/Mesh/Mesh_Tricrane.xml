@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+  	<!-- ANALYSIS MACHINE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_analysis_machine</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/AnalysisMachine/Analysis_Machine.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/AnalysisMachine/Analysis_Machine_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/AnalysisMachine/Analysis_Machine_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/AnalysisMachine/Analysis_Machine_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/AnalysisMachine/Analysis_Machine_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- BANNER WALL BOTTOM -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_banner_wall_bottom_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_bottom.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_normal.png</normalPath>
+	</DataDef>
+
+	<!-- BANNER WALL TOP -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_banner_wall_top_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_top.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_single_normal.png</normalPath>
+	</DataDef>
+
+	<!-- BANNER WALL DOUBLE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_banner_wall_double_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_double.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_double_albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_double_emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_double_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Banner/banner_wall_double_normal.png</normalPath>
+	</DataDef>
+
+	<!-- BANNER STANDING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_banner_standing_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Banner/banner_standing.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Banner/banner_standing_albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Banner/banner_standing_emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Banner/banner_standing_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Banner/banner_standing_normal.png</normalPath>
+	</DataDef>
+
+	<!-- CHAIR 1 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_chair_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/Chair_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+
+	<!-- CHAIR 2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_chair_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/Chair_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CHAIR 3 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_chair_3_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/Chair_3.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+
+	<!-- DESK -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_desk_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/Desk.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+
+	<!-- DESK WITH CHAIR 1 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_deskchair_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/DeskChair_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+	
+	<!-- DESK WITH CHAIR 2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_deskchair_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/DeskChair_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+
+	<!-- COMPUTER DESK CHAIR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_computerdeskchair_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_maskmap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ComputerDeskChair/ComputerDeskChair_normal.png</normalPath>
+	</DataDef>
+
+	<!-- CONVEYOR BELT STRAIGHT -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_straight_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_straight.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CONVEYOR BELT TURN -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_turn_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_turn.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CONVEYOR BELT STRAIGHT CRYSTAL 1 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_straight_crystal_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_straight_crystal_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CONVEYOR BELT STRAIGHT CRYSTAL 2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_straight_crystal_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_straight_crystal_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CONVEYOR BELT TURN CRYSTAL 1 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_turn_crystal_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_turn_crystal_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CONVEYOR BELT TURN CRYSTAL 2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_conveyor_turn_crystal_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/Conveyor_turn_crystal_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Emission.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/ConveyorBelt/ConveyorsAndCrystals_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- CRATE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_crate_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- CRATE WITH CRYSTALS -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_crate_w_crystals_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Crate/CrateWCrystals.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- CRATE WITH GRAVEL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_crate_w_gravel_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Crate/CrateWGravel.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- CRATE WITH LID -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_crate_w_lid_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Crate/CrateWLid.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- CRATE STACK -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_crate_stack_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Crate/CrateStack.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Crate/Crate_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- DRILL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_drill_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Drill/Drill.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Drill/Drill_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Drill/Drill_Emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Drill/Drill_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Drill/Drill_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- MESH FENCE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_mesh_fence_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- MESH FENCE WITH LASER -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_mesh_fence_w_laser_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Albedo_Laser.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- MESH FENCE ON GROUND -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_fence_ground_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Fence/Fence_Ground.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Albedo_Laser.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/EdgeObject/Tricrane/MeshFence/Fence_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- FUEL TANK -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_fuel_tank_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/FuelTank/Fuel_tank.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/FuelTank/Fuel_Tank_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/FuelTank/Fuel_Tank_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/FuelTank/Fuel_Tank_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/FuelTank/Fuel_Tank_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- HELICOPTER PAD -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_helicopter_pad_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/HelicopterPad/Helicopter_Pad.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/HelicopterPad/Helicopter_Pad_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/HelicopterPad/Helicopter_Pad_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/HelicopterPad/Helicopter_Pad_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/HelicopterPad/Helicopter_Pad_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- LAMP STANDING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_lamp_standing_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Standing.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- LAMP STANDING ANGLE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_lamp_standing_angle_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Standing_Angle.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- LAMP WALL MOUNTED -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_lamp_wall_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/Lamp/Lamp_Wall.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Albedo.png</albedoPath> <!-- THESE SHOULD BE HERE, SHARES WITH ABOVE -->
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Lamp/Lamp_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- LOGISTICS BOT -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_logistics_bot_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- LOGISTICS BOT EMPTY -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_logistics_bot_empty_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Empty_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- LOGISTICS BOT UNLOADED -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_logistics_bot_unloaded_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Unloaded_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/LogisticsBot/Logistics_Bot_Normal.png</normalPath>
+	</DataDef>
+		
+	<!-- LOOT BOX -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_loot_box_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/LootBox/Loot_Box.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/LootBox/Loot_Box_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/LootBox/Loot_Box_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/LootBox/Loot_Box_Emission.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/LootBox/Loot_Box_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- VENT FAN -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_vent_fan_view</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/VentFan/Vent_Fan.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/VentFan/Vent_Fan_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/VentFan/Vent_Fan_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/Tricrane/VentFan/Vent_Fan_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- BARREL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_barrel_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- BARREL LYING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_barrel_lying_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Lying.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- BARREL STACK -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_barrel_stack_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Stack_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- BARREL LYING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_barrel_stack_lying_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Stack_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_MaskMap.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Emissive.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/Barrel/Barrel_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- BARREL LYING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_tank_container_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/TankContainer/TankContainer.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/TankContainer/TankContainer_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/TankContainer/TankContainer_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/TankContainer/TankContainer_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- MINING FACILITY-->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tricrane_mining_facility_view</id>
+		<meshPath>Data/XML/Entity/TileObject/Tricrane/MiningFacility/Mining_Facility.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Tricrane/MiningFacility/Mining_Facility_Albedo_Comp.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Tricrane/MiningFacility/Mining_Facility_MaskMap_Comp.png</maskMapPath>
+		<emissivePath>Data/XML/Entity/TileObject/Tricrane/MiningFacility/Mining_Facility_Emission_Comp.png</emissivePath>
+        <normalPath>Data/XML/Entity/TileObject/Tricrane/MiningFacility/Mining_Facility_Normal_Comp.png</normalPath>
+	</DataDef>
+</Defs>

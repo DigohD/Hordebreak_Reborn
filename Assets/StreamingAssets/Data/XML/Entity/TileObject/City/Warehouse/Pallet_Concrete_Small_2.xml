@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_pallet_concrete_small_2</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Pallet (Small Concrete 2)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Warehouse</editorCategoryName>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+				
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_concrete_block</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_pallet_concrete_small_2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_pallet_concrete_small_2_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_pallet_concrete_small_2_view</entityMeshData>
+		<entityTextureData>texture_pallet_concrete_small_1_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_pallet_concrete_small_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Warehouse/Pallet_Concrete_Small_2.glb</meshPath>
+	</DataDef>
+
+	<!-- Uses texture from concrete small 1 -->
+
+</Defs>

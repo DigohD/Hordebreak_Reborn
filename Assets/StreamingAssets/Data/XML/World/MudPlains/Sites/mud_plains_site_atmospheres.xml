@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="AtmosphereData">
+		<id>urban_site_atmosphere</id>
+        <fogTint>#AA77FF</fogTint>
+        <sunTint>#DDAAFF</sunTint>
+        <moonTint>#DDAAFF</moonTint>
+        <waterTint>#66AAFF</waterTint>
+        <fogThickness>Light</fogThickness>
+	</DataDef>
+</Defs>

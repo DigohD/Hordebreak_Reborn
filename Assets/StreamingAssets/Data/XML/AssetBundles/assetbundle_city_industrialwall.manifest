@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 4118761576
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a45c25997816bc09b8dd9cf81255458d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_Emissive_Open.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_Albedo_Blue.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_Emissive_Closed.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Industrialwall/IndustrialWall_MaskMap_Blue.png
+Dependencies: []

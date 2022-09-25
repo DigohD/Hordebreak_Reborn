@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_cotton_wild</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Cotton Wild</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="CropComponentData">
+				<consumedOnHarvest>false</consumedOnHarvest>
+				<growthTimeTicks>1000</growthTimeTicks>
+
+				<harvestEffectRef>effect_plant_harvest</harvestEffectRef>
+                <harvestableViewRef>to_cotton_wild_full_view</harvestableViewRef>
+
+					<produceLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>6</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_cotton</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_cotton_seed</itemRef>
+							<probability>3</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_cotton</itemRef>
+							<probability>25</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_fertile_soil</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_cotton_seed</itemRef>
+							<probability>50</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+				<!-- <ExcavatableBonuses>
+					<ExcavatableBonusData>
+						<chance>30</chance>
+						<bonusTime>0.1</bonusTime>
+						<colorRef>brown</colorRef>
+						<LootTable>
+							<minRolls>1</minRolls>
+							<maxRolls>3</maxRolls>
+							<table>
+								<LootEntry>
+									<itemRef>item_fertile_soil</itemRef>
+									<probability>100</probability>
+									<guaranteed>false</guaranteed>
+									<unique>false</unique>
+								</LootEntry>
+							</table>
+						</LootTable>
+					</ExcavatableBonusData>
+				</ExcavatableBonuses> -->
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_cotton_wild_empty_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_cotton_wild_empty_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_cotton_mature_empty</entityMeshData>
+		<entityTextureData>texture_cotton_mature_empty</entityTextureData>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_cotton_mature_empty</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Cotton/Cotton_Empty.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_cotton_mature_empty</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Cotton_Bush_Albedo</albedoName>
+		<normalMapName>Cotton_Bush_Normal</normalMapName>
+		<maskMapName>Cotton_Bush_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_cotton_wild_full_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_cotton_mature_full</entityMeshData>
+		<entityTextureData>texture_cotton_mature_full</entityTextureData>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_cotton_mature_full</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Cotton/Cotton_Full.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_cotton_mature_full</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Cotton_Bush_Albedo</albedoName>
+		<normalMapName>Cotton_Bush_Normal</normalMapName>
+		<maskMapName>Cotton_Bush_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

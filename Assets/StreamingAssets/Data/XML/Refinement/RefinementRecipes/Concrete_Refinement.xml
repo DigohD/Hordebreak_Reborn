@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_concrete</id>
+		<processNameRef>refine_concrete_name</processNameRef>
+		<processDescriptionRef>refine_concrete_info</processDescriptionRef>
+		<processIconRef>stone_block_icon</processIconRef>
+		<processTime>15</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_gravel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_concrete_block</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+</Defs>

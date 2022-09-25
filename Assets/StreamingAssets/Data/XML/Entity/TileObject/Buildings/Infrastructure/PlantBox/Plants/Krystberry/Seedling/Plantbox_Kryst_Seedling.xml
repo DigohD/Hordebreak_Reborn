@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_plant_box_kryst_seedling</id>
+		<seeThrough>true</seeThrough>
+		<editorName>editor_label</editorName>
+		<editorCategoryName>editor_category</editorCategoryName>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="CropComponentData">
+				<matureEntityRef>to_plant_box_kryst_full</matureEntityRef>
+				<growthTimeTicks>1500</growthTimeTicks>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_plant_box_kryst_seedling_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_plant_box_kryst_seedling_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_plant_box_kryst_seedling</entityMeshData>
+		<scaleMod>0.013</scaleMod>
+	</DataDef>
+    	
+</Defs>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_office_assets_lamp</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Lamp</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Office</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_office_assets_lamp_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_office_assets_lamp_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_city_office_assets_lamp_view</entityMeshData>
+		<entityTextureData>texture_city_office_assets_lamp_view</entityTextureData>
+		<emissiveColor>#333333</emissiveColor>
+		<scaleMod>1</scaleMod>
+		
+		<entityLightSourceData>
+			<lightType>Point</lightType>
+			<intensity>300</intensity>
+			<range>2.5</range>
+			<color>#AFFFFC</color>
+			<offsetX>0</offsetX>
+			<offsetY>2</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_office_assets_lamp_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Office/Office_Assets_Lamp.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_office_assets_lamp_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_office</assetBundlePath>
+		<albedoName>Office_Assets_Albedo</albedoName>
+		<normalMapName>Office_Assets_Normal</normalMapName>
+		<maskMapName>Office_Assets_MaskMap</maskMapName>
+		<emissiveMapName>Office_Assets_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

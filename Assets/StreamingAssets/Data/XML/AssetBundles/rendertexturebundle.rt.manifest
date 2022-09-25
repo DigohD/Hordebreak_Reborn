@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 4210754522
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b989da3cd8ce1f3a755ca9cfe0de18af
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: feaa08ab20190d02d4751c45ba900362
+HashAppended: 0
+ClassTypes:
+- Class: 84
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Rendering/ItemIconRendering/TorsoRT.renderTexture
+Dependencies: []

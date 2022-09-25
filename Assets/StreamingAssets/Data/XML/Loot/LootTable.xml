@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<LootTable xsi:type="LootTableData">
+		<minRolls>3</minRolls>
+		<maxRolls>5</maxRolls>
+		
+		<table>
+			
+			<lootEntry>
+				<itemRef>stone</itemRef>
+				<probability>25</probability>
+			</lootEntry>
+
+			<lootEntry>
+				<itemRef>iron_ore</itemRef>
+				<probability>10</probability>
+				<guaranteed>true</guaranteed>
+			</lootEntry>
+
+			<lootEntry>
+				<itemRef>compound_crystal</itemRef>
+				<probability>1</probability>
+				<unique>true</unique>
+			</lootEntry>
+			
+		</table>
+		
+	</LootTable>
+
+</Defs>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="GameStateMusicData">	
+		<id>default</id>
+		<music>
+			<sfxRef>neonplaza</sfxRef>
+			<sfxRef>solarflare</sfxRef>
+			<sfxRef>peacockavenue</sfxRef>
+		</music>
+	</DataDef>
+	
+	<DataDef xsi:type="GameStateMusicData">
+		<id>main_menu</id>
+		<music>
+			<sfxRef>intro_music</sfxRef>
+		</music>
+	</DataDef>
+	
+	<DataDef xsi:type="GameStateMusicData">	
+		<id>combat</id>
+		<music>
+			<sfxRef>blazing</sfxRef>
+		</music>
+	</DataDef>
+	
+</Defs>

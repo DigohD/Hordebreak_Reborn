@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="RoomPropertyData">
+      <id>room_property_fireproof</id>
+      <displayNameRef>room_property_fireproof_name</displayNameRef>
+      <iconRef>fireproof_icon</iconRef>
+    </DataDef>
+
+    <DataDef xsi:type="RoomPropertyData">
+      <id>room_property_indoors</id>
+      <displayNameRef>room_property_indoors_name</displayNameRef>
+      <iconRef>indoors_icon</iconRef>
+      <absencePropertyRef>room_property_outdoors</absencePropertyRef>
+    </DataDef>
+
+    <DataDef xsi:type="RoomPropertyData">
+      <id>room_property_outdoors</id>
+      <displayNameRef>room_property_outdoors_name</displayNameRef>
+      <iconRef>outdoors_icon</iconRef>
+    </DataDef>
+
+</Defs>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- <DataDef xsi:type="BuildingData">
+		<id>building_water_pump</id>
+		<productRef>to_water_pump</productRef>
+		<categoryRef>building_category_resources</categoryRef>
+		<nameRef>building_water_pump_name</nameRef>
+		<descriptionRef>building_water_pump_info</descriptionRef>
+		<iconRef>water_pump_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_wiring</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef> -->
+
+	<!-- <DataDef xsi:type="BuildingData">
+		<id>building_generator</id>
+		<productRef>generator</productRef>
+		<categoryRef>building_category_resources</categoryRef>
+		<nameRef>building_generator_name</nameRef>
+		<descriptionRef>building_generator_info</descriptionRef>
+		<iconRef>generator_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<unlockRefs>
+			<unlockRef>building_weaponbench</unlockRef>
+			<unlockRef>building_water_pump</unlockRef>
+			<unlockRef>building_temp_lamp</unlockRef>
+			<unlockRef>building_cement_mixer</unlockRef>
+		</unlockRefs>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_stone</itemRef>
+				<amount>16</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef> -->
+
+  <!--<DataDef xsi:type="BuildingData">
+		<id>building_wind_generator</id>
+		<productRef>wo_wind_generator</productRef>
+		<categoryRef>building_category_resources</categoryRef>
+		<nameRef>building_wind_generator_name</nameRef>
+		<descriptionRef>building_wind_generator_name</descriptionRef>
+		<iconRef>wind_generator_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_scrap_wiring</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>-->
+
+</Defs>

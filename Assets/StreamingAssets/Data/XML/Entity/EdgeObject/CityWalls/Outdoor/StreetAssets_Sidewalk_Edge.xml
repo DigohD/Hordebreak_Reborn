@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_streetassets_sidewalk_edge</id>
+		<blocking>false</blocking>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Sidewalk Edge</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_streetassets_sidewalk_edge_view_1</viewRef>
+			<viewRef>eo_city_streetassets_sidewalk_edge_view_2</viewRef>
+			<viewRef>eo_city_streetassets_sidewalk_edge_view_3</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_streetassets_sidewalk_edge_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_sidewalk_edge_view_1</entityMeshData>
+		<entityTextureData>texture_city_streetassets_sidewalk_edge_view_1</entityTextureData>
+		<isTransparent>true</isTransparent>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_streetassets_sidewalk_edge_view_2</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_sidewalk_edge_view_2</entityMeshData>
+		<entityTextureData>texture_city_streetassets_sidewalk_edge_view_2</entityTextureData>
+		<isTransparent>true</isTransparent>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_streetassets_sidewalk_edge_view_3</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_sidewalk_edge_view_3</entityMeshData>
+		<entityTextureData>texture_city_streetassets_sidewalk_edge_view_3</entityTextureData>
+		<isTransparent>true</isTransparent>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_sidewalk_edge_view_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/StreetAssets_Sidewalk_Edge.glb</meshPath>
+	</DataDef>
+	
+  	<!-- SIDE WALK VAR 1 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_sidewalk_edge_view_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/StreetAssets_Sidewalk_Edge_Var_1.glb</meshPath>
+	</DataDef>
+
+
+  	<!-- SIDE WALK VAR 2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_sidewalk_edge_view_3</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/StreetAssets_Sidewalk_Edge_Var_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_sidewalk_edge_view_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Albedo</albedoName>
+		<normalMapName>StreetAssets_Normal</normalMapName>
+		<maskMapName>StreetAssets_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_sidewalk_edge_view_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Albedo</albedoName>
+		<normalMapName>StreetAssets_Normal</normalMapName>
+		<maskMapName>StreetAssets_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_sidewalk_edge_view_3</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Albedo</albedoName>
+		<normalMapName>StreetAssets_Normal</normalMapName>
+		<maskMapName>StreetAssets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

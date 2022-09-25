@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_brick_wall_corner_ph_to</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Brick Wall (Standard) (Corner PH TILEOBJECT - REMOVE THIS LATER)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>To be removed</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_brick_wall_corner_ph_to_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_brick_wall_corner_ph_to_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_brick_wall_corner_ph_to</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_corner_ph_to</entityTextureData>
+		<scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_corner_ph_to</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Corner_PH_TO.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_corner_ph_to</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo_Grey</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

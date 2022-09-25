@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="BuildingData">
+		<id>building_wood_wall</id>
+		<productRef>eo_wood_wall</productRef>
+		<categoryRef>building_category_walls</categoryRef>
+		<nameRef>building_wood_wall_name</nameRef>
+		<descriptionRef>building_wood_wall_ref</descriptionRef>
+		<iconRef>wood_wall_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>	
+
+	<!-- <DataDef xsi:type="BuildingData">
+		<id>building_concrete_wall</id>
+		<productRef>eo_concrete_wall</productRef>
+		<categoryRef>building_category_walls</categoryRef>
+		<nameRef>building_concrete_wall_name</nameRef>
+		<descriptionRef>building_concrete_wall_info</descriptionRef>
+		<iconRef>stone_wall_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_concrete_block</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef> -->
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_wood_fence</id>
+		<productRef>eo_wood_fence</productRef>
+		<categoryRef>building_category_walls</categoryRef>
+		<nameRef>building_wood_fence_name</nameRef>
+		<descriptionRef>building_wood_fence_ref</descriptionRef>
+		<iconRef>wood_fence_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+</Defs>

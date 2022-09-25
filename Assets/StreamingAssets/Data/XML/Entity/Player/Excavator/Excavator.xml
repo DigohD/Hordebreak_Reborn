@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_excavator</id>
+		<meshPath>Data/XML/Entity/Player/Excavator/ExcaV4.glb</meshPath>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_excavator</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>ExcaV4_BaseColor</albedoName>
+		<normalMapName>ExcaV4_Normal</normalMapName>
+		<maskMapName>ExcaV4_MaskMap</maskMapName>
+    <emissiveMapName>ExcaV4_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

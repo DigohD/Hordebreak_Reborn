@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>salvage_shotgun</id>
+		<nameRef>salvage_shotgun_name</nameRef>
+		<infoRef>salvage_shotgun_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>64</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>200</triggersPerMinute>
+				<effectRef>salvage_shotgun_fire</effectRef>
+				<reloadEffectRef>salvage_shotgun_reload</reloadEffectRef>
+				<isAutomatic>false</isAutomatic>
+				<ammoClipSize>1</ammoClipSize>
+				<reloadTimeInSeconds>0.75</reloadTimeInSeconds>
+
+				<weaponPosture>Rifle</weaponPosture>
+				<!-- <meshPath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun.gltf</meshPath>
+				<albedoPath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Albedo.png</albedoPath>
+				<normalPath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Normal.png</normalPath>
+				<maskMapPath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun_MaskMap.png</maskMapPath>
+				<emissivePath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Emissive.png</emissivePath> -->
+				<itemMeshRef>mesh_salvage_shotgun</itemMeshRef>
+				<itemTextureRef>texture_salvage_shotgun</itemTextureRef>
+				<muzzleOffsetForward>0.3</muzzleOffsetForward>
+
+				<iconScaleMod>1.25</iconScaleMod>
+				<iconOffsetRight>-0.09</iconOffsetRight>
+				<iconOffsetUp>-0.06</iconOffsetUp>
+
+				<modSlotGen>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+				</modSlotGen>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_salvage_shotgun</id>
+        <meshPath>Data/XML/Item/Weapon/SalvageShotgun/Salvage_Shotgun.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_salvage_shotgun</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Salvage_Shotgun_Albedo</albedoName>
+		<normalMapName>Salvage_Shotgun_Normal</normalMapName>
+		<maskMapName>Salvage_Shotgun_MaskMap</maskMapName>
+		<emissiveMapName>Salvage_Shotgun_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_shotgun_fire</id>
+		<vfxRef>vfx_salvage_shotgun_muzzle</vfxRef>
+		<sfxRef>sfx_salvage_shotgun_fire</sfxRef>
+		<enemyAlertDistance>25</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>30</speed>
+            <inaccuracy>8</inaccuracy>
+			<projectileVfxRef>vfx_salvage_shotgun_projectile</projectileVfxRef>
+            <onDeathEffectRef>salvage_shotgun_projectile_death</onDeathEffectRef>
+            <damage>20</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>10</pellets>
+        </realEffectData>
+		<screenShake>3</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_shotgun_reload</id>
+		<sfxRef>sfx_salvage_shotgun_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_shotgun_projectile_death</id>
+		<vfxRef>vfx_salvage_shotgun_proj_impact</vfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+		<id>vfx_salvage_shotgun_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageShotgun/SalvageShotgun_VFX</prefabPath>
+		<heightPosition>1</heightPosition>
+		<effectScale>0.7</effectScale>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_shotgun_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageShotgun/ShotGunProj</prefabPath>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_shotgun_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageShotgun/ShotGunImpact</prefabPath>
+	</DataDef>
+
+</Defs>

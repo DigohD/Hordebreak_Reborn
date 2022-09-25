@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_miscwalls_laser_fence_weakened</id>
+		<blocking>true</blocking>
+		<pathingCost>160</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<editorName>Laser Fence (Weakened)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_miscwalls_laser_fence_weakened_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_miscwalls_laser_fence_weakened_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_miscwalls_laser_fence_weakened_view</entityMeshData>
+		<entityTextureData>texture_city_miscwalls_laser_fence_weakened_view</entityTextureData>
+		<isTransparent>false</isTransparent>
+		<emissiveColor>#FFFFFF</emissiveColor>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_miscwalls_laser_fence_weakened_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Outdoor/CityMiscWalls_Laser_Fence_Weakened.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_miscwalls_laser_fence_weakened_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>Miscwalls_Laserwalls_Albedo</albedoName>
+		<normalMapName>Miscwalls_Laserwalls_Normal</normalMapName>
+		<maskMapName>Miscwalls_Laserwalls_MaskMap</maskMapName>
+		<emissiveMapName>Miscwalls_Laserwalls_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

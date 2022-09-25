@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_brick_wall_light_window_2</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>0</seeThroughRange>
+		<hittable>true</hittable>
+		<editorName>Brick Wall (Window 2)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Brick Walls (Light)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_brick_wall_light_window_2_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_brick_wall_light_window_2_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_city_brick_wall_light_window_2</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_light_window_2</entityTextureData>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_light_window_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Window_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_light_window_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo_Beige</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

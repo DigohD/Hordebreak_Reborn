@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_compound_fuel</id>
+		<processNameRef>refine_compound_fuel_name</processNameRef>
+		<processDescriptionRef>refine_compound_fuel_info</processDescriptionRef>
+		<processIconRef>compound_fuel_icon</processIconRef>
+		<processTime>30</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_budroot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_kryst_berry</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_budroot_baked</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+</Defs>

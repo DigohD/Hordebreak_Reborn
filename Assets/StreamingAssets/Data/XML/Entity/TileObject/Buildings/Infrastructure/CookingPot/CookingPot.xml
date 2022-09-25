@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>cooking_pot</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Cooking Pot</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="RefinementComponentData">
+				<burnGradeRef>burnable_one</burnGradeRef>
+				<recipes>
+					<recipeRef>refinement_budroot</recipeRef>
+					<recipeRef>refinement_compound_gel</recipeRef>
+				</recipes>
+				<startSFXRef>sfx_furnace_start</startSFXRef>
+				<stopSFXRef>sfx_furnace_stop</stopSFXRef>
+				<activeSFXLoopRef>sfx_furnace_burning</activeSFXLoopRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_fireproof</propertyRef>
+						<level>1</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+				<unsatisfiedMod>0.1</unsatisfiedMod>
+			</DataComponent>
+		
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>3</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>10</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>40</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_cooking_pot_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_cooking_pot_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_cooking_pot</entityMeshData>
+		<entityTextureData>texture_cooking_pot</entityTextureData>
+		<isTransparent>false</isTransparent>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>0.01</scaleMod>
+		<onHitEffectRef>effect_entity_hit_metal</onHitEffectRef>
+
+		<entityLightSourceData>
+			<intensity>100</intensity>
+			<range>20</range>
+			<color>#EEba77</color>
+			<offsetX>0</offsetX>
+			<offsetY>0.05</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData>
+
+		<entityVfxData>
+			<vfxRef>vfx_campfire</vfxRef>
+			<alwaysOn>true</alwaysOn>
+			<scaleMod>1</scaleMod>
+			<offsetX>0</offsetX>
+			<offsetY>0.1</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityVfxData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_cooking_pot</id>
+		<meshPath>Data/XML/Entity/TileObject/Buildings/Infrastructure/CookingPot/CookingPot.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_cooking_pot</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>CookingPot_DefaultMaterial_BaseMap</albedoName>
+		<normalMapName>CookingPot_DefaultMaterial_Normal</normalMapName>
+		<maskMapName>CookingPot_DefaultMaterial_MaskMap</maskMapName>
+		<emissiveMapName>CookingPot_DefaultMaterial_Emissive</emissiveMapName>
+	</DataDef>
+    
+</Defs>

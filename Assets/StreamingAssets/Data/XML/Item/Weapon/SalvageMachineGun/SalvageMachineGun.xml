@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>salvage_machinegun</id>
+		<nameRef>salvage_machinegun_name</nameRef>
+		<infoRef>salvage_machinegun_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>64</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>720</triggersPerMinute>
+				<effectRef>salvage_machinegun_fire</effectRef>
+				<reloadEffectRef>salvage_machinegun_reload</reloadEffectRef>
+				<isAutomatic>true</isAutomatic>
+				<ammoClipSize>36</ammoClipSize>
+				<reloadTimeInSeconds>1.5</reloadTimeInSeconds>
+
+				<weaponPosture>Rifle</weaponPosture>
+				<itemMeshRef>mesh_salvage_machinegun</itemMeshRef>
+				<itemTextureRef>texture_salvage_machinegun</itemTextureRef>
+				<muzzleOffsetForward>0.2</muzzleOffsetForward>
+
+				<iconScaleMod>1.6</iconScaleMod>
+				<iconOffsetRight>0</iconOffsetRight>
+				<iconOffsetUp>0.01</iconOffsetUp>
+
+				<modSlotGen>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+					<ModSlotGenData>
+						<chanceInPercent>100</chanceInPercent>
+						<modTypeGen>
+							<ModTypeGenData>
+								<weight>25</weight>
+								<modColor>White</modColor>
+							</ModTypeGenData>
+						</modTypeGen>
+					</ModSlotGenData>
+				</modSlotGen>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_salvage_machinegun</id>
+        <meshPath>Data/XML/Item/Weapon/SalvageMachineGun/Salvage_Machinegun.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_salvage_machinegun</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Salvage_Machinegun_Albedo</albedoName>
+		<normalMapName>Salvage_Machinegun_Normal</normalMapName>
+		<maskMapName>Salvage_Machinegun_MaskMap</maskMapName>
+		<emissiveMapName>Salvage_Machinegun_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_machinegun_fire</id>
+		<vfxRef>vfx_salvage_machinegun_muzzleflash</vfxRef>
+		<sfxRef>sfx_salvage_machine_gun_fire</sfxRef>
+		<enemyAlertDistance>20</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>3</lifetime>
+            <speed>20</speed>
+            <inaccuracy>6</inaccuracy>
+            <projectileVfxRef>vfx_salvage_machinegun_projectile</projectileVfxRef>
+            <onDeathEffectRef>salvage_machinegun_projectile_death</onDeathEffectRef>
+            <damage>20</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>1.5</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_machinegun_reload</id>
+		<sfxRef>sfx_salvage_machine_gun_reload</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>salvage_machinegun_projectile_death</id>
+		<vfxRef>vfx_salvage_machinegun_proj_impact</vfxRef>
+	</DataDef>
+
+    <DataDef xsi:type="VFXData">
+		<id>vfx_salvage_machinegun_fire</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageMachineGun/Machinegun_VFX</prefabPath>
+		<heightPosition>1</heightPosition>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_machinegun_proj</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageMachineGun/MachineGunProj</prefabPath>
+		<lifetime>3</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_salvage_machinegun_proj_impact</id>
+		<prefabPath>Prefab/Effects/Weapon/SalvageMachineGun/MachineGunImpact</prefabPath>
+	</DataDef>
+
+</Defs>

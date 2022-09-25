@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3c3e9423-bac8-4cdb-b132-4e388b798cf4}">
+		<property name="assetPath">
+			<value>Gun_Draw_Soft2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1377777777777778</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d4e3f988-6816-4ddb-b707-7e0c3be44616}</destination>
+		</relationship>
+	</object>
+</objects>

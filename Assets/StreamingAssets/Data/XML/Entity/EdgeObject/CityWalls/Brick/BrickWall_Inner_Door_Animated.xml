@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_brick_wall_inner_door_animated</id>
+		<blocking>false</blocking>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<seeThroughRange>2</seeThroughRange>
+		<hittable>true</hittable>
+		<editorName>Brick Wall (Inner Door - Openable)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Brick Walls (Standard)</editorCategoryName>
+		<components>            	
+			<DataComponent xsi:type="DoorComponentData">
+				<openAnimationName>Open</openAnimationName>
+				<closeAnimationName>Close</closeAnimationName>
+				<!-- <openSFXRef>sfx_door_open</openSFXRef>
+				<closeSFXRef>sfx_door_close</closeSFXRef> -->
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>eo_city_brick_wall_inner_door_animated_view</viewRef>
+		</entityViewVariations>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+        <viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_brick_wall_inner_door_animated_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_city_brick_wall_inner_door_animated</entityMeshData>
+		<entityTextureData>texture_city_brick_wall_inner_door_animated</entityTextureData>
+		<emissiveColor>#FFFFFF</emissiveColor>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>1.02</scaleMod>
+		<animations>
+			<AnimationData>
+				<animPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Inner_Door_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_brick_wall_inner_door_animated</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Brick/BrickWall_Inner_Door_Animated.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_brick_wall_inner_door_animated</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_brickwall</assetBundlePath>
+		<albedoName>BrickWall_Albedo</albedoName>
+		<normalMapName>BrickWall_Normal</normalMapName>
+		<maskMapName>BrickWall_MaskMap</maskMapName>
+		<emissiveMap>BrickWall_Emissive</emissiveMap>
+	</DataDef>
+    	
+</Defs>

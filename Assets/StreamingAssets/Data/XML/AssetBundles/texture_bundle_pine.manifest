@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 41537755
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 05f56c9c0c5abccc36e2b44d7c0ac67a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Texture/Pine/Pine_1_Normal.png
+- Assets/Resources/Texture/Pine/Pine_2_Normal.png
+- Assets/Resources/Texture/Pine/Pine_1_BaseColor.png
+- Assets/Resources/Texture/Pine/Pine_2_BaseColor.png
+- Assets/Resources/Texture/Pine/Pine_1_Mask.png
+Dependencies: []

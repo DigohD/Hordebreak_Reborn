@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <DataDef entityType="Player" xsi:type="FNEEntityData">
+		<id>player</id>
+      	<hittable>true</hittable>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<startShields>0</startShields>
+				<startShieldsRegeneration>5</startShieldsRegeneration>
+				<defenseTypeRef>defense_player</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="PlayerComponentData">
+				<baseSpeed>2</baseSpeed>
+				<viewVariations>
+					<PlayerViewData>
+						<headRef>player_head_option_1_view</headRef>
+						<hairRef>player_hair_option_1_view</hairRef>
+						<torsoRef>player_torso_option_1_view</torsoRef>
+						<handsRef>player_hands_option_1_view</handsRef>
+						<legsRef>player_legs_option_1_view</legsRef>
+						<feetRef>player_feet_option_1_view</feetRef>
+					</PlayerViewData>
+				</viewVariations>
+				<!-- <startingBuildings>
+					<buildingRef>building_base_pylon</buildingRef>
+				</startingBuildings> -->
+			</DataComponent>
+			<DataComponent xsi:type="InventoryComponentData">
+				<destroyWhenEmpty>false</destroyWhenEmpty>
+				<width>10</width>
+				<height>5</height>
+			</DataComponent>
+			<DataComponent xsi:type="BuilderComponentData"></DataComponent>
+			<DataComponent xsi:type="EquipmentSystemComponentData"></DataComponent>
+			<DataComponent xsi:type="ExcavatorComponentData">
+				<baseMaximumFuel>100</baseMaximumFuel>
+				<baseCooldownFueled>0.8</baseCooldownFueled>
+				<baseCooldownDry>3</baseCooldownDry>
+				<baseRange>2.5</baseRange>
+				<excavatorMeshData>mesh_excavator</excavatorMeshData>
+				<excavatorTextureData>texture_excavator</excavatorTextureData>
+			</DataComponent>
+		</components>
+		<uiManager>PlayerUiManager</uiManager>
+	</DataDef>    
+
+ 	<DataDef xsi:type="EffectData">
+		<id>excavator_fire</id>
+		<vfxRef>vfx_excavator_fire</vfxRef>
+		<sfxRef>sfx_excavator_fire1</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>excavator_fire2</id>
+		<vfxRef>vfx_excavator_fire</vfxRef>
+		<sfxRef>sfx_excavator_fire2</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>excavator_loadup</id>
+		<sfxRef>sfx_excavator_loadup</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>excavator_dry</id>
+		<sfxRef>sfx_excavator_dry</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_excavator_fire</id>
+		<prefabPath>Prefab/Effects/Excavator/Excavator</prefabPath>
+		<heightPosition>1.2</heightPosition>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_safety_gun_fire</id>
+		<prefabPath>Prefab/Effects/Excavator/Safety_Gun</prefabPath>
+		<heightPosition>1.2</heightPosition>
+	</DataDef>
+</Defs>

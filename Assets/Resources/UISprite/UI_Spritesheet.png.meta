@@ -1,0 +1,1068 @@
+fileFormatVersion: 2
+guid: 94070b604fb7f714d9b06123d19ea1d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8173116967901399196
+    second: UI_Smolmenu_Extractor_mode
+  - first:
+      213: 243746525723318604
+    second: UI_Smolmenu_Mainmenu
+  - first:
+      213: 1466454941377667862
+    second: UI_Smolmenu_Inventory
+  - first:
+      213: -3650552198749805955
+    second: UI_Smolmenu_Build_mode
+  - first:
+      213: 4304206335159286743
+    second: UI_Smolmenu_Help
+  - first:
+      213: 3865506561830301395
+    second: UI_Notification_Question
+  - first:
+      213: -1632086553533448079
+    second: UI_Notification_Exclamation
+  - first:
+      213: -3399796734517453899
+    second: UI_Objective_Arrow
+  - first:
+      213: 8128383176813303651
+    second: UI_Excav4
+  - first:
+      213: 2302632168600815343
+    second: UI_Smolmenu_BG
+  - first:
+      213: -2410463286515227759
+    second: UI_Smolmenu_Button
+  - first:
+      213: 3235501342764181924
+    second: UI_Smolmenu_Button_Hover
+  - first:
+      213: -1781737311966985863
+    second: UI_Smolmenu_Button_Active
+  - first:
+      213: -3486563594983564962
+    second: UI_Smolmenu_Button_Toggled
+  - first:
+      213: 196930245553411844
+    second: UI_Smolmenu_Divider
+  - first:
+      213: 8524131439061721758
+    second: UI_Objective_BG
+  - first:
+      213: -4986891598768583371
+    second: UI_Hpbar_BG
+  - first:
+      213: 8573997405233935189
+    second: UI_Hpbar
+  - first:
+      213: 1651599373732127212
+    second: UI_Shieldbar
+  - first:
+      213: 3872981396521436906
+    second: UI_Objective_Empty_Icon
+  - first:
+      213: -2059263708163877456
+    second: UI_Objective_Fill_Icon
+  - first:
+      213: 5920213391660820925
+    second: UI_Itemframe
+  - first:
+      213: -4383859158443563392
+    second: UI_Itemframe_Toggled
+  - first:
+      213: -2678133671968319838
+    second: UI_Itemframe_CD
+  - first:
+      213: -3944987932305790268
+    second: UI_Weaponslot
+  - first:
+      213: -6521990312745706829
+    second: UI_Weaponslot_Active
+  - first:
+      213: -7470925875497737381
+    second: UI_Weaponslot_CD
+  - first:
+      213: 8313261285966612364
+    second: UI_EscapeMenu_BG
+  - first:
+      213: -1858430989743550211
+    second: UI_EscapeMenu_Button_Hover
+  - first:
+      213: -3059016847838409639
+    second: UI_EscapeMenu_Button_Active
+  - first:
+      213: -4942491328358600374
+    second: UI_Chat_BG
+  - first:
+      213: -5873813469876823830
+    second: UI_Chat_Input_BG
+  - first:
+      213: 4456383103056676663
+    second: UI_Notification_BG
+  - first:
+      213: 567527308799424341
+    second: UI_Transparent
+  - first:
+      213: 5259820250398701352
+    second: UI_Infinity_Symbol
+  - first:
+      213: 3223480536190603401
+    second: UI_Menu_Exit_BG
+  - first:
+      213: -8290602923958930564
+    second: UI_Itemframe_Active
+  - first:
+      213: -1318858960813168227
+    second: UI_Itemframe_Hover
+  - first:
+      213: -6775871385405830814
+    second: UI_BuildMenu_BG
+  - first:
+      213: -2060663805254019752
+    second: UI_Weaponslot_CD_Opaque
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Smolmenu_Extractor_mode
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2010
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c980b7b449ebc6170800000000000000
+      internalID: 8173116967901399196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Mainmenu
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2005
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4959f87c26f16300800000000000000
+      internalID: 243746525723318604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Inventory
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 2005
+        width: 47
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613aee3eff4e95410800000000000000
+      internalID: 1466454941377667862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Build_mode
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 2002
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d722f7fdd12a65dc0800000000000000
+      internalID: -3650552198749805955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Help
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 2003
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbb72f6bdc9bbb30800000000000000
+      internalID: 4304206335159286743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Notification_Question
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1931
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de26d6dcb905a530800000000000000
+      internalID: 3865506561830301395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Notification_Exclamation
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1931
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17082fd3de9a959e0800000000000000
+      internalID: -1632086553533448079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Objective_Arrow
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1941
+        width: 74
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbdd8202ee71d0d0800000000000000
+      internalID: -3399796734517453899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Excav4
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1929
+        width: 178
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367d73cee61ddc070800000000000000
+      internalID: 8128383176813303651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_BG
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 1970
+        width: 343
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6c6d9e1c794ff10800000000000000
+      internalID: 2302632168600815343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Button
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1971
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193a32f79605c8ed0800000000000000
+      internalID: -2410463286515227759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Button_Hover
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1970
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a922cd245fc6ec20800000000000000
+      internalID: 3235501342764181924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Button_Active
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1970
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9710625da5ff547e0800000000000000
+      internalID: -1781737311966985863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Button_Toggled
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1971
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59123a02ec3d9fc0800000000000000
+      internalID: -3486563594983564962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Smolmenu_Divider
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1979
+        width: 11
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407ddb3d303abb200800000000000000
+      internalID: 196930245553411844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Objective_BG
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1933
+        width: 368
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92630c816ccb4670800000000000000
+      internalID: 8524131439061721758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Hpbar_BG
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1852
+        width: 684
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53dc40a33800bcab0800000000000000
+      internalID: -4986891598768583371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Hpbar
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1786
+        width: 672
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553f61c8635fcf670800000000000000
+      internalID: 8573997405233935189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Shieldbar
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1833
+        width: 618
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1af8e31e8abe610800000000000000
+      internalID: 1651599373732127212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Objective_Empty_Icon
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 1897
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae64b596f089fb530800000000000000
+      internalID: 3872981396521436906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Objective_Fill_Icon
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1897
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5d90061960c63e0800000000000000
+      internalID: -2059263708163877456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Itemframe
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 1789
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9247c86b2d82250800000000000000
+      internalID: 5920213391660820925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Itemframe_Toggled
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1789
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086e0a372576923c0800000000000000
+      internalID: -4383859158443563392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Itemframe_CD
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1791
+        width: 91
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6d05d5d9b55dad0800000000000000
+      internalID: -2678133671968319838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Weaponslot
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1655
+        width: 307
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cae5b380669049c0800000000000000
+      internalID: -3944987932305790268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Weaponslot_Active
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1655
+        width: 307
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bad0449d5c3d75a0800000000000000
+      internalID: -6521990312745706829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Weaponslot_CD
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 1657
+        width: 303
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53eea7bf70f15890800000000000000
+      internalID: -7470925875497737381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_EscapeMenu_BG
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 998
+        width: 688
+        height: 651
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c870c031813ae5370800000000000000
+      internalID: 8313261285966612364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_EscapeMenu_Button_Hover
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 892
+        width: 654
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df012c87cd68536e0800000000000000
+      internalID: -1858430989743550211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_EscapeMenu_Button_Active
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 786
+        width: 654
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c08ae52603c85d0800000000000000
+      internalID: -3059016847838409639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Chat_BG
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 349
+        width: 688
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41bcb3c25eb86bb0800000000000000
+      internalID: -4942491328358600374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Chat_Input_BG
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 286
+        width: 688
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8561b15c50c7ea0800000000000000
+      internalID: -5873813469876823830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Notification_BG
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 230
+        width: 527
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7370fb042d048dd30800000000000000
+      internalID: 4456383103056676663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Transparent
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1958
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557b259941340e700800000000000000
+      internalID: 567527308799424341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Infinity_Symbol
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 1888
+        width: 79
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827bb6766a2aef840800000000000000
+      internalID: 5259820250398701352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Menu_Exit_BG
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1305
+        width: 363
+        height: 344
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980d60c087a1cbc20800000000000000
+      internalID: 3223480536190603401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Itemframe_Active
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1789
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73fc9fe09cd1fc80800000000000000
+      internalID: -8290602923958930564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Itemframe_Hover
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 1790
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99e3e343c872bde0800000000000000
+      internalID: -1318858960813168227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_BuildMenu_BG
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1
+        width: 1050
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269c62500e447f1a0800000000000000
+      internalID: -6775871385405830814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Weaponslot_CD_Opaque
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1657
+        width: 303
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855545edf2d0763e0800000000000000
+      internalID: -2060663805254019752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

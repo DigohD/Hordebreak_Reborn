@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>item_compound_discus</id>
+		<nameRef>compound_discus_name</nameRef>
+		<infoRef>compound_discus_info</infoRef>
+		<iconRef>item_compound_discus_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_2_metal_pipe</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_2_metal_pipe</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<effectRef>item_compound_discus_effect</effectRef>
+				<weaponPosture>Throw</weaponPosture>
+				<itemMeshRef>mesh_compound_discus</itemMeshRef>
+				<itemTextureRef>texture_compound_discus</itemTextureRef>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_compound_discus</id>
+		<meshPath>Data/XML/Item/Consumables/CompoundDiscus/CompoundDiscus.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_compound_discus</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>CompoundDiscus_Default_BaseMap</albedoName>
+		<normalMapName>CompoundDiscus_Default_Normal</normalMapName>
+		<maskMapName>CompoundDiscus_Default_MaskMap</maskMapName>
+		<emissiveMapName>CompoundDiscus_Default_Emissive</emissiveMapName>
+		<emissiveFactor>50.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>item_compound_discus_effect</id>
+		<sfxRef>sfx_compound_discus_throw</sfxRef>
+		<enemyAlertDistance>25</enemyAlertDistance>
+		<realEffectData xsi:type="ProjectileEffectData">
+			<lifetime>0.5</lifetime>
+		
+			<speed>15.0</speed>
+			<pellets>1</pellets>
+			<inaccuracy>1.0</inaccuracy>
+			<projectileVfxRef>vfx_compound_discus_projectile</projectileVfxRef>
+			<onDeathEffectRef>effect_compound_discus_explosion</onDeathEffectRef>
+			<!--<onHitEffectRef>effect_datadef_id</onHitEffectRef>-->
+			<damageTypeRef>projectile</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_compound_discus_projectile_vfx</id>
+		<prefabPath>Prefab/Effects/Weapon/CompoundDiscus/CompoundDiscusProj</prefabPath>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1.0</effectScale>
+		<lifetime>0.5</lifetime>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_compound_discus_explode_vfx</id>
+		<screenShake>5</screenShake>
+		<sfxRef>sfx_compound_discus_explode</sfxRef>
+		<vfxRef>vfx_compound_discus_explode_vfx</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="VFXData">
+		<id>vfx_compound_discus_explode_vfx</id>
+		<prefabPath>Prefab/Effects/Weapon/CompoundDiscus/CompoundDiscusExplode</prefabPath>
+		<heightPosition>1.0</heightPosition>
+		<effectScale>1.0</effectScale>
+		<lifetime>1</lifetime>
+	</DataDef>
+		
+</Defs>

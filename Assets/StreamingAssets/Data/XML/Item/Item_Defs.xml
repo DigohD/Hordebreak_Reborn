@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>item_wood_log</id>
+		<nameRef>wood_log_name</nameRef>
+		<infoRef>wood_log_info</infoRef>
+		<iconRef>wood_log_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_9_wood</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_9_wood</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="BurnableItemComponentData">
+				<gradeRef>burnable_one</gradeRef>
+				<burnTime>30</burnTime>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_stone</id>
+		<nameRef>stone_name</nameRef>
+		<infoRef>stone_info</infoRef>
+		<iconRef>stone_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_7_damp</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_7_damp</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_wood_planks</id>
+		<nameRef>wood_planks_name</nameRef>
+		<infoRef>wood_planks_info</infoRef>
+		<iconRef>wood_planks_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_9_wood</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_9_wood</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="BurnableItemComponentData">
+				<gradeRef>burnable_one</gradeRef>
+				<burnTime>10</burnTime>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_scrap_metal</id>
+		<nameRef>string_item_scrap_metal_name</nameRef>
+		<infoRef>string_item_scrap_metal_info</infoRef>
+		<iconRef>item_scrap_metal_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_2_metal_pipe</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_2_metal_pipe</laydownSoundRef>
+	</DataDef>
+		
+	<DataDef xsi:type="ItemData">
+		<id>item_gravel</id>
+		<nameRef>string_item_gravel_name</nameRef>
+		<infoRef>string_item_gravel_info</infoRef>
+		<iconRef>item_gravel_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_1_small_objects</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_1_small_objects</laydownSoundRef>
+	</DataDef>
+			
+	<DataDef xsi:type="ItemData">
+		<id>item_scrap_wiring</id>
+		<nameRef>string_item_scrap_wiring_name</nameRef>
+		<infoRef>string_item_scrap_wiring_info</infoRef>
+		<iconRef>item_scrap_wiring_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_concrete_block</id>
+		<nameRef>item_concrete_name</nameRef>
+		<infoRef>item_concrete_info</infoRef>
+		<iconRef>concrete_block_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_4_paper_bag</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_4_paper_bag</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_fertile_soil</id>
+		<nameRef>string_item_fertile_soil_name</nameRef>
+		<infoRef>string_item_fertile_soil_info</infoRef>
+		<iconRef>item_fertile_soil_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_2_medium_bag</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_2_medium_bag</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_kryst_berry</id>
+		<nameRef>cryst_berry_name</nameRef>
+		<infoRef>cryst_berry_info</infoRef>
+		<iconRef>kryst_berry_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_bio_pickup_2_squishy_smaller</pickupSoundRef>
+		<laydownSoundRef>sfx_item_bio_laydown_2_squishy_smaller</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<buff>HealthLoss</buff>
+				<amount>10</amount>
+				<effectRef>effect_enemy_hit</effectRef>
+				<weaponPosture>Unarmed</weaponPosture>
+				<triggersPerMinute>10</triggersPerMinute>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_cotton_seed</id>
+		<nameRef>cotton_seeds_name</nameRef>
+		<infoRef>cotton_seeds_info</infoRef>
+		<iconRef>item_cotton_seed_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_bio_pickup_2_squishy_smaller</pickupSoundRef>
+		<laydownSoundRef>sfx_item_bio_laydown_2_squishy_smaller</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_kryst_berry_seed</id>
+		<nameRef>kryst_berry_seed_name</nameRef>
+		<infoRef>kryst_berry_seed_info</infoRef>
+		<iconRef>kryst_berry_seed_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_bio_pickup_2_squishy_smaller</pickupSoundRef>
+		<laydownSoundRef>sfx_item_bio_laydown_2_squishy_smaller</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_budroot</id>
+		<nameRef>budroot_name</nameRef>
+		<infoRef>budroot_info</infoRef>
+		<iconRef>budroot_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_7_damp</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_7_damp</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<buff>HealthGain</buff>
+				<amount>5</amount>
+				<effectRef>effect_entity_hit_wood</effectRef>
+				<weaponPosture>Unarmed</weaponPosture>
+				<triggersPerMinute>10</triggersPerMinute>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_budroot_baked</id>
+		<nameRef>budroot_baked_name</nameRef>
+		<infoRef>budroot_baked_info</infoRef>
+		<iconRef>budroot_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_7_damp</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_7_damp</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<buff>HealthGain</buff>
+				<amount>15</amount>
+				<effectRef>effect_entity_hit_wood</effectRef>
+				<weaponPosture>Unarmed</weaponPosture>
+				<triggersPerMinute>10</triggersPerMinute>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_iron_ore</id>
+		<nameRef>iron_ore_name</nameRef>
+		<infoRef>iron_ore_info</infoRef>
+		<iconRef>iron_ore_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_7_damp</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_7_damp</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_petrol</id>
+		<nameRef>petrol_name</nameRef>
+		<infoRef>petrol_info</infoRef>
+		<iconRef>biofuel_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_laydown_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+	</DataDef>
+
+	<!-- <DataDef xsi:type="ItemData">
+		<id>item_compound_fuel</id>
+		<nameRef>compound_fuel_name</nameRef>
+		<infoRef>compound_fuel_info</infoRef>
+		<iconRef>compound_fuel_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_laydown_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="FuelItemComponentData">
+				<fuelValue>10</fuelValue>
+			</ItemComponentData>
+		</components>
+	</DataDef> -->
+
+	<DataDef xsi:type="ItemData">
+		<id>item_compound_gel</id>
+		<nameRef>compound_gel_name</nameRef>
+		<infoRef>compound_gel_info</infoRef>
+		<iconRef>compound_fuel_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_laydown_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="FuelItemComponentData">
+				<fuelValue>10</fuelValue>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_steel_ingot</id>
+		<nameRef>steel_ingot_name</nameRef>
+		<infoRef>steel_ingot_info</infoRef>
+		<iconRef>steel_ingot_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>16</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_2_metal_pipe</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_2_metal_pipe</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_cotton</id>
+		<nameRef>cotton_name</nameRef>
+		<infoRef>cotton_info</infoRef>
+		<iconRef>cotton_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_8_cloth</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_8_cloth</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_cloth</id>
+		<nameRef>cloth_name</nameRef>
+		<infoRef>cloth_info</infoRef>
+		<iconRef>cloth_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_8_cloth</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_8_cloth</laydownSoundRef>
+	</DataDef>
+	
+	<DataDef xsi:type="ItemData">
+		<id>item_bandage</id>
+		<nameRef>bandage_name</nameRef>
+		<infoRef>bandage_info</infoRef>
+		<iconRef>item_bandage_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_8_cloth</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_8_cloth</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<buff>HealthGain</buff>
+				<amount>50</amount>
+				<effectRef>effect_entity_hit_wood</effectRef>
+				<weaponPosture>Unarmed</weaponPosture>
+				<triggersPerMinute>10</triggersPerMinute>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_charcoal</id>
+		<nameRef>charcoal_name</nameRef>
+		<infoRef>charcoal_info</infoRef>
+		<iconRef>charcoal_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>32</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_9_wood</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_9_wood</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="BurnableItemComponentData">
+				<gradeRef>burnable_one</gradeRef>
+				<burnTime>100</burnTime>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_tazerleaf</id>
+		<nameRef>tazerleaf_name</nameRef>
+		<infoRef>tazerleaf_info</infoRef>
+		<iconRef>plants_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_6_small_plastic</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_6_small_plastic</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_tazerleaf_dried</id>
+		<nameRef>tazerleaf_dried_name</nameRef>
+		<infoRef>tazerleaf_dried_info</infoRef>
+		<iconRef>plants_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_6_small_plastic</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_6_small_plastic</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_tazershot</id>
+		<nameRef>tazershot_name</nameRef>
+		<infoRef>tazershot_info</infoRef>
+		<iconRef>water_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_6_small_plastic</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_6_small_plastic</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_circuitboard</id>
+		<nameRef>circuitboard_name</nameRef>
+		<infoRef>circuitboard_info</infoRef>
+		<iconRef>item_circuitboard_icon</iconRef>
+		<width>2</width>
+		<height>2</height>
+		<maxStackSize>8</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_6_small_plastic</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_6_small_plastic</laydownSoundRef>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_pylon_component</id>
+		<nameRef>pylon_component_name</nameRef>
+		<infoRef>pylon_component_info</infoRef>
+		<iconRef>item_basepylon_icon</iconRef>
+		<width>2</width>
+		<height>3</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_2_metal_pipe</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_2_metal_pipe</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ConsumableItemComponentData">
+				<buildingRef>building_base_pylon</buildingRef>
+				<weaponPosture>Throw</weaponPosture>
+				<effectRef>effect_build_tile_object</effectRef>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+</Defs>

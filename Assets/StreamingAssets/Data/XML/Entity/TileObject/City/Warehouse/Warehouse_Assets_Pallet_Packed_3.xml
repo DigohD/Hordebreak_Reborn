@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_warehouse_assets_pallet_packed_3</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Palett (Packed variant 3)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Warehouse</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_warehouse_assets_pallet_packed_3_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_warehouse_assets_pallet_packed_3_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_warehouse_assets_pallet_packed_3_view</entityMeshData>
+		<entityTextureData>texture_city_warehouse_assets_pallet_packed_3_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_warehouse_assets_pallet_packed_3_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Warehouse/Warehouse_Assets_Pallet_Packed_3.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_warehouse_assets_pallet_packed_3_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_warehouse</assetBundlePath>
+		<albedoName>Warehouse_Assets_Albedo</albedoName>
+		<normalMapName>Warehouse_Assets_Normal</normalMapName>
+		<maskMapName>Warehouse_Assets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

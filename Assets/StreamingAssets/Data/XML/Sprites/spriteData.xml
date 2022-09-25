@@ -1,0 +1,649 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SpriteData">
+		<id>default</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/Default.png</spritePath>
+		<spriteCategory>default</spriteCategory>
+	</DataDef>
+
+	<!-- Items -->
+
+	<DataDef xsi:type="SpriteData">
+		<id>charcoal_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/Coal.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>cloth_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/cloth.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>biofuel_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/biofuel.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>compound_fuel_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/compound_fuel.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>steel_part_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/steel_part.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>steel_ingot_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/steel_ingot.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>small_accelerator_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/small_accelerator_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>turbo_clip_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/turbo_clip_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>extended_clip_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/extended_clip_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>quick_draw_clip_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/quick_draw_clip_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>compound_injector_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/compound_injector_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>muzzle_addon_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/muzzle_addon_icon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>iron_ingot_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/iron_ingot.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>iron_ore_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/iron_ore.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>icon_mooxe</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/mooxe.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>stone_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/stone.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>concrete_block_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/concrete_block.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_planks_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/wood_planks.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>icon_stone_wall</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/stone_wall.png</spritePath>
+		<spriteCategory>building</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>stone_block_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/stone_block.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_log_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/wood_log.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>		
+
+	<DataDef xsi:type="SpriteData">
+		<id>kryst_berry_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/Krystberry.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>kryst_berry_seed_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/Krystberry_seed.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>small_compound_crystal_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/small_compound_crystal.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>cotton_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/cotton.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>budroot_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/budroot.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>pinecone_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/pinecone.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_gravel_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/gravel.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_fertile_soil_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/fertile_soil.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_scrap_metal_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/scrap_metal.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_scrap_wiring_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/scrap_wiring.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_compound_discus_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/compounddiscus.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>item_basepylon_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/item_icon_basePylon.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>item_circuitboard_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/item_icon_circuitboard_new.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>item_bandage_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/bandage.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>item_cotton_seed_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ItemIcon/Cotton_Seeds.png</spritePath>
+		<spriteCategory>Item</spriteCategory>
+	</DataDef>
+		
+
+	<!-- Misc -->
+
+	<DataDef xsi:type="SpriteData">
+		<id>remove_mount_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/remove_mount.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<!--
+		PROPERTY ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>indoors_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/p_indoors.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>fireproof_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/p_fireproof.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		UTILITY ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>warning_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/warning.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>excav4_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/ExcaV4/ExcaV4.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>craft_notification_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/craft.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>harvest_notification_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/harvest.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		BUILDING CATEGORY ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>plants_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_plants.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>outdoors_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_outdoors.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>walls_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_walls.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>tiles_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_tiles.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>infrastructure_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_infrastructure.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>wall_objects_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_wall_objects.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>resources_category_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_resources.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>machines_category_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_machines.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>environment_category_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/bc_environment.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<!--
+		WALL ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_wall_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_wall.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_wall_door_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_wall_door.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_fence_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_fence.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_fence_gate_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_fence_gate.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>stone_wall_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_stone_wall.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>stone_wall_door_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_stone_wall_door.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		RESOURCES
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>water_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/r_water.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>power_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/r_power.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		Environment
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>temperature_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/e_temperature.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>humidity_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/e_humidity.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		TILE ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_tile_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_tile.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>stone_tile_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_stone_tile.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		OUTDOORS ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>campfire_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_campfire.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>labor_stub_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_labor_stub.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		PLANTS ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>tree_sapling_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_sapling.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>kryst_bush_sapling_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_kryst_bush_sapling.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>cotton_bush_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_cotton.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<DataDef xsi:type="SpriteData">
+		<id>potato_plant_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_potato.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>	
+
+	<!--
+		INFRASTRUCTURE ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>wood_storage_box_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wood_storage_box.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>cultivation_plot_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_cultivation_plot.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>furnace_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_furnace.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>generator_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_generator.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>water_pump_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_water_pump.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>sprinkler_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_sprinkler.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>wind_generator_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_wind_generator.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>workbench_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_workbench.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<!--
+		MOUNTED OBJECT ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>water_pipes_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_water_pipes.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>heat_pipes_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_heat_pipes.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>electric_box_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/b_electric_box.png</spritePath>
+		<spriteCategory>UIIcon</spriteCategory>
+	</DataDef>
+
+	<!--
+		MAP ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_base_pylon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Base.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_base_flag</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Base_Flag.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_landmark</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Landmark.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_player</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Player.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_player_self</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Player_Self.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_site_factory</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Site_Factory.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_undiscovered</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Undiscovered.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_site_factory_quest</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Site_Factory_Quest.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_icon_undiscovered_quest</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/MapIcon_Undiscovered_Quest.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<!--
+		MAP HOVER BOX ICONS
+	-->
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_danger_level_skull_filled</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Difficulty_Filled.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_danger_level_skull_empty</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Difficulty_Empty.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_loot_level_scarce</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Scarce.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_loot_level_moderate</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Moderate.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_loot_level_abundance</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Abundance.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_loot_level_event</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Event.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+	
+	<DataDef xsi:type="SpriteData">
+		<id>map_hover_box_icon_loot_level_occasional</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/MapIcon/HoverIcons_Occasional.png</spritePath>
+		<spriteCategory>MapIcon</spriteCategory>
+	</DataDef>
+
+</Defs>

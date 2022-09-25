@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 1594160596
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 00256ba5724dd2b8d12b5e486c93b924
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Texture/AssetBundles/City/Brickwall/BrickWall_Albedo.png
+Dependencies: []

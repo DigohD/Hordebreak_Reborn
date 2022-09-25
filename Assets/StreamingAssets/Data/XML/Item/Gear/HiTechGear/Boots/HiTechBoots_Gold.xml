@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="ItemData">
+		<id>armor_hi_tech_boots_gold</id>
+		<nameRef>armor_hi_tech_boots_name_gold</nameRef>
+        <infoRef>armor_hi_tech_boots_info</infoRef>
+        <width>2</width>
+		<height>2</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_7_rubbery_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_7_rubbery_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ClothingItemComponentData">
+				<equipmentType>Feet</equipmentType>
+				<itemMeshRef>mesh_hi_tech_boots_gold</itemMeshRef>
+				<itemTextureRef>texture_hi_tech_boots_gold</itemTextureRef>
+				<statModList>
+					<StatModData>
+						<modType>Armor</modType>
+						<amount>3</amount>
+					</StatModData>
+				</statModList>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_hi_tech_boots_gold</id>
+        <meshPath>Data/XML/Item/Gear/HiTechGear/Boots/Boots.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_hi_tech_boots_gold</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>hiTechGear_ReadyForTexturing_Boots_Gold_BaseMap</albedoName>
+		<normalMapName>hiTechGear_ReadyForTexturing_Boots_Normal</normalMapName>
+		<maskMapName>hiTechGear_ReadyForTexturing_Boots_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

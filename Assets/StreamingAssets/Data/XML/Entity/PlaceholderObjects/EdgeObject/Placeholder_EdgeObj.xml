@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>placeholder_edgeobject</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+    	<hittable>false</hittable>
+		<editorName>EdgeObjectPlaceholder</editorName>
+		<editorCategoryName>T1 EdgeObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>ph_edgeobject_view</viewRef>
+		</entityViewVariations>
+		<isMountable>true</isMountable>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>ph_edgeobject_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>ph_edgeobject_mesh</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>0.01</scaleMod>
+	</DataDef>
+		
+</Defs>

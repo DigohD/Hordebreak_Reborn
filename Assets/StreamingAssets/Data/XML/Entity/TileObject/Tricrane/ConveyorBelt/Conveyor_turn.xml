@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tricrane_conveyor_turn</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Conveyor belt (turn)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tricrane_conveyor_turn_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_tricrane_conveyor_turn_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tricrane_conveyor_turn_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1.29</scaleMod>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="DefenseTypeData">
+		<id>defense_immune</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>projectile</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>critical_player_needs</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>zombie_melee</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>cut</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>
+			<damageEntry>
+                <damageRef>bludgeoning</damageRef>
+                <amplifier>0</amplifier>
+            </damageEntry>			
+        </damagedBy>
+	</DataDef>
+	
+    <DataDef xsi:type="DefenseTypeData">
+		<id>defense_player</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>projectile</damageRef>
+                <amplifier>80</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>critical_player_needs</damageRef>
+                <amplifier>1</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>zombie_melee</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+			<damageEntry>
+                <damageRef>bludgeoning</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>			
+            <damageEntry>
+                <damageRef>cut</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+        </damagedBy>
+	</DataDef>
+
+    <DataDef xsi:type="DefenseTypeData">
+		<id>defense_structure</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>projectile</damageRef>
+                <amplifier>1</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>zombie_melee</damageRef>
+                <amplifier>5</amplifier>
+            </damageEntry>
+        </damagedBy>
+	</DataDef>
+
+    <DataDef xsi:type="DefenseTypeData">
+		<id>defense_tree</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>cut</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+        </damagedBy>
+	</DataDef>
+
+    <DataDef xsi:type="DefenseTypeData">
+		<id>defense_rock</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+        </damagedBy>
+	</DataDef>
+
+    <DataDef xsi:type="DefenseTypeData">
+		<id>defense_flesh</id>
+        <damagedBy>
+            <damageEntry>
+                <damageRef>explosive</damageRef>
+                <amplifier>50</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>projectile</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>cut</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+            <damageEntry>
+                <damageRef>zombie_melee</damageRef>
+                <amplifier>100</amplifier>
+            </damageEntry>
+        </damagedBy>
+	</DataDef>
+
+</Defs>

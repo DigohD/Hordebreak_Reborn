@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{8d3b7a04-0717-4252-a4a5-2d37dc71d9a2}">
+		<property name="assetPath">
+			<value>UNUSED_FIRE_35.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0216780045351475</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d4e3f988-6816-4ddb-b707-7e0c3be44616}</destination>
+		</relationship>
+	</object>
+</objects>

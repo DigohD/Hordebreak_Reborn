@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tricrane_deskchair_2</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Desk with Chair 2</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tricrane_deskchair_2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_tricrane_deskchair_2_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tricrane_deskchair_2_view</entityMeshData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_wood_fence_gate</id>
+		<pathingCost>5</pathingCost>
+		<heatTransferFactor>0.95</heatTransferFactor>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>255</seeThroughRange>
+		<hittable>false</hittable>
+		<blocking>false</blocking>
+		<editorName>T1 Base Fence Gate</editorName>
+		<editorCategoryName>T1 Walls</editorCategoryName>
+		<onHitEffectPath>Prefabs/VFX/HitEffects/ZombieHitEffect</onHitEffectPath>
+		<onDeathEffectPath>Prefabs/VFX/StructureDeath/WallDeath</onDeathEffectPath>
+		<entityViewVariations>
+			<viewRef>eo_wood_fence_gate_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+		<components>
+			<DataComponent xsi:type="DoorComponentData">
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+				<openSFXRef>sfx_door_open</openSFXRef>
+				<closeSFXRef>sfx_door_close</closeSFXRef>
+			</DataComponent>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>150</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>revert_wood_fence_gate</addonRef>
+				</addonRefs>
+			</DataComponent>
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>2</minRolls>
+					<maxRolls>2</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>50</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>eo_wood_fence_gate_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_wood_fence_gate_view</entityMeshData>
+		<animations>
+			<AnimationData>
+				<animPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence_Gate/Wood_Fence_Gate_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>revert_wood_fence_gate</id>
+		<productRef>eo_wood_fence</productRef>
+		<nameRef>building_wood_fence_name</nameRef>
+		<iconRef>wood_fence_icon</iconRef>
+		<addonColor>#ffaa00</addonColor>
+		<refundedMaterials>
+			
+		</refundedMaterials>
+	</DataDef>
+
+</Defs>

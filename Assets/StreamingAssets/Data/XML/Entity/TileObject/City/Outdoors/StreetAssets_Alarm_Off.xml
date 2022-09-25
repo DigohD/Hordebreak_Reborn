@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_streetassets_alarm_off</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Alarm (Off)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_streetassets_alarm_off_view</viewRef>
+		</entityViewVariations>
+		<components>
+			<DataComponent xsi:type="InteractionEventComponentData">
+                <transformedEntityRef>to_city_streetassets_alarm_on</transformedEntityRef>
+ 			</DataComponent>
+		</components>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_streetassets_alarm_off_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<isTransparent>true</isTransparent> <!-- For sidewalk edge -->
+		<entityMeshData>mesh_city_streetassets_alarm_off_view</entityMeshData>
+		<entityTextureData>texture_city_streetassets_alarm_off_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_alarm_off_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Outdoors/StreetAssets_Alarm.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_alarm_off_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Alarm_Albedo</albedoName>
+		<normalMapName>StreetAssets_Alarm_Normal</normalMapName>
+		<maskMapName>StreetAssets_Alarm_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

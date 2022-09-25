@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_streetassets_setpiece_robot_monument</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Robot Monument (Setpiece)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_streetassets_setpiece_robot_monument_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_streetassets_setpiece_robot_monument_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_setpiece_robot_monument_view</entityMeshData>
+		<entityTextureData>texture_city_streetassets_setpiece_robot_monument_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_setpiece_robot_monument_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Outdoors/Setpiece_Robot_monument.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_setpiece_robot_monument_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>Setpiece_Robot_monument_Albedo</albedoName>
+		<normalMapName>Setpiece_Robot_monument_Normal</normalMapName>
+		<maskMapName>Setpiece_Robot_monument_MaskMap</maskMapName>
+		<emissiveMapName>Setpiece_Robot_monument_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

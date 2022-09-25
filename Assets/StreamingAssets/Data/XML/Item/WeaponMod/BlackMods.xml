@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>item_mod_compound_injector</id>
+		<nameRef>string_mod_compound_injector_name</nameRef>
+		<infoRef>string_mod_compound_injector_info</infoRef>
+		<iconRef>compound_injector_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponModItemComponentData">
+				<modColor>Black</modColor>
+				<modBuffs>
+					<ModBuff>
+						<buffType>DeathEffect</buffType>
+						<effectRef>effect_compound_discus_explosion</effectRef>
+					</ModBuff>
+				</modBuffs>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="ItemData">
+		<id>item_mod_muzzle_addon</id>
+		<nameRef>string_mod_muzzle_addon_name</nameRef>
+		<infoRef>string_mod_muzzle_addon_info</infoRef>
+		<iconRef>muzzle_addon_icon</iconRef>
+		<width>1</width>
+		<height>1</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_hard_pickup_8_screws</pickupSoundRef>
+		<laydownSoundRef>sfx_item_hard_laydown_8_screws</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="WeaponModItemComponentData">
+				<modColor>Black</modColor>
+				<modBuffs>
+					<ModBuff>
+						<buffType>AdditionalPellets</buffType>
+						<flatMod>1</flatMod>
+					</ModBuff>
+					<ModBuff>
+						<buffType>Spread</buffType>
+						<mulMod>2</mulMod>
+					</ModBuff>
+				</modBuffs>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+</Defs>

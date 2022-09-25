@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>player_hands_option_1_view</id>
+		<entityMeshData>hands_option_1</entityMeshData>
+		<entityTextureData>texture_player_hands</entityTextureData>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>hands_option_1</id>
+		<meshPath>Data/XML/Entity/Player/PlayerMesh/Hands/Option1/PlayerChar_Default_Hands.gltf</meshPath>
+	</DataDef>  
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_player_hands</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>PlayerCharTxBake_low_Hands_BaseColor</albedoName>
+		<normalMapName>PlayerCharTxBake_low_Hands_Normal</normalMapName>
+		<maskMapName>PlayerCharTxBake_low_Hands_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

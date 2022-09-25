@@ -1,0 +1,79 @@
+{
+	"name": "kryst-lint",
+	"description": "Kryst-lint server.",
+	"author": "Far North Entertainment",
+	"license": "MIT",
+	"version": "0.1.1",
+	"publisher": "far-north-entertainment",
+	"categories": [],
+	"keywords": [
+		"multi-root ready"
+	],
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"activationEvents": [
+		"onLanguage:xml",
+		"onCommand:KrystLint.DataDefGen",
+		"onCommand:KrystLint.ComponentDataGen",
+		"onCommand:KrystLint.ItemComponentGen"
+	],
+	"main": "./client/out/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "KrystLint.DataDefGen",
+				"title": "Generate DataDef"
+			},
+			{
+				"command": "KrystLint.ComponentDataGen",
+				"title": "Generate Component Data"
+			},
+			{
+				"command": "KrystLint.ItemComponentGen",
+				"title": "Generate Item Component"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
+	"devDependencies": {
+		"@types/mocha": "^8.0.3",
+		"mocha": "^8.1.1",
+		"@types/node": "^12.12.0",
+		"eslint": "^6.4.0",
+		"@typescript-eslint/parser": "^2.3.0",
+		"typescript": "^3.9.4"
+	},
+	"dependencies": {
+		"vsce": "^1.79.5"
+	}
+}

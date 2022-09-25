@@ -1,0 +1,99 @@
+ManifestFileVersion: 0
+CRC: 3548141242
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 81a2b5cdcba4d23198f1efdc926bfe12
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Boots/Boots_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Head/Option1/PlayerCharTxBake_low_Head_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_BaseColor_Blue.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_BaseColor_Blue.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hair/Option1/PlayerCharTxBake_low_Hair_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Legs/Option1/PlayerCharTxBake_low_Legs_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/Excavator/ExcaV4_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_Normal.png
+- Assets/Resources/AssetBundles/Textures/Buildings/CookingPot/CookingPot_DefaultMaterial_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/Excavator/ExcaV4_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/CookingPot/CookingPot_DefaultMaterial_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_r1_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_BaseColor_Red.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_Gold_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/CookingPot/CookingPot_DefaultMaterial_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hands/Option1/PlayerCharTxBake_low_Hands_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_r1_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_BaseColor_Pink.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hands/Option1/PlayerCharTxBake_low_Hands_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_BaseColor_Pink.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Legs/Option1/PlayerCharTxBake_low_Legs_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Head/Option1/PlayerCharTxBake_low_Head_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Torso/Option1/PlayerCharTxBake_low_Torso_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_Red_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Green_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Head/Option1/PlayerCharTxBake_low_Head_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_Green_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_Green_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Green_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Gold_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Feet/Option1/PlayerCharTxBake_low_Feet_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_Gold_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Torso/Option1/PlayerCharTxBake_low_Torso_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_Red_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hair/Option1/PlayerCharTxBake_low_Hair_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Boots/Boots_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_Gold_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Feet/Option1/PlayerCharTxBake_low_Feet_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Boots/Boots_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Feet/Option1/PlayerCharTxBake_low_Feet_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_Gold_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_Green_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_BaseColor_Red.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Legs/Option1/PlayerCharTxBake_low_Legs_Normal.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_r1_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hair/Option1/PlayerCharTxBake_low_Hair_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Boots/hiTechGear_ReadyForTexturing_Boots_Red_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Pants/Pants_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/CookingPot/CookingPot_DefaultMaterial_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/StartGear/Jacket/Jacket_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Buildings/BaseCore/BaseCore_r1_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Hands/Option1/PlayerCharTxBake_low_Hands_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_Green_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Excavator/ExcaV4_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Red_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Gold_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/Base/Torso/Option1/PlayerCharTxBake_low_Torso_BaseColor.png
+- Assets/Resources/AssetBundles/Textures/Player/Excavator/ExcaV4_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Helmet/hiTechGear_ReadyForTexturing_Helmet_Red_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Pants/hiTechGear_ReadyForTexturing_Pants_Normal.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Gloves/hiTechGear_ReadyForTexturing_Gloves_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Player/HighTechGear/Chest/hiTechGear_ReadyForTexturing_Chest_Red_BaseMap.png
+Dependencies: []

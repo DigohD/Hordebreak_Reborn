@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 797295839
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 389ca22231afda682ba9ce77b6ff3ee2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Emissive_AccessDenied.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Albedo_Grey.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Brickwall/BrickWall_Albedo_Beige.png
+Dependencies: []

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_krystberry_bush_wild_sapling</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<blocksBuilding>false</blocksBuilding>
+		<components>
+			<DataComponent xsi:type="CropComponentData">
+				<matureEntityRef>to_krystberry_bush_wild</matureEntityRef>
+				<growthTimeTicks>1500</growthTimeTicks>
+			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_krystberry_bush_wild_sapling_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_krystberry_bush_wild_sapling_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_krystberry_bush_sapling</entityMeshData>
+		<entityTextureData>texture_krystberry_bush_sapling</entityTextureData>
+        <scaleMod>0.002</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_krystberry_bush_sapling</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Krystberry_Bush_Sapling/KrystBerryBush_Sapling.gltf</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_krystberry_bush_sapling</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>KrystBerry_Sapling_Bush_Albedo</albedoName>
+		<normalMapName>KrystBerry_Sapling_Bush_Normal</normalMapName>
+		<maskMapName>KrystBerry_Sapling_Bush_MaskMap</maskMapName>
+	</DataDef>
+</Defs>

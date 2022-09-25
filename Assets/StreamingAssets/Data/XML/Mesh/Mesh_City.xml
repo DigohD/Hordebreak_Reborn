@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- ========================= BRICK WALL STANDARD ASSETS ========================= -->
+	<!-- WALL BRICK -->
+
+
+	<!-- WALL BRICK WINDOW -->
+
+	
+	<!-- WALL BRICK DOOR UNUSABLE -->
+
+	<!-- WALL BRICK DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK GLASS -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK VAR 1 -->
+
+
+	<!-- WALL BRICK VAR 2 -->
+
+	
+	<!-- WALL BRICK INNER -->
+
+	
+	<!-- WALL BRICK INNER DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK INNER DOOR UNUSABLE -->
+
+
+	<!-- WALL BRICK BOMB -->
+
+
+	<!-- WALL BRICK BOMB BROKEN -->
+
+	
+	<!-- WALL BRICK DET 1 -->
+
+	
+	<!-- WALL BRICK DET 2 -->
+	
+	<!-- WALL BRICK CORNER -->
+
+		
+	<!-- WALL BRICK CORNER - PH TO - REMOVE THIS LATER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<!-- ===================================================================== -->
+
+<!-- ========================= BRICK WALL LIGHT ASSETS ========================= -->
+	<!-- WALL BRICK -->
+
+
+	<!-- WALL BRICK WINDOW -->
+
+	
+	<!-- WALL BRICK DOOR UNUSABLE -->
+
+	
+	<!-- WALL BRICK DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK GLASS -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK VAR 1 -->
+
+
+	<!-- WALL BRICK VAR 2 -->
+
+	
+	<!-- WALL BRICK INNER -->
+
+	
+	<!-- WALL BRICK INNER DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK INNER DOOR UNUSABLE -->
+
+
+	<!-- WALL BRICK BOMB -->
+	
+	<!-- WALL BRICK DET 1 -->
+
+	
+	<!-- WALL BRICK DET 2 -->
+	
+	<!-- WALL BRICK CORNER -->
+
+		
+	<!-- WALL BRICK CORNER - PH TO - REMOVE THIS LATER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<!-- ===================================================================== -->
+
+<!-- ========================= BRICK WALL DARK ASSETS ========================= -->
+
+	<!-- WALL BRICK -->
+
+
+	<!-- WALL BRICK WINDOW -->
+
+
+	<!-- WALL BRICK DOOR UNUSABLE -->
+
+	
+	<!-- WALL BRICK DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK GLASS -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK GLASS BROKEN -->
+
+
+	<!-- WALL BRICK VAR 1 -->
+
+
+	<!-- WALL BRICK VAR 2 -->
+
+	
+	<!-- WALL BRICK INNER -->
+
+	
+	<!-- WALL BRICK INNER DOOR ANIMATED -->
+
+
+	<!-- WALL BRICK INNER DOOR UNUSABLE -->
+
+
+	<!-- WALL BRICK BOMB -->
+
+	
+	<!-- WALL BRICK DET 1 -->
+
+	
+	<!-- WALL BRICK DET 2 -->
+
+	
+	<!-- WALL BRICK CORNER -->
+
+		
+	<!-- WALL BRICK CORNER - PH TO - REMOVE THIS LATER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+<!-- ===================================================================== -->
+
+<!-- ========================= INDUSTRIAL WALL ASSETS ========================= -->
+
+	<!-- WALL INDUSTRIAL -->
+	
+	
+	<!-- WALL INDUSTRIAL VAR 1 L -->
+	
+	
+	<!-- WALL INDUSTRIAL VAR 1 R -->
+	
+	
+	<!-- WALL INDUSTRIAL VAR 2 -->
+	
+	
+	<!-- WALL INDUSTRIAL PLAIN -->
+	
+	
+	<!-- WALL INDUSTRIAL PLAIN TRANSITION R -->
+	
+	
+	<!-- WALL INDUSTRIAL PLAIN TRANSITION L -->
+	
+	
+	<!-- WALL INDUSTRIAL WINDOW -->
+	
+	
+	<!-- WALL INDUSTRIAL WINDOW PLAIN -->
+	
+		
+	<!-- WALL INDUSTRIAL INNER -->
+	
+
+	<!-- WALL INDUSTRIAL DOOR ANIMATED -->
+	
+	
+	<!-- WALL INDUSTRIAL DOOR INACCESSIBLE -->
+	
+	
+	<!-- WALL INDUSTRIAL CARPORT R -->
+	
+	
+	<!-- WALL INDUSTRIAL CARPORT L -->
+	
+	
+	<!-- WALL INDUSTRIAL CARPORT M -->
+	
+	
+	<!-- WALL INDUSTRIAL GLASS -->
+	
+	
+	<!-- WALL INDUSTRIAL BOMB -->
+	
+	
+	<!-- WALL INDUSTRIAL BOMB BROKEN -->
+	
+	
+	<!-- WALL INDUSTRIAL CORNER - PH TO - REMOVE THIS LATER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+	
+	<!-- WALL INDUSTRIAL CORNER -->
+	
+
+<!-- ===================================================================== -->
+
+
+<!-- ========================= INDUSTRIAL WALL BLUE ASSETS ========================= -->
+
+	<!-- WALL INDUSTRIAL BLUE -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE VAR 1 L -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE VAR 1 R -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE VAR 2 -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE PLAIN -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE PLAIN TRANSITION R -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE PLAIN TRANSITION L -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE WINDOW -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE WINDOW PLAIN -->
+	
+		
+	<!-- WALL INDUSTRIAL BLUE INNER -->
+	
+
+	<!-- WALL INDUSTRIAL BLUE DOOR ANIMATED -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE DOOR INACCESSIBLE -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE CARPORT R -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE CARPORT L -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE CARPORT M -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE GLASS -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE BOMB -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE BOMB BROKEN -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE CORNER - PH TO - REMOVE THIS LATER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+	
+	<!-- WALL INDUSTRIAL BLUE CORNER -->
+	
+
+<!-- ===================================================================== -->
+
+</Defs>

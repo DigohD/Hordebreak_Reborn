@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_pickup</id>
+		<filePath>Data/XML/Audio/SFX/Item_Soft_Pickup.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_soft_laydown</id>
+		<filePath>Data/XML/Audio/SFX/Item_Soft_Laydown.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_pickup</id>
+		<filePath>Data/XML/Audio/SFX/Item_Hard_Pickup.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_item_hard_laydown</id>
+		<filePath>Data/XML/Audio/SFX/Item_Hard_Laydown.wav</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_mjolnir</id>
+		<filePath>Data/XML/Audio/SFX/UI/UI_Open.wav</filePath>
+		<distance>150</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_debug</id>
+		<filePath>Data/XML/Audio/SFX/UI/UI_Open.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rocks_hit_1</id>
+		<filePath>Data/XML/Audio/SFX/Rocks_Hit.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rocks_hit_2</id>
+		<filePath>Data/XML/Audio/SFX/Rocks_Hit2.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rocks_hit_3</id>
+		<filePath>Data/XML/Audio/SFX/Rocks_Hit3.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rocks_destroy</id>
+		<filePath>Data/XML/Audio/SFX/Rocks_Destroy.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_wood_hit_excavator</id>
+		<filePath>Data/XML/Audio/SFX/Wood_Hit2.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_wood_destroy</id>
+		<filePath>Data/XML/Audio/SFX/Wood_Destroy.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_ambient_sound_day</id>
+		<filePath>Data/XML/Audio/SFX/Item_Hard_Laydown.wav</filePath>
+	</DataDef>
+
+	
+	
+	
+</Defs>

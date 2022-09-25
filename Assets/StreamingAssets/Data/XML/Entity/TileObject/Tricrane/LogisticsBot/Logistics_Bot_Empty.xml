@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tricrane_logistics_bot_empty</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>false</seeThrough>
+		<editorName>Logistics Bot (Empty)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tricrane_logistics_bot_empty_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_tricrane_logistics_bot_empty_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<isTransparent>true</isTransparent>
+		<entityMeshData>mesh_tricrane_logistics_bot_empty_view</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1.28</scaleMod>
+	</DataDef>
+
+</Defs>

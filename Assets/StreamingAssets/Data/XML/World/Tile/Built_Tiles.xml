@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+	<DataDef xsi:type="TileData">
+		<id>concrete_tile</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Buildables/Concrete/ConcreteFloor_DefaultMaterial_BaseMap.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Buildables/Concrete/ConcreteFloor_DefaultMaterial_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Buildables/Concrete/ConcreteFloor_DefaultMaterial_Normal.png</normalpath>
+		<overlapPriority>1000</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#999999</mapColor>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+	</DataDef>
+	
+	<DataDef xsi:type="TileData">
+		<id>gravel_tile</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Buildables/Gravel/Gravel_BaseMap.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Buildables/Gravel/Gravel_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Buildables/Gravel/Gravel_Normal.png</normalpath>
+		<weatherInsulation>0.5</weatherInsulation>
+		<overlapPriority>1</overlapPriority>
+		<hardEdges>false</hardEdges>
+		<mapColor>#AAAAAA</mapColor>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+		</roomPropertyRefs>
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>stone_tile</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Buildables/StoneFloor/StoneFloor_BaseColor.png</albedopath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Buildables/StoneFloor/StoneFloor_Normal.png</normalpath>
+		<roughnesspath>Data/XML/World/Tile/TileMaps/Buildables/StoneFloor/StoneFloor_MaskMap.png</roughnesspath>
+		<weatherInsulation>0.5</weatherInsulation>
+		<overlapPriority>1000</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#666666</mapColor>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
+		<id>wood_tile</id>
+		<category>constructed</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Buildables/WoodPlanks/WoodFloor_DefaultMaterial_BaseMap.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Buildables/WoodPlanks/WoodFloor_DefaultMaterial_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Buildables/WoodPlanks/WoodFloor_DefaultMaterial_Normal.png</normalpath>
+		<weatherInsulation>0.5</weatherInsulation>
+		<overlapPriority>1000</overlapPriority>
+		<hardEdges>true</hardEdges>
+		<mapColor>#777722</mapColor>
+		<roomPropertyRefs>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+	</DataDef>
+
+</Defs>

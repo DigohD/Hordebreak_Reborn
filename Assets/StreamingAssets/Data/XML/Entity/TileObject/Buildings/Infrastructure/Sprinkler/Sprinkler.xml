@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>sprinkler</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Sprinkler</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<!-- DEV_ONLY! Meant for Item Transfer TileObject -->
+			<DataComponent xsi:type="ItemTransferComponentData">
+				<transferIntervalTicks>20</transferIntervalTicks>
+			</DataComponent>
+			<!-- DEV_ONLY! Meant for Item Transfer TileObject -->
+		
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>100</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="ConsumerComponentData">
+				<resources>
+					<ResourceConsumptionData>
+						<resourceRef>room_water</resourceRef>
+						<amount>2</amount>
+					</ResourceConsumptionData>
+				</resources>
+			</DataComponent>
+
+			<DataComponent xsi:type="EnvironmentComponentData">
+				<environment>
+					<EnvironmentEffectData>
+						<typeRef>env_type_humidity</typeRef>
+						<amount>200</amount>
+					</EnvironmentEffectData>
+				</environment>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_sprinkler_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_sprinkler_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_sprinkler_view</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>0.2</scaleMod>
+	</DataDef>
+    
+</Defs>

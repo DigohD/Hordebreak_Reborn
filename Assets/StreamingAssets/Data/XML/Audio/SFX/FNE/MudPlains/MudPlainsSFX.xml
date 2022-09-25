@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_1</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird1.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_2</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird2.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_3</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird3.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_4</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird4.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_5</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird5.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_6</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird6.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_7</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird7.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_8</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird8.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_9</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird9.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_10</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird10.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_11</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird11.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_12</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird12.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_13</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird13.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_14</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird14.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_15</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird15.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_16</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird16.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_17</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird17.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_18</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird18.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_19</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird19.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_20</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird20.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_bird_21</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/bird21.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_1</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada1.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_2</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada2.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_3</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada3.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_4</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada4.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_5</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada5.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_6</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada6.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_7</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada7.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_8</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada8.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_9</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada9.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_10</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada10.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_11</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada11.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_12</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada12.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_13</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada13.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_14</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada14.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_15</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada15.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_16</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada16.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_17</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada17.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_18</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada18.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_19</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada19.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_20</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada20.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_cicada_21</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/cicada21.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_frog_1</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/frog1.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_frog_2</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/frog2.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_frog_3</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/frog3.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+    <DataDef xsi:type="SFXData">
+		<id>sfx_mudplains_frog_4</id>
+		<filePath>Data/XML/Audio/SFX/FNE/MudPlains/frog4.wav</filePath>		
+		<distance>45</distance>
+	</DataDef>
+
+</Defs>

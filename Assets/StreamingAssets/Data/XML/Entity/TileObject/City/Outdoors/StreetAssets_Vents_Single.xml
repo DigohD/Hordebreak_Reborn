@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_streetassets_vents_single</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Vents (Single)</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>City</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_streetassets_vents_single_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_streetassets_vents_single_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_streetassets_vents_single_view</entityMeshData>
+		<entityTextureData>texture_city_streetassets_vents_single_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_streetassets_vents_single_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Outdoors/StreetAssets_Vents_Single.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_streetassets_vents_single_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_outdoors</assetBundlePath>
+		<albedoName>StreetAssets_Albedo</albedoName>
+		<normalMapName>StreetAssets_Normal</normalMapName>
+		<maskMapName>StreetAssets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

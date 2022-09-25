@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+<!-- ========================= EDGE OBJECTS ========================= -->
+
+	<!-- ORNATE WALL -->
+	
+    
+<!-- ================================================================ -->
+
+<!-- ========================= WALL MOUNTED OBJECTS ========================= -->
+
+	<!-- MONITORING SCREENS VAR 1 -->
+
+
+	<!-- MONITORING SCREENS VAR 2 -->
+
+
+	<!-- MONITORING SCREENS VAR 3 -->
+
+	
+	<!-- MONITORING SCREENS CONSOLE VAR 1 -->
+
+	
+	<!-- MONITORING SCREENS CONSOLE VAR 2 -->
+
+
+	<!-- WALL SHELVES EMPTY -->
+
+
+	<!-- WALL SHELVES VAR 1 -->
+
+	
+	<!-- WALL SHELVES VAR 2 -->
+
+    
+<!-- ================================================================ -->
+
+<!-- ========================= TILE OBJECTS ========================= -->
+	
+  	<!-- BOOKCASE EMPTY -->
+	
+    
+  	<!-- BOOKCASE VAR 1 -->
+	
+    
+  	<!-- BOOKCASE VAR 2 -->
+	
+    
+  	<!-- CHAIR -->
+	
+    
+  	<!-- CHAIR CORNER -->
+	
+    
+  	<!-- CHAIR TIPPED -->
+	
+    
+  	<!-- COUCH -->
+	
+    
+  	<!-- DESK EMPTY -->
+	
+    
+  	<!-- DESK EMPTY W CHAIR -->
+	
+    
+  	<!-- DESK SCREENS -->
+	
+    
+  	<!-- DESK SCREENS W CHAIR -->
+	
+    
+  	<!-- LAMP -->
+	
+    
+  	<!-- LOOTBOX CLOSED -->
+	
+    
+  	<!-- LOOTBOX EMPTY -->
+	
+	
+  	<!-- LOOTBOX ANIMATED -->
+	
+    
+  	<!-- PLANT -->
+	
+
+  	<!-- PLANT 2 -->
+	
+	
+  	<!-- CABINET -->
+	
+	
+  	<!-- CABINET HALF -->
+	
+	
+  	<!-- SERVER CABINET -->
+	
+	
+  	<!-- COUCH TABLE -->
+	
+	
+  	<!-- DINING CHAIR -->
+	
+	
+  	<!-- DINING CHAIR CORNER -->
+	
+	
+  	<!-- DINING TABLE EMPTY -->
+	
+	
+  	<!-- DINING TABLE VAR 1 -->
+	
+	
+  	<!-- DINING TABLE VAR 2 -->
+	
+    
+<!-- ================================================================ -->
+
+</Defs>

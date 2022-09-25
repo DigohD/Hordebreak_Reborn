@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_steel_ingot_scrap</id>
+		<processNameRef>refine_steel_ingot_name</processNameRef>
+		<processDescriptionRef>refine_steel_ingot_info</processDescriptionRef>
+		<processIconRef>steel_ingot_icon</processIconRef>
+		<processTime>30</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>3</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="RefinementRecipeData">
+		<id>refinement_steel_ingot_iron_ore</id>
+		<processNameRef>refine_steel_ingot_ore_name</processNameRef>
+		<processDescriptionRef>refine_steel_ingot_ore_info</processDescriptionRef>
+		<processIconRef>steel_ingot_icon</processIconRef>
+		<processTime>30</processTime>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_iron_ore</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_charcoal</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<producedMaterials>
+			<MaterialDef>
+				<itemRef>item_steel_ingot</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</producedMaterials>
+	</DataDef>
+</Defs>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="StringData">
+		<id>event_point_survival_title</id>
+		<sv>Punktförsvar</sv>
+		<en>Point Survival</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>event_point_survival_description</id>
+		<sv>Försvara området tills tiden löpt ut</sv>
+		<en>Defend the area until the timer runs out</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>event_player_loot_drop_pod_title</id>
+		<sv>Landningskapsel</sv>
+		<en>Drop Pod</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>event_player_loot_drop_pod_description</id>
+		<sv>Kapseln du landade i. Det kanske finns några användbara delar kvar i den...</sv>
+		<en>The pod you landed with. There might be some useful parts still left in it...</en>
+	</DataDef>
+
+
+</Defs>

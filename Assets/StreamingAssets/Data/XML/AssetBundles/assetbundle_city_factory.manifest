@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 614938901
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 294d32ff79f9f10c825769d6393b4c24
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Assets_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Assets_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Assets_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Large_Machines_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Large_Machines_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Large_Machines_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Large_Machines_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Factory/Factory_Assets_Normal.png
+Dependencies: []

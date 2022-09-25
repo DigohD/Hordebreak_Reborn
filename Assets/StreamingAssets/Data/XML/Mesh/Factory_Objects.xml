@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+<!-- ========================= EDGE OBJECTS ========================= -->
+
+  	<!-- OVERHANG RAILING -->
+	
+    
+  	<!-- SAFETY RAILING -->
+	
+	
+  	<!-- FLOOR DIVIDER -->
+	
+	
+  	<!-- ABYSS WALL EDGE -->
+	
+	
+<!-- ================================================================ -->
+
+<!-- ========================= WALL MOUNTED OBJECTS ========================= -->
+
+  	<!-- FACTORY WALL LAMP -->
+
+    
+<!-- ================================================================ -->
+
+<!-- ========================= TILE OBJECTS ========================= -->
+	
+  	<!-- ABYSS CENTER -->
+	
+	
+  	<!-- ABYSS WALL -->
+	
+	
+  	<!-- ABYSS OUTER CORNER -->
+	
+	
+  	<!-- ABYSS INNER CORNER -->
+	
+	
+  	<!-- ABYSS CRANE -->
+	
+	
+  	<!-- FACTORY OVERHANG 1 TILE -->
+	
+
+  	<!-- FACTORY OVERHANG 2 TILES -->
+	
+	
+  	<!-- FACTORY OVERHANG 3 TILES -->
+	
+
+  	<!-- FACTORY OVERHANG 4 TILES -->
+	
+	
+  	<!-- FACTORY OVERHANG STAIRS -->
+	
+	
+  	<!-- ABYSS CRANE -->
+	
+	
+  	<!-- CONSOLE ON -->
+	
+	
+  	<!-- CONSOLE PAUSE -->
+	
+
+	<!-- ROOF ROBOT 1 -->
+	
+	
+	<!-- ROOF ROBOT 2 -->
+	
+	
+<!-- ================================================================ -->
+
+<!-- ========================= LARGE FACTORY MACHINE OBJECTS ========================= -->
+
+  	<!-- CONVEYOR BELT STRAIGHT -->
+	 
+	
+  	<!-- CONVEYOR BELT TURN -->
+	 
+	
+  	<!-- LARGE MACHINE 1 -->
+	 
+	
+  	<!-- LARGE MACHINE 2 -->
+	 
+	
+  	<!-- LARGE MACHINE 3 -->
+	 
+	
+  	<!-- LARGE MACHINE 4 -->
+	 
+	
+  	<!-- LARGE MACHINE 5 -->
+	 
+	
+  	<!-- LARGE MACHINE 6 -->
+	 
+    
+<!-- ================================================================ -->
+
+</Defs>

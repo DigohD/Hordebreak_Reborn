@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <DataDef xsi:type="SFXData">
+		<id>sfx_step_rock_1</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Footstep_Rock1.wav</filePath>
+		<distance>8</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_step_rock_2</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Footstep_Rock2.wav</filePath>
+		<distance>8</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_step_rock_3</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Footstep_Rock3.wav</filePath>
+		<distance>8</distance>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_step_rock_4</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Footstep_Rock4.wav</filePath>
+		<distance>8</distance>
+	</DataDef>
+
+</Defs>

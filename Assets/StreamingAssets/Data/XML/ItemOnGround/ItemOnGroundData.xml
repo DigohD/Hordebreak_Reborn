@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>ph_item_on_ground_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>ph_item_on_ground_mesh</entityMeshData>
+        <scaleMod>0.004</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>ph_item_on_ground_mesh</id>
+		<meshPath>Data\XML\ItemOnGround\SimplePlaceholder_TileObj.glb</meshPath>
+		<albedoPath>Data\XML\ItemOnGround\ItemOnGroundAlbedo.png</albedoPath>
+	</DataDef>
+		
+</Defs>

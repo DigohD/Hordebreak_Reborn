@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="ItemData">
+		<id>armor_start_gear_pants</id>
+		<nameRef>armor_start_gear_pants_name</nameRef>
+        <infoRef>armor_start_gear_pants_info</infoRef>
+        <width>2</width>
+		<height>2</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_5_leather_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_5_leather_gear</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ClothingItemComponentData">
+				<equipmentType>Legs</equipmentType>
+				<itemMeshRef>mesh_start_gear_pants</itemMeshRef>
+				<itemTextureRef>texture_start_gear_pants</itemTextureRef>
+				<statModList>
+					<StatModData>
+						<modType>Armor</modType>
+						<amount>10</amount>
+					</StatModData>
+				</statModList>
+			</ItemComponentData>
+		</components>
+	</DataDef>	
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_start_gear_pants</id>
+        <meshPath>Data/XML/Item/Gear/StartGear/Pants/Pants.gltf</meshPath>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_start_gear_pants</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>Pants_BaseColor</albedoName>
+		<normalMapName>Pants_Normal</normalMapName>
+		<maskMapName>Pants_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

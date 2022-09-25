@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tall_grass</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Tall Grass</editorName>
+		<blocksBuilding>false</blocksBuilding>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_tall_grass_view_big</viewRef>
+			<viewRef>to_tall_grass_view_medium</viewRef>
+			<viewRef>to_tall_grass_view_small</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_tall_grass_view_big</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<isVegetation>true</isVegetation>
+		<entityMeshData>mesh_tall_grass_big</entityMeshData>
+		<entityTextureData>texture_tall_grass</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tall_grass_big</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Tall_Grass/TallGrass_big.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_tall_grass</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>TallGrass_BaseColor</albedoName>
+		<maskMapName>TallGrass_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_tall_grass_view_medium</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tall_grass_medium</entityMeshData>
+		<entityTextureData>texture_tall_grass</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tall_grass_medium</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Tall_Grass/TallGrass_medium.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_tall_grass_view_small</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tall_grass_small</entityMeshData>
+		<entityTextureData>texture_tall_grass</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_tall_grass_small</id>
+		<meshPath>Data/XML/Entity/TileObject/Plant/Tall_Grass/TallGrass_small.glb</meshPath>
+	</DataDef>
+
+</Defs>

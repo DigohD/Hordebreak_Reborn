@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  FOREST SHEPHERD  -->
+
+	<DataDef entityType="GOEnemy" xsi:type="FNEEntityData">
+		<id>forest_shepherd</id>
+    	<hittable>true</hittable>
+		<components>
+			<DataComponent xsi:type="EnemyComponentData">
+				<baseSpeed>2</baseSpeed>
+				<enemyMeshRef>shepherd_main</enemyMeshRef>
+				<accessoryMeshRef>shepherd_staff</accessoryMeshRef>
+				<scaleMod>2</scaleMod>
+			</DataComponent>
+			<DataComponent xsi:type="EnemyStatsComponentData">
+				<behaviour>Aggressive</behaviour>
+				<aggroRange>12</aggroRange>
+				<hitboxRadius>0.5</hitboxRadius>
+				<agentRadius>0.2</agentRadius>
+				<minSpeed>1.0</minSpeed>
+				<maxSpeed>1.2</maxSpeed>
+				<scale>0.3</scale>
+				<lungeDistance>2.5</lungeDistance>
+				<lungeSpeedMod>1.5</lungeSpeedMod>
+				<projectileType>salvage_handgun</projectileType>
+				<damage>10.0</damage>
+				<damageTypeRef>bludgeoning</damageTypeRef>
+				<attackCooldown>1</attackCooldown>
+				<attackRange>1</attackRange>
+				<attackTimestamp>0.5</attackTimestamp>
+			</DataComponent>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>50</startHealth>
+				<defenseTypeRef>defense_flesh</defenseTypeRef>
+			</DataComponent>
+		</components>
+	</DataDef>
+
+	
+</Defs>

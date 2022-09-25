@@ -1,0 +1,15 @@
+{
+	"name": "kryst-lint-server",
+	"description": "Language server implementation for kryst-lint.",
+	"version": "0.1.1",
+	"author": "Far North Entertainment",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^6.1.1",
+		"vscode-languageserver-textdocument": "^1.0.1"
+	},
+	"scripts": {}
+}

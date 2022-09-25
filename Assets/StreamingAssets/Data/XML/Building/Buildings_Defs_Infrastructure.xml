@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="BuildingData">
+		<id>building_base_pylon</id>
+		<productRef>to_base_pylon</productRef>
+		<categoryRef>building_category_infrastructure</categoryRef>
+		<nameRef>building_base_pylon_name</nameRef>
+		<descriptionRef>building_base_pylon_info</descriptionRef>
+		<iconRef>indoors_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_pylon_component</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+		<unlockRefs>
+			<unlockRef>building_workbench</unlockRef>
+		</unlockRefs>
+	</DataDef>
+	
+	<DataDef xsi:type="BuildingData">
+		<id>building_storage_box</id>
+		<productRef>wood_storage_box</productRef>
+		<categoryRef>building_category_infrastructure</categoryRef>
+		<nameRef>building_wood_storage_box_name</nameRef>
+		<descriptionRef>building_wood_storage_box_info</descriptionRef>
+		<iconRef>wood_storage_box_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_log</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>8</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<!-- <DataDef xsi:type="BuildingData">
+		<id>building_temp_lamp</id>
+		<productRef>to_temp_lamp</productRef>
+		<categoryRef>building_category_infrastructure</categoryRef>
+		<nameRef>temp_lamp_name</nameRef>
+		<descriptionRef>temp_lamp_info</descriptionRef>
+		<iconRef>burnable_one_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_scrap_metal</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef> -->
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_plant_box</id>
+		<productRef>to_plant_box</productRef>
+		<categoryRef>building_category_infrastructure</categoryRef>
+		<nameRef>plant_box_name</nameRef>
+		<descriptionRef>plant_box_info</descriptionRef>
+		<iconRef>cultivation_plot_icon</iconRef>
+		<isWallAddon>false</isWallAddon>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>4</amount>
+			</MaterialDef>
+			<MaterialDef>
+				<itemRef>item_fertile_soil</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+</Defs>

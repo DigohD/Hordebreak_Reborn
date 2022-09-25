@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="AtmosphereData">
+		<id>mud_plains_atmosphere</id>
+        <sfxList>
+            <AtmosphereSFXData>
+                <sfxRefs>
+                    <sfxRef>sfx_mudplains_bird_1</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_2</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_3</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_4</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_5</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_6</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_7</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_8</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_9</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_10</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_11</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_12</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_13</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_14</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_15</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_16</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_17</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_18</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_19</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_20</sfxRef>
+                    <sfxRef>sfx_mudplains_bird_21</sfxRef>
+                    <sfxRef>sfx_mudplains_beast_1</sfxRef>
+                    <sfxRef>sfx_mudplains_beast_2</sfxRef>
+                    <sfxRef>sfx_mudplains_beast_3</sfxRef>
+                    <sfxRef>sfx_mudplains_beast_4</sfxRef>
+                    <sfxRef>sfx_mudplains_beast_5</sfxRef>
+                </sfxRefs>
+				<ambience>day</ambience>
+                <weight>100</weight>
+                <centerTime>14</centerTime>
+                <timeOffset>8</timeOffset>
+            </AtmosphereSFXData>
+
+             <AtmosphereSFXData>
+                <sfxRefs>
+                    <sfxRef>sfx_mudplains_cicada_1</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_2</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_3</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_4</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_5</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_6</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_7</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_8</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_9</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_10</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_11</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_12</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_13</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_14</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_15</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_16</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_17</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_18</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_19</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_20</sfxRef>
+                    <sfxRef>sfx_mudplains_cicada_21</sfxRef>
+                    <sfxRef>sfx_mudplains_frog_1</sfxRef>
+                    <sfxRef>sfx_mudplains_frog_2</sfxRef>
+                    <sfxRef>sfx_mudplains_frog_3</sfxRef>
+                    <sfxRef>sfx_mudplains_frog_4</sfxRef>
+                </sfxRefs>
+				<ambience>night</ambience>
+                <weight>100</weight>
+                <centerTime>2</centerTime>
+                <timeOffset>6</timeOffset>
+            </AtmosphereSFXData>
+        </sfxList>
+
+        <fogTint>#00FFFF</fogTint>
+        <sunTint>#AACCFF</sunTint>
+        <moonTint>#CCAAFF</moonTint>
+        <waterTint>#66AAFF</waterTint>
+        <fogThickness>Light</fogThickness>
+	</DataDef>
+</Defs>

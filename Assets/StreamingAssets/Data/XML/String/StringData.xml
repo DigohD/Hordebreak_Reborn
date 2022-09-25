@@ -1,0 +1,1562 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="StringData">
+		<id>machine_not_empty_message</id>
+		<sv>Maskinen är inte tömd!</sv>
+		<en>The machine is not empty!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>no_material</id>
+		<sv>Du saknar nödvändiga material!</sv>
+		<en>You don't have enough materials!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_in_the_way_message</id>
+		<sv>Någonting är i vägen för byggnationen!</sv>
+		<en>Something is blocking construction!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>inventory_full_message</id>
+		<sv>Du kan inte bära mer!</sv>
+		<en>Your inventory is full!</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>menu_start_game</id>
+		<sv>Starta Spelet</sv>
+		<en>Start Game</en>
+		<de>Das Speile Gestarten</de>
+		<fr>...</fr>
+		<es>...</es>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_outdoors_name</id>
+		<en>Outdoors</en>
+		<sv>Utomhus</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_plants_name</id>
+		<en>Plants</en>
+		<sv>Växter</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_walls_name</id>
+		<en>Walls</en>
+		<sv>Väggar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_tiles_name</id>
+		<en>Floors</en>
+		<sv>Golv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_infrastructure_name</id>
+		<en>Infrastructure</en>
+		<sv>Infrastruktur</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_resources_name</id>
+		<en>Resource Production</en>
+		<sv>Resursproduktion</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_wall_objects_name</id>
+		<en>Wall mounts</en>
+		<sv>Väggmonteringar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_crafting_name</id>
+		<en>Crafting</en>
+		<sv>Konstruktion</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_refining_name</id>
+		<en>Refining</en>
+		<sv>Raffinering</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_category_environment_name</id>
+		<en>Indoors Environment</en>
+		<sv>Inomhusmiljö</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_campfire_name</id>
+		<en>Campfire</en>
+		<sv>Lägereld</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_campfire_ref</id>
+		<en>Cook food and keep yourself warm!</en>
+		<sv>Laga mat och håller dig varm!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_storage_box_name</id>
+		<en>Wood Crate</en>
+		<sv>Trälåda</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_storage_box_2_name</id>
+		<en>Upgrade Wood Crate</en>
+		<sv>Uppgradera Trälåda</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_storage_box_info</id>
+		<en>A simple crate for storing things</en>
+		<sv>En enkel förvaringslåda</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_workbench_name</id>
+		<en>Labor Stub</en>
+		<sv>Arbetsstubbe</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_workbench_info</id>
+		<en>The seed of planetary domination</en>
+		<sv>Starten på planetär dominans</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_weaponbench_name</id>
+		<en>Weapon bench</en>
+		<sv>Vapenbänk</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_weaponbench_info</id>
+		<en>A primitive source of destructive power</en>
+		<sv>En primitiv källa för förstörelse</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>building_weaponbench_t2_name</id>
+		<en>Advanced Weapon bench</en>
+		<sv>Avancerad Vapenbänk</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_weaponbench_t2_info</id>
+		<en>A place to craft some real destructive power</en>
+		<sv>En plats att tillverka riktig förstörelse kraft</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wind_generator_name</id>
+		<en>Wind Generator</en>
+		<sv>Vindkraftverk</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wind_generator_info</id>
+		<en>A cheap energy alternative</en>
+		<sv>Ett billigt energialternativ</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_furnace_name</id>
+		<en>Furnace</en>
+		<sv>Masugn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_furnace_info</id>
+		<en>Process valuable resources</en>
+		<sv>Framställ värdefulla resurser</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_water_pump_name</id>
+		<en>Water pump</en>
+		<sv>Vattenpump</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_water_pump_info</id>
+		<en>Generates water for your base</en>
+		<sv>Genererar vatten till din bas</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cement_mixer_name</id>
+		<en>Cement Mixer</en>
+		<sv>Betongblandare</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cement_mixer_info</id>
+		<en>Spin to win!</en>
+		<sv>Snurra för att hurra!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_sprinkler_name</id>
+		<en>Sprinkler</en>
+		<sv>Vattenspridare</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_sprinkler_info</id>
+		<en>Turns water into humidity</en>
+		<sv>Förvandlar vatten till luftfuktighet</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_generator_name</id>
+		<en>Steam Generator</en>
+		<sv>Ånggnenerator</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_generator_info</id>
+		<en>Turn fire into electricity</en>
+		<sv>Gör eld till elekricitet</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_pine_name</id>
+		<en>Pine Sapling</en>
+		<sv>Granstickling</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_pine_info</id>
+		<en>Plant it, and watch it grow!</en>
+		<sv>Plantera den och se den gro!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_kryst_bush_sapling_name</id>
+		<en>Krystberry Bush</en>
+		<sv>Krystbärsbuske</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_kryst_bush_sapling_info</id>
+		<en>Ensure a steady source of krystberries</en>
+		<sv>En tillförlitlig krystbärs-källa</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cotton_sapling_name</id>
+		<en>Cotton bush</en>
+		<sv>Bomullsplanta</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cotton_sapling_info</id>
+		<en>Future protective gear on a stick</en>
+		<sv>Framtida utrustning på en pinne</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_potato_plant_name</id>
+		<en>Potato plant</en>
+		<sv>Potatisplanta</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_potato_plant_info</id>
+		<en>Biological fuel at its finest</en>
+		<sv>Biologiskt bränsle när det är som bäst</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_electric_box_name</id>
+		<en>Power Transmitter</en>
+		<sv>Energisändare</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_electric_box_info</id>
+		<en>Send power from where it exists, to where it is needed</en>
+		<sv>Sänd energi från var det finns, till var det behövs</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_water_pipes_name</id>
+		<en>Water Pipes</en>
+		<sv>Vattenrör</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_water_pipes_info</id>
+		<en>A Simple water distribution system</en>
+		<sv>Ett enkelt vattenfördelningssystem</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_heat_pipes_name</id>
+		<en>Heat Pipes</en>
+		<sv>Värmerör</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_heat_pipes_info</id>
+		<en>A Simple heat distribution system</en>
+		<sv>Ett enkelt värmefördelningssystem</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>small_compound_crystal_name</id>
+		<en>Small Compound Crystal</en>
+		<sv>En Liten Kristall</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>small_compound_crystal_info</id>
+		<en>This is a small pink crystal</en>
+		<sv>Detta är en liten rosa kristall</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_labor_stub_name</id>
+		<en>Labor Stub</en>
+		<sv>Arbetsstubbe</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_labor_stub_ref</id>
+		<en>A simple, outdoors crafting station</en>
+		<sv>En enkel, lantlig arbetsstation</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_wall_name</id>
+		<en>Wood Wall</en>
+		<sv>Trävägg</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_wall_ref</id>
+		<en>Construct rooms and bases!</en>
+		<sv>Bygg rum och baser!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>item_concrete_name</id>
+		<en>Concrete Block</en>
+		<sv>Betongblock</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>item_concrete_info</id>
+		<en>Basic, but strong!</en>
+		<sv>Tråkigt, men starkt!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_concrete_wall_name</id>
+		<en>Concrete Wall</en>
+		<sv>Betongvägg</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_concrete_wall_info</id>
+		<en>It never fails!</en>
+		<sv>Är aldrig fel!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_fence_name</id>
+		<en>Wood Fence</en>
+		<sv>Trästaket</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_fence_ref</id>
+		<en>Claim outdoors areas for your base!</en>
+		<sv>Införliva utomhus-områden i din bas!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_fence_gate_name</id>
+		<en>Wood Fence Gate</en>
+		<sv>Trästakets-grind</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_fence_gate_ref</id>
+		<en>This allows players entry to the pastures!</en>
+		<sv>Låter spelarna ta sig in i hagarna!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_wall_name</id>
+		<en>Stone Wall</en>
+		<sv>Stenvägg</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_wall_ref</id>
+		<en>Fireproof and sturdy.</en>
+		<sv>Eldsäkert och stabilt.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_wall_door_name</id>
+		<en>Stone Wall Door</en>
+		<sv>Stenväggs-port</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_wall_door_ref</id>
+		<en>A door for stone walls.</en>
+		<sv>En port för stenväggar.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_wall_door_name</id>
+		<en>Base Door</en>
+		<sv>Basdörr</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_wall_door_info</id>
+		<en>Let players into the base!</en>
+		<sv>Låt spelarna hänga i basen!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_tile_name</id>
+		<en>Wood Flooring</en>
+		<sv>Trägolv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_wood_tile_ref</id>
+		<en>A simple, yet robust floor alternative</en>
+		<sv>Ett enkelt men robust govlalternativ</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_gravel_tile_name</id>
+		<en>Gravel path</en>
+		<sv>Grusgång</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_gravel_tile_info</id>
+		<en>An outdoors path for pleasant strolls</en>
+		<sv>En utomhusgång för friska promenader</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_concrete_tile_name</id>
+		<en>Concrete Slab</en>
+		<sv>Betongplatta</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_concrete_tile_ref</id>
+		<en>Gray, hard, square</en>
+		<sv>Grå, hård, fyrkantig</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_tile_name</id>
+		<en>Stone Flooring</en>
+		<sv>Stengolv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_stone_tile_ref</id>
+		<en>A fireproof, solid floor</en>
+		<sv>Ett eldsäkert och hårt golv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_base_pylon_name</id>
+		<en>Base Pylon</en>
+		<sv>Basstolpe</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_base_pylon_info</id>
+		<en>Use this Pylon to set up your Base</en>
+		<sv>Använd basstolpen för att sätta upp din bas</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_base_pylon_2_name</id>
+		<en>Base Pylon Tier 2</en>
+		<sv>Basstolpe Rang 2</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_base_pylon_2_info</id>
+		<en>Improved version of the Base Pylon. Allows for more advanced buildings.</en>
+		<sv>Förbättrad version av Basstolpen. Tillåter mer avancerade byggnader.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cooking_pot_name</id>
+		<en>Cooking Oven</en>
+		<sv>Stekugn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_cooking_pot_info</id>
+		<en>Use this to cook food</en>
+		<sv>Använd denna för att laga mat</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>temperature_name</id>
+		<en>Temperature</en>
+		<sv>Temperatur</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pollution_name</id>
+		<en>Pollution</en>
+		<sv>Förorening</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>humidity</id>
+		<en>Humidity</en>
+		<sv>Fuktighet</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>ammo_in_clip_label</id>
+		<en>Clip Size</en>
+		<sv>Magasin Kapasitet</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>is_automatic_label</id>
+		<en>Is Automatic</en>
+		<sv>Är Automatiskt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>reload_time_label</id>
+		<en>Reload Time</en>
+		<sv>Omladdningstid</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>sound_range_label</id>
+		<en>Sound Range</en>
+		<sv>Ljudavstånd</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>triggers_per_minute_label</id>
+		<en>Triggers per min</en>
+		<sv>Skott i minuten</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_dmg_per_pellet_label</id>
+		<en>Projectile Damage Per Pellet</en>
+		<sv>Skottskada Per Kula</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_dmg_label</id>
+		<en>Projectile Damage</en>
+		<sv>Skottskada</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_pellets_label</id>
+		<en>Projectile Pellets</en>
+		<sv>Skott Kulor</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_inaccuracy_label</id>
+		<en>Projectile Inaccuracy</en>
+		<sv>Skottspridning</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>range_label</id>
+		<en>Range</en>
+		<sv>Räckvidd</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_dmgtype_label</id>
+		<en>Projectile Damage Type</en>
+		<sv>Skottskadetyp</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_healing_label</id>
+		<en>Projectile Healing</en>
+		<sv>Läkning</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_explosion_maxdmg_label</id>
+		<en>Projectile Max Damage</en>
+		<sv>Skott Max Skada</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_explosion_dmgtype_label</id>
+		<en>Projectile Damage Type</en>
+		<sv>Skott Skadetyp</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>projectile_explosion_maxhealing_label</id>
+		<en>Projectile Max Healing</en>
+		<sv>Skott Max Läkning</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>max_health_label</id>
+		<en>Max Health</en>
+		<sv>Max Liv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>armor_label</id>
+		<en>Armor</en>
+		<sv>Pansar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>max_shield_label</id>
+		<en>Max Shields</en>
+		<sv>Max Sköld</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>no_label</id>
+		<en>No</en>
+		<sv>Nej</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>yes_label</id>
+		<en>Yes</en>
+		<sv>Ja</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_afk_message</id>
+		<en>You are no longer AFK.</en>
+		<sv>Du är inte längre AFK.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>afk_message</id>
+		<en>You are now AFK</en>
+		<sv>Du är AFK.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>afk_text_message</id>
+		<en>*AFK* </en>
+		<sv>*AFK* </sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>crafted_message</id>
+		<en>Crafted {0}x {1}</en>
+		<sv>Byggde {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_item_to_other_message</id>
+		<en>{0} {1} was added to {2}'s inventory.</en>
+		<sv>{0} {1} lades till i {2}s ryggsäck.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_item_reciever_message</id>
+		<en>{0} {1} was added to your inventory by {2}.</en>
+		<sv>{0} {1} lades till i din inventory av {2}.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_item_was_added_message</id>
+		<en>{0} {1} was added to your inventory.</en>
+		<sv>{0} {1} lades till i din ryggsäck.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_exist_message</id>
+		<en>{0} does not exist.</en>
+		<sv>{0} finns inte.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_deop_host_message</id>
+		<en>The server host can not be Deop'd.</en>
+		<sv>Serverns host kan inte Deopas.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>lost_admin_message</id>
+		<en>You lost admin priviliges.</en>
+		<sv>Du förlorade dina admin priviligerier.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>removed_player_admin_message</id>
+		<en>You removed {0}'s admin powers.</en>
+		<sv>Du tog bort {0}'s admin behörighet.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>available_effects_header_mesage</id>
+		<en>The following Effects can be spawned:</en>
+		<sv>Dessa effekter kan fram manas:</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>effect_location_message</id>
+		<en>The location is specified through coordinates or a player's name.</en>
+		<sv>Var effekten utförs specifieras med koordinater eller spelarens namn.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>available_commands_header_message</id>
+		<en>The following commands are availible to you:</en>
+		<sv>Följande kommando är tillgängliga för dig:</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>afk_help_message</id>
+		<en>Let's other people know that you are Away From Keyboard.</en>
+		<sv>Låter andra spelare veta att du är afk.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>ban_help_message</id>
+		<en>Kicks and bans the selected player from the server.</en>
+		<sv>Sparkar ut och bannar vald spelare från servern.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>debug_help_message</id>
+		<en>Activates Debug mode.</en>
+		<sv>Aktiverar Debug läge.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>deop_help_message</id>
+		<en>Removes admin powers from the selected player.</en>
+		<sv>Tar bort administratör priviligerier från vald spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>effect_help_message</id>
+		<en>Shows a list of different effects.</en>
+		<sv>Visar en lista med olika effekter.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>emote_help_message</id>
+		<en>Shows a emote depending on which you do.</en>
+		<sv>Visar en emote beroende på vilken du gör.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>event_help_message</id>
+		<en>Shows if there are any events going on.</en>
+		<sv>Visar om det pågår några events.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_help_message</id>
+		<en>Gives an item to yourself or another player.</en>
+		<sv>Ger en sak till dig själv eller en annan spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>global_help_message</id>
+		<en>Sends a global chat message.</en>
+		<sv>Sänder ett globalt meddelande.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>godmode_help_message</id>
+		<en>Makes you invulnerable.</en>
+		<sv>Gör dig oövervinnerlig.</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>godmode_activated</id>
+		<en>God mode activated!</en>
+		<sv>Osårbarhet aktiverad!</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>godmode_deactivated</id>
+		<en>God mode deactivated.</en>
+		<sv>Osårbarhet deaktiverad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>help_help_message</id>
+		<en>Lists all availible commands.</en>
+		<sv>Listar alla kommandon.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>home_help_message</id>
+		<en>Shows where your home is (I think).</en>
+		<sv>Visar var ditt hem är (tror jag).</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>kick_help_message</id>
+		<en>Kicks a selected player from the server.</en>
+		<sv>Kastar ut vald spelare från servern.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>kill_help_message</id>
+		<en>Kills a selected player.</en>
+		<sv>Dödar vald spelare.</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>mjolnir_help_message</id>
+		<en>Spawns a lightning bolt on a target and can make damage.</en>
+		<sv>Frammanar en blixt på en måltavla som kan göra skada.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>mjolnir_damage_not_specified_message</id>
+		<en>No damage value was specified.</en>
+		<sv>Inget skadevärde specifierades.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>mute_help_message</id>
+		<en>You no longer receive chat messages from the selected player.</en>
+		<sv>Du får inte längre några meddelande från vald spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>op_help_message</id>
+		<en>Gives admin powers to the selected player.</en>
+		<sv>Ger administratör privilegier till vald spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>pardon_help_message</id>
+		<en>Pardons the selcted player from the server.</en>
+		<sv>Låter vald spelare spela på servern igen.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>ping_help_message</id>
+		<en>Displays your current ping.</en>
+		<sv>Visar din nuvarande ping.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>players_help_message</id>
+		<en>Displays all currently connected players.</en>
+		<sv>Visar alla nuvarande uppkopplade spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>purge_help_message</id>
+		<en>Purge someone or something.</en>
+		<sv>Rensar någon eller någonting.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>replenish_help_message</id>
+		<en>Replenish something (life or shield etc).</en>
+		<sv>Fyller på något (liv eller skjöld osv).</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>restock_help_message</id>
+		<en>Restocks anything.</en>
+		<sv>Återfyller något.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>roll_help_message</id>
+		<en>Randomizes number between 0 and 100.</en>
+		<sv>Randomiserar ett tal mellan 0 och 100.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>sethome_help_message</id>
+		<en>Sets your home on coordinate you stands on.</en>
+		<sv>Skapar ditt hem på koordinaten du står på.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>spawn_help_message</id>
+		<en>Spawns selected item in the world.</en>
+		<sv>Ploppar vald sak i världen.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>time_help_message</id>
+		<en>Displays current time.</en>
+		<sv>Visar nuvarande tid.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>teleportcorrect_syntax_message</id>
+		<en>Correct code: /tp [player name] [player name/"home"/"myhome"]</en>
+		<sv>Korrect kod: /tp [spelarnamn] [spelarnamn/"home"/"myhome"]</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>teleport_help_message</id>
+		<en>Teleports a player to a given coordinate.</en>
+		<sv>Teleporterar en spelare till en given koordinat.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>teleportall_correct_syntax_message</id>
+		<en>Correct code: /tpall [player name/coordinates]</en>
+		<sv>Korrect kod: /tpall [spelarnamn/koordinater]</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>teleportall_help_message</id>
+		<en>Teleports all in range to a given coordinate.</en>
+		<sv>Teleporterar alla inom ett visst avstånd till en given koordinat.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>unmute_help_message</id>
+		<en>Removes selected player from your ignore list.</en>
+		<sv>Tar bort vald spelare från din ignoreringslista.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>whisper_help_message</id>
+		<en>Sends a private message to the selected player.</en>
+		<sv>Sänder ett privat meddelande till vald spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_help_message</id>
+		<en>Mod your own quests and share them with other players.</en>
+		<sv>Modda dina uppdrag och dela dom med andra spelare.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>kicked_from_server_message</id>
+		<en>You were kicked from the server.</en>
+		<sv>Du blev utkastad från servern.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>killed_by_admin_message</id>
+		<en>You got killed by an admin!</en>
+		<sv>Du blev dödad av en admin!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>connected_players_message</id>
+		<en>These players are online:</en>
+		<sv>Dessa spelare är online:</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>mjolnir_message</id>
+		<en>You were struck by mjolnirs wrath!</en>
+		<sv>Du blev träffad av Mjölnirs vrede!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cant_mute_yourself_message</id>
+		<en>You can't mute yourself.</en>
+		<sv>Du kan inte tysta dig själv.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>already_muted_message</id>
+		<en>is already muted.</en>
+		<sv>är redan tystad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>has_been_muted_message</id>
+		<en>has been muted.</en>
+		<sv>har blivit tystad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>following_players_muted_message</id>
+		<en>The following players are muted:</en>
+		<sv>Följande spelare är tystade:</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>no_players_muted_message</id>
+		<en>No players are muted.</en>
+		<sv>Inga spelare är tystade.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>notification_header_message</id>
+		<en>A notification is written like this:</en>
+		<sv>En notifikation skrivs så här:</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>notification_reference_message</id>
+		<en>/notification [id_for_icon] [color] [true/false] [Your message]</en>
+		<sv>/notification [id_for_icon] [color] [true/false] [Your message]</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>notification_example_message</id>
+		<en>Example: /notification Icon_Tire red true Hello World!</en>
+		<sv>Exempel: /notification Icon_Tire red true Hello World!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>receiving_player_granted_admin_message</id>
+		<en>You were granted admin powers. Use it well.</en>
+		<sv>Du har nu admin behörighet, använd det väl.</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>all_players_granted_admin_message</id>
+		<en>Everyone is now admin.</en>
+		<sv>Alla har nu admin behörigheter.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_admin_to_player_message</id>
+		<en>You granted admin powers to {0}.</en>
+		<sv>Du gav admin behörighet till {0}.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>roll_message</id>
+		<en>{0} rolls {1}. ({2}-{3})</en>
+		<sv>{0} rullade {1}. ({2}-{3})</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>change_home_location_message</id>
+		<en>This location is now your home.</en>
+		<sv>Denna platsen är nu ditt hem.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>player_was_teleported_message</id>
+		<en>{0} was teleported to {1}.</en>
+		<sv>{0} blev teleporterad till {1}.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>you_were_teleported_message</id>
+		<en>You were teleported to {0}.</en>
+		<sv>Du blev teleporterad till {0}.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>has_been_unmuted_message</id>
+		<en>{0} has been unmuted.</en>
+		<sv>{0} är inte längre tystad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>is_not_muted_message</id>
+		<en>{0} is not muted.</en>
+		<sv>{0} är inte tystad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>name_colon_message</id>
+		<en>{0}: </en>
+		<sv>{0}: </sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>to_name_colon_message</id>
+		<en>To {0}: </en>
+		<sv>Till {0}: </sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>whisper_message</id>
+		<en>{0}{1}</en>
+		<sv>{0}{1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>wrong_emote_or_command_error_message</id>
+		<en>Error: There is no such emote or command.</en>
+		<sv>Fel: Emote eller kommandot finns inte.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_item_inventory_full_error_message</id>
+		<en>Error: could not create {0}, player's inventory is full.</en>
+		<sv>Fel: kunde inte skicka {0}, spelarens ryggsäck är full.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_specified_error_message</id>
+		<en>Error adding item: Item was not specified.</en>
+		<sv>Fel tillagd sak: Saken var inte specifierad.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_correct_item_name_error_message</id>
+		<en>Error adding item: Invalid item name.</en>
+		<sv>Fel tillagd sak: Namnet på saken finns inte.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>not_applied_amount_error_message</id>
+		<en>Error adding item: Amount was invalid.</en>
+		<sv>Fel tillagd sak: Du måste ange antal saker.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>can_not_give_item_error_message</id>
+		<en>Error: Can't give item. {0}'s inventory is full.</en>
+		<sv>Fel: Kan inte ge saken. {0} har inte mer plats i ryggsäcken.</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>error_targeted_wall_does_not_exist</id>
+		<en>Error: The targeted wall does not exist on the server</en>
+		<sv>Fel: Den markerade väggen existerar inte på servern</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>error_wall_already_has_mounted_object</id>
+		<en>Error: The targeted wall already has a mounted object</en>
+		<sv>Fel: Den markerade väggen har redan ett monterat objekt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>error_wall_has_no_mounted_object</id>
+		<en>Error: The targeted wall has no mounted object</en>
+		<sv>Fel: Den markerade väggen har inget monterat objekt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>name_correct_syntax_message</id>
+		<en>Correct code: /command playername</en>
+		<sv>Korrekt kod: /kommandot spelarnamn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>event_correct_syntax_message</id>
+		<en>THIS XML ENTRY IS PLACEHOLDER IN StringData.xml</en>
+		<sv>THIS XML ENTRY IS PLACEHOLDER IN StringData.xml</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>debug_correct_syntax_message</id>
+		<en>Correct code: /debug something</en>
+		<sv>Korrekt kod: /debug något</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>emote_correct_syntax_message</id>
+		<en>Correct code: /e emote</en>
+		<sv>Korrekt kod: /e emote</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>global_correct_syntax_message</id>
+		<en>Correct code: /g message</en>
+		<sv>Korrekt kod: /g meddelande</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>give_correct_syntax_message</id>
+		<en>Correct code: /give item amount playername</en>
+		<sv>Korrekt kod: /give sak antal spelarnamn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>whisper_correct_syntax_message</id>
+		<en>Correct code: /w playername message</en>
+		<sv>Korrekt kod: /w spelarnamn meddelande</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>spawn_correct_syntax_message</id>
+		<en>Correct code: /spawn item/playername/enemies/aso</en>
+		<sv>Korrekt kod: /spawn sak/spelarnamn/fienden/osv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>purge_correct_syntax_message</id>
+		<en>Correct code: /purge player/item</en>
+		<sv>Korrekt kod: /purge spelare/sak</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>replenish_correct_syntax_message</id>
+		<en>Correct code: /replenish player/item</en>
+		<sv>Korrekt kod: /replenish spelare/sak</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>restock_correct_syntax_message</id>
+		<en>Correct code: /restock item</en>
+		<sv>Korrekt kod: /restock sak</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_correct_syntax_message</id>
+		<en>Correct code: /quest name</en>
+		<sv>Korrekt kod: /quest namn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>quest_done</id>
+		<en>Quest done!</en>
+		<sv>Uppdrag utfört!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>harvested_progress_message</id>
+		<en>Harvested {0} / {1} {2}</en>
+		<sv>Skördat {0} / {1} {2}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_progress_message</id>
+		<en>Built {0} / {1} {2}</en>
+		<sv>Byggt {0} / {1} {2}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>crafting_progress_message</id>
+		<en>Crafted {0} / {1} {2}</en>
+		<sv>Tillverkat {0} / {1} {2}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refinement_progress_message</id>
+		<en>Refined {0} / {1} {2}</en>
+		<sv>Raffinerat {0} / {1} {2}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>harvest_crop_progress_message</id>
+		<en>Crops harvested {0} / {1} {2}</en>
+		<sv>Skördade grödor {0} / {1} {2}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>harvest_string</id>
+		<en>Harvest {0}x {1}</en>
+		<sv>Skörda {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>build_string</id>
+		<en>Build {0}x {1}</en>
+		<sv>Bygg {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_construct_room_quest_size</id>
+		<en>Build a room which is at least {0}x{1} tiles big</en>
+		<sv>Bygg ett rum som är minst {0}x{1} rutor stort</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_construct_room_quest_property</id>
+		<en>Build a room which is {0} {1}</en>
+		<sv>Bygg ett rum som är {0} {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>craft_string</id>
+		<en>Craft {0}x {1}</en>
+		<sv>Tillverka {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refinement_string</id>
+		<en>Refine {0}x {1}</en>
+		<sv>Raffinera {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>harvest_crop_string</id>
+		<en>Harvest {0}x {1}</en>
+		<sv>Skörda {0}x {1}</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id></id>
+		<en>Empty string</en>
+		<sv>Tom sträng</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>env_type_temperature_name</id>
+		<en>Temperature</en>
+		<sv>Temperatur</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>env_type_humidity_name</id>
+		<en>Humidity</en>
+		<sv>Luftfuktighet</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_property_fireproof_name</id>
+		<en>Fireproof</en>
+		<sv>Eldsäker</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_property_indoors_name</id>
+		<en>Indoors</en>
+		<sv>Inomhus</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_property_outdoors_name</id>
+		<en>Outdoors</en>
+		<sv>Utomhus</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_power_name</id>
+		<en>Power</en>
+		<sv>Energi</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_water_name</id>
+		<en>Water</en>
+		<sv>Vatten</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cement_mixer_name</id>
+		<sv>Cementblandare</sv>
+		<en>Cement Mixer</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>cement_mixer_info</id>
+		<sv>Kan blanda cement</sv>
+		<en>Can mix cement</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>plant_box_name</id>
+		<sv>Planteringslåda</sv>
+		<en>Cultivation Plot</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>plant_box_info</id>
+		<sv>Anvöndbar för att odla simpla grödor</sv>
+		<en>Used to grow basic crops</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>temp_lamp_name</id>
+		<sv>Lampa</sv>
+		<en>Lamp</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>temp_lamp_info</id>
+		<sv>Ett ljus i mörkret</sv>
+		<en>A light in the dark</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_plant_box_kryst_name</id>
+		<en>Plant kryst bush</en>
+		<sv>Plantera krystbuske</sv>
+	</DataDef>´
+
+	<DataDef xsi:type="StringData">
+		<id>string_plant_box_budroot_name</id>
+		<en>Plant budroot</en>
+		<sv>Plantera knölrot</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_plant_box_cotton_name</id>
+		<en>Plant cotton</en>
+		<sv>Plantera bomull</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>building_concrete_wall_door_name</id>
+		<sv>Betongväggs-dörr</sv>
+		<en>Concrete wall door</en>
+	</DataDef>	
+			
+	<DataDef xsi:type="StringData">
+		<id>string_interaction_default</id>
+		<sv>Använd</sv>
+		<en>Use</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_interaction_potatofie</id>
+		<sv>Förvandla till potatis</sv>
+		<en>Turn into potato</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_name_stonering</id>
+		<sv>Stenring</sv>
+		<en>Stone Ring</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_site_type_stonering</id>
+		<sv>Glänta</sv>
+		<en>Meadow</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_flavour_stonering</id>
+		<sv>En mysig liten glänta med en samling stenar</sv>
+		<en>A cozy little meadow with a collection of stones</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_name_mudplains_factory</id>
+		<sv>Tricrane Elektorinik</sv>
+		<en>Tricrane Electronics</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_site_type_factory</id>
+		<sv>Fabrik</sv>
+		<en>Factory</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_flavour_mudplains_factory</id>
+		<sv>Tillverkande av högteknologisk elektronik, Tricrane har ingen like på planeten.</sv>
+		<en>Fabrication of high-tech electronics, Tricrane is rivaled by none on this planet.</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_name_mudplains_city_t2</id>
+		<sv>Tricrane Fabriks</sv>
+		<en>Tricrane Factory</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_site_type_city</id>
+		<sv>Stad</sv>
+		<en>City</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_site_flavour_mudplains_city_t2</id>
+		<sv>Det ultimata målet. Fara väntar, var redo.</sv>
+		<en>The ultimate goal. Danger await, be ready.</en>
+	</DataDef>
+
+	<!-- Mudplains landmark: Abandoned house ruins -->
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_abandoned_house_name</id>
+		<sv>Övergedda Hus</sv>
+		<en>Abandoned House</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_type_ruins</id>
+		<sv>Ruiner</sv>
+		<en>Ruins</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_abandoned_house_flavour</id>
+		<sv>En gång bodde någon här, antagligen. Inte längre.</sv>
+		<en>Once someone was living here, presumably. Not anymore.</en>
+	</DataDef>
+
+	<!-- Mudplains landmark: Monument -->
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_monument_name</id>
+		<sv>Monument</sv>
+		<en>Monument</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_monument_flavour</id>
+		<sv>Ett monument till Tricrane's fåfänga. Ironiskt.</sv>
+		<en>A monument to Tricrane's vanity. How the tables did turn.</en>
+	</DataDef>
+
+	<!-- Mudplains landmark: Scrapyard -->
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_scrapyard_name</id>
+		<sv>Tricrane Utomhuslager och</sv>
+		<en>Tricrane Stockpile and</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_type_scrapyard</id>
+		<sv>Skrot</sv>
+		<en>Scrapyard</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_scrapyard_flavour</id>
+		<sv>Tricrane använde detta som ett utomhuslager, men området verkar sen länge övergivet.</sv>
+		<en>Tricrane used this as a outdoors stockpile, but the area seems long abandoned.</en>
+	</DataDef>
+
+	<!-- Mudplains landmark: Warehouse -->
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_warehouse_name</id>
+		<sv>Övergett</sv>
+		<en>Abandoned</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_type_warehouse</id>
+		<sv>Varuhus</sv>
+		<en>Warehouse</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_landmark_mudplains_warehouse_flavour</id>
+		<sv>Det är inte stöld sålänge ingen kommer på dig.</sv>
+		<en>It's not stealing until someone catches you.</en>
+	</DataDef>
+</Defs>

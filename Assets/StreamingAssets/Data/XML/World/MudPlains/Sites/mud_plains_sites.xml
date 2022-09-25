@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_site_city_t2</id>
+		<filePath>Data/XML/World/MudPlains/Sites/Site_Concept_22_t2.fns</filePath>
+		<width>96</width>
+		<height>96</height>
+		<siteName>string_site_name_mudplains_city_t2</siteName>
+		<siteTypeRef>string_site_type_city</siteTypeRef>
+		<flavourText>string_site_flavour_mudplains_city_t2</flavourText>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_kryst_berry_seed</itemRef>
+				<amountDefinition>Event</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_site_factory</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>2</difficulty>
+		<enemyBudget>1</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>shrubber</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>10</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<atmosphereRef>urban_site_atmosphere</atmosphereRef>
+	</DataDef>
+
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_site_factory</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_factory_site_1_45x34.fns</filePath>
+		<width>34</width>
+		<height>45</height>
+		<siteName>string_site_name_mudplains_factory</siteName>
+		<siteTypeRef>string_site_type_factory</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Moderate</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_concrete_block</itemRef>
+				<amountDefinition>Moderate</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_circuitboard</itemRef>
+				<amountDefinition>Event</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_site_factory</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>0</difficulty>
+		<enemyBudget>1</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>shrubber</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>10</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_site_flavour_mudplains_factory</flavourText>
+		<atmosphereRef>urban_site_atmosphere</atmosphereRef>
+	</DataDef>
+
+	<DataDef xsi:type="SiteData">
+		<id>site_new_nautre_site_1</id>
+		<filePath>Data/XML/World/MudPlains/Sites/New_Nature_Site_13x17.fns</filePath>
+		<width>17</width>
+		<height>13</height>
+		<siteName>string_site_name_stonering</siteName>
+		<siteTypeRef>string_site_type_stonering</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Moderate</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_concrete_block</itemRef>
+				<amountDefinition>Scarce</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_wood_planks</itemRef>
+				<amountDefinition>Abundant</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_landmark</mapIconRef>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>25</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>shrubber</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_site_flavour_stonering</flavourText>
+	</DataDef>
+
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_landmark_abandoned_house</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_landmark_abandoned_house_12x12.fns</filePath>
+		<width>12</width>
+		<height>12</height>
+		<siteName>string_landmark_mudplains_abandoned_house_name</siteName>
+		<siteTypeRef>string_landmark_type_ruins</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Scarce</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_landmark</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>1</difficulty>
+		<enemyBudget>20</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_landmark_mudplains_abandoned_house_flavour</flavourText>
+		<atmosphereRef>urban_site_atmosphere</atmosphereRef>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_landmark_monument</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_landmark_monument_19x13.fns</filePath>
+		<width>19</width>
+		<height>13</height>
+		<siteName>string_landmark_mudplains_monument_name</siteName>
+		<siteTypeRef>string_landmark_type_ruins</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Scarce</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_concrete_block</itemRef>
+				<amountDefinition>Scarce</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_landmark</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>1</difficulty>
+		<enemyBudget>30</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_landmark_mudplains_monument_flavour</flavourText>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_landmark_scrapyard</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_landmark_scrapyard_17x15.fns</filePath>
+		<width>15</width>
+		<height>17</height>
+		<siteName>string_landmark_mudplains_scrapyard_name</siteName>
+		<siteTypeRef>string_landmark_type_scrapyard</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Abundant</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_landmark</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>2</difficulty>
+		<enemyBudget>100</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>zombie_big</enemyRef>
+				<weight>1</weight>
+			</EnemySpawnData>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>10</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_landmark_mudplains_scrapyard_flavour</flavourText>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_landmark_warehouse</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_landmark_warehouse_14x20.fns</filePath>
+		<width>14</width>
+		<height>19</height>
+		<siteName>string_landmark_mudplains_warehouse_name</siteName>
+		<siteTypeRef>string_landmark_type_warehouse</siteTypeRef>
+		<possibleLoot>
+			<SiteLootData>
+				<itemRef>item_scrap_metal</itemRef>
+				<amountDefinition>Moderate</amountDefinition>
+			</SiteLootData>
+			<SiteLootData>
+				<itemRef>item_concrete_block</itemRef>
+				<amountDefinition>Moderate</amountDefinition>
+			</SiteLootData>
+		</possibleLoot>
+		<mapIconRef>map_icon_landmark</mapIconRef>
+		<showOnMap>true</showOnMap>
+		<difficulty>2</difficulty>
+		<enemyBudget>100</enemyBudget>
+		<enemySpawning>
+			<EnemySpawnData>
+				<enemyRef>default_zombie</enemyRef>
+				<weight>15</weight>
+			</EnemySpawnData>
+			<EnemySpawnData>
+				<enemyRef>zombie_big</enemyRef>
+				<weight>30</weight>
+			</EnemySpawnData>
+		</enemySpawning>
+		<flavourText>string_landmark_mudplains_warehouse_flavour</flavourText>
+		<atmosphereRef>urban_site_atmosphere</atmosphereRef>
+	</DataDef>
+
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_1</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_1_9x7.fns</filePath>
+		<width>9</width>
+		<height>7</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_2</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_2_6x6.fns</filePath>
+		<width>6</width>
+		<height>6</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_3</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_3_11x9.fns</filePath>
+		<width>11</width>
+		<height>9</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_4</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_4_10x9.fns</filePath>
+		<width>10</width>
+		<height>9</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_5</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_5_6x7.fns</filePath>
+		<width>6</width>
+		<height>7</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_6</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_6_9x9.fns</filePath>
+		<width>9</width>
+		<height>9</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_7</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_7_12x9.fns</filePath>
+		<width>12</width>
+		<height>9</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_8</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_8_7x6.fns</filePath>
+		<width>7</width>
+		<height>6</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_9</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_9_7x8.fns</filePath>
+		<width>7</width>
+		<height>8</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_10</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_10_6x5.fns</filePath>
+		<width>6</width>
+		<height>5</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_11</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_11_5x5.fns</filePath>
+		<width>5</width>
+		<height>5</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+	
+	<DataDef xsi:type="SiteData">
+		<id>mudplains_plot_12</id>
+		<filePath>Data/XML/World/MudPlains/Sites/mudplains_plot_12_8x6.fns</filePath>
+		<width>8</width>
+		<height>6</height>
+		<showOnMap>false</showOnMap>
+		<enemyBudget>0</enemyBudget>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_krystberry_bush_magic</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Krystberry bush (Berries)</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>10000</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="InteractionEventComponentData">
+                <transformedEntityRef>to_krystberry_bush_magic_lootable</transformedEntityRef>
+				<eventRef>shrubber_ambush_event</eventRef>
+                <effectRef>effect_plant_harvest</effectRef>
+ 			</DataComponent>
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_krystberry_bush_magic_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	 <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_krystberry_bush_magic_lootable</id>
+		<pathingCost>10</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Krystberry bush (Berries)</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>10000</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="InventoryComponentData">
+				<destroyWhenEmpty>true</destroyWhenEmpty>
+				<width>3</width>
+				<height>3</height>
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+				<produceLootTable>
+					<minRolls>15</minRolls>
+					<maxRolls>30</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_kryst_berry</itemRef>
+							<probability>5</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_kryst_berry_seed</itemRef>
+							<probability>1</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>	
+		</components>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_krystberry_bush_magic_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_krystberry_bush_magic_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_krystberry_bush_full</entityMeshData>
+		<entityTextureData>texture_krystberry_bush_magic</entityTextureData>
+        <emissiveColor>#ff00ff</emissiveColor>
+		<LightSourceData>
+			<intensity>100</intensity>
+			<range>5</range>
+			<color>#FF00FF</color>
+			<offsetX>0</offsetX>
+			<offsetY>0</offsetY>
+			<offsetZ>-0.3</offsetZ>
+		</LightSourceData>
+        <scaleMod>0.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_krystberry_bush_magic</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>KrystMagicBushAlbedo</albedoName>
+		<normalMapName>KrystMagicBushNormal</normalMapName>
+		<maskMapName>KrystMagicBushMask</maskMapName>
+		<emissiveMapName>KrystMagicBushEmissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

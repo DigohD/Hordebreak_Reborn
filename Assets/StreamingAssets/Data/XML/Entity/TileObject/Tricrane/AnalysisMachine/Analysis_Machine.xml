@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_tricrane_analysis_machine</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>false</seeThrough>
+		<editorName>Analysis Machine</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Tricrane</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>view_tricrane_analysis_machine</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>view_tricrane_analysis_machine</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tricrane_analysis_machine</entityMeshData>
+        <emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1.2</scaleMod>
+	</DataDef>
+
+</Defs>

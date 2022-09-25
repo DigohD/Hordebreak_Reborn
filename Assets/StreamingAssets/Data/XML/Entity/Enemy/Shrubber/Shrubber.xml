@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="ECSEnemy" xsi:type="FNEEntityData">
+		<id>shrubber</id>
+    	<hittable>true</hittable>
+		<viewRef>shrubber_view</viewRef>
+		<components>
+			<DataComponent xsi:type="EnemyStatsComponentData">
+				<behaviour>Aggressive</behaviour>
+				<aggroRange>12</aggroRange>
+				<hitboxRadius>0.5</hitboxRadius>
+				<agentRadius>0.2</agentRadius>
+				<minSpeed>1.6</minSpeed>
+				<maxSpeed>2.2</maxSpeed>
+				<scale>0.3</scale>
+				<lungeDistance>2.5</lungeDistance>
+				<lungeSpeedMod>1.5</lungeSpeedMod>
+				<projectileType>salvage_handgun</projectileType>
+				<damage>10.0</damage>
+				<damageTypeRef>bludgeoning</damageTypeRef>
+				<attackCooldown>1</attackCooldown>
+				<attackRange>1</attackRange>
+				<attackTimestamp>0.5</attackTimestamp>
+				<budgetCost>5</budgetCost>
+			</DataComponent>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>10</startHealth>
+				<defenseTypeRef>defense_flesh</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="GPUAnimationComponentData">
+				<blobShadowHeightOffset>0.02</blobShadowHeightOffset>
+				<blobShadowScale>0.08</blobShadowScale>
+				<animations>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Idle</action>
+						<speed>1.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Walk</action>
+						<speed>1.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>true</isUsed>
+						<action>Run</action>
+						<speed>1.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Attack</action>
+						<speed>2.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Attack2</action>
+						<speed>0.0</speed>
+					</GPUAnimationData>
+					<GPUAnimationData>
+						<isUsed>false</isUsed>
+						<action>Attack3</action>
+						<speed>0.0</speed>
+					</GPUAnimationData>
+				</animations> 
+			</DataComponent>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+        <id>shrubber_view</id>
+        <viewIsGameObject>false</viewIsGameObject>
+        <entityMeshData>mesh_shrubber</entityMeshData>
+		<entityTextureData>texture_shrubber</entityTextureData>
+		<onDeathEffectRef>effect_shrubber_death</onDeathEffectRef>
+		<onHitEffectRef>effect_shrubber_on_hit</onHitEffectRef>
+        <scaleMod>2</scaleMod>
+    </DataDef>
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_shrubber</id>
+		<meshPath>Data/XML/Entity/Enemy/Shrubber/Shrubber_Animated.glb</meshPath>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_shrubber</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_enemies_mudplains</assetBundlePath>
+		<albedoName>Shrubber_low_Shrubber_BaseMap</albedoName>
+		<normalMapName>Shrubber_low_Shrubber_Normal</normalMapName>
+		<maskMapName>Shrubber_low_Shrubber_MaskMap</maskMapName>
+		<emissiveMapName>Shrubber_low_Shrubber_Emissive</emissiveMapName>
+		<emissiveFactor>500.0</emissiveFactor>
+	</DataDef>
+</Defs>

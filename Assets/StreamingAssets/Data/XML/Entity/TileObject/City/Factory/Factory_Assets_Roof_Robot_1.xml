@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_factory_assets_roof_robot_1</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>false</seeThrough>
+		<editorName>Roof Robot 1 (2x7)</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Factory</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_factory_assets_roof_robot_1_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_factory_assets_roof_robot_1_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_city_factory_assets_roof_robot_1_view</entityMeshData>
+		<entityTextureData>texture_city_factory_assets_roof_robot_1_view</entityTextureData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_factory_assets_roof_robot_1_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Factory/Factory_Assets_Roof_Robot_1.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_factory_assets_roof_robot_1_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_factory</assetBundlePath>
+		<albedoName>Factory_Assets_Albedo</albedoName>
+		<normalMapName>Factory_Assets_Normal</normalMapName>
+		<maskMapName>Factory_Assets_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_water_pipes</id>
+		<viewVariations>
+			<viewRef>wo_water_pipes_view_1</viewRef>
+		</viewVariations>
+
+		<resourceTransfers>
+			<ResourceProductionData>
+				<resourceRef>room_water</resourceRef>
+				<amount>2</amount>
+			</ResourceProductionData>
+		</resourceTransfers>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_water_pipes_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_water_pipes_view_1</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>0.001</scaleMod>
+	</DataDef>
+
+</Defs>

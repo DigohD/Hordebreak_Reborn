@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_wind_generator</id>
+		<viewVariations>
+			<viewRef>wo_wind_generator_view</viewRef>
+		</viewVariations>
+
+		<resourceTransfers>
+			<ResourceProductionData>
+				<resourceRef>room_power</resourceRef>
+				<amount>1</amount>
+			</ResourceProductionData>
+		</resourceTransfers>
+
+		<mayGenerateFromOutdoors>true</mayGenerateFromOutdoors>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_wind_generator_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_wind_generator</entityMeshData>
+		<scaleMod>0.01</scaleMod>
+	</DataDef>
+
+</Defs>

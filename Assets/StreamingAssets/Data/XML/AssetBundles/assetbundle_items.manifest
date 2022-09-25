@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 2840289050
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f1d86e4ca4fe4fc378680f80de717a88
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageHandgun/Salvage_Handgun_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Consumables/CompoundDiscus/CompoundDiscus_Default_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Consumables/CompoundDiscus/CompoundDiscus_Default_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SimpleSafetyGun/SimpleSafetyGun_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyRepeaterMusket/Rusty_Repeater_Musket_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyBlunderbuss/Rusty_Blunderbuss_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/ExploLauncher/ExploLauncher_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SimpleSafetyGun/SimpleSafetyGun_BaseMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/EnergyLancer/Energy_Lancer_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageMachinegun/Salvage_Machinegun_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyPistol/Rusty_Pistol_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/ExploLauncher/ExploLauncher_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyRepeaterMusket/Rusty_Repeater_Musket_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Consumables/CompoundDiscus/CompoundDiscus_Default_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyPistol/Rusty_Pistol_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageShotgun/Salvage_Shotgun_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyBlunderbuss/Rusty_Blunderbuss_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageMachinegun/Salvage_Machinegun_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyRepeaterMusket/Rusty_Repeater_Musket_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageHandgun/Salvage_Handgun_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyPistol/Rusty_Pistol_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/ExploLauncher/ExploLauncher_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyBlunderbuss/Rusty_Blunderbuss_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/ExploLauncher/ExploLauncher_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Consumables/CompoundDiscus/CompoundDiscus_Default_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyRepeaterMusket/Rusty_Repeater_Musket_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageHandgun/Salvage_Handgun_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageMachinegun/Salvage_Machinegun_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SimpleSafetyGun/SimpleSafetyGun_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/EnergyLancer/Energy_Lancer_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyPistol/Rusty_Pistol_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SimpleSafetyGun/SimpleSafetyGun_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageShotgun/Salvage_Shotgun_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageHandgun/Salvage_Handgun_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/EnergyLancer/Energy_Lancer_Emissive.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/RustyBlunderbuss/Rusty_Blunderbuss_Normal.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/EnergyLancer/Energy_Lancer_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Item/Weapon/SalvageMachinegun/Salvage_Machinegun_Normal.png
+Dependencies: []

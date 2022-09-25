@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+  <DataDef xsi:type="BuildingData">
+		<id>building_wood_tile</id>
+		<productRef>wood_tile</productRef>
+		<categoryRef>building_category_tiles</categoryRef>
+		<nameRef>building_wood_tile_name</nameRef>
+		<descriptionRef>building_wood_tile_ref</descriptionRef>
+		<iconRef>wood_tile_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_wood_planks</itemRef>
+				<amount>1</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>	
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_stone_floor_tile</id>
+		<productRef>stone_tile</productRef>
+		<categoryRef>building_category_tiles</categoryRef>
+		<nameRef>building_stone_tile_name</nameRef>
+		<descriptionRef>building_stone_tile_ref</descriptionRef>
+		<iconRef>stone_tile_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_stone</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingData">
+		<id>building_gravel_tile</id>
+		<productRef>gravel_tile</productRef>
+		<categoryRef>building_category_tiles</categoryRef>
+		<nameRef>building_gravel_tile_name</nameRef>
+		<descriptionRef>building_gravel_tile_info</descriptionRef>
+		<iconRef>stone_tile_icon</iconRef>
+		<requiredMaterials>
+			<MaterialDef>
+				<itemRef>item_gravel</itemRef>
+				<amount>2</amount>
+			</MaterialDef>
+		</requiredMaterials>
+	</DataDef>	
+
+</Defs>

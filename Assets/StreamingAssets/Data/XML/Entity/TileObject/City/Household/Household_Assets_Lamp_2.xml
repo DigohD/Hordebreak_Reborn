@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_city_household_assets_lamp_2</id>
+		<pathingCost>160</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Lamp 2</editorName>
+		<smallCollisionBox>true</smallCollisionBox>
+		<blocking>true</blocking>
+		<editorCategoryName>Household</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_city_household_assets_lamp_2_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+  <DataDef xsi:type="FNEEntityViewData">
+		<id>to_city_household_assets_lamp_2_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_city_household_assets_lamp_2_view</entityMeshData>
+		<entityTextureData>texture_city_household_assets_lamp_2_view</entityTextureData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>1</scaleMod>
+
+		<entityLightSourceData>
+			<lightType>Spot</lightType>
+			<spotOuterAngle>115</spotOuterAngle>
+			<spotInnerAnglePercent>0</spotInnerAnglePercent>
+			<rotationX>90</rotationX>
+			<rotationY>0</rotationY>
+			<rotationZ>0</rotationZ>
+
+			<intensity>100</intensity>
+			<range>4</range>
+			<color>#AFFFFC</color>
+			<offsetX>0</offsetX>
+			<offsetY>1.8</offsetY>
+			<offsetZ>0</offsetZ>
+		</entityLightSourceData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_household_assets_lamp_2_view</id>
+		<meshPath>Data/XML/Entity/TileObject/City/Household/Household_Assets_Lamp_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_household_assets_lamp_2_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_household</assetBundlePath>
+		<albedoName>Household_Assets_Albedo</albedoName>
+		<normalMapName>Household_Assets_Normal</normalMapName>
+		<maskMapName>Household_Assets_MaskMap</maskMapName>
+		<emissiveMapName>Household_Assets_Emissive</emissiveMapName>
+	</DataDef>
+
+</Defs>

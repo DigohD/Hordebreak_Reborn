@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- ========================= WALL MOUNTED OBJECTS ========================= -->
+
+	<!-- WALL PIPES -->
+
+    
+<!-- ================================================================ -->
+
+<!-- ========================= TILE OBJECTS ========================= -->
+
+	<!-- BATHROOM SINK -->
+	
+	
+	<!-- BED -->
+	
+	
+	<!-- BUNKBED -->
+	
+
+  	<!-- COUNTER PLAIN -->
+	
+	
+  	<!-- COUNTER PLAIN OVERHANG -->
+	
+
+  	<!-- COUNTER OVEN -->
+	
+	
+  	<!-- COUNTER OVEN OVERHANG -->
+	
+
+	<!-- COUNTER SINK -->
+	
+	
+  	<!-- COUNTER SINK OVERHANG -->
+	
+	
+  	<!-- FRIDGE -->
+	
+	
+  	<!-- LAMP 2 -->
+	
+	
+  	<!-- MODERN CHAIR -->
+	
+	
+  	<!-- MODERN CHAIR CORNER -->
+	
+	
+  	<!-- MODERN COUCH -->
+	
+
+	<!-- PLANT 3 -->
+	
+	
+	<!-- ROOF FAN -->
+	
+	
+	<!-- ROOF FAN 2 -->
+	
+	
+	<!-- SHOWER -->
+	
+	
+	<!-- TOILET -->
+	
+	
+	<!-- TV FLAT -->
+	
+	
+	<!-- TV HOLO -->
+	
+	
+	<!-- TV SMALL -->
+	
+
+<!-- ================================================================ -->
+
+</Defs>

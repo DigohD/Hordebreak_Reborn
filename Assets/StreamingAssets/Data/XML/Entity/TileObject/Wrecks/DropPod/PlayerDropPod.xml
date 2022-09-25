@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_player_drop_pod</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+    	<hittable>true</hittable>
+		<editorName>Furnace</editorName>
+		<blocking>true</blocking>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="InventoryComponentData">
+				<destroyWhenEmpty>true</destroyWhenEmpty>
+				<width>3</width>
+				<height>5</height>
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+				<produceLootTable>
+					<minRolls>1</minRolls>
+					<maxRolls>1</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_pylon_component</itemRef>
+							<probability>100</probability>
+							<guaranteed>true</guaranteed>
+							<unique>true</unique>
+						</LootEntry>
+					</table>
+				</produceLootTable>
+			</DataComponent>
+
+			<DataComponent xsi:type="InteractionEventComponentData">
+				<eventRef>player_loot_drop_pod_event</eventRef>
+                <effectRef>effect_alarm_init</effectRef>
+ 			</DataComponent>
+			
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_player_drop_pod_crashed_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_player_drop_pod_crashed_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_drop_pod_crashed</entityMeshData>
+		<entityTextureData>texture_drop_pod_crashed</entityTextureData>
+        <scaleMod>1.3</scaleMod>
+		<onHitEffectRef>effect_entity_hit_metal</onHitEffectRef>
+	</DataDef>
+    
+</Defs>

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_water_pump</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Waterpump</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="ConsumerComponentData">
+				<resources>
+					<ResourceConsumptionData>
+						<resourceRef>room_power</resourceRef>
+						<amount>25</amount>
+					</ResourceConsumptionData>
+				</resources>
+			</DataComponent>
+
+			<DataComponent xsi:type="ProducerComponentData">
+				<resources>
+					<ResourceProductionData>
+						<resourceRef>room_water</resourceRef>
+						<amount>50</amount>
+					</ResourceProductionData>
+				</resources>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>2</totalHits>
+				<hitEffectRef>effect_wood_object_hit</hitEffectRef>
+				<deathEffectRef>effect_wood_object_destroyed</deathEffectRef>
+				<DestroyLootTable>
+					<minRolls>6</minRolls>
+					<maxRolls>6</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_wood_planks</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>true</guaranteed>
+							<unique>true</unique>
+						</LootEntry>
+						<LootEntry>
+							<itemRef>item_scrap_wiring</itemRef>
+							<probability>100</probability>
+							<guaranteed>true</guaranteed>
+							<unique>true</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_waterpump_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>to_waterpump_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_waterpump_view</entityMeshData>
+		<emissiveColor>#ffccaa</emissiveColor>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+    
+</Defs>

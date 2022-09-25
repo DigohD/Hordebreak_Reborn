@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_small_iron_rocks</id>
+		<pathingCost>0</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Small Iron Rocks</editorName>
+		<blocksBuilding>false</blocksBuilding>
+		<editorCategoryName>Scrap</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_small_iron_rocks_view_1</viewRef>
+			<viewRef>to_small_iron_rocks_view_2</viewRef>
+			<viewRef>to_small_iron_rocks_view_3</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_small_iron_rocks_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_small_iron_rocks_1</entityMeshData>
+		<entityTextureData>texture_small_iron_rocks_1</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_small_iron_rocks_1</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/View1/IronRichRocks_01.glb</meshPath>
+	</DataDef>
+	
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_small_iron_rocks_1</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>IronRichRocks_BaseColor</albedoName>
+		<normalMapName>IronRichRocks_Normal</normalMapName>
+		<maskMapName>IronRichRocks_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_small_iron_rocks_view_2</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_small_iron_rocks_2</entityMeshData>
+		<entityTextureData>texture_small_iron_rocks_2</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_small_iron_rocks_2</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/View2/IronRichRocks_02.glb</meshPath>
+		<albedoPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/IronRichRocks_BaseColor.png</albedoPath>
+		<normalPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/IronRichRocks_Normal.png</normalPath>
+		<maskMapPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/IronRichRocks_MaskMap.png</maskMapPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_small_iron_rocks_2</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>IronRichRocks_BaseColor</albedoName>
+		<normalMapName>IronRichRocks_Normal</normalMapName>
+		<maskMapName>IronRichRocks_MaskMap</maskMapName>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_small_iron_rocks_view_3</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_small_iron_rocks_3</entityMeshData>
+		<entityTextureData>texture_small_iron_rocks_3</entityTextureData>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_small_iron_rocks_3</id>
+		<meshPath>Data/XML/Entity/TileObject/Minerals/Small_Iron_Rocks/View3/IronRichRocks_03.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_small_iron_rocks_3</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>IronRichRocks_BaseColor</albedoName>
+		<normalMapName>IronRichRocks_Normal</normalMapName>
+		<maskMapName>IronRichRocks_MaskMap</maskMapName>
+	</DataDef>
+</Defs>

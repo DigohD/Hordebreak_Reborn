@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_button_click</id>
+		<filePath>Data/XML/Audio/SFX/UI/Button_Click.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_button_hover</id>
+		<filePath>Data/XML/Audio/SFX/UI/Button_Hover.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_confirm</id>
+		<filePath>Data/XML/Audio/SFX/UI/Confirm.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_decline</id>
+		<filePath>Data/XML/Audio/SFX/UI/Decline.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_ui_close</id>
+		<filePath>Data/XML/Audio/SFX/UI/UI_Close.wav</filePath>
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_ui_open</id>
+		<filePath>Data/XML/Audio/SFX/UI/UI_Open.wav</filePath>
+	</DataDef>
+	
+	<DataDef xsi:type="SFXData">
+		<id>sfx_quest_success</id>
+		<filePath>Data/XML/Audio/SFX/UI/quest_success.wav</filePath>
+	</DataDef>
+
+</Defs>

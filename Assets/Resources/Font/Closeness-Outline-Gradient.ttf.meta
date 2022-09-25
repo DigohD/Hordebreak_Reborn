@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5ae2eeac1ae8ff9498c42c1cf8232f0e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Closeness Outline Gradient
+  fontNames:
+  - Closeness Outline Gradient
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 21a54a061d031f745b49fce6a0d32d30, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

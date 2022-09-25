@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_heat_pipes</id>
+		<viewVariations>
+			<viewRef>wo_heat_pipes_view_1</viewRef>
+		</viewVariations>
+
+		<environmentTransfers>
+			<EnvironmentEffectData>
+				<typeRef>env_type_temperature</typeRef>
+				<amount>50</amount>
+			</EnvironmentEffectData>
+		</environmentTransfers>
+
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_heat_pipes_view_1</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_heat_pipes_view_1</entityMeshData>
+		<emissiveColor>#ffffff</emissiveColor>
+		<scaleMod>0.001</scaleMod>
+	</DataDef>
+
+</Defs>

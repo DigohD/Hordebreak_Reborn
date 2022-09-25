@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="StringData">
+		<id>play_solo_label</id>
+		<en>Play Solo</en>
+		<sv>Spela Ensam</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>continue_label</id>
+		<en>Continue</en>
+		<sv>Fortsätt</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>multiplayer_label</id>
+		<en>Multiplayer</en>
+		<sv>Flerspelarläge</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>options_label</id>
+		<en>Options</en>
+		<sv>Inställningar</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>quit_game_label</id>
+		<en>Quit Game</en>
+		<sv>Avsluta Spelet</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>gameplay_label</id>
+		<en>Gameplay</en>
+		<sv>Spelinställningar</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>audio_label</id>
+		<en>Audio</en>
+		<sv>Ljud</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>graphics_label</id>
+		<en>Graphics</en>
+		<sv>Grafik</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>host_game_label</id>
+		<en>Host Game</en>
+		<sv>Starta Session</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>join_game_label</id>
+		<en>Join Game</en>
+		<sv>Anslut Till Session</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>back_label</id>
+		<en>Back</en>
+		<sv>Tillbaka</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>player_name_label</id>
+		<en>Player Name</en>
+		<sv>Spelarnamn</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>world_name_label</id>
+		<en>World Name</en>
+		<sv>Världsnamn</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>ip_adress_label</id>
+		<en>IP Adress</en>
+		<sv>IP-Address</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>server_port_label</id>
+		<en>Server Port</en>
+		<sv>Serverport</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>enter_here_label</id>
+		<en>Enter here...</en>
+		<sv>Skriv här...</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>chat_send_label</id>
+		<en>Send</en>
+		<sv>Skicka</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>set_maximum_label</id>
+		<en>Set maximum</en>
+		<sv>Maximalt antal</sv>
+	</DataDef>
+
+     <DataDef xsi:type="StringData">
+		<id>craft_label</id>
+		<en>Craft</en>
+		<sv>Konstruera</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_ui_resources_title</id>
+		<en>Resources</en>
+		<sv>Resurser</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_ui_environment_title</id>
+		<en>Environment</en>
+		<sv>Miljö</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_ui_properties_title</id>
+		<en>Properties</en>
+		<sv>Egenskaper</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refuel_one_label</id>
+		<en>Refuel 1</en>
+		<sv>Tanka 1</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refuel_max_label</id>
+		<en>Refuel max</en>
+		<sv>Tanka max</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>excav4_fuel_label</id>
+		<en>ExcaV4 fuel</en>
+		<sv>ExcaV4 bränsle</sv>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>environment_label</id>
+		<en>Environment</en>
+		<sv>Miljö</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_property_half</id>
+		<en>Partially</en>
+		<sv>Delvis</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_property_full</id>
+		<en>Fully</en>
+		<sv>Helt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>crop_component_interact</id>
+		<en>Harvest</en>
+		<sv>Skörda</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>crafting_component_interact</id>
+		<en>Craft</en>
+		<sv>Konstruera</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>door_component_interact</id>
+		<en>Door</en>
+		<sv>Port</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refinement_component_interact</id>
+		<en>Refine</en>
+		<sv>Raffinera</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>inventory_component_interact</id>
+		<en>Container</en>
+		<sv>Behållare</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>player_revive_interact</id>
+		<en>Revive</en>
+		<sv>Återuppväck</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>remove_mounted_object</id>
+		<en>Remove mounted object</en>
+		<sv>Ta bort monterat objekt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">	
+		<id>crop_header</id>
+		<en>Crop</en>
+		<sv>Gröda</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>crop_conditions</id>
+		<en>Growth conditions</en>
+		<sv>Växtkrav</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>when_crop_matures</id>
+		<en>Mature state</en>
+		<sv>Moget stadie</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>produces_resources</id>
+		<en>Produces</en>
+		<sv>Producerar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>consumes_resources</id>
+		<en>Consumes</en>
+		<sv>Konsumerar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>generates_environment</id>
+		<en>Generates</en>
+		<sv>Genererar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>transfers_environment</id>
+		<en>Environment transfers</en>
+		<sv>Miljööverföringar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>transfers_resources</id>
+		<en>Resource transfers</en>
+		<sv>Resursöverföringar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>has_storage</id>
+		<en>storage space</en>
+		<sv>förvaringsutrymme</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>has_crafting_recipes</id>
+		<en>crafting recipes</en>
+		<sv>konstruktionsrecept</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>has_refinement_recipes</id>
+		<en>refinement recipes</en>
+		<sv>raffineringsrecept</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>room_requirements_string</id>
+		<en>Room requirements</en>
+		<sv>Rumkrav</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>unsatisfied_punishment</id>
+		<en>Unsatisfied efficiency</en>
+		<sv>Otillfredsställd effekt</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>base_calculation_fail_info</id>
+		<en>shut down due to a resource/environment shortage!</en>
+		<sv>stängdes av på grund av resurs/miljö-brist!</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>base_back_online_info</id>
+		<en>is back online</en>
+		<sv>är åter i bruk</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>base_online_prompt</id>
+		<en>Base online</en>
+		<sv>Bas i bruk</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>base_offline_prompt</id>
+		<en>Base offline</en>
+		<sv>Bas nedstängd</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>hoverbox_burnable</id>
+		<en>Burnable</en>
+		<sv>Brännbar</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>build_menu_hoverbox</id>
+		<en>Build Menu</en>
+		<sv>Byggmeny</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>inventory_hoverbox</id>
+		<en>Inventory</en>
+		<sv>Utrustning</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>main_menu_hoverbox</id>
+		<en>Main Menu</en>
+		<sv>Huvudmeny</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>map_hoverbox</id>
+		<en>World Map</en>
+		<sv>Världskarta</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>chat_hoverbox</id>
+		<en>Chat</en>
+		<sv>Snacka</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>excav4_hoverbox</id>
+		<en>ExcaV4 Mode</en>
+		<sv>ExcaV4 Läge</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>purgopedia_hoverbox</id>
+		<en>Purgopedia</en>
+		<sv>Purgopedia</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_respawn_prompt_title</id>
+		<sv>Du är medvetslös</sv>
+		<en>You are unconscious</en>
+	</DataDef>
+		
+	<DataDef xsi:type="StringData">
+		<id>string_respawn_prompt_message</id>
+		<sv>Du kan vänta på att en allierad spelare hjälper dig upp, eller återuppstå vid basen.</sv>
+		<en>You can wait for an ally to revive you, or respawn at the nearest base/drop point.</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_respawn_prompt_message_warning_1</id>
+		<sv>Du behåller din utrustning,</sv>
+		<en>When respawning, your equipment will be</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_respawn_prompt_message_warning_2</id>
+		<sv>men tappar allt du bär.</sv>
+		<en>fine, but your inventory will be lost.</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_respawn_prompt_button</id>
+		<sv>Återuppstå</sv>
+		<en>Respawn</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_pick_up</id>
+		<sv>Plocka upp</sv>
+		<en>Pick up</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>health_gain_title</id>
+		<sv>Helande</sv>
+		<en>Healing</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>health_loss_title</id>
+		<sv>Skadande</sv>
+		<en>Damaging</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_item_consumable</id>
+		<sv>Konsumerbar</sv>
+		<en>Consumable</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_unknown</id>
+		<en>Unknown Anomaly</en>
+		<sv>Okänd Anomali</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_map_discovery</id>
+		<en>uncovered an anomaly</en>
+		<sv>har upptäckt en anomali</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_map_base</id>
+		<en>This is a player base of operations</en>
+		<sv>Detta är en spelarbas</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_map_player</id>
+		<en>Your ally</en>
+		<sv>En allierad</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_build_outside_base</id>
+		<en>Build mode only usable inside base areas</en>
+		<sv>Byggläget fungerar endast i basområden</sv>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>string_current_objective</id>
+		<en>Current Objective</en>
+		<sv>Nuvarande Objektiv</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_difficulty</id>
+		<en>Difficulty</en>
+		<sv>Svårighetsgrad</sv>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>string_rewards</id>
+		<en>Rewards</en>
+		<sv>Belöningar</sv>
+	</DataDef>
+
+</Defs>

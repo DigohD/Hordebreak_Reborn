@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <DataDef xsi:type="SFXData">
+		<id>sfx_door_close</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Door_Close.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+	 <DataDef xsi:type="SFXData">
+		<id>sfx_door_open</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Door_Open.wav</filePath>		
+		<distance>15</distance>
+	</DataDef>
+
+</Defs>

@@ -1,0 +1,19 @@
+{
+    "name": "FNZ.LevelEditor",
+    "references": [
+        "GUID:5df6a8f49c74b5c47a82961296c0e458",
+        "GUID:1f5a5d50d3c3d954683206125b607cb9",
+        "GUID:a35efad8797223d499f8c68b1f545dbc",
+        "GUID:d60799ab2a985554ea1a39cd38695018",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

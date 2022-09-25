@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	
+	<!-- STONE WALL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_stone_wall_view_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View1/StoneWall1.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View1/StoneWall1_BaseColor.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View1/StoneWall1_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View1/StoneWall1_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_stone_wall_view_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View2/StoneWall2.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View2/StoneWall2_BaseColor.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View2/StoneWall2_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View2/StoneWall2_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_stone_wall_view_3</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View3/StoneWall3.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View3/StoneWall3_BaseColor.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View3/StoneWall3_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall/View3/StoneWall3_Normal.png</normalPath>
+	</DataDef>
+
+
+	<!-- STONE WALL DOOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_stone_wall_door_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall_Door/StoneWallDoor_Animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall_Door/StoneWall1_BaseColor.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall_Door/StoneWall1_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall_Door/StoneWall1_Normal.png</normalPath>
+	</DataDef>
+
+
+	<!-- WOOD FENCE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_fence_view_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Mesh1/Fence_1.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_fence_view_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Mesh2/Fence_2.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_fence_view_3</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Mesh3/Fence_3.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence/Wood_Fence_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WOOD FENCE GATE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_fence_gate_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence_Gate/Wood_Fence_Gate_Animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence_Gate/Wood_Fence_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence_Gate/Wood_Fence_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Fence_Gate/Wood_Fence_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WOOD WALL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_wall_view_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View1/Wall_1.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View1/wall_v1_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View1/wall_v1_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View1/wall_v1_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_wall_view_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View2/Wall_2.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View2/wall_v2_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View2/wall_v2_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View2/wall_v2_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_wall_view_3</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View3/Wall_3.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View3/wall_v3_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View3/wall_v3_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View3/wall_v3_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_wall_view_4</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View4/WoodWall.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View4/WoodWall_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View4/WoodWall_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall/View4/WoodWall_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+			
+
+	<!-- WOOD WALL DOOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_door_view_closed</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall_Door/WoodWall_Door_Animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall_Door/WoodWall_Door_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall_Door/WoodWall_Door_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Wood_Wall_Door/WoodWall_Door_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- ELECTRIC BOX -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_electric_box_view_1</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/ElectricBox/ElectricTransferBox.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/ElectricBox/ElectricTransfer_Revised_DefaultMaterial_BaseMap.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/ElectricBox/ElectricTransfer_Revised_DefaultMaterial_Emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/ElectricBox/ElectricTransfer_Revised_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/ElectricBox/ElectricTransfer_Revised_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- HEAT PIPES -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_heat_pipes_view_1</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/HeatPipes/Waterpipes.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/HeatPipes/HeatPipes_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/HeatPipes/Waterpipes_Emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/HeatPipes/Waterpipes_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/HeatPipes/Waterpipes_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WATER PIPES -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_water_pipes_view_1</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/WaterPipes/Waterpipes.gltf</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/WaterPipes/Waterpipes_Albedo.png</albedoPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/WaterPipes/Waterpipes_Emissive.png</emissivePath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/WaterPipes/Waterpipes_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/WaterPipes/Waterpipes_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- BED -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_bed_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Bed\Bed_Full.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Bed\bed_final_nocut_Material_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Bed\bed_final_nocut_Material_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Bed\bed_final_nocut_Material_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- FURNACE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_furnace_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Furnace\Furnace.gltf</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Furnace\Furnace_Albedo.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Furnace\Furnace_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Furnace\Furnace_Mask.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Furnace\Furnace_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- GENERATOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_generator_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_NoAnim.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_BaseMap.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- SPRINKLER -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_sprinkler_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_NoAnim.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_BaseMap.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WATERPUMP -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_waterpump_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WaterPump\Waterpump_NoAnim.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WaterPump\waterbarrelpump_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WaterPump\waterbarrelpump_DefaultMaterial_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WaterPump\waterbarrelpump_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WIND GENERATOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_windgenerator_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WindGenerator\WindGenerator_NoAnim.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_BaseMap.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Generator\Generator_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WOOD STORAGE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_storage_box_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Animated.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T1_Albedo.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T1_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T1_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- WOOD STORAGE T2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wood_storage_box_t2_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Animated.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T2_Albedo.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T2_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_T2_Normal.png</normalPath>
+	</DataDef>
+
+
+	<!-- WOOD STORAGE WEAPON VERSION -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_weapon_loot_box_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Animated.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\WeaponCrate\Weapon_Crate_Albedo.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WoodCrate\Wood_Crate_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- WORKBENCH -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_workbench_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\Workbench_Half.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_BaseMap.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- WEAPONBENCH -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_weaponbench_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\Workbench_Half.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WeaponBench\weaponbench.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_MaskMap.png</maskMapPath>
+    	<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Normal.png</normalPath>
+	</DataDef>
+	
+	<!-- WEAPONBENCH T2 -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_weaponbench_t2_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\Workbench_Half.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\WeaponBench\weaponbench_t2.png</albedoPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Emissive.png</emissivePath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_MaskMap.png</maskMapPath>
+    	<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\Workbench\workbench_Material_Normal.png</normalPath>
+	</DataDef>
+	
+
+	<!-- CAMPFIRE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_campfire_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Campfire\Campfire.gltf</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Campfire\campfire_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Campfire\campfire_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Campfire\campfire_DefaultMaterial_Normal.png</normalPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Outdoors\Campfire\campfire_DefaultMaterial_Emissive.png</emissivePath>
+	</DataDef>
+	
+
+	<!-- CHOPPING BLOCK -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_chopping_block_view</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Chopping_Block\ChoppingBlock.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Chopping_Block\ChoppingBlock_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Chopping_Block\ChoppingBlock_MaskMap.png</maskMapPath>
+        <normalPath>Data\XML\Entity\TileObject\Buildings\Outdoors\Chopping_Block\ChoppingBlock_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- MOUNTABLE WIND GENERATOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_wind_generator</id>
+		<meshPath>Data/XML/Entity/MountedObject/Buildings/WindGenerator/MountableWindGenerator_animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/MountedObject/Buildings/WindGenerator/MountableWindGenerator_WindGenerator_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/MountedObject/Buildings/WindGenerator/MountableWindGenerator_WindGenerator_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/MountedObject/Buildings/WindGenerator/MountableWindGenerator_WindGenerator_Normal.png</normalPath>
+		<emissivePath>Data/XML/Entity/MountedObject/Buildings/WindGenerator/MountableWindGenerator_WindGenerator_Emissive.png</emissivePath>
+	</DataDef>
+
+	<!-- CEMENT MIXER -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_cement_mixer</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\CementMixer\CementMixer_Animated.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\CementMixer\CementMixer_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\CementMixer\CementMixer_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\CementMixer\CementMixer_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\PlantBox.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\PlantBox_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\PlantBox_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\PlantBox_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - KRYSTBERRY SEEDLING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_kryst_seedling</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - KRYSTBERRY EMPTY -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_kryst_empty</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - KRYSTBERRY FULL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_kryst_full</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_Normal.png</normalPath>
+		<emissivePath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_Emissive.png</emissivePath>
+	</DataDef>
+
+	<!-- PLANT BOX - COTTON SEEDLING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_cotton_seedling</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Cotton/Seedling/PlantBox_Cotton_Seedling_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Seedling/PlantBox_KrystBerry_Seedling_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - COTTON EMPTY -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_cotton_empty</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Cotton/Empty/PlantBox_Cotton_Empty_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Empty/PlantBox_KrystBerry_Empty_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - COTTON FULL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_cotton_full</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Cotton/Full/PlantBox_Cotton_Full_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants/Krystberry/Full/PlantBox_Krystberry_Full_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - POTATO MATURE -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_potato_mature</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Mature\PlantBox_Potato_Mature.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Mature\PlantBox_Potato_Mature_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Mature\PlantBox_Potato_Mature_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Mature\PlantBox_Potato_Mature_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- PLANT BOX - POTATO SEEDLING -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_plant_box_potato_seedling</id>
+		<meshPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Seedling\PlantBox_Potato_Seedling.glb</meshPath>
+		<albedoPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Seedling\PlantBox_Potato_Seedling_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Seedling\PlantBox_Potato_Seedling_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data\XML\Entity\TileObject\Buildings\Infrastructure\PlantBox\Plants\Potato\Seedling\PlantBox_Potato_Seedling_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- DROP POD -->
+	
+
+	<!-- CRASHED POD (old project) -->
+	
+
+
+	<!-- CRASHED ROBOT (old project) -->
+	
+		
+	
+	<!-- CONCRETE WALL -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_concrete_wall</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Wall/ConcreteWall.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Wall/ConcreteWall_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Wall/ConcreteWall_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Wall/ConcreteWall_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+
+	<!-- CONCRETE DOOR -->
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_concrete_wall_door</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Door/ConcreteWall_Door_Animated.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Door/ConcreteWall_Door_DefaultMaterial_BaseMap.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Door/ConcreteWall_Door_DefaultMaterial_MaskMap.png</maskMapPath>
+		<normalPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Concrete_Door/ConcreteWall_Door_DefaultMaterial_Normal.png</normalPath>
+	</DataDef>
+		
+								
+</Defs>

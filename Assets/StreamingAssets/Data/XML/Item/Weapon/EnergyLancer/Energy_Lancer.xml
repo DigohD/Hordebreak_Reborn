@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="ItemData">
+		<id>weapon_energy_lancer</id>
+		<nameRef>weapon_energy_lancer_name</nameRef>
+		<infoRef>weapon_energy_lancer_info</infoRef>
+		<height>2</height>
+		<width>3</width>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_4_military_gear</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_4_military_gear</laydownSoundRef>
+
+		<components>	
+			<ItemComponentData xsi:type="WeaponItemComponentData">
+				<triggersPerMinute>300</triggersPerMinute>
+				<effectRef>energy_lancer_fire</effectRef>
+				<reloadEffectRef>rusty_pistol_reload</reloadEffectRef>
+				<isAutomatic>true</isAutomatic>
+				<ammoClipSize>40</ammoClipSize>
+				<reloadTimeInSeconds>1</reloadTimeInSeconds>
+
+				<scaleMod>1</scaleMod>
+				<weaponPosture>Rifle</weaponPosture>
+				<itemMeshRef>mesh_weapon_energy_lancer</itemMeshRef>
+				<itemTextureRef>texture_weapon_energy_lancer</itemTextureRef>
+				<muzzleOffsetForward>0.18</muzzleOffsetForward>
+				<muzzleOffsetRight>-0.02</muzzleOffsetRight>
+				<muzzleOffsetUp>-0.08</muzzleOffsetUp>
+
+				<iconScaleMod>1.5</iconScaleMod>
+				<iconOffsetRight>-0.1</iconOffsetRight>
+				<iconOffsetUp>-0.05</iconOffsetUp>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_weapon_energy_lancer</id>
+        <meshPath>Data/XML/Item/Weapon/EnergyLancer/Energy_Lancer.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_weapon_energy_lancer</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_items</assetBundlePath>
+		<albedoName>Energy_Lancer_Albedo</albedoName>
+		<normalMapName>Energy_Lancer_Normal</normalMapName>
+		<maskMapName>Energy_Lancer_MaskMap</maskMapName>
+		<emissiveMapName>Energy_Lancer_Emissive</emissiveMapName>
+		<emissiveFactor>100.0</emissiveFactor>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>energy_lancer_fire</id>
+		<sfxRef>sfx_energy_lancer_fire</sfxRef>
+		<vfxRef>vfx_energy_lancer_muzzle</vfxRef>
+		<enemyAlertDistance>15</enemyAlertDistance>
+        <realEffectData xsi:type="ProjectileEffectData">
+            <lifetime>1</lifetime>
+            <speed>30</speed>
+		
+            <inaccuracy>2</inaccuracy>
+			<projectileVfxRef>vfx_energy_projectile</projectileVfxRef>
+            <onDeathEffectRef>vfx_energy_lancer_projectile_death</onDeathEffectRef>
+            <damage>60</damage>
+            <damageTypeRef>projectile</damageTypeRef>
+            <pellets>1</pellets>
+        </realEffectData>
+		<screenShake>2</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>vfx_energy_lancer_projectile_death</id>
+		<vfxRef>vfx_energy_explosion</vfxRef>
+		<sfxRef>sfx_energy_lancer_impact</sfxRef>
+		<screenShake>3</screenShake>
+		<realEffectData xsi:type="ExplosionEffectData">
+			<minRadius>0.5</minRadius>
+			<maxRadius>1.4</maxRadius>
+			<damage>80</damage>
+			<targetsPlayers>true</targetsPlayers>
+			<targetsEnemies>true</targetsEnemies>
+			<damageTypeRef>explosive</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+</Defs>

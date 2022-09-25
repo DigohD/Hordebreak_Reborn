@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_city_industrial_wall_var_1_r</id>
+		<blocking>true</blocking>
+		<pathingCost>100</pathingCost>
+		<seeThrough>false</seeThrough>
+		<hittable>true</hittable>
+		<editorName>Industrial Wall (Variation 1 Right)</editorName>
+		<isMountable>false</isMountable>
+		<editorCategoryName>Industrial Walls (Standard)</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>eo_city_industrial_wall_var_1_r_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>eo_city_industrial_wall_var_1_r_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<onHitEffectRef>effect_entity_hit_concrete</onHitEffectRef>
+		<entityMeshData>mesh_city_industrial_wall_var_1_r_view</entityMeshData>
+		<entityTextureData>texture_city_industrial_wall_var_1_r_view</entityTextureData>
+		<isTransparent>false</isTransparent>
+		<onHitEffectRef>effect_stone_object_hit</onHitEffectRef>
+		<onDeathEffectRef>effect_stone_object_destroyed</onDeathEffectRef>
+        <scaleMod>1</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_city_industrial_wall_var_1_r_view</id>
+		<meshPath>Data/XML/Entity/EdgeObject/CityWalls/Industrial/IndustrialWall_Var_1_R.glb</meshPath>
+		<albedoPath>Data/XML/Entity/EdgeObject/CityWalls/Industrial/IndustrialWall_Albedo.png</albedoPath>
+		<maskMapPath>Data/XML/Entity/EdgeObject/CityWalls/Industrial/IndustrialWall_MaskMap.png</maskMapPath>
+        <normalPath>Data/XML/Entity/EdgeObject/CityWalls/Industrial/IndustrialWall_Normal.png</normalPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_city_industrial_wall_var_1_r_view</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_city_industrialwall</assetBundlePath>
+		<albedoName>IndustrialWall_Albedo</albedoName>
+		<normalMapName>IndustrialWall_Normal</normalMapName>
+		<maskMapName>IndustrialWall_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

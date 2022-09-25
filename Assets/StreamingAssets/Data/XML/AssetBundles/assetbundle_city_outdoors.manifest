@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3036612275
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6876c4f6583853e17ef9bf6b3e6c1d1c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_FenceGate_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Alarm_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Alarm_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Miscwalls_Laserwalls_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_FenceGate_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Alarm_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Setpiece_Robot_monument_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Miscwalls_Laserwalls_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_FenceGate_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Miscwalls_Laserwalls_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Setpiece_Robot_monument_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/MiscWalls_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Setpiece_Robot_monument_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/StreetAssets_Alarm_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Setpiece_Robot_monument_Emissive.png
+- Assets/Resources/AssetBundles/Textures/City/Outdoors/Miscwalls_Laserwalls_Normal.png
+Dependencies: []

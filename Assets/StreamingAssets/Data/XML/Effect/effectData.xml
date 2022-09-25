@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="EffectData">
+		<id>build_tile_object</id>
+		<vfxRef>vfx_tilecreation</vfxRef>
+		<sfxRef>sfx_build</sfxRef>
+		<screenShake>5</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>build_tile</id>
+		<vfxRef>vfx_tilecreation</vfxRef>
+		<sfxRef>sfx_build</sfxRef>
+		<screenShake>2</screenShake>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>build_edge_object</id>
+		<vfxRef>vfx_wallcreation</vfxRef>
+		<sfxRef>sfx_build</sfxRef>
+		<screenShake>2</screenShake>
+	</DataDef>
+	
+	<DataDef xsi:type="EffectData">
+		<id>mjolnir</id>
+		<vfxRef>vfx_mjolnir</vfxRef>
+		<sfxRef>sfx_button_click</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>teleport</id>
+		<vfxRef>vfx_teleport</vfxRef>
+		<sfxRef>sfx_button_click</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>morning_mist</id>
+		<vfxRef>vfx_morning_mist</vfxRef>
+		<sfxRef>sfx_button_click</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>sfx_ambient_sound_day</id>
+		<sfxRef>sfx_button_click</sfxRef>
+	</DataDef>
+	
+	<DataDef xsi:type="EffectData">
+		<id>tile_debug</id>
+		<vfxRef>vfx_tile_debug</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>tile_debug2</id>
+		<vfxRef>vfx_tile_debug2</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>tile_debug3</id>
+		<vfxRef>vfx_tile_debug3</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_plant_harvest</id>
+		<vfxRef>vfx_plantpoof</vfxRef>
+		<sfxRef>sfx_harvest_plant</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_rock_harvest</id>
+		<vfxRef>vfx_rocksplinters</vfxRef>
+		<sfxRef>sfx_rocks_hit_2</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_kryst_berry_harvest</id>
+		<vfxRef>vfx_crystberry_harvest</vfxRef>
+		<sfxRef>sfx_harvest_kryst_plant</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_compound_discus_explosion</id>
+		<screenShake>8.0</screenShake>
+		<vfxRef>vfx_compound_discus_explosion</vfxRef>
+		<sfxRef>sfx_compound_discus_explode</sfxRef>
+		<realEffectData xsi:type="ExplosionEffectData">
+			<minRadius>3</minRadius>
+			<maxRadius>3</maxRadius>
+			<damage>25000</damage>
+			<targetsPlayers>false</targetsPlayers>
+			<targetsEnemies>true</targetsEnemies>
+			<damageTypeRef>explosive</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_compound_discus_projectile</id>
+		<vfxRef>vfx_compound_discus_projectile</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_stone_object_hit</id>
+		<vfxRef>vfx_stone_object_hit</vfxRef>
+		<sfxRef>sfx_rocks_hit_2</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_stone_object_destroyed</id>
+		<vfxRef>vfx_stone_object_hit</vfxRef>
+		<sfxRef>sfx_rocks_destroy</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_wood_object_hit</id>
+		<vfxRef>vfx_wood_object_hit</vfxRef>
+		<sfxRef>sfx_wood_hit_excavator</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_wood_object_destroyed</id>
+		<vfxRef>vfx_wood_object_hit</vfxRef>
+		<sfxRef>sfx_wood_destroy</sfxRef>
+	</DataDef>
+		
+	<DataDef xsi:type="EffectData">
+		<id>effect_shepherd_death</id>
+		<vfxRef>vfx_placeholder_enemy_death</vfxRef>
+		<sfxRef>sfx_shepherd_death</sfxRef>
+		<screenShake>10</screenShake>
+		<realEffectData xsi:type="ExplosionEffectData">
+			<minRadius>0.3</minRadius>
+			<maxRadius>1.2</maxRadius>
+			<damage>50</damage>
+			<targetsPlayers>true</targetsPlayers>
+			<targetsEnemies>true</targetsEnemies>
+			<damageTypeRef>explosive</damageTypeRef>
+		</realEffectData>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_enemy_hit</id>
+		<vfxRef>vfx_placeholder_enemy_hit</vfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_entity_hit_wood</id>
+		<vfxRef>vfx_entity_hit_wood</vfxRef>
+		<sfxRef>sfx_wood_hit</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_entity_hit_metal</id>
+		<vfxRef>vfx_entity_hit_metal</vfxRef>
+		<sfxRef>sfx_metal_hit</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_entity_hit_concrete</id>
+		<vfxRef>vfx_entity_hit_concrete</vfxRef>
+		<sfxRef>sfx_concrete_hit</sfxRef>
+	</DataDef>
+
+	<DataDef xsi:type="EffectData">
+		<id>effect_build_tile_object</id>
+		<delay>0.0</delay>
+		<repetitions>0</repetitions>
+		<repetitionTime>0.0</repetitionTime>
+		<screenShake>0.0</screenShake>
+		<vfxRef>vfx_build_tile_object</vfxRef>
+		<sfxRef>sfx_build</sfxRef>
+	</DataDef>
+
+</Defs>

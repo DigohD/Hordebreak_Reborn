@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+	<!-- Rusty Pistol -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_rusty_pistol_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Rusty_Pistol_Shot.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rusty_pistol_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Gun_Draw_Hard3.wav</filePath>		
+	</DataDef>
+
+	<!-- Rusty Blunderbuss -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_rusty_blunderbuss_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Rusty_Blunderbuss.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rusty_blunderbuss_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Shotgun_Reload2.wav</filePath>		
+	</DataDef>
+
+	<!-- Rusty Repeater -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_rusty_repeater_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Rusty_Repeater.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_rusty_repeater_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Rifle_Reload2.wav</filePath>		
+	</DataDef>
+
+	<!-- Salvage Machinegun -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_salvage_machine_gun_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Salvage_Machinegun.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_salvage_machine_gun_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Gun_Reload.wav</filePath>		
+	</DataDef>
+
+	<!-- Salvage Handgun -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_salvage_hand_gun_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Salvage_Gun.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_salvage_hand_gun_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Gun_Reload2.wav</filePath>		
+	</DataDef>
+
+	<!-- Salvage Shotgun -->
+    <DataDef xsi:type="SFXData">
+		<id>sfx_salvage_shotgun_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Salvage_Shotgun_Fire.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_salvage_shotgun_reload</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Shotgun_Reload1.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_energy_lancer_fire</id>
+		<filePath>Data/XML/Audio/SFX/FNE/Energy_Weapon_Loadup_2_Shorter.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>sfx_energy_lancer_impact</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/Excavator_Fire1.wav</filePath>		
+	</DataDef>
+
+	<DataDef xsi:type="SFXData">
+		<id>explo_gun_fire</id>
+		<filePath>Data/XML/Audio/SFX/Fmod/explo_gun_fire.wav</filePath>		
+	</DataDef>
+
+</Defs>

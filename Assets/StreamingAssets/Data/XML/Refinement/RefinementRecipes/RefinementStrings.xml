@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef xsi:type="StringData">
+		<id>refine_concrete_name</id>
+		<sv>Betongblandning</sv>
+		<en>Concrete mixing</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_concrete_info</id>
+		<sv>Framställ ett hårt material för en stadig bas</sv>
+		<en>Produce a solid material for a sturdy base</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refine_biofuel_name</id>
+		<sv>Bio-destillering</sv>
+		<en>Biodestillation</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_biofuel_info</id>
+		<sv>Framställ ett billigt, lågkvalitativt bränsle</sv>
+		<en>Extract a cheap, low quality fuel</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refine_compound_fuel_name</id>
+		<sv>Kompositumblandning</sv>
+		<en>Compound Mixing</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_compound_fuel_info</id>
+		<sv>Anrika biobränsle med krystkompositum</sv>
+		<en>Enrich biofuel with kryst compounds</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refine_steel_ingot_name</id>
+		<sv>Skrotsmältning</sv>
+		<en>Scrap Smelting</en>
+	</DataDef>
+	
+	<DataDef xsi:type="StringData">
+		<id>refine_steel_ingot_ore_name</id>
+		<sv>Malmsmältning</sv>
+		<en>Ore Smelting</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_steel_ingot_info</id>
+		<sv>Återvinn stål från skrot</sv>
+		<en>Recycle scrap and gain steel</en>
+	</DataDef>
+	
+    <DataDef xsi:type="StringData">
+		<id>refine_steel_ingot_ore_info</id>
+		<sv>Tillverka stål från järnmalm och kol</sv>
+		<en>Smelt steel from iron ore and coal</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refinement_charcoal_name</id>
+		<sv>Vedeldning</sv>
+		<en>Log burning</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refinement_charcoal_info</id>
+		<sv>Bränn ved för att få kol</sv>
+		<en>Burn wooden logs to make charcoal</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refine_compound_gel_name</id>
+		<sv>Gelutvinning</sv>
+		<en>Gel Extraction</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_compound_gel_info</id>
+		<sv>Utvinn gel från krystbär</sv>
+		<en>Extract gel from krystberries</en>
+	</DataDef>
+
+	<DataDef xsi:type="StringData">
+		<id>refine_budroot_name</id>
+		<sv>Baka Knölrot</sv>
+		<en>Bake Budroot</en>
+	</DataDef>
+
+    <DataDef xsi:type="StringData">
+		<id>refine_budroot_info</id>
+		<sv>Baka en knölrot</sv>
+		<en>Bake a Budroot</en>
+	</DataDef>
+</Defs>

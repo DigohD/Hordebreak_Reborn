@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_big_zombie_spawner</id>
+		<pathingCost>150</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Big Zombie Spawner</editorName>
+		<smallCollisionBox>false</smallCollisionBox>
+		<blocking>false</blocking>
+		<editorCategoryName>Misc</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>to_default_zombie_spawner_view</viewRef>
+		</entityViewVariations>
+		<components>
+			<!-- <DataComponent xsi:type="SpawnerComponentData">
+				<spawnInterval>3</spawnInterval>
+				<spawnAmount>1</spawnAmount>
+				<enemyRef>zombie_big</enemyRef>
+			</DataComponent> -->
+			<DataComponent xsi:type="SpawnPointComponentData"></DataComponent>
+		</components>
+	</DataDef>
+
+    <!-- View ref in Default Zombie spawner -->
+
+</Defs>

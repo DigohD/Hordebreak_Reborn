@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="EnvironmentData">
+        <id>env_type_temperature</id>
+        <nameRef>env_type_temperature_name</nameRef>
+        <iconRef>temperature_icon</iconRef>
+        <defaultValue>10</defaultValue>
+    </DataDef>
+
+    <DataDef xsi:type="EnvironmentData">
+        <id>env_type_humidity</id>
+        <nameRef>env_type_humidity_name</nameRef>
+        <iconRef>humidity_icon</iconRef>
+        <defaultValue>20</defaultValue>
+    </DataDef>
+    
+</Defs>

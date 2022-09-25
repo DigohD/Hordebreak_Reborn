@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 551027645
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: assetbundle_enemies_mudplains
+      Dependencies: {}
+    Info_1:
+      Name: vfx01
+      Dependencies: {}
+    Info_2:
+      Name: assetbundle_player
+      Dependencies: {}
+    Info_3:
+      Name: assetbundle_items
+      Dependencies: {}
+    Info_4:
+      Name: assetbundle_city_industrial
+      Dependencies: {}
+    Info_5:
+      Name: assetbundle_nature_misc
+      Dependencies: {}
+    Info_6:
+      Name: assetbundle_city_outdoors
+      Dependencies: {}
+    Info_7:
+      Name: assetbundle_nature_mudplains
+      Dependencies: {}
+    Info_8:
+      Name: assetbundle_city_factory
+      Dependencies: {}
+    Info_9:
+      Name: assetbundle_city_warehouse
+      Dependencies: {}
+    Info_10:
+      Name: assetbundle_city_brickwall
+      Dependencies: {}
+    Info_11:
+      Name: assetbundle_city_industrialwall
+      Dependencies: {}
+    Info_12:
+      Name: assetbundle_city_household
+      Dependencies: {}
+    Info_13:
+      Name: assetbundle_city_office
+      Dependencies: {}
+    Info_14:
+      Name: assetbundle_city_wallmounted
+      Dependencies: {}
+    Info_15:
+      Name: rendertexturebundle.rt
+      Dependencies: {}

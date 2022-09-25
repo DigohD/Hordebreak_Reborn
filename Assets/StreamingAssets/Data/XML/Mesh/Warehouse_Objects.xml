@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+<!-- ========================= EDGE OBJECTS ========================= -->
+
+	<!-- ROOF BEAM 2 -->
+	
+	
+	<!-- ROOF BEAM 3 -->
+	
+    
+<!-- ================================================================ -->
+
+<!-- ========================= WALL MOUNTED OBJECTS ========================= -->
+
+	<!-- AIR FAN -->
+
+	
+	<!-- AIR VENT -->
+
+    
+<!-- ================================================================ -->
+
+<!-- ========================= TILE OBJECTS ========================= -->
+	
+  	<!-- BARREL SINGLE -->
+	
+    
+  	<!-- BARREL STACK -->
+	
+    
+  	<!-- PALLET EMPTY -->
+	
+
+  	<!-- PALLET BARREL SINGLE -->
+	
+
+  	<!-- PALLET BARREL STACK -->
+	
+    
+  	<!-- PALLET BOX OPEN -->
+	
+    
+  	<!-- PALLET PACKED 1 -->
+	
+    
+  	<!-- PALLET PACKED 2 -->
+	
+    
+  	<!-- PALLET PACKED 3 -->
+	
+    
+  	<!-- PALLET ROBOTICS -->
+	
+    
+  	<!-- WAREHOUSE SHELVES EMPTY -->
+	
+    
+  	<!-- WAREHOUSE SHELVES VAR 1 -->
+	
+    
+  	<!-- WAREHOUSE SHELVES VAR 2 -->
+	
+    
+  	<!-- WAREHOUSE SHELVES VAR 3 -->
+	
+	
+  	<!-- WAREHOUSE ROOF PILLAR 2 -->
+	
+	
+  	<!-- WAREHOUSE ROOF PILLAR 3 -->
+	
+	
+  	<!-- FORKLIFT LARGE -->
+	
+	
+  	<!-- FORKLIFT SMALL -->
+	
+	
+  	<!-- PALLET SMALL EMPTY -->
+	
+	
+  	<!-- PALLET SMALL BARREL -->
+	
+	
+  	<!-- PALLET SMALL BOX -->
+	
+	
+  	<!-- CRATE SINGLE -->
+	
+	
+  	<!-- CRATE DOUBLE -->
+	
+	
+  	<!-- CRATE TRIPPLE -->
+	
+
+<!-- ================================================================ -->
+
+</Defs>

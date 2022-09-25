@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="SpriteData">
+		<id>burnable_one_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/grade1.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+    <DataDef xsi:type="SpriteData">
+		<id>burnable_two_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/grade2.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+    <DataDef xsi:type="SpriteData">
+		<id>burnable_three_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/grade3.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+    <DataDef xsi:type="SpriteData">
+		<id>burnable_four_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/grade4.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+    <DataDef xsi:type="SpriteData">
+		<id>burnable_five_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/grade5.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+	<DataDef xsi:type="SpriteData">
+		<id>excavator_flat_icon</id>
+		<spritePath>Data/XML/Sprites/SpriteImageFiles/UIIcon/excavator.png</spritePath>
+		<spriteCategory>uiicon</spriteCategory>
+	</DataDef>
+
+</Defs>

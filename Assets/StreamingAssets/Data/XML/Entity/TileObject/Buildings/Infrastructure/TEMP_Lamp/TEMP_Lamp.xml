@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_temp_lamp</id>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Workbench</editorName>
+		<blocking>true</blocking>
+		<blocksTileBuilding>false</blocksTileBuilding>
+    <smallCollisionBox>true</smallCollisionBox>
+		<components>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="RoomRequirementsComponentData">
+				<propertyRequirements>
+					<RoomPropertyRequirementData>
+						<propertyRef>room_property_indoors</propertyRef>
+						<level>2</level>
+					</RoomPropertyRequirementData>
+				</propertyRequirements>
+			</DataComponent>
+
+			<DataComponent xsi:type="ConsumerComponentData">
+				<resources>
+					<ResourceConsumptionData>
+						<resourceRef>room_power</resourceRef>
+						<amount>5</amount>
+					</ResourceConsumptionData>
+				</resources>
+			</DataComponent>
+		</components>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<entityViewVariations>
+			<viewRef>temp_lamp_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+  <DataDef xsi:type="FNEEntityViewData">
+    <id>temp_lamp_view</id>
+    <viewIsGameObject>true</viewIsGameObject>
+    <entityMeshData>mesh_city_household_assets_lamp_2_view</entityMeshData>
+    <emissiveColor>#ffffff</emissiveColor>
+    <scaleMod>1</scaleMod>
+
+    <entityLightSourceData>
+		<intensity>50</intensity>
+		<range>20</range>
+		<color>#CCCCCC</color>
+		<offsetX>0</offsetX>
+		<offsetY>2</offsetY>
+		<offsetZ>0</offsetZ>
+    </entityLightSourceData>
+  </DataDef>
+</Defs>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="QuestData">
+		<id>quest_start</id>
+		<titleRef>quest_start_title_string</titleRef>
+		<descriptionRef>quest_start_desc_string</descriptionRef>
+		<followingQuestRef>quest_build_workbench</followingQuestRef>
+		<questTypeData xsi:type="BuildingQuestData">
+			<buildingRef>building_base_pylon</buildingRef>
+			<amount>1</amount>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_build_workbench</id>
+		<titleRef>quest_build_workbench_title_string</titleRef>
+		<descriptionRef>quest_build_workbench_desc_string</descriptionRef>
+		<followingQuestRef>quest_build_room</followingQuestRef>
+		<questTypeData xsi:type="BuildingQuestData">
+			<buildingRef>building_workbench</buildingRef>
+			<amount>1</amount>
+		</questTypeData>
+	</DataDef>
+	
+	<DataDef xsi:type="QuestData">
+		<id>quest_build_room</id>
+		<titleRef>quest_build_room_title_string</titleRef>
+		<descriptionRef>quest_build_room_desc_string</descriptionRef>
+		<followingQuestRef>quest_build_weaponbench</followingQuestRef>
+		<questTypeData xsi:type="ConstructRoomQuestData">
+			<RoomQuestType>Property</RoomQuestType>
+			<propertyRef>room_property_indoors</propertyRef>
+			<propertyLevel>2</propertyLevel>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_build_weaponbench</id>
+		<titleRef>quest_build_weaponbench_title_string</titleRef>
+		<descriptionRef>quest_build_weaponbench_desc_string</descriptionRef>
+		<followingQuestRef>quest_craft_salvage_handgun</followingQuestRef>
+		<questTypeData xsi:type="BuildingQuestData">
+			<buildingRef>building_weaponbench</buildingRef>
+			<amount>1</amount>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_craft_salvage_handgun</id>
+		<titleRef>quest_craft_salvage_handgun_title_string</titleRef>
+		<descriptionRef>quest_craft_salvage_handgun_desc_string</descriptionRef>
+		<followingQuestRef>quest_build_furnace</followingQuestRef>
+		<questTypeData xsi:type="CraftingQuestData">
+			<itemRef>salvage_handgun</itemRef>
+			<amount>1</amount>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_build_furnace</id>
+		<titleRef>quest_build_furnace_title_string</titleRef>
+		<descriptionRef>quest_build_furnace_desc_string</descriptionRef>
+		<followingQuestRef>quest_get_circuit_board</followingQuestRef>
+		<questTypeData xsi:type="BuildingQuestData">
+			<buildingRef>building_furnace</buildingRef>
+			<amount>1</amount>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_get_circuit_board</id>
+		<titleRef>quest_get_circuit_board_title_string</titleRef>
+		<descriptionRef>quest_get_circuit_board_desc_string</descriptionRef>
+		<followingQuestRef>quest_build_pylon_2</followingQuestRef>
+		<questTypeData xsi:type="EventQuestData">
+			<eventRef>event_survival</eventRef>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_build_pylon_2</id>
+		<titleRef>quest_build_pylon_2_title_string</titleRef>
+		<descriptionRef>quest_build_pylon_2_desc_string</descriptionRef>
+		<followingQuestRef>quest_city_event</followingQuestRef>
+		<questTypeData xsi:type="BuildingAddonQuestData">
+			<buildingRef>addon_base_pylon_2</buildingRef>
+			<amount>1</amount>
+		</questTypeData>
+		<buildingUnlockRefs>
+			<unlockRef>building_weaponbench_t2</unlockRef>
+		</buildingUnlockRefs>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_city_event</id>
+		<titleRef>quest_city_event_title_string</titleRef>
+		<descriptionRef>quest_city_event_desc_string</descriptionRef>
+		<followingQuestRef>quest_game_over</followingQuestRef>
+		<questTypeData xsi:type="EventQuestData">
+			<eventRef>big_event_survival</eventRef>
+		</questTypeData>
+	</DataDef>
+
+	<DataDef xsi:type="QuestData">
+		<id>quest_game_over</id>
+		<titleRef>quest_game_over_string</titleRef>
+		<descriptionRef>quest_game_over_title_string</descriptionRef>
+		<questTypeData xsi:type="ExcavateItemsQuestData">
+			<itemRef>item_steel_ingot</itemRef>
+			<amount>10000</amount>
+		</questTypeData>
+	</DataDef>
+</Defs>

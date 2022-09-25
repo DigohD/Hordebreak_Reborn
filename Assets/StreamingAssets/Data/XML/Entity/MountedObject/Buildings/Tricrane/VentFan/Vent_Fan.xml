@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="MountedObjectData">
+		<id>wo_tricrane_vent_fan</id>
+		<viewVariations>
+			<viewRef>wo_tricrane_vent_fan_view</viewRef>
+		</viewVariations>
+		<editorName>Vent Fan</editorName>
+		<editorCategoryName>Tricrane</editorCategoryName>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>wo_tricrane_vent_fan_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_tricrane_vent_fan_view</entityMeshData>
+		<scaleMod>1</scaleMod>
+	</DataDef>
+
+</Defs>

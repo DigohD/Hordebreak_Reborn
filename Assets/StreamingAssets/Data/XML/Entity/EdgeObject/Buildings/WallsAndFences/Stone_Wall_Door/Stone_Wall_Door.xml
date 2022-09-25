@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef entityType="EdgeObject" xsi:type="FNEEntityData">
+		<id>eo_stone_wall_door</id>
+		<pathingCost>35</pathingCost>
+		<heatTransferFactor>0.95</heatTransferFactor>
+		<seeThrough>true</seeThrough>
+		<seeThroughRange>2</seeThroughRange>
+		<hittable>true</hittable>
+		<blocking>false</blocking>
+		<editorName>T1 Stone Wall Door</editorName>
+		<editorCategoryName>T1 Walls</editorCategoryName>
+		<onHitEffectPath>Prefabs/VFX/HitEffects/ZombieHitEffect</onHitEffectPath>
+		<onDeathEffectPath>Prefabs/VFX/StructureDeath/WallDeath</onDeathEffectPath>
+		<entityViewVariations>
+			<viewRef>eo_stone_wall_door_view</viewRef>
+		</entityViewVariations>
+		<viewManager>EdgeObjectViewManager</viewManager>
+		<components>
+			<DataComponent xsi:type="DoorComponentData">
+				<openAnimationName>Open</openAnimationName>
+                <closeAnimationName>Close</closeAnimationName>
+				<openSFXRef>sfx_door_open</openSFXRef>
+				<closeSFXRef>sfx_door_close</closeSFXRef>
+			</DataComponent>
+			<DataComponent xsi:type="StatComponentData">
+				<startHealth>1750</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+			<DataComponent xsi:type="BuildingAddonComponentData">
+				<addonRefs>
+					<addonRef>revert_stone_wall_door</addonRef>
+				</addonRefs>
+			</DataComponent>
+		</components>
+		<roomPropertyRefs>
+			<propertyRef>room_property_fireproof</propertyRef>
+			<propertyRef>room_property_indoors</propertyRef>
+		</roomPropertyRefs>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityViewData">
+		<id>eo_stone_wall_door_view</id>
+		<viewIsGameObject>true</viewIsGameObject>
+		<entityMeshData>mesh_stone_wall_door_view</entityMeshData>
+		<animations>
+			<AnimationData>
+				<animPath>Data/XML/Entity/EdgeObject/Buildings/WallsAndFences/Stone_Wall_Door/StoneWallDoor_Animated.glb</animPath>
+			</AnimationData>
+		</animations>
+	</DataDef>
+
+	<DataDef xsi:type="BuildingAddonData">
+		<id>revert_stone_wall_door</id>
+		<productRef>eo_stone_wall</productRef>
+		<nameRef>building_stone_wall_name</nameRef>
+		<iconRef>stone_wall_icon</iconRef>
+		<addonColor>#ffaa00</addonColor>
+		<refundedMaterials>
+			
+		</refundedMaterials>
+	</DataDef>
+
+</Defs>

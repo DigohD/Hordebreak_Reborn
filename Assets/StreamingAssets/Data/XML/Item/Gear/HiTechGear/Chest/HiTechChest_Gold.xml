@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <DataDef xsi:type="ItemData">
+		<id>armor_hi_tech_chest_gold</id>
+		<nameRef>armor_hi_tech_chest_name_gold</nameRef>
+        <infoRef>armor_hi_tech_chest_info</infoRef>
+        <width>2</width>
+		<height>3</height>
+		<maxStackSize>1</maxStackSize>
+		<pickupSoundRef>sfx_item_soft_pickup_3_heavy_bag</pickupSoundRef>
+		<laydownSoundRef>sfx_item_soft_laydown_3_heavy_bag</laydownSoundRef>
+		<components>
+			<ItemComponentData xsi:type="ClothingItemComponentData">
+				<equipmentType>Torso</equipmentType>
+				<itemMeshRef>mesh_hi_tech_chest_gold</itemMeshRef>
+				<itemTextureRef>texture_hi_tech_chest_gold</itemTextureRef>
+				<statModList>
+					<StatModData>
+						<modType>Armor</modType>
+						<amount>5</amount>
+					</StatModData>
+				</statModList>
+			</ItemComponentData>
+		</components>
+	</DataDef>
+
+    <DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_hi_tech_chest_gold</id>
+        <meshPath>Data/XML/Item/Gear/HiTechGear/Chest/Chest.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_hi_tech_chest_gold</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_player</assetBundlePath>
+		<albedoName>hiTechGear_ReadyForTexturing_Chest_Gold_BaseMap</albedoName>
+		<normalMapName>hiTechGear_ReadyForTexturing_Chest_Normal</normalMapName>
+		<maskMapName>hiTechGear_ReadyForTexturing_Chest_MaskMap</maskMapName>
+	</DataDef>
+
+</Defs>

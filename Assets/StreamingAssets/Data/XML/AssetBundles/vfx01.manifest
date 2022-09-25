@@ -1,0 +1,103 @@
+ManifestFileVersion: 0
+CRC: 3343123014
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f8203a0b8b945897e15f73ffd0d632ce
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d47e0c93c0c9e97e89be7ab61c86655b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 72
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 73398921
+  Script: {instanceID: 0}
+- Class: 2058629509
+  Script: {instanceID: 0}
+- Class: 2083052967
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ArtBackup/VFX/CampFire/CampFire_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/SalvageShotgun_Muzzle/SalvageShotgun_Muzzle.prefab
+- Assets/Resources/Prefab/Effects/VFX/GroundPoof/GroundPoof_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/Alarm/Alarm_Active/Alarm_Active.prefab
+- Assets/ArtBackup/VFX/PlantPoof/PlantPoof_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/CrystberryHarvest/CrystberryHarvest_VFX_V3.prefab
+- Assets/Resources/Prefab/Effects/VFX/SalvageMachinegun_Muzzle/SalvageMachinegun_Muzzle.prefab
+- Assets/ArtBackup/VFX/GroundPoof/GroundPoof_VFX.prefab
+- Assets/ArtBackup/VFX/Bush/Bush_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Energy_Lancer_Muzzle_effect/FNZ_Energy_Lancer_Muzzle_vfx.prefab
+- Assets/Resources/Prefab/Effects/VFX/RockSplinters/RockSplinters_VFX_V2.prefab
+- Assets/Resources/Prefab/Effects/VFX/PlantPoof/PlantPoof_VFX_V2.prefab
+- Assets/ArtBackup/VFX/WallCreation_VFX/WallCreation_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/CrystberryHarvest/CrystberryHarvest_VFX_V2.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Explosion/FNZ_Effects_Explosion_vfx.prefab
+- Assets/Resources/Prefab/Effects/VFX/TileCreation/TileCreation_VFX_V2.prefab
+- Assets/Resources/Prefab/Effects/VFX/SimpleSafetyGun_Muzzle/SimpleSafetyGun_Muzzle.prefab
+- Assets/Resources/Prefab/Effects/VFX/CampFire/FireAndSmoke.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Energy_Hit/FNZ_Energy_Hit.prefab
+- Assets/ArtBackup/VFX/Bush/Bush_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Energy_Orb_Projectile/FNZ_Energy_Orb_Projectile.prefab
+- Assets/Resources/Prefab/Effects/VFX/CrystberryHarvest/CrystberryHarvest_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/RustyPistol_Muzzle/RustyPistol_Muzzle.prefab
+- Assets/Resources/Prefab/Effects/VFX/RockSplinters/RockSplinters_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/SalvageMachinegun_Projectile/SalvageMachinegun_Projectile.prefab
+- Assets/Resources/Prefab/Effects/VFX/Shrubber_OnHit/Shrubber_OnHit.prefab
+- Assets/ArtBackup/VFX/CrystberryHarvest/CrystberryHarvest_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/WallCreation_VFX/WallCreation_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/CompoundDiscus_Explosion/CompoundDiscus_Explosion.prefab
+- Assets/ArtBackup/VFX/CampFire/CampFire_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/Player/OnHit/Player_OnHit.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Explolauncher_Projectile/FNZ_explolauncher_projectile_vfx.prefab
+- Assets/ArtBackup/VFX/RockSplinters/RockSplinters_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/RustyPistol_Projectile/RustyPistol_Projectile.prefab
+- Assets/Resources/Prefab/Effects/VFX/Zombie/Death/Zombie_Death.prefab
+- Assets/Resources/Prefab/Effects/VFX/PlantPoof/PlantPoof_VFX.prefab
+- Assets/ArtBackup/VFX/CrystberryHarvest/CrystberryHarvest_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/Zombie/OnHit/Zombie_OnHit.prefab
+- Assets/Resources/Prefab/Effects/VFX/TileCreation/TileCreation_VFX.prefab
+- Assets/ArtBackup/VFX/WallCreation_VFX/WallCreation_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/WallCreation_VFX/WallCreation_VFX_V2.prefab
+- Assets/Resources/Prefab/Effects/VFX/CompoundDiscus_Projectile/CompoundDiscus_Projectile.prefab
+- Assets/Resources/Prefab/Effects/VFX/SalvageShotgun_Projectile/SalvageShotgun_Projectile.prefab
+- Assets/ArtBackup/VFX/GroundPoof/GroundPoof_VFX.vfx
+- Assets/ArtBackup/VFX/PlantPoof/PlantPoof_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Crafting_VFX/FNZ_Crafting_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/FNZ_Explolauncher_muzzle/FNZ_Explolauncher_muzzle_vfx.prefab
+- Assets/ArtBackup/VFX/RockSplinters/RockSplinters_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/CampFire/FireAndSmoke_V2.prefab
+- Assets/Resources/Prefab/Effects/VFX/RustyRepeaterMusket_Projectile/RustyRepeaterMusket_Projectile.prefab
+- Assets/Resources/Prefab/Effects/VFX/BigZombie/BigZombie_Death.prefab
+- Assets/ArtBackup/VFX/TileCreation/TileCreation_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/Alarm/Alarm_Init/Alarm_Init.prefab
+- Assets/Resources/Prefab/Effects/VFX/Bush/Bush_VFX.prefab
+- Assets/Resources/Prefab/Effects/VFX/ShrubberDeath/ShrubberDeath.prefab
+- Assets/ArtBackup/VFX/TileCreation/TileCreation_VFX.vfx
+- Assets/Resources/Prefab/Effects/VFX/RustyRepeaterMusket_Muzzle/RustyRepeaterMusket_Muzzle.prefab
+- Assets/Resources/Prefab/Effects/VFX/CompoundDiscus_Explosion/CompoundDiscus_Explosion_v2.prefab
+- Assets/Resources/Prefab/Effects/VFX/CampFire/FireAndSmoke_V3.prefab
+Dependencies: []

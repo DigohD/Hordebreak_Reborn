@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding="UTF-8"?>
+	<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<DataDef entityType="TileObject" xsi:type="FNEEntityData">
+		<id>to_crashed_robot</id>
+		<blocking>true</blocking>
+		<smallCollisionBox>false</smallCollisionBox>
+		<pathingCost>100</pathingCost>
+		<seeThrough>true</seeThrough>
+		<editorName>Furnace</editorName>
+		<editorCategoryName>T1 TileObjects</editorCategoryName>
+		<components>
+            <DataComponent xsi:type="StatComponentData">
+				<startHealth>500</startHealth>
+				<defenseTypeRef>defense_structure</defenseTypeRef>
+			</DataComponent>
+
+			<DataComponent xsi:type="ExcavatableComponentData">
+				<totalHits>3</totalHits>
+				<hitEffectRef>effect_stone_object_hit</hitEffectRef>
+				<deathEffectRef>effect_stone_object_destroyed</deathEffectRef>
+			
+				<DestroyLootTable>
+					<minRolls>3</minRolls>
+					<maxRolls>6</maxRolls>
+					<table>
+						<LootEntry>
+							<itemRef>item_scrap_metal</itemRef>
+							<probability>100</probability>
+							<guaranteed>false</guaranteed>
+							<unique>false</unique>
+						</LootEntry>
+					</table>
+				</DestroyLootTable>
+					<ExcavatableBonuses>
+					<ExcavatableBonusData>
+						<chance>25</chance>
+						<bonusTime>0.15</bonusTime>
+						<colorRef>silver</colorRef>
+						<LootTable>
+							<minRolls>2</minRolls>
+							<maxRolls>5</maxRolls>
+							<table>
+								<LootEntry>
+									<itemRef>item_scrap_metal</itemRef>
+									<probability>100</probability>
+									<guaranteed>false</guaranteed>
+									<unique>false</unique>
+								</LootEntry>
+							</table>
+						</LootTable>
+					</ExcavatableBonusData>
+				</ExcavatableBonuses>
+			</DataComponent>
+		</components>
+		<entityViewVariations>
+			<viewRef>to_crashed_robot_view</viewRef>
+		</entityViewVariations>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>to_crashed_robot_view</id>
+		<viewIsGameObject>false</viewIsGameObject>
+		<entityMeshData>mesh_crashed_robot</entityMeshData>
+		<entityTextureData>texture_crashed_robot</entityTextureData>
+		<scaleMod>1.15</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_crashed_robot</id>
+		<meshPath>Data\XML\Entity\TileObject\Wrecks\CrashedRobot\Crashed_Robot.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_crashed_robot</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_misc</assetBundlePath>
+		<albedoName>Crashed_Robot_DefaultMaterial_BaseMap</albedoName>
+		<maskMapName>Crashed_Robot_DefaultMaterial_MaskMap</maskMapName>
+		<normalMapName>Crashed_Robot_DefaultMaterial_Normal</normalMapName>
+	</DataDef>
+    	
+</Defs>

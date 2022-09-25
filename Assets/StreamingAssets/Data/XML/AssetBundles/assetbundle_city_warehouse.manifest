@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 1958327709
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6eb87dfdf1cd905f640cc336726ee0f4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Warehouse_Assets_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Large_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Large_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Small_Albedo.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Small_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Large_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Warehouse_Assets_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Warehouse_Assets_Normal.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Concrete_Pallet_Small_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/City/Warehouse/Warehouse_Assets_Emissive.png
+Dependencies: []

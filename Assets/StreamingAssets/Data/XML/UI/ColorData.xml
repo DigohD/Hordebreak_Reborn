@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<DataDef xsi:type="ColorData">
+		<id>white</id>		
+		<colorCode>#FFFFFF</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>black</id>
+		<colorCode>#000000</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>blue</id>
+		<colorCode>#00BFFF</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>brown</id>
+		<colorCode>#8B4513</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>cyan</id>
+		<colorCode>#00FFFF</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>gold</id>
+		<colorCode>#DAA520</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>green</id>
+		<colorCode>#00FF00</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>grey</id>
+		<colorCode>#808080</colorCode>
+	</DataDef>
+
+	<DataDef xsi:type="ColorData">
+		<id>dark_grey</id>
+		<colorCode>#151515</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>orange</id>
+		<colorCode>#FFA500</colorCode>
+	</DataDef>
+	
+	<DataDef xsi:type="ColorData">
+		<id>pink</id>
+		<colorCode>#FF69B4</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>purple</id>
+		<colorCode>#8A2BE2</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>red</id>
+		<colorCode>#FF0000</colorCode>
+	</DataDef>	
+	
+	<DataDef xsi:type="ColorData">
+		<id>silver</id>
+		<colorCode>#C0C0C0</colorCode>
+	</DataDef>	
+		
+	<DataDef xsi:type="ColorData">
+		<id>yellow</id>
+		<colorCode>#FFFF00</colorCode>
+	</DataDef>
+	
+</Defs>
