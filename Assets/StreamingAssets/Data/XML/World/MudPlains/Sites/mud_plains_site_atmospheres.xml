@@ -3,10 +3,10 @@
 
     <DataDef xsi:type="AtmosphereData">
 		<id>urban_site_atmosphere</id>
-        <fogTint>#AA77FF</fogTint>
-        <sunTint>#DDAAFF</sunTint>
-        <moonTint>#DDAAFF</moonTint>
-        <waterTint>#66AAFF</waterTint>
+        <fogTint>#AE74A9</fogTint>
+        <sunTint>#EEEEFF</sunTint>
+        <moonTint>#EEEEFF</moonTint>
+        <waterTint>#66CCFF</waterTint>
         <fogThickness>Light</fogThickness>
 	</DataDef>
 </Defs>

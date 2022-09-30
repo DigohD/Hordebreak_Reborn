@@ -83,7 +83,8 @@ namespace FNZ.Client.View.Camera
 
 			if (false && UnityEngine.Input.GetKey(KeyCode.LeftControl))
 			{
-				Vector3 goal = observedPlayer.transform.position + (gameObject.transform.forward * ScoutZoom) + shakeOffset;
+				Vector3 playerFinal = observedPlayer.transform.position + new Vector3(0.75f, 0, 0.75f);
+				Vector3 goal = playerFinal + (gameObject.transform.forward * ScoutZoom) + shakeOffset;
 				transform.position = Vector3.Lerp(transform.position, goal, Time.deltaTime * 10.0f);
 				m_AudioListener.transform.position = observedPlayer.transform.position + new Vector3(0, 3 + (zoomValue * 2 / MaxZoomOut), 0);
 
@@ -95,7 +96,8 @@ namespace FNZ.Client.View.Camera
 			}
 			else
 			{
-				Vector3 goal = observedPlayer.transform.position + new Vector3(0.2f, 0, 0.2f) + (-gameObject.transform.forward * zoomValue) + shakeOffset + aimOffset + (-gameObject.transform.up * zoomValue * 0.06f);
+				Vector3 playerFinal = observedPlayer.transform.position + new Vector3(0.75f, 0, 0.75f);
+				Vector3 goal = playerFinal + new Vector3(0.2f, 0, 0.2f) + (-gameObject.transform.forward * zoomValue) + shakeOffset + aimOffset + (-gameObject.transform.up * zoomValue * 0.06f);
 				transform.position = Vector3.Lerp(transform.position, goal, Time.deltaTime * (200.0f / zoomValue));
 
 				m_AudioListener.transform.position = observedPlayer.transform.position + new Vector3(0,  3 + (zoomValue * 2 / MaxZoomOut), 0);

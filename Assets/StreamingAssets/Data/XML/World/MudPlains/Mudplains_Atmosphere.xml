@@ -74,10 +74,10 @@
             </AtmosphereSFXData>
         </sfxList>
 
-        <fogTint>#00FFFF</fogTint>
-        <sunTint>#AACCFF</sunTint>
-        <moonTint>#CCAAFF</moonTint>
-        <waterTint>#66AAFF</waterTint>
+        <fogTint>#AE74A9</fogTint>
+        <sunTint>#EEEEFF</sunTint>
+        <moonTint>#EEEEFF</moonTint>
+        <waterTint>#66CCFF</waterTint>
         <fogThickness>Light</fogThickness>
 	</DataDef>
 </Defs>
