@@ -475,7 +475,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		private bool ShouldBlockVector(int2 tile, FNEEntity edgeObject)
 		{
 			var tileObject = GameServer.World.GetTileObject(tile.x, tile.y);
-			return ((tileObject != null && !tileObject.Data.smallCollisionBox && tileObject.Data.pathingCost > 0) || (edgeObject != null && !edgeObject.GetComponent<EdgeObjectComponentServer>().IsPassable));
+			var isTileBlocking = GameServer.World.IsTileBlocking(tile.x, tile.y).GetValueOrDefault();
+			return (isTileBlocking || (tileObject != null && !tileObject.Data.smallCollisionBox && tileObject.Data.pathingCost > 0) || (edgeObject != null && !edgeObject.GetComponent<EdgeObjectComponentServer>().IsPassable));
 		}
 
 		private FF_Node GetNode(int2 tile)
