@@ -25,6 +25,9 @@ namespace FNZ.Client.View.Camera
 		private static EventSystem s_EventSystem;
 		private static GraphicRaycaster s_Raycaster;
 
+		[SerializeField]
+		private GameObject GO_DensityVolume;
+
 		void Start()
 		{
 			s_Raycaster = GameObject.FindObjectOfType<Canvas>().GetComponent<GraphicRaycaster>();
@@ -54,6 +57,8 @@ namespace FNZ.Client.View.Camera
 				observedPlayer = GameObject.FindGameObjectWithTag("LocalPlayer");
 				return;
 			}
+
+			GO_DensityVolume.transform.position = new Vector3(transform.position.x, -6f, transform.position.z);
 
 			if (UnityEngine.Input.GetKeyDown(KeyCode.F5))
 			{
