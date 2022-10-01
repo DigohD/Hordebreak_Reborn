@@ -108,7 +108,8 @@ namespace FNZ.Server.Net.NetworkManager
 			QuestManager.InitIfNotInitialized();
 			
 			GameServer.NetAPI.World_RoomManager_STC(clientConnection);
-			
+			GameServer.NetAPI.MetaWorld_Update_STC(clientConnection);
+
 			// Update new player's world map
 			var chunkPaths = GameServer.FilePaths.GetAllChunkPaths();
 			var nb = new NetBuffer();

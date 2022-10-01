@@ -32,5 +32,10 @@ namespace FNZ.Server.Model.MetaWorld
 			writer.Write(Coords.y);
 			writer.Write(Name);
         }
+
+		public int GetByteSize()
+        {
+			return 8 + Name.Length * 4;
+        }
 	}
 }

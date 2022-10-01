@@ -17,6 +17,7 @@ namespace FNZ.Server.Net.API
 		private readonly NetServer m_NetServer;
 
 		private readonly ServerWorldMessageFactory m_WorldMessageFactory;
+		private readonly ServerMetaWorldMessageFactory m_MetaWorldMessageFactory;
 		private readonly ServerEntityMessageFactory m_EntityMessageFactory;
 		private readonly ServerHordeEntityMessageFactory m_HordeEntityMessageFactory;
 		private readonly ServerPlayerMessageFactory m_PlayerMessageFactory;
