@@ -2,6 +2,7 @@
 using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Server.Model;
 using FNZ.Server.Model.Entity.Components.Name;
+using FNZ.Server.Model.MetaWorld;
 using FNZ.Server.Model.World;
 using FNZ.Server.Model.World.Blueprint;
 using FNZ.Server.Net;
@@ -31,6 +32,7 @@ namespace FNZ.Server
 		public static WorldChunkManager ChunkManager;
 		public static WorldGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
+		public static MetaWorldModel MetaWorld;
 		public static ServerRoomManager RoomManager;
 		public static ServerItemsOnGroundManager ItemsOnGroundManager;
 		public static EntityAPI EntityAPI;
@@ -50,16 +52,24 @@ namespace FNZ.Server
 			EntityAPI = new EntityAPI();
 
 			FilePaths = new ServerFilePaths(SharedConfigs.WorldName);
-			
-			var bpWorldGen = new WorldBlueprintGen(DataBank.Instance.GetData<WorldGenData>("default_world"));
 
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
 
+			var bpWorldGen = new WorldBlueprintGen(DataBank.Instance.GetData<WorldGenData>("default_world"));
+			MetaWorld = new MetaWorldModel();
+
 			if (!FilePaths.WorldFolderExists())
 			{
 				bpWorldGen.GenerateSiteMapBlueprint(seedX, seedY);
+				MetaWorld.CreateNewWorld();
 			}
+			else
+			{
+				MetaWorld.LoadFromFile();
+			}
+
+			
 
 			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
 
@@ -140,7 +150,15 @@ namespace FNZ.Server
 			FileUtils.WriteFile(FilePaths.GetOrCreateQuestsFilePath(), netBufferQuest.Data);
 			
 			Debug.Log("Server shutdown. Quests saved successfully!");
-			
+
+			Debug.Log("Server shutdown. Saving meta world...");
+
+			var netBufferMetaWorld = new NetBuffer();
+			MetaWorld.SerializeMetaWorld(netBufferMetaWorld);
+			FileUtils.WriteFile(FilePaths.GetOrCreateMetaWorldFilePath(), netBufferMetaWorld.Data);
+
+			Debug.Log("Server shutdown. Meta world saved successfully!");
+
 			if (ECS_ServerWorld != null)
 			{
 				ECS_ServerWorld.QuitUpdate = true;

@@ -132,7 +132,19 @@ namespace FNZ.Server.Utils
 
 			return $"{folderPath}\\quests_meta_data.fnd";
 		}
-		
+
+		public string GetOrCreateMetaWorldFilePath()
+		{
+			string folderPath = $"Saves\\{m_WorldName}\\metaworld";
+
+			if (!Directory.Exists(folderPath))
+			{
+				Directory.CreateDirectory(folderPath);
+			}
+
+			return GetMetaWorldFilePath();
+		}
+
 		public string GetQuestsFilePath()
 		{
 			string folderPath = $"Saves\\{m_WorldName}\\quest";
@@ -143,6 +155,12 @@ namespace FNZ.Server.Utils
 		{
 			string folderPath = $"Saves\\{m_WorldName}\\base";
 			return $"{folderPath}\\base_meta_data.fnd";
+		}
+
+		public string GetMetaWorldFilePath()
+		{
+			string folderPath = $"Saves\\{m_WorldName}\\metaworld";
+			return $"{folderPath}\\meta_world_data.fnd";
 		}
 
 		public string CreatePlayerEntityFilePath(string playerName)
