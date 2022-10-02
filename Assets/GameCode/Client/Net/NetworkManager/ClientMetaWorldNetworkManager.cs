@@ -10,6 +10,11 @@ namespace FNZ.Client.Net.NetworkManager
 
 	public class ClientMetaWorldNetworkManager : INetworkManager
 	{
+		public ClientMetaWorldNetworkManager()
+        {
+			GameClient.NetConnector.Register(NetMessageType.META_WORLD_UPDATE, OnMetaWorldUpdateMessageReceived);
+		}
+
 		private void OnMetaWorldUpdateMessageReceived(ClientNetworkConnector net, NetIncomingMessage incMsg)
 		{
 			GameClient.MetaWorld.DeserializeMetaWorld(incMsg);

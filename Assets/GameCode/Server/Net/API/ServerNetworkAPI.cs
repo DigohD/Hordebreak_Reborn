@@ -38,6 +38,7 @@ namespace FNZ.Server.Net.API
 			m_NetServer = netServer;
 
 			m_WorldMessageFactory = new ServerWorldMessageFactory(netServer);
+			m_MetaWorldMessageFactory = new ServerMetaWorldMessageFactory(netServer);
 			m_EntityMessageFactory = new ServerEntityMessageFactory(netServer);
 			m_HordeEntityMessageFactory = new ServerHordeEntityMessageFactory(netServer);
 			m_PlayerMessageFactory = new ServerPlayerMessageFactory(netServer);
