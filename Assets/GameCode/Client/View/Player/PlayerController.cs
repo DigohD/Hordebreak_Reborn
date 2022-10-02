@@ -80,6 +80,7 @@ namespace FNZ.Client.View.Player
 			m_BaseInputLayer.BindAction(ActionIdentifiers.ACTION_TOGGLE_INVENTORY, InputActionType.PRESS, OnToggleInventory);
 			m_BaseInputLayer.BindAction(ActionIdentifiers.ACTION_TOGGLE_BUILDING_MENU, InputActionType.PRESS, OnToggleBuilder);
 			m_BaseInputLayer.BindAction(ActionIdentifiers.ACTION_TOGGLE_WORLD_MAP, InputActionType.PRESS, OnToggleWorldMap);
+			m_BaseInputLayer.BindAction(ActionIdentifiers.ACTION_TOGGLE_META_WORLD, InputActionType.PRESS, OnToggleMetaWorld);
 
 			m_BaseInputLayer.BindAction(ActionIdentifiers.ACTION_OPEN_CHAT, InputActionType.PRESS, OnOpenChat);
 
@@ -368,6 +369,11 @@ namespace FNZ.Client.View.Player
 		public void OnToggleWorldMap()
 		{
 			UIManager.Instance.ToggleWorldMapUI();
+		}
+
+		public void OnToggleMetaWorld()
+		{
+			UIManager.Instance.ToggleMetaWorldUI();
 		}
 
 		private void OnActiveItemChange(Item item, Slot slot)

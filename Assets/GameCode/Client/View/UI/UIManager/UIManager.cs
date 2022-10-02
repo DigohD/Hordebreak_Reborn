@@ -37,6 +37,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using FNZ.Client.View.UI.StartMenu;
+using FNZ.Client.View.UI.MetaWorld;
 
 namespace FNZ.Client.View.UI.Manager
 {
@@ -103,7 +104,9 @@ namespace FNZ.Client.View.UI.Manager
 
 		private GameObject WorldMapUI;
 		private WorldMapUI WorldMapUIComp;
-		
+
+		private GameObject MetaWorldMapUI;
+
 		[SerializeField]
 		private Text m_InteractPrompt;
 
@@ -194,7 +197,34 @@ namespace FNZ.Client.View.UI.Manager
 
 			d_OnToggleMap?.Invoke(false);
 		}
-		
+
+		public void ToggleMetaWorldUI()
+		{
+			if (MetaWorldMapUI != null)
+			{
+				CloseMetaWorldMapUI();
+			}
+			else
+			{
+				ShowMetaWorldMapUI();
+			}
+		}
+
+		public void ShowMetaWorldMapUI()
+		{
+			var metaWorldPrefab = Resources.Load<GameObject>("Prefab/UI/MetaWorld/MetaWorldUI");
+			MetaWorldMapUI = Instantiate(metaWorldPrefab);
+			MetaWorldMapUI.transform.SetParent(MainUIParent, false);
+			InputManager.Instance.PushInputLayer<UIInputLayer>();
+		}
+
+		public void CloseMetaWorldMapUI()
+		{
+			Destroy(MetaWorldMapUI);
+			InputManager.Instance.PopInputLayer();
+			HB_Factory.DestroyHoverbox();
+		}
+
 		public void RemovePlayerFromMap(FNEEntity player)
 		{
 			if (WorldMapUIComp != null)

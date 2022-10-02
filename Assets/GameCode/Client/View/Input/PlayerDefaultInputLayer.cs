@@ -34,6 +34,7 @@ namespace FNZ.Client.View.Input
 			AddActionMapping(ActionIdentifiers.ACTION_OPEN_CRAFTING_MENU, KeyCode.C);
 			AddActionMapping(ActionIdentifiers.ACTION_TOGGLE_BUILDING_MENU, InputKeybinds.Instance.Keybinds[ActionIdentifiers.ACTION_TOGGLE_BUILDING_MENU]);
 			AddActionMapping(ActionIdentifiers.ACTION_TOGGLE_WORLD_MAP, KeyCode.M);
+			AddActionMapping(ActionIdentifiers.ACTION_TOGGLE_META_WORLD, KeyCode.N);
 
 			AddActionMapping(ActionIdentifiers.ACTION_EXCAVATOR_SLOT, InputKeybinds.Instance.Keybinds[ActionIdentifiers.ACTION_EXCAVATOR_SLOT]);
 			AddActionMapping(ActionIdentifiers.ACTION_WEAPON1_SLOT, InputKeybinds.Instance.Keybinds[ActionIdentifiers.ACTION_WEAPON1_SLOT]);

@@ -12,6 +12,7 @@ namespace FNZ.Client.View.Input
 		public static string ACTION_TOGGLE_BUILDING_MENU = "OpenBuildingMenu";
 		public static string ACTION_EXIT = "Exit";
 		public static string ACTION_TOGGLE_WORLD_MAP = "OpenMapOverview";
+		public static string ACTION_TOGGLE_META_WORLD = "OpenMetaWorldOverview";
 
 		public static string ACTION_EXCAVATOR_SLOT = "ExcavatorSlot";
 		public static string ACTION_WEAPON1_SLOT = "Primary1Slot";

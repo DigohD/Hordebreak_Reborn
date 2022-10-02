@@ -30,7 +30,7 @@ namespace FNZ.Server.Model.MetaWorld
 		private static Place GeneratePlace(List<Place> currentPlaces)
         {
 			var pos = GeneratePlaceCoords(currentPlaces, 1.0f);
-			Place place = new Place(pos, "PLACE");
+			Place place = new Place(pos, "PLACE: " + Guid.NewGuid().ToString());
 			return place;
         }
 
