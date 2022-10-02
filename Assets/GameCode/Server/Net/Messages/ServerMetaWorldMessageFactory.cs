@@ -1,4 +1,5 @@
 using FNZ.Server.Model.MetaWorld;
+using FNZ.Shared.Model.World.MetaWorld;
 using FNZ.Shared.Net;
 using Lidgren.Network;
 using System.Collections;

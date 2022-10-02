@@ -13,6 +13,7 @@ using FNZ.Shared.Utils;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Profiling;
+using FNZ.Client.Model.MetaWorld;
 
 namespace FNZ.Client
 {
@@ -22,6 +23,7 @@ namespace FNZ.Client
 
 		public static World ECS_ClientWorld;
 		public static ClientWorld World;
+		public static ClientMetaWorld MetaWorld;
 		public static ClientWorldView WorldView;
 		public static ClientNetworkAPI NetAPI;
 		public static ClientNetworkConnector NetConnector;
@@ -54,7 +56,8 @@ namespace FNZ.Client
 
 			ViewAPI = new ViewAPI();
 			SubViewAPI = new SubViewAPI();
-			
+
+			MetaWorld = new ClientMetaWorld();
 			RoomManager = new ClientRoomManager();
 			Environment = new EnvironmentClient();
 			ItemsOnGroundManager = new ClientItemsOnGroundManager();

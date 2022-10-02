@@ -32,7 +32,7 @@ namespace FNZ.Server
 		public static WorldChunkManager ChunkManager;
 		public static WorldGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
-		public static MetaWorldModel MetaWorld;
+		public static ServerMetaWorld MetaWorld;
 		public static ServerRoomManager RoomManager;
 		public static ServerItemsOnGroundManager ItemsOnGroundManager;
 		public static EntityAPI EntityAPI;
@@ -57,7 +57,7 @@ namespace FNZ.Server
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
 
 			var bpWorldGen = new WorldBlueprintGen(DataBank.Instance.GetData<WorldGenData>("default_world"));
-			MetaWorld = new MetaWorldModel();
+			MetaWorld = new ServerMetaWorld();
 
 			if (!FilePaths.WorldFolderExists())
 			{

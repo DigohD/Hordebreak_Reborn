@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace FNZ.Server.Model.MetaWorld 
+namespace FNZ.Shared.Model.World.MetaWorld 
 {
+
 	public struct Place
 	{
 		// Coords are in kilometers relative to home at 0:0
@@ -15,10 +16,10 @@ namespace FNZ.Server.Model.MetaWorld
 		public string Name;
 
 		public Place(float2 coords, string name)
-        {
+		{
 			Coords = coords;
 			Name = name;
-        }
+		}
 
 		public void Deserialize(NetBuffer reader)
 		{
@@ -27,15 +28,15 @@ namespace FNZ.Server.Model.MetaWorld
 		}
 
 		public void Serialize(NetBuffer writer)
-        {
+		{
 			writer.Write(Coords.x);
 			writer.Write(Coords.y);
 			writer.Write(Name);
-        }
+		}
 
 		public int GetByteSize()
-        {
+		{
 			return 8 + Name.Length * 4;
-        }
+		}
 	}
 }
