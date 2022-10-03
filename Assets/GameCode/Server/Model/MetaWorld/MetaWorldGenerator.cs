@@ -1,4 +1,6 @@
+using FNZ.Shared.Model;
 using FNZ.Shared.Model.World.MetaWorld;
+using FNZ.Shared.Model.World.Site;
 using FNZ.Shared.Utils;
 using System;
 using System.Collections;
@@ -20,17 +22,41 @@ namespace FNZ.Server.Model.MetaWorld
 
 			for(int i = 0; i < INITIAL_PLACES; i++)
             {
-				var place = GeneratePlace(places);
+				var place = GeneratePlace(places, 1.0f);
 				places.Add(place);
 			}
 
 			return places;
         }
 
-		private static Place GeneratePlace(List<Place> currentPlaces)
+		private static Place GeneratePlace(List<Place> currentPlaces, float maxRange)
         {
-			var pos = GeneratePlaceCoords(currentPlaces, 1.0f);
-			Place place = new Place(pos, "PLACE: " + Guid.NewGuid().ToString());
+			var pos = GeneratePlaceCoords(currentPlaces, maxRange);
+
+			var allSites = DataBank.Instance.GetAllDataDefsOfType(typeof(SiteData));
+
+			List<SiteData> possibleSites = new List<SiteData>();
+
+			foreach (var siteDef in allSites)
+			{
+				var data = DataBank.Instance.GetData<SiteData>(siteDef.Id);
+				
+				if (!data.showOnMap)
+					continue;
+
+				if (data.Difficulty > (maxRange / 10) + 1)
+					continue;
+
+				if (data.height < 32 && data.width < 32)
+				{
+					possibleSites.Add(data);
+				}
+			}
+
+			var site = possibleSites[FNERandom.GetRandomIntInRange(0, possibleSites.Count)];
+
+			Place place = new Place(pos, "PLACE: " + Guid.NewGuid().ToString(), site.Id);
+
 			return place;
         }
 

@@ -5,6 +5,7 @@ using FNZ.Client.View.UI.Manager;
 using FNZ.Client.View.UI.Sprites;
 using FNZ.Shared.Model;
 using FNZ.Shared.Model.World.MetaWorld;
+using FNZ.Shared.Model.World.Site;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -215,7 +216,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				{
 					m_AllowedBoundingBox.width = newX - m_AllowedBoundingBox.x;
 				}
-				else if (newX < m_AllowedBoundingBox.x)
+				if (newX < m_AllowedBoundingBox.x)
 				{
 					m_AllowedBoundingBox.x = newX;
 				}
@@ -224,7 +225,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				{
 					m_AllowedBoundingBox.height = newY - m_AllowedBoundingBox.y;
 				}
-				else if (newY < m_AllowedBoundingBox.y)
+				if (newY < m_AllowedBoundingBox.y)
 				{
 					m_AllowedBoundingBox.y = newY;
 				}
@@ -269,8 +270,8 @@ namespace FNZ.Client.View.UI.MetaWorld
 				entry.eventID = EventTriggerType.PointerEnter;
 				entry.callback.AddListener((data) =>
 				{
-                    UIManager.HoverBoxGen.CreateSimpleTextHoverBox("Testhover " + place.Name);
-                    //UIManager.HoverBoxGen.CreateSiteHoverBox(siteData);
+                    //UIManager.HoverBoxGen.CreateSimpleTextHoverBox("Testhover " + place.Name);
+                    UIManager.HoverBoxGen.CreateSiteHoverBox(DataBank.Instance.GetData<SiteData>(place.SiteId));
                 });
 				trigger.triggers.Add(entry);
 
@@ -339,7 +340,12 @@ namespace FNZ.Client.View.UI.MetaWorld
 			m_Translation.y = m_Translation.y > m_AllowedBoundingBox.yMax * m_MarkerTranspose ? m_AllowedBoundingBox.yMax * m_MarkerTranspose : m_Translation.y;
 			m_Translation.y = m_Translation.y < m_AllowedBoundingBox.yMin * m_MarkerTranspose ? m_AllowedBoundingBox.yMin * m_MarkerTranspose : m_Translation.y;
 
-			Debug.LogWarning(m_AllowedBoundingBox.ToString());
+			Debug.LogWarning("--------------------");
+			Debug.LogWarning("xMax" + m_AllowedBoundingBox.xMax * m_MarkerTranspose);
+			Debug.LogWarning("xMin" + m_AllowedBoundingBox.xMin * m_MarkerTranspose);
+			Debug.LogWarning("yMax" + m_AllowedBoundingBox.yMax * m_MarkerTranspose);
+			Debug.LogWarning("yMin" + m_AllowedBoundingBox.yMin * m_MarkerTranspose);
+			Debug.LogWarning("--------------------");
 		}
 	}
 }
