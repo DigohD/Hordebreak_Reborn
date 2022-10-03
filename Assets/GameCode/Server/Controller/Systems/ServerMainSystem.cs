@@ -44,23 +44,23 @@ namespace FNZ.Server.Controller.Systems
 
 		protected override void OnUpdate()
 		{
-			if (!m_WorkerThread.DoWork && ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L)) || Input.GetKeyDown(KeyCode.F8)))
-			{
-				SpawnHordeEntitiesInRadius("zombie_big", 15, 20);
-			}
+			// if (!m_WorkerThread.DoWork && ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L)) || Input.GetKeyDown(KeyCode.F8)))
+			// {
+			// 	SpawnHordeEntitiesInRadius("zombie_big", 15, 20);
+			// }
 
-			if (!m_WorkerThread.DoWork)
-            {
-	            Profiler.BeginSample("ProcessChunksToloadForClients");
-	            if (GameServer.ChunkManager != null)
-					GameServer.ChunkManager.ProcessChunksToLoadForClients();
-	            Profiler.EndSample();
-	            
-	            Profiler.BeginSample("ProcessChunksToUnloadForClients");
-	            if (GameServer.ChunkManager != null)
-					GameServer.ChunkManager.ProcessChunksToUnloadForClients();
-				Profiler.EndSample();
-            }
+			// if (!m_WorkerThread.DoWork)
+   //          {
+	  //           Profiler.BeginSample("ProcessChunksToloadForClients");
+	  //           if (GameServer.ChunkManager != null)
+			// 		GameServer.ChunkManager.ProcessChunksToLoadForClients();
+	  //           Profiler.EndSample();
+	  //           
+	  //           Profiler.BeginSample("ProcessChunksToUnloadForClients");
+	  //           if (GameServer.ChunkManager != null)
+			// 		GameServer.ChunkManager.ProcessChunksToUnloadForClients();
+			// 	Profiler.EndSample();
+   //          }
 
 			m_Timer += UnityEngine.Time.deltaTime;
 

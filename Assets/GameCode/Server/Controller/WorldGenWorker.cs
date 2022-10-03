@@ -182,7 +182,7 @@ namespace FNZ.Server.Controller
 			}
 			else
 			{
-				GameServer.WorldGen.GenerateChunk(chunk);
+				//GameServer.WorldGen.GenerateChunk(chunk);
 			}
 
 			GameServer.World.SyncEntities(new SyncEntitiesData

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Server.Model;
 using FNZ.Server.Model.Entity.Components.Name;
@@ -14,6 +15,7 @@ using FNZ.Server.WorldEvents;
 using FNZ.Shared;
 using FNZ.Shared.Model;
 using FNZ.Shared.Utils;
+using GameCode.Server.Model.World;
 using Lidgren.Network;
 using Unity.Entities;
 using UnityEngine;
@@ -30,7 +32,7 @@ namespace FNZ.Server
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
 		public static WorldChunkManager ChunkManager;
-		public static WorldGenerator WorldGen;
+		public static WorldInstanceGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
 		public static ServerMetaWorld MetaWorld;
 		public static ServerRoomManager RoomManager;
@@ -42,8 +44,11 @@ namespace FNZ.Server
 
 		public static FNELogger Logger;
 
+		private List<ServerWorldInstance> m_ActiveInstances;
+
 		public void Start()
 		{
+			m_ActiveInstances = new List<ServerWorldInstance>();
 			Logger = new FNELogger("Logs\\Server");
 			ECS_ServerWorld = ECSWorldCreator.CreateWorld("ServerWorld", WorldFlags.Simulation, false);
 			ECSWorldCreator.InitializeServerWorld(ECS_ServerWorld);
@@ -56,7 +61,9 @@ namespace FNZ.Server
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
 
-			var bpWorldGen = new WorldBlueprintGen(DataBank.Instance.GetData<WorldGenData>("default_world"));
+			var worldGenData = DataBank.Instance.GetData<WorldGenData>("default_world");
+
+			var bpWorldGen = new WorldBlueprintGen(worldGenData);
 			MetaWorld = new ServerMetaWorld();
 
 			if (!FilePaths.WorldFolderExists())
@@ -68,17 +75,18 @@ namespace FNZ.Server
 			{
 				MetaWorld.LoadFromFile();
 			}
-
 			
+			WorldGen = new WorldInstanceGenerator(worldGenData);
 
-			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
+			var baseInstance = WorldGen.GenerateWorldInstance(256, 256, seedX, seedY);
+			m_ActiveInstances.Add(baseInstance);
 
-			World = WorldGen.GenerateWorld(
-				seedX,
-				seedY
-			);
-
-			World.LoadSiteMetaData();
+			// World = WorldGen.GenerateWorld(
+			// 	seedX,
+			// 	seedY
+			// );
+			//
+			// World.LoadSiteMetaData();
 
 			ChunkManager = new WorldChunkManager();
 

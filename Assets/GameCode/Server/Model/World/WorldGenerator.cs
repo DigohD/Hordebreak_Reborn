@@ -14,6 +14,7 @@ using Lidgren.Network;
 using System.IO;
 using FNZ.Server.Services;
 using FNZ.Shared.Net.Dto.Hordes;
+using GameCode.Server.Model.World;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Profiling;
@@ -50,7 +51,7 @@ namespace FNZ.Server.Model.World
 			
 			return world;
 		}
-
+		
 		public void GenerateChunk(ServerWorldChunk chunk)
 		{
 			for (int i = 0; i < 32 * 32; i++)

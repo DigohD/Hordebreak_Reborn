@@ -132,8 +132,7 @@ namespace FNZ.Shared.Model.Entity
         public T GetComponent<T>() where T : FNEComponent
         {
             return Components
-                .Where(comp => comp is T)
-                .FirstOrDefault() as T;
+                .FirstOrDefault(comp => comp is T) as T;
         }
 
         public bool HasComponent<T>()
