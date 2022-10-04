@@ -209,7 +209,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				diff = (end1 - start1) / 1000000.0;
 				//Debug.Log("UpdateAgentPositions execution time in ms: " + diff);
 
-				ProcessEntitiesLoadAndUnload();
+				//ProcessEntitiesLoadAndUnload();
 			}
 		}
 
@@ -223,13 +223,13 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		{
 			foreach (var agent in Agents)
 			{
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.position);
-				if (chunk == null) continue;
-				if (!chunk.IsActive|| !chunk.IsInitialized)
-				{
-					agent.active = false;
-					continue;
-				}
+				// var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.position);
+				// if (chunk == null) continue;
+				// if (!chunk.IsActive|| !chunk.IsInitialized)
+				// {
+				// 	agent.active = false;
+				// 	continue;
+				// }
 				//if (chunk == null) continue;
 				//agent.active = chunk.activeSimulation;
 				if (!agent.active) continue;
@@ -291,7 +291,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			foreach (var tile in neighbors)
 			{
-				var playersOnTile = GameServer.World.GetTilePlayers(tile);
+				var playersOnTile = GameServer.World.GetTile(tile)?.Players;
 				if (playersOnTile != null)
 				{
 					foreach (var player in playersOnTile)
@@ -468,14 +468,14 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			foreach (var agent in Agents)
 			{
 				if (!agent.active || !agent.entity.Enabled) continue;
-				var chunkIndices = GameServer.World.GetChunkIndices(agent.position);
-
-				byte chunkX = (byte)chunkIndices.x;
-				byte chunkY = (byte)chunkIndices.y;
-
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
-				if (chunk == null) continue;
-				if (!chunk.IsActive || !chunk.IsInitialized) continue;
+				// var chunkIndices = GameServer.World.GetChunkIndices(agent.position);
+				//
+				// byte chunkX = (byte)chunkIndices.x;
+				// byte chunkY = (byte)chunkIndices.y;
+				//
+				// var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+				// if (chunk == null) continue;
+				// if (!chunk.IsActive || !chunk.IsInitialized) continue;
 
 				float playerDist = float.MaxValue;
 				FNEEntity closestPlayer = null;
@@ -520,19 +520,21 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 							m_PlayerEntitiesMap.Add(player, new List<HordeEntityUpdateNetData>());
 						}
 
-						var playerState = GameServer.ChunkManager.GetPlayerChunkState(playerConnection);
-						if (playerState.MovingEntitiesSynced.Contains(agent.entity.NetId) && playerState.CurrentlyLoadedChunks.Contains(chunk))
+						// var playerState = GameServer.ChunkManager.GetPlayerChunkState(playerConnection);
+						// if (playerState.MovingEntitiesSynced.Contains(agent.entity.NetId) && playerState.CurrentlyLoadedChunks.Contains(chunk))
+						// {
+						// 	
+						// }
+						
+						if (agent.position.x >= 0 && agent.position.y >= 0)
 						{
-							if (agent.position.x >= 0 && agent.position.y >= 0)
+							var agentData = new HordeEntityUpdateNetData
 							{
-								var agentData = new HordeEntityUpdateNetData
-								{
-									NetId = agent.entity.NetId,
-									Position = agent.entity.Position
-								};
+								NetId = agent.entity.NetId,
+								Position = agent.entity.Position
+							};
 
-								m_PlayerEntitiesMap[player].Add(agentData);
-							}
+							m_PlayerEntitiesMap[player].Add(agentData);
 						}
 					}
 
@@ -547,38 +549,38 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 				if (agent.currentTile.x != newPositionTile.x || agent.currentTile.y != newPositionTile.y)
 				{
-					var oldChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.currentTile);
-					var newChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(newPositionTile);
-
-					if (newChunk != oldChunk)
-					{
-						foreach (var state in GameServer.ChunkManager.GetAllPlayersChunkStates().Values)
-						{
-							bool oldChunkLoadedState = state.IsChunkInLoadedState(oldChunk);
-
-							if (oldChunkLoadedState != state.IsChunkInLoadedState(newChunk))
-							{
-								if (oldChunkLoadedState)
-								{
-									state.EntitiesToUnload.Add(new HordeEntityDestroyData
-									{
-										NetId = agent.entity.NetId,
-										Position = agent.entity.Position
-									});
-								}
-								else
-								{
-									state.EntitiesToLoad.Add(new HordeEntitySpawnData 
-									{
-										NetId = agent.entity.NetId,
-										EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(agent.entity.EntityId),
-										Position = agent.entity.Position,
-										Rotation = agent.entity.RotationDegrees
-									});
-								}
-							}
-						}
-					}
+					// var oldChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.currentTile);
+					// var newChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(newPositionTile);
+					//
+					// if (newChunk != oldChunk)
+					// {
+					// 	foreach (var state in GameServer.ChunkManager.GetAllPlayersChunkStates().Values)
+					// 	{
+					// 		bool oldChunkLoadedState = state.IsChunkInLoadedState(oldChunk);
+					//
+					// 		if (oldChunkLoadedState != state.IsChunkInLoadedState(newChunk))
+					// 		{
+					// 			if (oldChunkLoadedState)
+					// 			{
+					// 				state.EntitiesToUnload.Add(new HordeEntityDestroyData
+					// 				{
+					// 					NetId = agent.entity.NetId,
+					// 					Position = agent.entity.Position
+					// 				});
+					// 			}
+					// 			else
+					// 			{
+					// 				state.EntitiesToLoad.Add(new HordeEntitySpawnData 
+					// 				{
+					// 					NetId = agent.entity.NetId,
+					// 					EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(agent.entity.EntityId),
+					// 					Position = agent.entity.Position,
+					// 					Rotation = agent.entity.RotationDegrees
+					// 				});
+					// 			}
+					// 		}
+					// 	}
+					// }
 					
 					GameServer.World.RemoveEnemyFromTile(agent.currentTile, agent.entity);
 					GameServer.World.AddEnemyToTile(newPositionTile, agent.entity);
@@ -600,36 +602,36 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			}
 		}
 
-		private void ProcessEntitiesLoadAndUnload()
-		{
-			var entitiesToLoad = new List<HordeEntitySpawnData>();
-			var entitiesToUnLoad = new List<HordeEntityDestroyData>();
-
-			foreach (var conn in GameServer.ChunkManager.GetAllPlayersChunkStates().Keys)
-			{
-				entitiesToLoad.Clear();
-				entitiesToUnLoad.Clear();
-				var state = GameServer.ChunkManager.GetPlayerChunkState(conn);
-
-				if (state.EntitiesToLoad.Count > 0)
-				{
-					entitiesToLoad = state.EntitiesToLoad;
-					state.EntitiesToLoad.Clear();
-				}
-
-				if (state.EntitiesToUnload.Count > 0)
-				{
-					entitiesToUnLoad = state.EntitiesToUnload;
-					state.EntitiesToUnload.Clear();
-				}
-
-				if (entitiesToLoad.Count > 0)
-					GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(entitiesToLoad);
-
-				if (entitiesToUnLoad.Count > 0)
-					GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_BAR(entitiesToUnLoad);
-			}
-		}
+		// private void ProcessEntitiesLoadAndUnload()
+		// {
+		// 	var entitiesToLoad = new List<HordeEntitySpawnData>();
+		// 	var entitiesToUnLoad = new List<HordeEntityDestroyData>();
+		//
+		// 	foreach (var conn in GameServer.ChunkManager.GetAllPlayersChunkStates().Keys)
+		// 	{
+		// 		entitiesToLoad.Clear();
+		// 		entitiesToUnLoad.Clear();
+		// 		var state = GameServer.ChunkManager.GetPlayerChunkState(conn);
+		//
+		// 		if (state.EntitiesToLoad.Count > 0)
+		// 		{
+		// 			entitiesToLoad = state.EntitiesToLoad;
+		// 			state.EntitiesToLoad.Clear();
+		// 		}
+		//
+		// 		if (state.EntitiesToUnload.Count > 0)
+		// 		{
+		// 			entitiesToUnLoad = state.EntitiesToUnload;
+		// 			state.EntitiesToUnload.Clear();
+		// 		}
+		//
+		// 		if (entitiesToLoad.Count > 0)
+		// 			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(entitiesToLoad);
+		//
+		// 		if (entitiesToUnLoad.Count > 0)
+		// 			GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_BAR(entitiesToUnLoad);
+		// 	}
+		// }
 
 		private void SendEnemies(NetConnection conn, List<HordeEntityUpdateNetData> entities)
 		{

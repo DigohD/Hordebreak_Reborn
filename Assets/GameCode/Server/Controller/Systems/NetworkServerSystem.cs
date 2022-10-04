@@ -94,16 +94,14 @@ namespace FNZ.Server.Controller.Systems
 			m_Server.Recycle(incMsg);
 		}
 
-		//"Ooh, when least expected..."
 		private void OnClientConnected(NetConnection clientConnection)
 		{
 			GameServer.NetAPI.World_WorldSetup_STC(
-				GameServer.World.WIDTH,
-				GameServer.World.HEIGHT,
-				GameServer.World.CHUNK_SIZE,
+				GameServer.World.Id,
+				GameServer.World.Width,
+				GameServer.World.Height,
 				clientConnection
 			);
-
 		}
 
 		private void OnClientDisconnected(NetConnection clientConnection)

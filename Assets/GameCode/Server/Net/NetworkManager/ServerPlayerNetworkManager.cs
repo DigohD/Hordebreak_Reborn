@@ -21,14 +21,14 @@ namespace FNZ.Server.Net.NetworkManager
 			playerEntity.DeserializePosition(incMsg);
 			playerEntity.DeserializeRotation(incMsg);
 
-			var currentChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(playerEntity.Position);
-			var playerComp = playerEntity.GetComponent<PlayerComponentServer>();
-
-			if (currentChunk != playerComp.LastChunk)
-			{
-				GameServer.ChunkManager.OnPlayerEnteringNewChunk(playerEntity);
-				playerComp.LastChunk = currentChunk;
-			}
+			// var currentChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(playerEntity.Position);
+			// var playerComp = playerEntity.GetComponent<PlayerComponentServer>();
+			//
+			// if (currentChunk != playerComp.LastChunk)
+			// {
+			// 	GameServer.ChunkManager.OnPlayerEnteringNewChunk(playerEntity);
+			// 	playerComp.LastChunk = currentChunk;
+			// }
 
 			GameServer.NetAPI.Client_Immediate_Forward_To_Other(incMsg.Data, incMsg.SenderConnection);
 		}

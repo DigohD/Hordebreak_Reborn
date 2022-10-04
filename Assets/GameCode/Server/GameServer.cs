@@ -27,11 +27,11 @@ namespace FNZ.Server
 		public static volatile bool APPLICATION_RUNNING = true;
 
 		public static World ECS_ServerWorld;
-		public static ServerWorld World;
+		public static ServerWorldInstance World;
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
-		public static WorldChunkManager ChunkManager;
+		//public static WorldChunkManager ChunkManager;
 		public static WorldInstanceGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
 		public static ServerMetaWorld MetaWorld;
@@ -44,11 +44,11 @@ namespace FNZ.Server
 
 		public static FNELogger Logger;
 
-		private List<ServerWorldInstance> m_ActiveInstances;
+		public static List<ServerWorldInstance> ActiveInstances;
 
 		public void Start()
 		{
-			m_ActiveInstances = new List<ServerWorldInstance>();
+			ActiveInstances = new List<ServerWorldInstance>();
 			Logger = new FNELogger("Logs\\Server");
 			ECS_ServerWorld = ECSWorldCreator.CreateWorld("ServerWorld", WorldFlags.Simulation, false);
 			ECSWorldCreator.InitializeServerWorld(ECS_ServerWorld);
@@ -63,23 +63,23 @@ namespace FNZ.Server
 
 			var worldGenData = DataBank.Instance.GetData<WorldGenData>("default_world");
 
-			var bpWorldGen = new WorldBlueprintGen(worldGenData);
-			MetaWorld = new ServerMetaWorld();
-
-			if (!FilePaths.WorldFolderExists())
-			{
-				bpWorldGen.GenerateSiteMapBlueprint(seedX, seedY);
-				MetaWorld.CreateNewWorld();
-			}
-			else
-			{
-				MetaWorld.LoadFromFile();
-			}
+			// var bpWorldGen = new WorldBlueprintGen(worldGenData);
+			// MetaWorld = new ServerMetaWorld();
+			//
+			// if (!FilePaths.WorldFolderExists())
+			// {
+			// 	bpWorldGen.GenerateSiteMapBlueprint(seedX, seedY);
+			// 	MetaWorld.CreateNewWorld();
+			// }
+			// else
+			// {
+			// 	MetaWorld.LoadFromFile();
+			// }
 			
 			WorldGen = new WorldInstanceGenerator(worldGenData);
 
 			var baseInstance = WorldGen.GenerateWorldInstance(256, 256, seedX, seedY);
-			m_ActiveInstances.Add(baseInstance);
+			ActiveInstances.Add(baseInstance);
 
 			// World = WorldGen.GenerateWorld(
 			// 	seedX,
@@ -88,7 +88,7 @@ namespace FNZ.Server
 			//
 			// World.LoadSiteMetaData();
 
-			ChunkManager = new WorldChunkManager();
+			//ChunkManager = new WorldChunkManager();
 
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
@@ -122,12 +122,12 @@ namespace FNZ.Server
 		public void OnApplicationQuit()
 		{
 			Debug.Log("Server shutdown. Saving chunks...");
-			foreach (var chunk in World.GetCurrentlyLoadedChunks())
-			{
-				var path = FilePaths.GetOrCreateChunkFilePath(chunk);
-				var data = chunk.GetChunkData();
-				FNEService.File.WriteFile(path, data);
-			}
+			// foreach (var chunk in World.GetCurrentlyLoadedChunks())
+			// {
+			// 	var path = FilePaths.GetOrCreateChunkFilePath(chunk);
+			// 	var data = chunk.GetChunkData();
+			// 	FNEService.File.WriteFile(path, data);
+			// }
 
 			Debug.Log("Server shutdown. Chunks saved successfully!");
 			

@@ -1,6 +1,6 @@
+using System;
 using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Shared.Model;
-using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Model.World.Tile;
 using FNZ.Shared.Net;
 using Lidgren.Network;
@@ -20,7 +20,7 @@ namespace FNZ.Server.Net.Messages
 			m_NetServer = netServer;
 		}
 
-		public NetMessage CreateWorldSetupMessage(int widthInTiles, int heightInTiles, byte chunkSize)
+		public NetMessage CreateWorldSetupMessage(Guid worldInstanceId, int widthInTiles, int heightInTiles)
 		{
 			var sendBuffer = m_NetServer.CreateMessage();
 
@@ -28,9 +28,9 @@ namespace FNZ.Server.Net.Messages
 
 			IdTranslator.Instance.Serialize(sendBuffer);
 
+			sendBuffer.Write(worldInstanceId.ToString());
 			sendBuffer.Write(widthInTiles);
 			sendBuffer.Write(heightInTiles);
-			sendBuffer.Write(chunkSize);
 
 			return new NetMessage
 			{

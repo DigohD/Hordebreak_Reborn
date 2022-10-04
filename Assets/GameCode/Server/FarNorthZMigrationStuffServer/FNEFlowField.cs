@@ -2,6 +2,7 @@ using FNZ.Server.Model.Entity.Components.EdgeObject;
 using FNZ.Server.Model.World;
 using FNZ.Shared.Constants;
 using FNZ.Shared.Model.Entity;
+using GameCode.Server.Model.World;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 		private int radius;
 
-		public FNEFlowField(Vector2 sourcePosition, int radius)
+		public FNEFlowField(ServerWorldInstance worldInstance, Vector2 sourcePosition, int radius)
 		{
 			this.sourcePosition = sourcePosition;
 
@@ -38,8 +39,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			this.gridSizeX = radius * 2;
 			this.gridSizeY = radius * 2;
 
-			if (worldStartX + gridSizeX > GameServer.World.WIDTH) gridSizeX = GameServer.World.WIDTH - worldStartX;
-			if (worldStartY + gridSizeY > GameServer.World.HEIGHT) gridSizeY = GameServer.World.HEIGHT - worldStartY;
+			if (worldStartX + gridSizeX > worldInstance.Width) gridSizeX = worldInstance.Width - worldStartX;
+			if (worldStartY + gridSizeY > worldInstance.Height) gridSizeY = worldInstance.Height - worldStartY;
 
 			gridSize = gridSizeX * gridSizeY;
 

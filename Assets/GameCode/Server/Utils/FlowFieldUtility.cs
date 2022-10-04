@@ -1,5 +1,6 @@
 using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Shared.Utils;
+using GameCode.Server.Model.World;
 using Unity.Mathematics;
 
 namespace FNZ.Server.Utils
@@ -13,6 +14,7 @@ namespace FNZ.Server.Utils
 
     public struct FlowFieldGenData
     {
+        public ServerWorldInstance WorldInstance;
         public float2 SourcePosition;
         public int Range;
         public FlowFieldType FlowFieldType;
@@ -26,13 +28,15 @@ namespace FNZ.Server.Utils
         }
 
         public static void QueueFlowFieldForSpawn( 
+            ServerWorldInstance worldInstance,
             float2 sourcePosition, 
             int range, 
             FlowFieldType flowFieldType)
         {
             if (range <= 0) return;
-            GameServer.World.QueueFlowField(new FlowFieldGenData
+            worldInstance.QueueFlowField(new FlowFieldGenData
             {
+                WorldInstance = worldInstance,
                 SourcePosition = sourcePosition,
                 Range = range,
                 FlowFieldType = flowFieldType
@@ -40,6 +44,7 @@ namespace FNZ.Server.Utils
         }
 
         public static FNEFlowField GenerateFlowFieldAndUpdateEnemies(
+            ServerWorldInstance worldInstance,
             float2 sourcePosition, 
             int range, 
             FlowFieldType flowFieldType)
@@ -54,9 +59,11 @@ namespace FNZ.Server.Utils
                     x < (flowField.gridSizeX + flowField.worldStartX);
                     x++)
                 {
-                    var enemiesOnTile = GameServer.World.GetTileEnemies(new int2(x, y));
-                    if (enemiesOnTile == null) continue;
+                    var tile = worldInstance.GetTile(x, y);
+                    if (tile == null) continue;
 
+                    var enemiesOnTile = tile.GetEnemies();
+                    
                     foreach (var e in enemiesOnTile)
                     {
                         var ffComp = e.GetComponent<FlowFieldComponentServer>();

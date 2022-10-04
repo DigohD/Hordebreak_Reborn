@@ -425,12 +425,12 @@ namespace FNZ.Server.Controller
 			{
 				foreach (var tile in GameServer.World.GetSurroundingTilesInRadius((int2)position, (int)explosion.maxRadius + 1))
 				{
-					var enemies = GameServer.World.GetTileEnemies(tile).ToArray();
+					var enemies = GameServer.World.GetEnemiesOnTile(tile);
 
 					if (enemies == null)
 						continue;
 
-					for (int e = enemies.Length - 1; e >= 0; e--)
+					for (int e = enemies.Count - 1; e >= 0; e--)
 					{
 						var statComp = enemies[e].GetComponent<StatComponentServer>();
 						if(statComp.CurrentHealth <= 0)

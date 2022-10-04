@@ -126,8 +126,8 @@ namespace FNZ.Server.Controller.Systems
 						entityId = "default_zombie";
 
 					var spawnPosition = new float2(px + x, py + y);
-					if (GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
-						continue;
+					// if (GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
+					// 	continue;
 
 					var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
 
@@ -169,9 +169,9 @@ namespace FNZ.Server.Controller.Systems
 				var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
 				var spawnPosition = new float2(px + finalOffset.x, py + finalOffset.y);
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition);
-				if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
-					continue;
+				// var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition);
+				// if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
+				// 	continue;
 
 				var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
 
@@ -179,10 +179,10 @@ namespace FNZ.Server.Controller.Systems
 				entitiesToSpawn.Add(modelEntity);
 			}
 			
-			GameServer.World.AddEntityToSpawnQueue(new SpawnEntityBatchData
-			{
-				Entities = entitiesToSpawn
-			});
+			// GameServer.World.AddEntityToSpawnQueue(new SpawnEntityBatchData
+			// {
+			// 	Entities = entitiesToSpawn
+			// });
 		}
 
 		protected override void OnDestroy()

@@ -1,9 +1,15 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using FNZ.Server;
+using FNZ.Server.Controller;
 using FNZ.Server.FarNorthZMigrationStuff;
+using FNZ.Server.Utils;
 using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Model.Entity.Components.EnemyStats;
 using FNZ.Shared.Model.World;
+using FNZ.Shared.Model.World.Tile;
 using FNZ.Shared.Utils;
 using UnityEngine;
 
@@ -17,17 +23,25 @@ namespace GameCode.Server.Model.World
         private readonly List<FNEEntity> m_Players;
         private readonly List<FNEEntity> m_TickableEntities;
         
-        private readonly ConcurrentQueue<FNEEntity> m_TickableEntitiesToRemove;
-        private readonly ConcurrentQueue<FNEEntity> m_TickableEntitiesToAdd;
+        private readonly ConcurrentQueue<FNEEntity> m_TickableEntitiesToRemove = new ConcurrentQueue<FNEEntity>();
+        private readonly ConcurrentQueue<FNEEntity> m_TickableEntitiesToAdd = new ConcurrentQueue<FNEEntity>();
+        private readonly ConcurrentQueue<FlowFieldGenData> m_FlowFieldsToSpawn = new ConcurrentQueue<FlowFieldGenData>();
+        private readonly Stack<ILateTickable> m_LateTickableEntities = new Stack<ILateTickable>();
+        
+        public readonly RealEffectManagerServer RealEffectManager;
 
         public ServerWorldInstance(int width, int height, int seedX, int seedY) 
             : base(width, height)
         {
             SeedX = seedX;
             SeedY = seedY;
+
+            Id = Guid.NewGuid();
             
             m_Players = new List<FNEEntity>();
             m_TickableEntities = new List<FNEEntity>();
+            
+            RealEffectManager = new RealEffectManagerServer();
 
             for (var y = 0; y < height; y++)
             {
@@ -36,6 +50,11 @@ namespace GameCode.Server.Model.World
                     Tiles[x, y] = new GameWorldTile();
                 }
             }
+        }
+        
+        public void QueueFlowField(FlowFieldGenData data)
+        {
+            m_FlowFieldsToSpawn.Enqueue(data);
         }
 
         public void AddTickableEntity(FNEEntity entity)
@@ -56,7 +75,43 @@ namespace GameCode.Server.Model.World
 
         public void Tick(float deltaTime)
         {
-            
+            try
+            {
+                foreach (var entity in m_TickableEntities)
+                {
+                    if (!entity.Enabled) continue;
+                
+                    var tickableAndActiveComps = entity.Components
+                        .Where(comp => comp is ITickable && comp.Enabled).ToList();
+
+                    foreach (var fneComponent in tickableAndActiveComps)
+                    {
+                        var comp = (ITickable) fneComponent;
+                        comp.Tick(deltaTime);
+                        if (comp is ILateTickable && !m_LateTickableEntities.Contains(comp))
+                            m_LateTickableEntities.Push((ILateTickable) comp);
+                    }
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                GameServer.NetAPI.Error_SendErrorMessage_BA("TickableEntities Concurrent Modification!", "");
+                Debug.LogError(e);
+            }
+
+            try
+            {
+                for(int i = 0; i < m_LateTickableEntities.Count; i++)
+                {
+                    m_LateTickableEntities.Pop().LateTick(deltaTime);
+                }
+            }
+            catch (InvalidOperationException e)
+            {
+                GameServer.NetAPI.Error_SendErrorMessage_BA("LateTickableEntities Concurrent Modification!", "");
+                m_LateTickableEntities.Clear();
+                Debug.LogError(e);
+            }
         }
         
         public void RemoveTickableEntity(FNEEntity entity)

@@ -1,6 +1,5 @@
 using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Model.World.Tile;
-using FNZ.Shared.Utils;
 using System.Collections.Generic;
 using FNZ.Shared.Model.Entity.Components.EdgeObject;
 using Unity.Mathematics;
