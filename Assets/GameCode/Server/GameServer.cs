@@ -63,21 +63,17 @@ namespace FNZ.Server
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
 
-			var bpWorldGen = new WorldBlueprintGen(DataBank.Instance.GetData<WorldGenData>("default_world"));
 			MetaWorld = new ServerMetaWorld();
 
 			if (!FilePaths.WorldFolderExists())
 			{
-				bpWorldGen.GenerateSiteMapBlueprint(seedX, seedY);
 				MetaWorld.CreateNewWorld();
 			}
 			else
 			{
 				MetaWorld.LoadFromFile();
 			}
-
 			
-
 			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
 
 			MainWorld = WorldGen.GenerateWorld(
@@ -87,7 +83,7 @@ namespace FNZ.Server
 				true
 			);
 
-			MainWorld.LoadSiteMetaData();
+			//MainWorld.LoadSiteMetaData();
 
 			//ChunkManager = new WorldChunkManager();
 
@@ -123,13 +119,12 @@ namespace FNZ.Server
 		public void OnApplicationQuit()
 		{
 			Debug.Log("Server shutdown. Saving chunks...");
-			foreach (var chunk in MainWorld.GetCurrentlyLoadedChunks())
-			{
-				var path = FilePaths.GetOrCreateChunkFilePath(chunk);
-				var data = chunk.GetChunkData();
-				FNEService.File.WriteFile(path, data);
-			}
-
+			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
+			
+			var path = FilePaths.GetOrCreateChunkFilePath(chunk);
+			var data = chunk.GetChunkData();
+			FNEService.File.WriteFile(path, data);
+			
 			Debug.Log("Server shutdown. Chunks saved successfully!");
 			
 			Debug.Log("Server shutdown. Saving players...");

@@ -41,9 +41,7 @@ namespace FNZ.Server.Model.World
 	{
 		public int SeedX;
 		public int SeedY;
-
-		private readonly List<ServerWorldChunk> m_CurrentlyLoadedChunks;
-
+		
 		private readonly List<FNEEntity> m_Players;
 		private readonly List<FNEEntity> m_TickableEntities;
 
@@ -81,7 +79,6 @@ namespace FNZ.Server.Model.World
 
 			m_Chunk = new ServerWorldChunk(widthInTiles, this);
 
-			m_CurrentlyLoadedChunks = new List<ServerWorldChunk>();
 			m_Players = new List<FNEEntity>();
 			m_TickableEntities = new List<FNEEntity>();
 			m_TickableEntitiesToRemove = new ConcurrentQueue<FNEEntity>();
@@ -154,11 +151,6 @@ namespace FNZ.Server.Model.World
 				chunk.IsInitialized = true;
 			}
         }
-
-		public List<ServerWorldChunk> GetCurrentlyLoadedChunks()
-		{
-			return m_CurrentlyLoadedChunks;
-		}
 
 		private void SpawnEntities()
 		{

@@ -1486,12 +1486,10 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 
 		private void KillAll()
 		{
-			foreach (var c in GameServer.MainWorld.GetCurrentlyLoadedChunks())
+			var c = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			foreach(var e in c.GetAllEnemies())
 			{
-				foreach(var e in c.GetAllEnemies())
-				{
-					e.GetComponent<StatComponentServer>().Server_ApplyDamage(1000000, "");
-				}
+				e.GetComponent<StatComponentServer>().Server_ApplyDamage(1000000, "");
 			}
 		}
 
