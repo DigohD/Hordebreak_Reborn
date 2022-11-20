@@ -41,13 +41,6 @@ namespace FNZ.Shared.Net.Dto.Hordes
                 into[2] = 0;
                 into[3] = 0;
 
-                // read chunk indices
-                reader.ReadBits(into, 0, HordeEntityPacketHelperConstants.s_ChunkIndexBits);
-                byte chunkX = into[0];
-                reader.ReadBits(into, 0, HordeEntityPacketHelperConstants.s_ChunkIndexBits);
-                byte chunkY = into[0];
-                into[0] = 0;
-
                 //read pos relative to chunk
                 reader.ReadBits(into, 0, HordeEntityPacketHelperConstants.s_PositionIntegerBits);
                 byte posXint = into[0];
@@ -58,8 +51,8 @@ namespace FNZ.Shared.Net.Dto.Hordes
                 float posXdec = reader.ReadUnitSingle(HordeEntityPacketHelperConstants.s_PositionDecimalBits);
                 float posYdec = reader.ReadUnitSingle(HordeEntityPacketHelperConstants.s_PositionDecimalBits);
 
-                float newX = (chunkX << 5) + posXint + posXdec;
-                float newY = (chunkY << 5) + posYint + posYdec;
+                float newX = posXint + posXdec;
+                float newY = posYint + posYdec;
 
                 entityUpdateData.Position.x = newX;
                 entityUpdateData.Position.y = newY;
@@ -85,16 +78,8 @@ namespace FNZ.Shared.Net.Dto.Hordes
             // 17 bits
             writer.Write(NetId, HordeEntityPacketHelperConstants.s_NetIdBits);
 
-            var chunkX = (byte)(Position.x / 32);
-            var chunkY = (byte)(Position.y / 32);
-
-            // 8 bits
-            writer.Write(chunkX, HordeEntityPacketHelperConstants.s_ChunkIndexBits);
-            // 8 bits
-            writer.Write(chunkY, HordeEntityPacketHelperConstants.s_ChunkIndexBits);
-
-            var posX = Position.x % 32;
-            var posY = Position.y % 32;
+            var posX = Position.x;
+            var posY = Position.y;
 
             var posIntX = (byte)posX;
             var posIntY = (byte)posY;

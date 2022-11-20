@@ -53,7 +53,9 @@ namespace FNZ.Server.Model.World
 
 		public void GenerateChunk(ServerWorldChunk chunk)
 		{
-			for (int i = 0; i < 32 * 32; i++)
+			m_TileObjectGenerationMap = new bool[chunk.Size * chunk.Size];
+			
+			for (int i = 0; i < chunk.Size * chunk.Size; i++)
 			{
 				m_TileObjectGenerationMap[i] = false;
 			}
@@ -62,9 +64,9 @@ namespace FNZ.Server.Model.World
 			GenerateTileMap(chunk);
 			Profiler.EndSample();
 			
-			Profiler.BeginSample("GenerateSites");
-			GenerateSitesV2(chunk);
-			Profiler.EndSample();
+			// Profiler.BeginSample("GenerateSites");
+			// GenerateSitesV2(chunk);
+			// Profiler.EndSample();
 			
 			Profiler.BeginSample("GenerateEnvironmentObjects");
 			GenerateEnvironmentObjects(chunk);
@@ -74,14 +76,14 @@ namespace FNZ.Server.Model.World
 			//GenerateEnemies(chunk);
 			Profiler.EndSample();
 
-			var nb = new NetBuffer();
-			nb.EnsureBufferSize(chunk.TotalBitsFileBuffer());
-			chunk.FileSerialize(nb);
-			
-			FNEService.File.WriteFile(
-				GameServer.FilePaths.GetOrCreateChunkFilePath(chunk), 
-				nb.Data
-			);
+			// var nb = new NetBuffer();
+			// nb.EnsureBufferSize(chunk.TotalBitsFileBuffer());
+			// chunk.FileSerialize(nb);
+			//
+			// FNEService.File.WriteFile(
+			// 	GameServer.FilePaths.GetOrCreateChunkFilePath(chunk), 
+			// 	nb.Data
+			// );
 		}
 
 		private void GenerateTileMap(ServerWorldChunk chunk)
@@ -1524,7 +1526,7 @@ namespace FNZ.Server.Model.World
 					{
 						float inputX = chunkX * chunkSize + x + seedX;
 						float inputY = chunkY * chunkSize + y + seedY;
-						float noise = m_WorldGenData.layerWeight * SimplexNoise.Noise(inputX * layerFrequency, inputY * layerFrequency);
+						float noise = layerWeight * SimplexNoise.Noise(inputX * layerFrequency, inputY * layerFrequency);
 						heightMap[x + y * chunkSize] += noise;
 					}
 				}

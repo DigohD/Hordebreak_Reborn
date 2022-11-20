@@ -275,8 +275,8 @@ namespace FNZ.Shared.Model.World
 
 			foreach (var fpObject in FloatPointObjects)
 			{
-				bw.Write(FNEUtil.PackFloatAsShort(fpObject.posX - ChunkX * 32));
-				bw.Write(FNEUtil.PackFloatAsShort(fpObject.posY - ChunkY * 32));
+				bw.Write(FNEUtil.PackFloatAsShort(fpObject.posX));
+				bw.Write(FNEUtil.PackFloatAsShort(fpObject.posY));
 				bw.Write(FNEUtil.ConvertFloatToSignedShort(fpObject.posZ));
 
 				bw.Write(FNEUtil.PackFloatAsShort(fpObject.rotX));
@@ -301,8 +301,8 @@ namespace FNZ.Shared.Model.World
 			{
 				FNETransform transform;
 
-				transform.posX = FNEUtil.UnpackShortToFloat(br.ReadUInt16()) + ChunkX * 32;
-				transform.posY = FNEUtil.UnpackShortToFloat(br.ReadUInt16()) + ChunkY * 32;
+				transform.posX = FNEUtil.UnpackShortToFloat(br.ReadUInt16());
+				transform.posY = FNEUtil.UnpackShortToFloat(br.ReadUInt16());
 				transform.posZ = FNEUtil.UnpackShortToFloat(br.ReadUInt16());
 
 				transform.rotX = FNEUtil.UnpackShortToFloat(br.ReadUInt16());

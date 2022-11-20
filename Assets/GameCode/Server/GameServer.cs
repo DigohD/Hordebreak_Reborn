@@ -80,7 +80,7 @@ namespace FNZ.Server
 
 			World.LoadSiteMetaData();
 
-			ChunkManager = new WorldChunkManager();
+			//ChunkManager = new WorldChunkManager();
 
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
@@ -103,12 +103,12 @@ namespace FNZ.Server
 					{
 						Data = FileUtils.ReadFile(path)
 					};
-
+			
 					QuestManager.Deserialize(netBuffer);
 				}
 			}
 
-			AgentSimulationSystem.Instance.StartSimulation();
+			//AgentSimulationSystem.Instance.StartSimulation();
 		}
 
 		public void OnApplicationQuit()
