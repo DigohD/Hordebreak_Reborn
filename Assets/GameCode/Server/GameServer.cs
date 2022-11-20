@@ -15,6 +15,7 @@ using FNZ.Server.WorldEvents;
 using FNZ.Shared;
 using FNZ.Shared.Model;
 using FNZ.Shared.Utils;
+using GameCode.Server.Model.World;
 using Lidgren.Network;
 using Unity.Entities;
 using UnityEngine;
@@ -27,7 +28,8 @@ namespace FNZ.Server
 
 		public static World ECS_ServerWorld;
 		public static ServerWorld MainWorld;
-		public static Dictionary<Guid, ServerWorld> WorldInstances = new Dictionary<Guid, ServerWorld>();
+		public static WorldInstanceManager WorldInstanceManager;
+		
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
@@ -44,13 +46,9 @@ namespace FNZ.Server
 
 		public static FNELogger Logger;
 
-		public static ServerWorld GetWorldInstance(Guid instanceId)
-		{
-			return WorldInstances[instanceId];
-		}
-
 		public void Start()
 		{
+			WorldInstanceManager = new WorldInstanceManager();
 			Logger = new FNELogger("Logs\\Server");
 			ECS_ServerWorld = ECSWorldCreator.CreateWorld("ServerWorld", WorldFlags.Simulation, false);
 			ECSWorldCreator.InitializeServerWorld(ECS_ServerWorld);
@@ -80,16 +78,9 @@ namespace FNZ.Server
 				seedX,
 				seedY,
 				512,
+				512,
 				true
 			);
-
-			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
-			chunk.IsMainWorld = true;
-			WorldGen.GenerateChunk(chunk);
-
-			//MainWorld.LoadSiteMetaData();
-
-			//ChunkManager = new WorldChunkManager();
 
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
