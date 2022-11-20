@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Server.Model;
 using FNZ.Server.Model.Entity.Components.Name;
 using FNZ.Server.Model.MetaWorld;
@@ -44,6 +43,11 @@ namespace FNZ.Server
 		public static float DeltaTime;
 
 		public static FNELogger Logger;
+
+		public static ServerWorld GetWorldInstance(Guid instanceId)
+		{
+			return WorldInstances[instanceId];
+		}
 
 		public void Start()
 		{

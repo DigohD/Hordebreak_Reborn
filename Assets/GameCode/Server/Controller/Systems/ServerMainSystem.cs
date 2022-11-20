@@ -44,23 +44,23 @@ namespace FNZ.Server.Controller.Systems
 
 		protected override void OnUpdate()
 		{
-			if (!m_WorkerThread.DoWork && ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L)) || Input.GetKeyDown(KeyCode.F8)))
-			{
-				SpawnHordeEntitiesInRadius("zombie_big", 15, 20);
-			}
-
-			if (!m_WorkerThread.DoWork)
-            {
-	            Profiler.BeginSample("ProcessChunksToloadForClients");
-	            if (GameServer.ChunkManager != null)
-					GameServer.ChunkManager.ProcessChunksToLoadForClients();
-	            Profiler.EndSample();
-	            
-	            Profiler.BeginSample("ProcessChunksToUnloadForClients");
-	            if (GameServer.ChunkManager != null)
-					GameServer.ChunkManager.ProcessChunksToUnloadForClients();
-				Profiler.EndSample();
-            }
+			// if (!m_WorkerThread.DoWork && ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L)) || Input.GetKeyDown(KeyCode.F8)))
+			// {
+			// 	SpawnHordeEntitiesInRadius("zombie_big", 15, 20);
+			// }
+   //
+			// if (!m_WorkerThread.DoWork)
+   //          {
+	  //           Profiler.BeginSample("ProcessChunksToloadForClients");
+	  //           if (GameServer.ChunkManager != null)
+			// 		GameServer.ChunkManager.ProcessChunksToLoadForClients();
+	  //           Profiler.EndSample();
+	  //           
+	  //           Profiler.BeginSample("ProcessChunksToUnloadForClients");
+	  //           if (GameServer.ChunkManager != null)
+			// 		GameServer.ChunkManager.ProcessChunksToUnloadForClients();
+			// 	Profiler.EndSample();
+   //          }
 
 			m_Timer += UnityEngine.Time.deltaTime;
 
@@ -126,7 +126,7 @@ namespace FNZ.Server.Controller.Systems
 						entityId = "default_zombie";
 
 					var spawnPosition = new float2(px + x, py + y);
-					if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
+					if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>() == null)
 						continue;
 
 					var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
@@ -169,7 +169,7 @@ namespace FNZ.Server.Controller.Systems
 				var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
 				var spawnPosition = new float2(px + finalOffset.x, py + finalOffset.y);
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPosition);
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
 					continue;
 

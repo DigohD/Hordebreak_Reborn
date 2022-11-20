@@ -40,15 +40,11 @@ namespace FNZ.Server.Net.API
 			if (sfxData != null)
 				soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-			var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
-			var chunkManager = GameServer.ChunkManager;
-
 			foreach (var player in connectedPlayers)
 			{
 				var entity = GameServer.NetConnector.GetPlayerFromConnection(player);
-
-				if (chunkManager.GetPlayerChunkState(player).CurrentlyLoadedChunks.Contains(locationChunk) ||
-					Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance)
+			
+				if (Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance)
 				{
 					relevantPlayers.Add(player);
 				}
@@ -80,16 +76,12 @@ namespace FNZ.Server.Net.API
 			if (sfxData != null)
 				soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-			var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
-			var chunkManager = GameServer.ChunkManager;
-
 			foreach (var player in connectedPlayers)
 			{
 				var entity = GameServer.NetConnector.GetPlayerFromConnection(player);
 
 				if (player.RemoteUniqueIdentifier != toExclude.RemoteUniqueIdentifier &&
-					(chunkManager.GetPlayerChunkState(player).CurrentlyLoadedChunks.Contains(locationChunk) ||
-					Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance))
+				    Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance)
 				{
 					relevantPlayers.Add(player);
 				}
@@ -122,16 +114,12 @@ namespace FNZ.Server.Net.API
             if (sfxData != null)
                 soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-            var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
-            var chunkManager = GameServer.ChunkManager;
-
             foreach (var player in connectedPlayers)
             {
                 var entity = GameServer.NetConnector.GetPlayerFromConnection(player);
 
                 if (player.RemoteUniqueIdentifier != ownerConnection.RemoteUniqueIdentifier &&
-                    (chunkManager.GetPlayerChunkState(player).CurrentlyLoadedChunks.Contains(locationChunk) ||
-                    Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance))
+                    Vector3.Distance(new Vector3(entity.Position.x, entity.Position.y), new Vector3(location.x, location.y)) <= soundDistance)
                 {
                     relevantPlayers.Add(player);
                 }

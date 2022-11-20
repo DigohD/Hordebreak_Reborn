@@ -38,7 +38,7 @@ namespace FNZ.Server.Model.World
 				SeedY = seedY
 			};
 
-			var chunk = world.GetWorldChunk<ServerWorldChunk>(0, 0);
+			var chunk = world.GetWorldChunk<ServerWorldChunk>();
 			chunk.IsMainWorld = isMainWorld;
 			GenerateChunk(chunk);
 			
@@ -66,9 +66,9 @@ namespace FNZ.Server.Model.World
 			GenerateEnvironmentObjects(chunk);
 			Profiler.EndSample();
 			
-			Profiler.BeginSample("GenerateEnemies");
+			//Profiler.BeginSample("GenerateEnemies");
 			//GenerateEnemies(chunk);
-			Profiler.EndSample();
+			//Profiler.EndSample();
 
 			// var nb = new NetBuffer();
 			// nb.EnsureBufferSize(chunk.TotalBitsFileBuffer());
@@ -127,7 +127,7 @@ namespace FNZ.Server.Model.World
 			var serverWorld = GameServer.MainWorld;
 
 			// Spawn drop pod near player on initial spawn chunk
-			if (chunk.ChunkX == serverWorld.WIDTH_IN_CHUNKS / 2 && chunk.ChunkY == serverWorld.HEIGHT_IN_CHUNKS / 2)
+			if (chunk.IsMainWorld)
 			{
 				var pos = new float2(
 					chunk.TilePositionsX[1 + 1 * chunkSize], 
@@ -201,15 +201,14 @@ namespace FNZ.Server.Model.World
 
 		private void GenerateClusterObjects(float2 basePos, float radius, float density, string tileObjectId, string originalTileId)
 		{
-			var originalChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(new int2((int)basePos.x, (int)basePos.y));
+			var originalChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 			foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius(new int2((int)basePos.x, (int)basePos.y), (int)radius))
 			{
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(tile);
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				if (originalChunk != chunk)
 					continue;
 
-				var chunkTileIndices = GameServer.MainWorld.GetChunkTileIndices<ServerWorldChunk>(chunk, tile);
-				int index = chunkTileIndices.x + chunkTileIndices.y * chunk.Size;
+				int index = tile.x + tile.y * chunk.Size;
 				ushort tileIdCode = chunk.TileIdCodes[index];
 				string tileId = IdTranslator.Instance.GetId<TileData>(tileIdCode);
 
@@ -280,12 +279,12 @@ namespace FNZ.Server.Model.World
 		{
 			var fullSiteMetaData = GameServer.MainWorld.GetSiteMetaData();
 			
-			if(!fullSiteMetaData.ContainsKey(chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH_IN_CHUNKS))
+			if(!fullSiteMetaData.ContainsKey(chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH))
 			{
 				return;
 			}
 			
-			var siteMetaData = fullSiteMetaData[chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH_IN_CHUNKS];
+			var siteMetaData = fullSiteMetaData[chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH];
 			
 			var siteData = DataBank.Instance.GetData<SiteData>(siteMetaData.siteId);
 
@@ -1584,7 +1583,7 @@ namespace FNZ.Server.Model.World
 							enemy = "default_zombie";
 					}
 					
-					var chunkForSpawnPos = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPos);
+					var chunkForSpawnPos = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 					if (chunkForSpawnPos == null)
 						continue;
 					
@@ -1604,7 +1603,7 @@ namespace FNZ.Server.Model.World
 							var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
 							var spawnPosition = new float2(spawnPos.x + finalOffset.x, spawnPos.y + finalOffset.y);
-							if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
+							if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>() == null)
 								continue;
 
 							spawnRotation = FNERandom.GetRandomIntInRange(0, 360);

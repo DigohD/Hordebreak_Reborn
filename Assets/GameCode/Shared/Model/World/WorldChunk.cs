@@ -59,6 +59,7 @@ namespace FNZ.Shared.Model.World
 
 	public abstract class WorldChunk
 	{
+		private GameWorld m_WorldInstance;
 		public bool IsMainWorld { get; set; }
 		public byte ChunkX { get; set; }
 		public byte ChunkY { get; set; }
@@ -90,10 +91,11 @@ namespace FNZ.Shared.Model.World
 
 		public ChunkCellData[,] ChunkCells;
 
-		public WorldChunk(byte chunkX, byte chunkY, int size)
+		public WorldChunk(int size, GameWorld worldInstance)
 		{
-			ChunkX = chunkX;
-			ChunkY = chunkY;
+			m_WorldInstance = worldInstance;
+			ChunkX = 0;
+			ChunkY = 0;
 			Size = size;
 
 			TileIdCodes = new ushort[size * size];

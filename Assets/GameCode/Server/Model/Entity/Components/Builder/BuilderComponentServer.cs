@@ -635,38 +635,38 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				GameServer.NetAPI.World_RoomManager_BA();
 				
-				Dictionary<long, bool> chunksToMapUpdate = new Dictionary<long, bool>();
-				chunksToMapUpdate.Add((minX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
-					new float2(minX, minY)
-				);
-				GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
-
-				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
-				{
-					chunksToMapUpdate.Add((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
-					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
-						new float2(maxX, minY)
-					);
-					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
-				}
-
-				if (!chunksToMapUpdate.ContainsKey((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
-				{
-					chunksToMapUpdate.Add((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
-					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
-						new float2(minX, maxY)
-					);
-					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
-				}
-
-				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
-				{
-					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
-						new float2(maxX, maxY)
-					);
-					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);					
-				}
+				// Dictionary<long, bool> chunksToMapUpdate = new Dictionary<long, bool>();
+				// chunksToMapUpdate.Add((minX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+				// var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
+				// 	new float2(minX, minY)
+				// );
+				// GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
+				//
+				// if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
+				// {
+				// 	chunksToMapUpdate.Add((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+				// 	chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
+				// 		new float2(maxX, minY)
+				// 	);
+				// 	GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
+				// }
+				//
+				// if (!chunksToMapUpdate.ContainsKey((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
+				// {
+				// 	chunksToMapUpdate.Add((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+				// 	chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
+				// 		new float2(minX, maxY)
+				// 	);
+				// 	GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
+				// }
+				//
+				// if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
+				// {
+				// 	chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
+				// 		new float2(maxX, maxY)
+				// 	);
+				// 	GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);					
+				// }
 			}
 
 			GameServer.NetAPI.Entity_UpdateComponent_STC(invComp, incMsg.SenderConnection);

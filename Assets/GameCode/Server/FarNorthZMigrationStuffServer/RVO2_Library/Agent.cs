@@ -240,7 +240,7 @@ namespace RVO
 
 		private void ComputeAgentNeighbour(int2 tile, float rangeSq)
 		{
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(new float2(tile.x, tile.y));
+			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 			if (chunk == null || !chunk.IsActive || !chunk.IsInitialized) return;
 			var cc = GameServer.MainWorld.GetChunkCellData(tile.x, tile.y);
 			if (cc == null) return;

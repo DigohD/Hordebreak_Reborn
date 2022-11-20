@@ -126,28 +126,29 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_All_Relevant(NetMessage message, float2 impactPosition)
 		{
-			var world = GameServer.MainWorld;
-			var chunkManager = GameServer.ChunkManager;
-			var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
-
-			if (chunk != null)
-			{
-				var chunksToCheck = world.GetNeighbouringChunks(chunk);
-				var connections = new List<NetConnection>();
-
-				foreach (var chunkToCheck in chunksToCheck)
-				{
-					chunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref connections);
-				}
-
-				if (connections.Count > 0)
-					m_NetServer.SendMessage(
-					   message.Buffer,
-					   connections,
-					   message.DeliveryMethod,
-					   (int)message.Channel
-					);
-			}
+			Broadcast_All(message);
+			// var world = GameServer.MainWorld;
+			// var chunkManager = GameServer.ChunkManager;
+			// var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
+			//
+			// if (chunk != null)
+			// {
+			// 	var chunksToCheck = world.GetNeighbouringChunks(chunk);
+			// 	var connections = new List<NetConnection>();
+			//
+			// 	foreach (var chunkToCheck in chunksToCheck)
+			// 	{
+			// 		chunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref connections);
+			// 	}
+			//
+			// 	if (connections.Count > 0)
+			// 		m_NetServer.SendMessage(
+			// 		   message.Buffer,
+			// 		   connections,
+			// 		   message.DeliveryMethod,
+			// 		   (int)message.Channel
+			// 		);
+			// }
 		}
 
 		private void Broadcast_All_InProximity(NetMessage message, float2 impactPosition, float radius)
@@ -179,35 +180,36 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_All_Relevant_Batch(NetMessage message, ref NativeArray<float2> impactPositions)
 		{
-			var world = GameServer.MainWorld;
-			var chunks = new List<ServerWorldChunk>();
-			var recipients = new List<NetConnection>();
-
-			foreach (var pos in impactPositions)
-			{
-				var chunk = world.GetWorldChunk<ServerWorldChunk>(pos);
-				if (!chunks.Contains(chunk))
-					chunks.Add(world.GetWorldChunk<ServerWorldChunk>(pos));
-			}
-
-			foreach (var chunk in chunks)
-			{
-				if (chunk != default)
-				{
-					var chunksToCheck = world.GetNeighbouringChunks(chunk);
-
-					foreach (var chunkToCheck in chunksToCheck)
-						GameServer.ChunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref recipients);
-				}
-			}
-
-			if (recipients.Count > 0)
-				m_NetServer.SendMessage(
-				   message.Buffer,
-				   recipients,
-				   message.DeliveryMethod,
-				   (int)message.Channel
-				);
+			Broadcast_All(message);
+			// var world = GameServer.MainWorld;
+			// var chunks = new List<ServerWorldChunk>();
+			// var recipients = new List<NetConnection>();
+			//
+			// foreach (var pos in impactPositions)
+			// {
+			// 	var chunk = world.GetWorldChunk<ServerWorldChunk>(pos);
+			// 	if (!chunks.Contains(chunk))
+			// 		chunks.Add(world.GetWorldChunk<ServerWorldChunk>(pos));
+			// }
+			//
+			// foreach (var chunk in chunks)
+			// {
+			// 	if (chunk != default)
+			// 	{
+			// 		var chunksToCheck = world.GetNeighbouringChunks(chunk);
+			//
+			// 		foreach (var chunkToCheck in chunksToCheck)
+			// 			GameServer.ChunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref recipients);
+			// 	}
+			// }
+			//
+			// if (recipients.Count > 0)
+			// 	m_NetServer.SendMessage(
+			// 	   message.Buffer,
+			// 	   recipients,
+			// 	   message.DeliveryMethod,
+			// 	   (int)message.Channel
+			// 	);
 
 		}
 
@@ -216,32 +218,33 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_Other_Relevant(NetMessage message, float2 impactPosition, NetConnection connToExclude)
 		{
-			var world = GameServer.MainWorld;
-			var chunkManager = GameServer.ChunkManager;
-			var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
-
-			if (chunk != default)
-			{
-				var chunksToCheck = world.GetNeighbouringChunks(chunk);
-				var connections = new List<NetConnection>();
-
-				foreach (var chunkToCheck in chunksToCheck)
-				{
-					chunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref connections);
-				}
-
-				connections.Remove(connToExclude);
-
-				if (connections.Count > 0)
-				{
-					m_NetServer.SendMessage(
-					   message.Buffer,
-					   connections,
-					   message.DeliveryMethod,
-					   (int)message.Channel
-					);
-				}
-			}
+			Broadcast_Other(message, connToExclude);
+			// var world = GameServer.MainWorld;
+			// var chunkManager = GameServer.ChunkManager;
+			// var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
+			//
+			// if (chunk != default)
+			// {
+			// 	var chunksToCheck = world.GetNeighbouringChunks(chunk);
+			// 	var connections = new List<NetConnection>();
+			//
+			// 	foreach (var chunkToCheck in chunksToCheck)
+			// 	{
+			// 		chunkManager.GetConnectionsWithChunkLoaded(chunkToCheck, ref connections);
+			// 	}
+			//
+			// 	connections.Remove(connToExclude);
+			//
+			// 	if (connections.Count > 0)
+			// 	{
+			// 		m_NetServer.SendMessage(
+			// 		   message.Buffer,
+			// 		   connections,
+			// 		   message.DeliveryMethod,
+			// 		   (int)message.Channel
+			// 		);
+			// 	}
+			// }
 		}
 
 		/// <summary>

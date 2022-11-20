@@ -79,10 +79,7 @@ namespace FNZ.Server.Model.World
 			WIDTH = widthInTiles;
 			HEIGHT = heightInTiles;
 
-			WIDTH_IN_CHUNKS = WIDTH / CHUNK_SIZE;
-			HEIGHT_IN_CHUNKS = HEIGHT / CHUNK_SIZE;
-
-			m_Chunk = new ServerWorldChunk(0, 0, widthInTiles);
+			m_Chunk = new ServerWorldChunk(widthInTiles, this);
 
 			m_CurrentlyLoadedChunks = new List<ServerWorldChunk>();
 			m_Players = new List<FNEEntity>();
@@ -92,7 +89,7 @@ namespace FNZ.Server.Model.World
 
 			Environment = new EnvironmentServer();
 			RealEffectManager = new RealEffectManagerServer();
-			WorldMap = new ServerMapManager(WIDTH_IN_CHUNKS, HEIGHT_IN_CHUNKS);
+			WorldMap = new ServerMapManager(WIDTH, HEIGHT);
 			
 			s_NonResponsiveConnections = new List<NetConnection>();
 			s_PlayerConnectionWarningSystem = new Dictionary<NetConnection, byte>();
@@ -202,20 +199,6 @@ namespace FNZ.Server.Model.World
 			}
 		}
 
-		private void UnloadChunks()
-		{
-			while (m_ChunksToUnload.Count > 0)
-			{
-				if (!m_ChunksToUnload.TryDequeue(out var data)) continue;
-				foreach (var e in data.Entities)
-				{
-					GameServer.EntityAPI.DestroyEntityImmediate(e, true);
-				}
-				
-				GameServer.MainWorld.RemoveChunk(data.Chunk);
-			}
-		}
-
 		private void SpawnFlowFields()
 		{
 			if (!m_FlowFieldsToSpawn.TryDequeue(out var data)) return;
@@ -255,7 +238,7 @@ namespace FNZ.Server.Model.World
 			{
 				foreach (var entity in m_TickableEntities)
 				{
-					var chunk = GetWorldChunk<ServerWorldChunk>(entity.Position);
+					var chunk = GetWorldChunk<ServerWorldChunk>();
 					if (chunk == null) continue;
 					if (!chunk.IsActive)
 					{
@@ -312,11 +295,6 @@ namespace FNZ.Server.Model.World
 		public void AddWorldChunk(ServerWorldChunk chunk)
 		{
 			m_Chunk = chunk;
-		}
-
-		public override void RemoveChunk<T>(T chunk)
-		{
-			
 		}
 
 		public void AddPlayerEntity(FNEEntity playerEntity)
@@ -408,7 +386,7 @@ namespace FNZ.Server.Model.World
 
 		public void ChangeTile(int x, int y, string id)
 		{
-			var chunk = GetWorldChunk<ServerWorldChunk>(new int2(x, y));
+			var chunk = GetWorldChunk<ServerWorldChunk>();
 			chunk.ChangeTile(x, y, id);
 		}
 
@@ -419,10 +397,9 @@ namespace FNZ.Server.Model.World
 
 		public float GetTileTemperature(float2 position)
 		{
-			var chunk = GetWorldChunk<ServerWorldChunk>(position);
-			int2 tileIndices = GetChunkTileIndices(chunk, position);
+			var chunk = GetWorldChunk<ServerWorldChunk>();
 
-			return chunk.TileTemperatures[tileIndices.x + tileIndices.y * CHUNK_SIZE];
+			return chunk.TileTemperatures[(int)position.x + (int)position.y * WIDTH];
 		}
 
 		private void PingPlayers()

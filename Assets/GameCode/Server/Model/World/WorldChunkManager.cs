@@ -24,51 +24,51 @@ namespace FNZ.Server.Model.World
         private readonly Dictionary<NetConnection, PlayerChunkState> m_PlayerChunkStates;
         private readonly HashSet<ServerWorldChunk> m_PossibleChunksToUnload;
 
-        private readonly WorldGenWorker m_WorkerThread;
-        private readonly UnloadChunkWorker m_UnloadChunkWorker;
+        // private readonly WorldGenWorker m_WorkerThread;
+        // private readonly UnloadChunkWorker m_UnloadChunkWorker;
 
         public WorldChunkManager()
         {
-            m_WorkerThread = new WorldGenWorker();
-            m_UnloadChunkWorker = new UnloadChunkWorker();
+            // m_WorkerThread = new WorldGenWorker();
+            // m_UnloadChunkWorker = new UnloadChunkWorker();
             m_PlayerChunkStates = new Dictionary<NetConnection, PlayerChunkState>();
             m_PossibleChunksToUnload = new HashSet<ServerWorldChunk>();
         }
 
-        public PlayerChunkState GetPlayerChunkState(NetConnection conn)
-        {
-            return m_PlayerChunkStates.TryGetValue(conn, out var result) ? result : null;
-        }
+        // public PlayerChunkState GetPlayerChunkState(NetConnection conn)
+        // {
+        //     return m_PlayerChunkStates.TryGetValue(conn, out var result) ? result : null;
+        // }
+        //
+        // public Dictionary<NetConnection, PlayerChunkState> GetAllPlayersChunkStates()
+        // {
+        //     return m_PlayerChunkStates;
+        // }
+        //
+        // public void AddClientToChunkStreamingSystem(NetConnection clientConnection, PlayerChunkState chunkState)
+        // {
+        //     m_PlayerChunkStates.Add(clientConnection, chunkState);
+        // }
 
-        public Dictionary<NetConnection, PlayerChunkState> GetAllPlayersChunkStates()
-        {
-            return m_PlayerChunkStates;
-        }
-
-        public void AddClientToChunkStreamingSystem(NetConnection clientConnection, PlayerChunkState chunkState)
-        {
-            m_PlayerChunkStates.Add(clientConnection, chunkState);
-        }
-
-        public void OnPlayerEnteringNewChunk(FNEEntity player)
-        {
-            var clientConnection = GameServer.NetConnector.GetConnectionFromPlayer(player);
-            var state = m_PlayerChunkStates[clientConnection];
-
-            var chunkSpawnData = new ChunkSpawnData
-            {
-                State = state,
-                PlayerPosition = player.Position,
-                ChunkRadius = c_ChunkRadius
-            };
-
-            lock (m_WorkerThread.Lock)
-            {
-                m_WorkerThread.QueueChunkForSpawn(chunkSpawnData);
-                Monitor.Pulse(m_WorkerThread.Lock);
-                m_WorkerThread.DoWork = true;
-            }
-        }
+        // public void OnPlayerEnteringNewChunk(FNEEntity player)
+        // {
+        //     var clientConnection = GameServer.NetConnector.GetConnectionFromPlayer(player);
+        //     var state = m_PlayerChunkStates[clientConnection];
+        //
+        //     var chunkSpawnData = new ChunkSpawnData
+        //     {
+        //         State = state,
+        //         PlayerPosition = player.Position,
+        //         ChunkRadius = c_ChunkRadius
+        //     };
+        //
+        //     lock (m_WorkerThread.Lock)
+        //     {
+        //         m_WorkerThread.QueueChunkForSpawn(chunkSpawnData);
+        //         Monitor.Pulse(m_WorkerThread.Lock);
+        //         m_WorkerThread.DoWork = true;
+        //     }
+        // }
 
         public void ProcessChunksToLoadForClients()
         {
@@ -119,127 +119,127 @@ namespace FNZ.Server.Model.World
             // GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_STC(hordeEntitiesToSpawn, clientConnection);
         }
 
-        public void ProcessChunksToUnloadForClients()
-        {
-            Profiler.BeginSample("ProcessChunksToUnloadForClients - Part 1");
-            m_PossibleChunksToUnload.Clear();
-
-            foreach (var conn in m_PlayerChunkStates.Keys)
-            {
-                var state = m_PlayerChunkStates[conn];
-
-                lock (state.Lock)
-                {
-                    if (state.ChunksAwaitingUnload.Count <= 0) continue;
-                    var (chunkToUnload, item2) = state.ChunksAwaitingUnload[0];
-                    var now = FNEUtil.NanoTime();
-                    if ((now - item2) / 1000000000 < 5) continue;
-                    if (state.ChunksSentForLoadAwaitingConfirm.Contains(chunkToUnload))
-                        continue;
-
-                    if (chunkToUnload != null)
-                    {
-                        var hordeEntitiesToDestroy = new List<HordeEntityDestroyData>();
-
-                        foreach (var e in chunkToUnload.GetAllEnemies())
-                        {
-                            if (state.MovingEntitiesSynced.Contains(e.NetId))
-                                hordeEntitiesToDestroy.Add(new HordeEntityDestroyData
-                                {
-                                    NetId = e.NetId
-                                });
-                        }
-
-                        GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_STC(hordeEntitiesToDestroy, conn);
-                        GameServer.NetAPI.World_UnloadChunk_STC(chunkToUnload, conn);
-                    
-                        state.ChunksSentForUnloadAwaitingConfirm.Add(chunkToUnload);
-                        m_PossibleChunksToUnload.Add(chunkToUnload);
-                    }
-                
-                    if (state.ChunksAwaitingUnload.Count > 0)
-                        state.ChunksAwaitingUnload.RemoveAt(0);
-                }
-            }
-
-            Profiler.EndSample();
-
-            Profiler.BeginSample("ProcessChunksToUnloadForClients - Part 2");
-
-            var triggerUnloadChunkJob = false;
-
-            foreach (var chunk in m_PossibleChunksToUnload)
-            {
-                var canUnloadChunk = true;
-
-                foreach (var state in m_PlayerChunkStates.Values)
-                {
-                    if (state.ChunksSentForUnloadAwaitingConfirm.Contains(chunk)) continue;
-                    canUnloadChunk = false;
-                    break;
-                }
-
-                if (canUnloadChunk && chunk.IsActive)
-                {
-                    chunk.IsActive = false;
-
-                    m_UnloadChunkWorker.QueueChunkForUnload(new ChunkUnloadData
-                    {
-                        Path = GameServer.FilePaths.GetOrCreateChunkFilePath(chunk),
-                        Data = chunk.GetChunkData()
-                    });
-
-                    var entities = new List<FNEEntity>();
-
-                    foreach (var edgeObj in chunk.SouthEdgeObjects)
-                    {
-                        if (edgeObj == null) continue;
-                        entities.Add(edgeObj);
-                    }
-
-                    foreach (var edgeObj in chunk.WestEdgeObjects)
-                    {
-                        if (edgeObj == null) continue;
-                        entities.Add(edgeObj);
-                    }
-
-                    foreach (var tileObj in chunk.TileObjects)
-                    {
-                        if (tileObj == null) continue;
-                        entities.Add(tileObj);
-                    }
-
-                    foreach (var enemy in chunk.GetAllEnemies())
-                    {
-                        entities.Add(enemy);
-                    }
-
-                    GameServer.MainWorld.AddChunkToUnloadQueue(new UnloadChunkData
-                    {
-                        Chunk = chunk,
-                        Entities = entities
-                    });
-
-                    triggerUnloadChunkJob = true;
-                }
-            }
-
-            if (triggerUnloadChunkJob)
-            {
-                lock (m_UnloadChunkWorker.Lock)
-                {
-                    Monitor.Pulse(m_UnloadChunkWorker.Lock);
-                    m_UnloadChunkWorker.DoWork = true;
-                }
-            }
-
-            Profiler.EndSample();
-        }
-
-        public bool IsUnloadingChunks()
-        {
-            return m_UnloadChunkWorker.DoWork;
-        }
+        // public void ProcessChunksToUnloadForClients()
+        // {
+        //     Profiler.BeginSample("ProcessChunksToUnloadForClients - Part 1");
+        //     m_PossibleChunksToUnload.Clear();
+        //
+        //     foreach (var conn in m_PlayerChunkStates.Keys)
+        //     {
+        //         var state = m_PlayerChunkStates[conn];
+        //
+        //         lock (state.Lock)
+        //         {
+        //             if (state.ChunksAwaitingUnload.Count <= 0) continue;
+        //             var (chunkToUnload, item2) = state.ChunksAwaitingUnload[0];
+        //             var now = FNEUtil.NanoTime();
+        //             if ((now - item2) / 1000000000 < 5) continue;
+        //             if (state.ChunksSentForLoadAwaitingConfirm.Contains(chunkToUnload))
+        //                 continue;
+        //
+        //             if (chunkToUnload != null)
+        //             {
+        //                 var hordeEntitiesToDestroy = new List<HordeEntityDestroyData>();
+        //
+        //                 foreach (var e in chunkToUnload.GetAllEnemies())
+        //                 {
+        //                     if (state.MovingEntitiesSynced.Contains(e.NetId))
+        //                         hordeEntitiesToDestroy.Add(new HordeEntityDestroyData
+        //                         {
+        //                             NetId = e.NetId
+        //                         });
+        //                 }
+        //
+        //                 GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_STC(hordeEntitiesToDestroy, conn);
+        //                 GameServer.NetAPI.World_UnloadChunk_STC(chunkToUnload, conn);
+        //             
+        //                 state.ChunksSentForUnloadAwaitingConfirm.Add(chunkToUnload);
+        //                 m_PossibleChunksToUnload.Add(chunkToUnload);
+        //             }
+        //         
+        //             if (state.ChunksAwaitingUnload.Count > 0)
+        //                 state.ChunksAwaitingUnload.RemoveAt(0);
+        //         }
+        //     }
+        //
+        //     Profiler.EndSample();
+        //
+        //     Profiler.BeginSample("ProcessChunksToUnloadForClients - Part 2");
+        //
+        //     var triggerUnloadChunkJob = false;
+        //
+        //     foreach (var chunk in m_PossibleChunksToUnload)
+        //     {
+        //         var canUnloadChunk = true;
+        //
+        //         foreach (var state in m_PlayerChunkStates.Values)
+        //         {
+        //             if (state.ChunksSentForUnloadAwaitingConfirm.Contains(chunk)) continue;
+        //             canUnloadChunk = false;
+        //             break;
+        //         }
+        //
+        //         if (canUnloadChunk && chunk.IsActive)
+        //         {
+        //             chunk.IsActive = false;
+        //
+        //             m_UnloadChunkWorker.QueueChunkForUnload(new ChunkUnloadData
+        //             {
+        //                 Path = GameServer.FilePaths.GetOrCreateChunkFilePath(chunk),
+        //                 Data = chunk.GetChunkData()
+        //             });
+        //
+        //             var entities = new List<FNEEntity>();
+        //
+        //             foreach (var edgeObj in chunk.SouthEdgeObjects)
+        //             {
+        //                 if (edgeObj == null) continue;
+        //                 entities.Add(edgeObj);
+        //             }
+        //
+        //             foreach (var edgeObj in chunk.WestEdgeObjects)
+        //             {
+        //                 if (edgeObj == null) continue;
+        //                 entities.Add(edgeObj);
+        //             }
+        //
+        //             foreach (var tileObj in chunk.TileObjects)
+        //             {
+        //                 if (tileObj == null) continue;
+        //                 entities.Add(tileObj);
+        //             }
+        //
+        //             foreach (var enemy in chunk.GetAllEnemies())
+        //             {
+        //                 entities.Add(enemy);
+        //             }
+        //
+        //             GameServer.MainWorld.AddChunkToUnloadQueue(new UnloadChunkData
+        //             {
+        //                 Chunk = chunk,
+        //                 Entities = entities
+        //             });
+        //
+        //             triggerUnloadChunkJob = true;
+        //         }
+        //     }
+        //
+        //     if (triggerUnloadChunkJob)
+        //     {
+        //         lock (m_UnloadChunkWorker.Lock)
+        //         {
+        //             Monitor.Pulse(m_UnloadChunkWorker.Lock);
+        //             m_UnloadChunkWorker.DoWork = true;
+        //         }
+        //     }
+        //
+        //     Profiler.EndSample();
+        // }
+        //
+        // public bool IsUnloadingChunks()
+        // {
+        //     return m_UnloadChunkWorker.DoWork;
+        // }
 
         public void GetConnectionsWithChunkLoaded(ServerWorldChunk chunk, ref List<NetConnection> conns)
         {

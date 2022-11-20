@@ -16,8 +16,8 @@ namespace FNZ.Server.Model.World
 		public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
 		public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
 
-		public ServerWorldChunk(byte chunkX, byte chunkY, int size)
-			: base(chunkX, chunkY, size)
+		public ServerWorldChunk(int size, ServerWorld worldInstance)
+			: base(size, worldInstance)
 		{
 			
 		}
@@ -179,10 +179,8 @@ namespace FNZ.Server.Model.World
 				var tileObject = GameServer.EntityAPI.CreateEntityImmediate(entityId, new float2());
 				tileObject.FileDeserialize(nb);
 
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(tileObject.Position);
-				var chunkTileIndices = GameServer.MainWorld.GetChunkTileIndices(chunk, tileObject.Position);
-				var index = chunkTileIndices.x + chunkTileIndices.y * chunk.Size;
-				chunk.TileObjectBlockingList[index] = tileObject.Data.blocking;
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * Size] = tileObject.Data.blocking;
 
 				EntitiesToSync.Add(tileObject);
 

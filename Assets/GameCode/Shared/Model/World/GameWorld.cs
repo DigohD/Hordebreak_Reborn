@@ -17,7 +17,7 @@ namespace FNZ.Shared.Model.World
 		}
 
 		// The size of a chunk in tiles (64 means the chunk is 64x64 tiles large)
-		public byte CHUNK_SIZE;
+		//public byte CHUNK_SIZE;
 
 		// The total width in tiles for the terrain
 		public int WIDTH;

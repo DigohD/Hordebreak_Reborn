@@ -220,7 +220,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 		private bool TileHasHittableTileObject(int2 tile)
 		{
-			var go = GameServer.MainWorld.GetTileObject(tile);
+			var go = GameServer.MainWorld.GetTileObject(tile.x, tile.y);
 			if (go != null)
 			{
 				if (go.GetComponent<TileObjectComponentServer>().hittable)
