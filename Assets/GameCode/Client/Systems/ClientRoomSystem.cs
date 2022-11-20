@@ -45,7 +45,7 @@ namespace FNZ.Client.Systems
                 for (var i = m_RemoveQueue.Length - 1; i >= 0; i--)
                 {
                     var roomData = m_RemoveQueue[i];
-                    var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(roomData);
+                    var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
                     if (chunk == null) continue;
                     GameClient.World.RemoveTileRoom(roomData);
                     m_RemoveQueue.RemoveAt(i);
@@ -57,7 +57,7 @@ namespace FNZ.Client.Systems
                 for (var i = m_Queue.Length - 1; i >= 0; i--)
                 {
                     var roomData = m_Queue[i];
-                    var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(roomData.Position);
+                    var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
                     if (chunk == null) continue;
                     GameClient.World.AddTileRoom(roomData.Position, roomData.RoomId);
                     m_Queue.RemoveAt(i);

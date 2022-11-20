@@ -459,18 +459,9 @@ namespace FNZ.Client.View.Manager
 			string vfxId = effectData.vfxRef != string.Empty ? effectData.vfxRef : string.Empty;
 			string sfxId = effectData.sfxRef != string.Empty ? effectData.sfxRef : string.Empty;
 
-			var locationChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(position);
-			var playerChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(GameClient.LocalPlayerEntity.Position);
-
-			if (playerChunk == null || locationChunk == null)
-			{
-				Debug.LogWarning("Playerchunk or Locationchunk is null");
-				return;
-			}
+			var playerPos = GameClient.LocalPlayerEntity.Position;
 			
-			var adjacentChunks = GameClient.World.GetNeighbouringChunks(playerChunk);
-
-			if (locationChunk == playerChunk || adjacentChunks.Contains(locationChunk))
+			if (math.distance(playerPos, position) < 50)
 			{
 				if (vfxId != null)
 					SpawnVFX(vfxId, position, rotationDegrees, effectHeight);

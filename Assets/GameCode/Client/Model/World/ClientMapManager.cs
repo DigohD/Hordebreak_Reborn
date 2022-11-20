@@ -31,14 +31,13 @@ namespace FNZ.Client.Model.World
 		
 		private static Texture2D[,] s_WorldMapParts = new Texture2D[c_WorldMapPartSize, c_WorldMapPartSize];
 
-		public ClientMapManager(int widthInChunks, int heightInChunks) : base(widthInChunks, heightInChunks)
+		public ClientMapManager() : base(1, 1)
 		{
 			for (var y = 0; y < c_WorldMapPartSize; y++)
 			{
 				for (var x = 0; x < c_WorldMapPartSize; x++)
 				{
-					var dimension = (GameClient.World.WIDTH_IN_CHUNKS / c_WorldMapPartSize) *
-					                GameClient.World.CHUNK_SIZE;
+					var dimension = (GameClient.World.WIDTH / c_WorldMapPartSize);
 					
 					var mapPartImage = new Texture2D(dimension, dimension, TextureFormat.RGBA32, 1, false)
 					{

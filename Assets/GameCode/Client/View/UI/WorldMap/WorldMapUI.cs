@@ -243,7 +243,7 @@ namespace FNZ.Client.View.UI.WorldMap
 				    m_ZoomLevel = m_MaxZoomOut;
 		    }
 		    
-			m_MarkerTranspose = m_ZoomLevel / ((float)GameClient.World.WIDTH_IN_CHUNKS * 32.0f);
+			m_MarkerTranspose = m_ZoomLevel / ((float)GameClient.World.WIDTH);
 			T_Map.sizeDelta = new Vector2(m_ZoomLevel, m_ZoomLevel);
 			
 			if (didZoom)

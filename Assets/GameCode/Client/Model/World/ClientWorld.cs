@@ -16,10 +16,7 @@ namespace FNZ.Client.Model.World
 		{
 			base.InitializeWorld<T>();
 			
-			WorldMap = new ClientMapManager(
-				WIDTH_IN_CHUNKS,
-				HEIGHT_IN_CHUNKS
-			);
+			WorldMap = new ClientMapManager();
 		}
 	}
 }

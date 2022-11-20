@@ -61,7 +61,7 @@ namespace FNZ.Client.Utils
 
 			int overlapCount = 0;
 
-			byte size = chunkModel.Size;
+			int size = chunkModel.Size;
 
 			Dictionary<string, List<int>> submeshData = new Dictionary<string, List<int>>();
 
@@ -132,26 +132,18 @@ namespace FNZ.Client.Utils
 			ref int overlapCount
 		)
 		{
-			byte size = chunkModel.Size;
+			int size = chunkModel.Size;
+
+			TileData neighborData;
+			int tx;
+			int ty;
 
 			#region RIGHT NEIGHBOR
 
 			string neighborId = null;
 			int neighborIndex = -1;
-			if (x == 31)
-			{
-				int tileX = (chunkModel.ChunkX * size) + x + 1;
-				int tileY = (chunkModel.ChunkY * size) + y;
-
-				ushort tileID = GameClient.World.GetTileIdCode(tileX, tileY);
-
-				if (tileID == 0)
-					return;
-
-				neighborId = IdTranslator.Instance.GetId<TileData>(tileID);
-			}
-			else
-			{
+			if(x < size - 1)
+            {
 				try
 				{
 					neighborIndex = (x + 1) + y * size;
@@ -162,43 +154,43 @@ namespace FNZ.Client.Utils
 					Debug.LogError(e);
 					return;
 				}
-			}
 
-			TileData neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-			int tx = x + 1;
-			int ty = y;
-			if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
-			{
-				// VERTICES!
-				overlapVerts.Add(new Vector3(tx, y, 0));
-				overlapVerts.Add(new Vector3(tx, y + 0.5f, 0));
-				overlapVerts.Add(new Vector3(tx, y + 1, 0));
-				overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, y + (1 - OVERLAP_PADDING_PERCENT), 0));
-				overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, y + OVERLAP_PADDING_PERCENT, 0));
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+				tx = x + 1;
+				ty = y;
+				if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+				{
+					// VERTICES!
+					overlapVerts.Add(new Vector3(tx, y, 0));
+					overlapVerts.Add(new Vector3(tx, y + 0.5f, 0));
+					overlapVerts.Add(new Vector3(tx, y + 1, 0));
+					overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, y + (1 - OVERLAP_PADDING_PERCENT), 0));
+					overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, y + OVERLAP_PADDING_PERCENT, 0));
 
-				//TRIANGLES!
-				// Index of first vertex of overlap section
-				int FIRST = overlapCount * 5;
+					//TRIANGLES!
+					// Index of first vertex of overlap section
+					int FIRST = overlapCount * 5;
 
-				// Lower left triangle
-				overlapTris.Add(FIRST);
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 4);
+					// Lower left triangle
+					overlapTris.Add(FIRST);
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 4);
 
-				// upper left triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 2);
-				overlapTris.Add(FIRST + 3);
+					// upper left triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 2);
+					overlapTris.Add(FIRST + 3);
 
-				// middle triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 3);
-				overlapTris.Add(FIRST + 4);
+					// middle triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 3);
+					overlapTris.Add(FIRST + 4);
 
-				// UVs
-				CalculateOverlapUVRight(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
+					// UVs
+					CalculateOverlapUVRight(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
 
-				overlapCount++;
+					overlapCount++;
+				}
 			}
 
 			#endregion
@@ -207,22 +199,7 @@ namespace FNZ.Client.Utils
 
 			neighborId = null;
 			neighborIndex = -1;
-			if (y == 0)
-			{
-				if (chunkModel.ChunkY == 0)
-					return;
-
-				int tileX = (chunkModel.ChunkX * size) + x;
-				int tileY = (chunkModel.ChunkY * size) + y - 1;
-
-				ushort tileID = GameClient.World.GetTileIdCode(tileX, tileY);
-
-				if (tileID == 0)
-					return;
-
-				neighborId = IdTranslator.Instance.GetId<TileData>(tileID);
-			}
-			else
+			if(y > 0)
 			{
 				try
 				{
@@ -234,43 +211,43 @@ namespace FNZ.Client.Utils
 					Debug.LogError(e);
 					return;
 				}
-			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-			tx = x;
-			ty = y - 1;
-			if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
-			{
-				// VERTICES!
-				overlapVerts.Add(new Vector3(tx, ty + 1, 0));
-				overlapVerts.Add(new Vector3(tx + 0.5f, ty + 1, 0));
-				overlapVerts.Add(new Vector3(tx + 1, ty + 1, 0));
-				overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + (1 - OVERLAP_PADDING_PERCENT), 0));
-				overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, ty + (1 - OVERLAP_PADDING_PERCENT), 0));
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+				tx = x;
+				ty = y - 1;
+				if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+				{
+					// VERTICES!
+					overlapVerts.Add(new Vector3(tx, ty + 1, 0));
+					overlapVerts.Add(new Vector3(tx + 0.5f, ty + 1, 0));
+					overlapVerts.Add(new Vector3(tx + 1, ty + 1, 0));
+					overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + (1 - OVERLAP_PADDING_PERCENT), 0));
+					overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, ty + (1 - OVERLAP_PADDING_PERCENT), 0));
 
-				//TRIANGLES!
-				// Index of first vertex of overlap section
-				int FIRST = overlapCount * 5;
+					//TRIANGLES!
+					// Index of first vertex of overlap section
+					int FIRST = overlapCount * 5;
 
-				// Lower left triangle
-				overlapTris.Add(FIRST);
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 4);
+					// Lower left triangle
+					overlapTris.Add(FIRST);
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 4);
 
-				// upper left triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 2);
-				overlapTris.Add(FIRST + 3);
+					// upper left triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 2);
+					overlapTris.Add(FIRST + 3);
 
-				// middle triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 3);
-				overlapTris.Add(FIRST + 4);
+					// middle triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 3);
+					overlapTris.Add(FIRST + 4);
 
-				// UVs
-				CalculateOverlapUVDown(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
+					// UVs
+					CalculateOverlapUVDown(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
 
-				overlapCount++;
+					overlapCount++;
+				}
 			}
 
 			#endregion
@@ -279,22 +256,8 @@ namespace FNZ.Client.Utils
 
 			neighborId = null;
 			neighborIndex = -1;
-			if (x == 0)
-			{
-				if (chunkModel.ChunkX == 0)
-					return;
 
-				int tileX = (chunkModel.ChunkX * size) + x - 1;
-				int tileY = (chunkModel.ChunkY * size) + y;
-
-				ushort tileID = GameClient.World.GetTileIdCode(tileX, tileY);
-
-				if (tileID == 0)
-					return;
-
-				neighborId = IdTranslator.Instance.GetId<TileData>(tileID);
-			}
-			else
+			if(x > 0)
 			{
 				try
 				{
@@ -307,45 +270,47 @@ namespace FNZ.Client.Utils
 					//Debug.LogError("IN-CHUNK TILE INDEX FOR OVERLAP MESH IS OUT OF BOUNDS!");
 					return;
 				}
+
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+				tx = x - 1;
+				ty = y;
+				if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+				{
+					// VERTICES!
+					overlapVerts.Add(new Vector3(tx + 1, ty + 1, 0));
+					overlapVerts.Add(new Vector3(tx + 1, ty + 0.5f, 0));
+					overlapVerts.Add(new Vector3(tx + 1, ty, 0));
+					overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + OVERLAP_PADDING_PERCENT, 0));
+					overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + (1 - OVERLAP_PADDING_PERCENT), 0));
+
+					//TRIANGLES!
+					// Index of first vertex of overlap section
+					int FIRST = overlapCount * 5;
+
+					// Lower left triangle
+					overlapTris.Add(FIRST);
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 4);
+
+					// upper left triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 2);
+					overlapTris.Add(FIRST + 3);
+
+					// middle triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 3);
+					overlapTris.Add(FIRST + 4);
+
+					// UVs
+					CalculateOverlapUVLeft(ClientTileSheetPacker.GetAtlasIndex(tileData.Id),
+						overlapUVs);
+
+					overlapCount++;
+				}
 			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-			tx = x - 1;
-			ty = y;
-			if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
-			{
-				// VERTICES!
-				overlapVerts.Add(new Vector3(tx + 1, ty + 1, 0));
-				overlapVerts.Add(new Vector3(tx + 1, ty + 0.5f, 0));
-				overlapVerts.Add(new Vector3(tx + 1, ty, 0));
-				overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + OVERLAP_PADDING_PERCENT, 0));
-				overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + (1 - OVERLAP_PADDING_PERCENT), 0));
 
-				//TRIANGLES!
-				// Index of first vertex of overlap section
-				int FIRST = overlapCount * 5;
-
-				// Lower left triangle
-				overlapTris.Add(FIRST);
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 4);
-
-				// upper left triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 2);
-				overlapTris.Add(FIRST + 3);
-
-				// middle triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 3);
-				overlapTris.Add(FIRST + 4);
-
-				// UVs
-				CalculateOverlapUVLeft(ClientTileSheetPacker.GetAtlasIndex(tileData.Id),
-					overlapUVs);
-
-				overlapCount++;
-			}
 
 			#endregion
 
@@ -353,19 +318,8 @@ namespace FNZ.Client.Utils
 
 			neighborId = null;
 			neighborIndex = -1;
-			if (y == 31)
-			{
-				int tileX = (chunkModel.ChunkX * size) + x;
-				int tileY = (chunkModel.ChunkY * size) + y + 1;
 
-				ushort tileID = GameClient.World.GetTileIdCode(tileX, tileY);
-
-				if (tileID == 0)
-					return;
-
-				neighborId = IdTranslator.Instance.GetId<TileData>(tileID);
-			}
-			else
+			if(y < size - 1)
 			{
 				try
 				{
@@ -378,43 +332,43 @@ namespace FNZ.Client.Utils
 					//Debug.LogError("IN-CHUNK TILE INDEX FOR OVERLAP MESH IS OUT OF BOUNDS!");
 					return;
 				}
-			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-			tx = x;
-			ty = y + 1;
-			if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
-			{
-				// VERTICES!
-				overlapVerts.Add(new Vector3(tx + 1, ty, 0));
-				overlapVerts.Add(new Vector3(tx + 0.5f, ty, 0));
-				overlapVerts.Add(new Vector3(tx, ty, 0));
-				overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, ty + OVERLAP_PADDING_PERCENT, 0));
-				overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + OVERLAP_PADDING_PERCENT, 0));
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+				tx = x;
+				ty = y + 1;
+				if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+				{
+					// VERTICES!
+					overlapVerts.Add(new Vector3(tx + 1, ty, 0));
+					overlapVerts.Add(new Vector3(tx + 0.5f, ty, 0));
+					overlapVerts.Add(new Vector3(tx, ty, 0));
+					overlapVerts.Add(new Vector3(tx + OVERLAP_PADDING_PERCENT, ty + OVERLAP_PADDING_PERCENT, 0));
+					overlapVerts.Add(new Vector3(tx + (1 - OVERLAP_PADDING_PERCENT), ty + OVERLAP_PADDING_PERCENT, 0));
 
-				//TRIANGLES!
-				// Index of first vertex of overlap section
-				int FIRST = overlapCount * 5;
+					//TRIANGLES!
+					// Index of first vertex of overlap section
+					int FIRST = overlapCount * 5;
 
-				// Lower left triangle
-				overlapTris.Add(FIRST);
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 4);
+					// Lower left triangle
+					overlapTris.Add(FIRST);
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 4);
 
-				// upper left triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 2);
-				overlapTris.Add(FIRST + 3);
+					// upper left triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 2);
+					overlapTris.Add(FIRST + 3);
 
-				// middle triangle
-				overlapTris.Add(FIRST + 1);
-				overlapTris.Add(FIRST + 3);
-				overlapTris.Add(FIRST + 4);
+					// middle triangle
+					overlapTris.Add(FIRST + 1);
+					overlapTris.Add(FIRST + 3);
+					overlapTris.Add(FIRST + 4);
 
-				// UVs
-				CalculateOverlapUVUp(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
+					// UVs
+					CalculateOverlapUVUp(ClientTileSheetPacker.GetAtlasIndex(tileData.Id), overlapUVs);
 
-				overlapCount++;
+					overlapCount++;
+				}
 			}
 
 			#endregion
@@ -525,7 +479,7 @@ namespace FNZ.Client.Utils
 					var chunkOffsetX = chunkModel.ChunkX * size + x;
 					var chunkOffsetY = chunkModel.ChunkY * size + y;
 
-					if (x < 31)
+					if (x < size)
 					{
 						var rightNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex + 1]);;
 						if (rightNeighborId != td.Id)
@@ -539,25 +493,6 @@ namespace FNZ.Client.Utils
 							renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
 						}
 					}
-					else
-					{
-						var rightChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(new float2(chunkModel.ChunkX * size + size, y));
-						if (rightChunk != null)
-						{
-							var tileId = IdTranslator.Instance.GetId<TileData>(rightChunk.TileIdCodes[y * size]);
-							if (tileId != td.Id)
-							{
-								var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
-									new Vector3(chunkOffsetX + 1, 0, chunkOffsetY + 0.5f),
-									Quaternion.Euler(0, 90, 0),
-									edgePrefab.transform.localScale);
-							
-								renderMeshEntitySpawnData.IsSubView = false;
-								renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-							}
-						}
-					}
-
 
 					if (x > 0)
 					{
@@ -573,26 +508,8 @@ namespace FNZ.Client.Utils
 							renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
 						}
 					}
-					else
-					{
-						var leftChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(new float2(chunkModel.ChunkX * size - 1, y));
-						if (leftChunk != null)
-						{
-							var tileId = IdTranslator.Instance.GetId<TileData>(leftChunk.TileIdCodes[31 + y * size]);
-							if (tileId != td.Id)
-							{
-								var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
-									new Vector3(chunkOffsetX, 0, chunkOffsetY + 0.5f),
-									Quaternion.Euler(0, 270, 0),
-									edgePrefab.transform.localScale);
-							
-								renderMeshEntitySpawnData.IsSubView = false;
-								renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-							}
-						}
-					}
 
-					if (y < 31)
+					if (y < size)
 					{
 						var upNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex + size]); ;
 						if (upNeighborId != td.Id)
@@ -604,24 +521,6 @@ namespace FNZ.Client.Utils
 							
 							renderMeshEntitySpawnData.IsSubView = false;
 							renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-						}
-					}
-					else
-					{
-						var upChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(new float2(x, chunkModel.ChunkY * size + size));
-						if (upChunk != null)
-						{
-							var tileId = IdTranslator.Instance.GetId<TileData>(upChunk.TileIdCodes[x]);
-							if (tileId != td.Id)
-							{
-								var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
-									new Vector3(chunkOffsetX + 0.5f, 0, chunkOffsetY + 1.0f),
-									Quaternion.Euler(0, 0, 0),
-									edgePrefab.transform.localScale);
-							
-								renderMeshEntitySpawnData.IsSubView = false;
-								renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-							}
 						}
 					}
 
@@ -637,24 +536,6 @@ namespace FNZ.Client.Utils
 							
 							renderMeshEntitySpawnData.IsSubView = false;
 							renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-						}
-					}
-					else
-					{
-						var downChunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(new float2(x, chunkModel.ChunkY * size - 1));
-						if (downChunk != null)
-						{
-							var tileId = IdTranslator.Instance.GetId<TileData>(downChunk.TileIdCodes[x + 31 * size]);
-							if (tileId != td.Id)
-							{
-								var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
-									new Vector3(chunkOffsetX + 0.5f, 0, chunkOffsetY),
-									Quaternion.Euler(0, 270, 0),
-									edgePrefab.transform.localScale);
-							
-								renderMeshEntitySpawnData.IsSubView = false;
-								renderMeshSpawnerSystem.AddEntitySpawnData(ref renderMeshEntitySpawnData);
-							}
 						}
 					}
 

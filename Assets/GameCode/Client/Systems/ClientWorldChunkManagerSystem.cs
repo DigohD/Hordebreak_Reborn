@@ -115,23 +115,6 @@ namespace FNZ.Client.Systems
 
             chunk.view = chunkView;
 
-            Profiler.BeginSample("BuildOverlapMeshes");
-           
-            var view2 = GameClient.World.GetWorldChunk<ClientWorldChunk>(chunkX + 1, chunkY)?.view;
-            if (view2 != null)
-                view2.BuildOverlapMesh();
-
-            var view3 = GameClient.World.GetWorldChunk<ClientWorldChunk>(chunkX, chunkY + 1)?.view;
-            if (view3 != null)
-                view3.BuildOverlapMesh();
-
-            if (chunkX != 0)
-                GameClient.World.GetWorldChunk<ClientWorldChunk>(chunkX - 1, chunkY)?.view.BuildOverlapMesh();
-            if (chunkY != 0)
-                GameClient.World.GetWorldChunk<ClientWorldChunk>(chunkX + 1, chunkY - 1)?.view.BuildOverlapMesh();
-            
-            Profiler.EndSample();
-
             chunk.EntitiesToSync.Clear();
 
             GameClient.NetAPI.CMD_World_ConfirmChunkLoaded(chunk);

@@ -126,7 +126,7 @@ namespace FNZ.Client.View.World
 		{
 			Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
 			Vector2[] uvs = new Vector2[mesh.vertices.Length];
-			byte size = m_ChunkModel.Size;
+			int size = m_ChunkModel.Size;
 
 			for (int y = 0; y < size; y++)
 			{
@@ -169,7 +169,7 @@ namespace FNZ.Client.View.World
 		{
 			Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
 
-			byte size = m_ChunkModel.Size;
+			int size = m_ChunkModel.Size;
 
 			Dictionary<string, List<int>> submeshData = new Dictionary<string, List<int>>();
 			List<int> waterSubmesh = null;

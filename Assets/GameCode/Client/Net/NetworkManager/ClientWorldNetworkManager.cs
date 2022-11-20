@@ -47,8 +47,6 @@ namespace FNZ.Client.Net.NetworkManager
 			GameClient.NetConnector.Register(NetMessageType.ROOM_MANAGER, OnRoomManagerMessageReceived);
 			GameClient.NetConnector.Register(NetMessageType.ENVIRONMENT, OnEnvironmentMessageReceived);
 			GameClient.NetConnector.Register(NetMessageType.CHUNK_MAP_UPDATE, OnChunkMapUpdateReceived);
-			GameClient.NetConnector.Register(NetMessageType.SITE_MAP_UPDATE, OnSiteMapUpdateReceived);
-
 
 			//DEV ONLY!!!
 			GameClient.NetConnector.Register(NetMessageType.DEVONLY_FLOWFIELD_DEVONLY, OnFlowFieldMessageReceived);
@@ -129,10 +127,10 @@ namespace FNZ.Client.Net.NetworkManager
 			// 	entitiesToDestroy.Dispose();
 			// }
 
-			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(chunkX, chunkY);
+			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
 			chunk.ClearChunk();
-			GameClient.World.SetChunk<ClientWorldChunk>(chunkX, chunkY, null);
-			GameClient.WorldView.RemoveChunkView(chunkX, chunkY);
+			GameClient.World.SetChunk<ClientWorldChunk>(null);
+			GameClient.WorldView.RemoveChunkView();
 			GameClient.NetAPI.CMD_World_ConfirmChunkUnloaded(chunk);
 		}
 

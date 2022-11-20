@@ -29,7 +29,7 @@ namespace FNZ.Client.View.Player.Atmosphere
 				randomX = randomX > m_Player.Position.x ? randomX + 15 : randomX - 15;
 				randomY = randomY > m_Player.Position.y ? randomY + 15 : randomY - 15;
 
-				if (GameClient.World.GetWorldChunk<ClientWorldChunk>(new Unity.Mathematics.float2(randomX, randomY)) == null)
+				if (GameClient.World.GetWorldChunk<ClientWorldChunk>() == null)
 					return;
 
 				var atmosphereRef = GameClient.World.GetTileData(randomX, randomY).atmosphereRef;
