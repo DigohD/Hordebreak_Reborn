@@ -244,7 +244,7 @@ namespace FNZ.Client.Net.NetworkManager
 				tileIdCodes[i] = incMsg.ReadUInt16();
 			}
 
-			GameClient.World.WorldMap.HandleRevealedChunk(chunkX, chunkY, tileIdCodes);
+			//GameClient.World.WorldMap.HandleRevealedChunk(chunkX, chunkY, tileIdCodes);
 		}
 	}
 }

@@ -46,11 +46,8 @@ namespace FNZ.Server.Model.MetaWorld
 
 				if (data.Difficulty > (maxRange / 10) + 1)
 					continue;
-
-				if (data.height < 32 && data.width < 32)
-				{
-					possibleSites.Add(data);
-				}
+				
+				possibleSites.Add(data);
 			}
 
 			var site = possibleSites[FNERandom.GetRandomIntInRange(0, possibleSites.Count)];
