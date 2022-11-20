@@ -28,8 +28,8 @@ namespace FNZ.Client.Model.World
 
         public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
 
-        public ClientWorldChunk(byte chunkX, byte chunkY, byte size)
-            : base(chunkX, chunkY, size)
+        public ClientWorldChunk(int width, int height)
+            : base(width, height, GameClient.World)
         {
             m_HordeSpawnerSystem = GameClient.ECS_ClientWorld.GetExistingSystem<HordeSpawnerSystem>();
         }

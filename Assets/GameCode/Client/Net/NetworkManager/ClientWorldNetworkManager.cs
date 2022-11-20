@@ -64,7 +64,6 @@ namespace FNZ.Client.Net.NetworkManager
 
 			GameClient.World.WIDTH = incMsg.ReadInt32();
 			GameClient.World.HEIGHT = incMsg.ReadInt32();
-			GameClient.World.CHUNK_SIZE = incMsg.ReadByte();
 
 			GameClient.World.InitializeWorld<ClientWorldChunk>();
 
@@ -141,9 +140,10 @@ namespace FNZ.Client.Net.NetworkManager
 			string id = IdTranslator.Instance.GetId<TileData>(incMsg.ReadUInt16());
 
 			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
+			var width = GameClient.World.WIDTH;
 
-			var CHUNKI_SIZE = GameClient.World.CHUNK_SIZE;
-			int index = ((int)tileX - chunk.ChunkX * CHUNKI_SIZE) + (tileY - chunk.ChunkY * CHUNKI_SIZE) * CHUNKI_SIZE;
+
+			int index = GameClient.World.GetFlatArrayIndexFromPos(tileX, tileY);
 			chunk.TileIdCodes[index] = IdTranslator.Instance.GetIdCode<TileData>(id);
 			chunk.BlockingTiles[index] = DataBank.Instance.GetData<TileData>(id).isBlocking;
 			chunk.DelegateInvokeRerender();
@@ -235,9 +235,9 @@ namespace FNZ.Client.Net.NetworkManager
 			var chunkX = incMsg.ReadByte();
 			var chunkY = incMsg.ReadByte();
 
-			var chunkSize = GameClient.World.CHUNK_SIZE;
+			var size = GameClient.World.WIDTH * GameClient.World.HEIGHT;
 
-			ushort[] tileIdCodes = new ushort[chunkSize * chunkSize];
+			ushort[] tileIdCodes = new ushort[size];
 			
 			for (int i = 0; i < tileIdCodes.Length; i++)
 			{

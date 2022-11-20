@@ -91,37 +91,38 @@ namespace FNZ.Shared.Model.World
 
 		public ChunkCellData[,] ChunkCells;
 
-		public WorldChunk(int size, GameWorld worldInstance)
+		public WorldChunk(int width, int height, GameWorld worldInstance)
 		{
 			m_WorldInstance = worldInstance;
 			ChunkX = 0;
 			ChunkY = 0;
-			Size = size;
 
-			TileIdCodes = new ushort[size * size];
+			var size = width * height;
 
-			BlockingTiles = new bool[size * size];
+			TileIdCodes = new ushort[size];
 
-			TileCosts = new byte[size * size];
-			TileDangerLevels = new byte[size * size];
+			BlockingTiles = new bool[size];
 
-			TileObjectBlockingList = new bool[size * size];
-			TileSeeThroughList = new bool[size * size];
+			TileCosts = new byte[size];
+			TileDangerLevels = new byte[size];
 
-			TilePositionsX = new int[size * size];
-			TilePositionsY = new int[size * size];
+			TileObjectBlockingList = new bool[size];
+			TileSeeThroughList = new bool[size];
 
-			TileTemperatures = new float[size * size];
-			TileRooms = new long[size * size];
+			TilePositionsX = new int[size];
+			TilePositionsY = new int[size];
 
-			SouthEdgeObjects = new FNEEntity[size * size];
-			WestEdgeObjects = new FNEEntity[size * size];
+			TileTemperatures = new float[size];
+			TileRooms = new long[size];
 
-			TileObjects = new FNEEntity[size * size];
+			SouthEdgeObjects = new FNEEntity[size];
+			WestEdgeObjects = new FNEEntity[size];
+
+			TileObjects = new FNEEntity[size];
 
 			FloatPointObjects = new List<FNETransform>();
 
-			ChunkCells = new ChunkCellData[size, size];
+			ChunkCells = new ChunkCellData[width, height];
 
 			for (var y = 0; y < Size; y++)
 			{

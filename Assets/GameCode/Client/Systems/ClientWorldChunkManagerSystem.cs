@@ -100,7 +100,7 @@ namespace FNZ.Client.Systems
 
             Profiler.BeginSample("Instantiate ChunkView");
             var chunkViewGO = Object.Instantiate((GameObject)Resources.Load("Prefab/Chunk/Chunk"));
-            chunkViewGO.transform.position = new Vector3(chunkX * GameClient.World.CHUNK_SIZE, 0f, chunkY * GameClient.World.CHUNK_SIZE);
+            chunkViewGO.transform.position = new Vector3(0, 0f, 0);
             chunkViewGO.transform.rotation = Quaternion.Euler(270, 90, 90);
 
             chunkViewGO.name = "world_chunk-" + chunkX + "-" + chunkY;

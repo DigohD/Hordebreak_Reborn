@@ -96,7 +96,7 @@ namespace FNZ.Client.Systems
 
 			var world = GameClient.World;
 
-			var chunk = new ClientWorldChunk(chunkX, chunkY, world.CHUNK_SIZE);
+			var chunk = new ClientWorldChunk(world.WIDTH, world.HEIGHT);
 			world.SetChunk(chunk);
 
 			chunk.NetDeserialize(netBuffer);
