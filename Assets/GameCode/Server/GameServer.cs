@@ -31,7 +31,7 @@ namespace FNZ.Server
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
-		public static WorldChunkManager ChunkManager;
+		//public static WorldChunkManager ChunkManager;
 		public static WorldGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
 		public static ServerMetaWorld MetaWorld;

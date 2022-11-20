@@ -20,7 +20,7 @@ namespace FNZ.Server.Net.Messages
 			m_NetServer = netServer;
 		}
 
-		public NetMessage CreateWorldSetupMessage(int widthInTiles, int heightInTiles, byte chunkSize)
+		public NetMessage CreateWorldSetupMessage(int widthInTiles, int heightInTiles)
 		{
 			var sendBuffer = m_NetServer.CreateMessage();
 
@@ -30,7 +30,6 @@ namespace FNZ.Server.Net.Messages
 
 			sendBuffer.Write(widthInTiles);
 			sendBuffer.Write(heightInTiles);
-			sendBuffer.Write(chunkSize);
 
 			return new NetMessage
 			{

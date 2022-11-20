@@ -23,7 +23,7 @@ namespace FNZ.Server.Net.NetworkManager
 
 		private static void OnClientConfirmSpawnHordeEntityBatch(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
-			var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
+			//var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
 			
 			var count = incMsg.ReadUInt16();
 
@@ -40,21 +40,21 @@ namespace FNZ.Server.Net.NetworkManager
 					entity.Agent.active = true;
 				}
 				
-				state.MovingEntitiesSynced.Add(netId);
+				//state.MovingEntitiesSynced.Add(netId);
 			}
 		}
 		
 		private static void OnClientConfirmDestroyHordeEntityBatch(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
-			var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
+			//var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
 			
-			var count = incMsg.ReadUInt16();
-
-			for (var i = 0; i < count; i++)
-			{
-				var netId = incMsg.ReadInt32();
-				state.MovingEntitiesSynced.Remove(netId);
-			}
+			// var count = incMsg.ReadUInt16();
+			//
+			// for (var i = 0; i < count; i++)
+			// {
+			// 	var netId = incMsg.ReadInt32();
+			// 	//state.MovingEntitiesSynced.Remove(netId);
+			// }
 		}
 
 		private void OnPlayerHealthUpdate(ServerNetworkConnector net, NetIncomingMessage incMsg)

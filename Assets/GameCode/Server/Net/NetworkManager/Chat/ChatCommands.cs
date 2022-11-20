@@ -175,33 +175,33 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 						if (playerStringParts[1] == "off") SpawnerComponentServer.runSpawn = false;
 						break;
 					case ChatCommandConstants.COMMAND_OPEN_GATE:
-						var chunks = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection).CurrentlyLoadedChunks;
-						foreach (var chunk in chunks)
-						{
-							foreach (var eo in chunk.SouthEdgeObjects)
-							{
-								if(eo == null)
-									continue;
-								
-								if (eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_l") ||
-								    eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_r"))
-								{
-									eo.GetComponent<DoorComponentServer>().OpenDoor();
-								}
-							}
-							
-							foreach (var eo in chunk.WestEdgeObjects)
-							{
-								if(eo == null)
-									continue;
-								
-								if (eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_l") ||
-								    eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_r"))
-								{
-									eo.GetComponent<DoorComponentServer>().OpenDoor();
-								}
-							}
-						}
+						// var chunks = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection).CurrentlyLoadedChunks;
+						// foreach (var chunk in chunks)
+						// {
+						// 	foreach (var eo in chunk.SouthEdgeObjects)
+						// 	{
+						// 		if(eo == null)
+						// 			continue;
+						// 		
+						// 		if (eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_l") ||
+						// 		    eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_r"))
+						// 		{
+						// 			eo.GetComponent<DoorComponentServer>().OpenDoor();
+						// 		}
+						// 	}
+						// 	
+						// 	foreach (var eo in chunk.WestEdgeObjects)
+						// 	{
+						// 		if(eo == null)
+						// 			continue;
+						// 		
+						// 		if (eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_l") ||
+						// 		    eo.EntityId.Equals("eo_city_miscwalls_laser_fence_gate_r"))
+						// 		{
+						// 			eo.GetComponent<DoorComponentServer>().OpenDoor();
+						// 		}
+						// 	}
+						// }
 						break;
 					default:
 						errorCommand = Localization.GetString("wrong_emote_or_command_error_message");

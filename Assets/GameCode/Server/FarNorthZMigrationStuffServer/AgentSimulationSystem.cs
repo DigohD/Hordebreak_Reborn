@@ -209,7 +209,6 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				diff = (end1 - start1) / 1000000.0;
 				//Debug.Log("UpdateAgentPositions execution time in ms: " + diff);
 
-				ProcessEntitiesLoadAndUnload();
 			}
 		}
 
@@ -515,21 +514,18 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 						{
 							m_PlayerEntitiesMap.Add(player, new List<HordeEntityUpdateNetData>());
 						}
-
-						var playerState = GameServer.ChunkManager.GetPlayerChunkState(playerConnection);
-						if (playerState.MovingEntitiesSynced.Contains(agent.entity.NetId) && playerState.CurrentlyLoadedChunks.Contains(chunk))
+						
+						if (agent.position.x >= 0 && agent.position.y >= 0)
 						{
-							if (agent.position.x >= 0 && agent.position.y >= 0)
+							var agentData = new HordeEntityUpdateNetData
 							{
-								var agentData = new HordeEntityUpdateNetData
-								{
-									NetId = agent.entity.NetId,
-									Position = agent.entity.Position
-								};
+								NetId = agent.entity.NetId,
+								Position = agent.entity.Position
+							};
 
-								m_PlayerEntitiesMap[player].Add(agentData);
-							}
+							m_PlayerEntitiesMap[player].Add(agentData);
 						}
+						
 					}
 
 					agent.lastUpdatedPos = agent.position;
@@ -596,36 +592,36 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			}
 		}
 
-		private void ProcessEntitiesLoadAndUnload()
-		{
-			var entitiesToLoad = new List<HordeEntitySpawnData>();
-			var entitiesToUnLoad = new List<HordeEntityDestroyData>();
-
-			foreach (var conn in GameServer.ChunkManager.GetAllPlayersChunkStates().Keys)
-			{
-				entitiesToLoad.Clear();
-				entitiesToUnLoad.Clear();
-				var state = GameServer.ChunkManager.GetPlayerChunkState(conn);
-
-				if (state.EntitiesToLoad.Count > 0)
-				{
-					entitiesToLoad = state.EntitiesToLoad;
-					state.EntitiesToLoad.Clear();
-				}
-
-				if (state.EntitiesToUnload.Count > 0)
-				{
-					entitiesToUnLoad = state.EntitiesToUnload;
-					state.EntitiesToUnload.Clear();
-				}
-
-				if (entitiesToLoad.Count > 0)
-					GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(entitiesToLoad);
-
-				if (entitiesToUnLoad.Count > 0)
-					GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_BAR(entitiesToUnLoad);
-			}
-		}
+		// private void ProcessEntitiesLoadAndUnload()
+		// {
+		// 	var entitiesToLoad = new List<HordeEntitySpawnData>();
+		// 	var entitiesToUnLoad = new List<HordeEntityDestroyData>();
+		//
+		// 	foreach (var conn in GameServer.ChunkManager.GetAllPlayersChunkStates().Keys)
+		// 	{
+		// 		entitiesToLoad.Clear();
+		// 		entitiesToUnLoad.Clear();
+		// 		var state = GameServer.ChunkManager.GetPlayerChunkState(conn);
+		//
+		// 		if (state.EntitiesToLoad.Count > 0)
+		// 		{
+		// 			entitiesToLoad = state.EntitiesToLoad;
+		// 			state.EntitiesToLoad.Clear();
+		// 		}
+		//
+		// 		if (state.EntitiesToUnload.Count > 0)
+		// 		{
+		// 			entitiesToUnLoad = state.EntitiesToUnload;
+		// 			state.EntitiesToUnload.Clear();
+		// 		}
+		//
+		// 		if (entitiesToLoad.Count > 0)
+		// 			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(entitiesToLoad);
+		//
+		// 		if (entitiesToUnLoad.Count > 0)
+		// 			GameServer.NetAPI.Entity_DestroyHordeEntity_Batched_BAR(entitiesToUnLoad);
+		// 	}
+		// }
 
 		private void SendEnemies(NetConnection conn, List<HordeEntityUpdateNetData> entities)
 		{

@@ -18,11 +18,11 @@ namespace FNZ.Client.Net.API
 			Command(message);
 		}
 
-		public void CMD_World_ConfirmChunkUnloaded(WorldChunk chunk)
-		{
-			var message = m_WorldMessageFactory.CreateConfirmChunkUnloadedMessage(chunk);
-			Command(message);
-		}
+		// public void CMD_World_ConfirmChunkUnloaded(WorldChunk chunk)
+		// {
+		// 	var message = m_WorldMessageFactory.CreateConfirmChunkUnloadedMessage(chunk);
+		// 	Command(message);
+		// }
 
 		public void CMD_World_BaseRoomNameChange(bool isbase, long id, string newName)
 		{

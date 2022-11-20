@@ -47,22 +47,22 @@ namespace FNZ.Client.Net.Messages
 			};
 		}
 
-		public NetMessage CreateConfirmChunkUnloadedMessage(WorldChunk chunk)
-		{
-			var sendBuffer = m_NetClient.CreateMessage(3);
-
-			sendBuffer.Write((byte)NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED);
-			sendBuffer.Write(chunk.ChunkX);
-			sendBuffer.Write(chunk.ChunkY);
-
-			return new NetMessage
-			{
-				Buffer = sendBuffer,
-				Type = NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED,
-				DeliveryMethod = NetDeliveryMethod.ReliableOrdered,
-				Channel = SequenceChannel.WORLD_STATE,
-			};
-		}
+		// public NetMessage CreateConfirmChunkUnloadedMessage(WorldChunk chunk)
+		// {
+		// 	var sendBuffer = m_NetClient.CreateMessage(3);
+		//
+		// 	sendBuffer.Write((byte)NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED);
+		// 	sendBuffer.Write(chunk.ChunkX);
+		// 	sendBuffer.Write(chunk.ChunkY);
+		//
+		// 	return new NetMessage
+		// 	{
+		// 		Buffer = sendBuffer,
+		// 		Type = NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED,
+		// 		DeliveryMethod = NetDeliveryMethod.ReliableOrdered,
+		// 		Channel = SequenceChannel.WORLD_STATE,
+		// 	};
+		// }
 
 		public NetMessage CreateBaseRoomNameChangeMessage(bool isBase, long id, string newName)
 		{

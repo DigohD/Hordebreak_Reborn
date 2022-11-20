@@ -130,7 +130,7 @@ namespace FNZ.Client.Net.NetworkManager
 			chunk.ClearChunk();
 			GameClient.World.SetChunk<ClientWorldChunk>(null);
 			GameClient.WorldView.RemoveChunkView();
-			GameClient.NetAPI.CMD_World_ConfirmChunkUnloaded(chunk);
+			//GameClient.NetAPI.CMD_World_ConfirmChunkUnloaded(chunk);
 		}
 
 		private void OnChangeTileMessageReceived(ClientNetworkConnector net, NetIncomingMessage incMsg)

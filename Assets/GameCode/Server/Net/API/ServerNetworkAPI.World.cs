@@ -22,10 +22,9 @@ namespace FNZ.Server.Net.API
 		/// <param name="heightInTiles">Total world height in tiles</param>
 		/// <param name="chunkSize">Chunk size in tiles. E.g: chunkSize = 32 means one chunk is 32x32 tiles</param>
 		/// <param name="clientConnection">The connection to the client</param>
-		public void World_WorldSetup_STC(int widthInTiles, int heightInTiles, byte chunkSize, NetConnection clientConnection)
+		public void World_WorldSetup_STC(int widthInTiles, int heightInTiles, NetConnection clientConnection)
 		{
-			GameServer.ChunkManager.AddClientToChunkStreamingSystem(clientConnection, new PlayerChunkState());
-			var message = m_WorldMessageFactory.CreateWorldSetupMessage(widthInTiles, heightInTiles, chunkSize);
+			var message = m_WorldMessageFactory.CreateWorldSetupMessage(widthInTiles, heightInTiles);
 			SendToClient(message, clientConnection);
 		}
 

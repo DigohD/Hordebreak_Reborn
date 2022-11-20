@@ -100,7 +100,6 @@ namespace FNZ.Server.Controller.Systems
 			GameServer.NetAPI.World_WorldSetup_STC(
 				GameServer.MainWorld.WIDTH,
 				GameServer.MainWorld.HEIGHT,
-				GameServer.MainWorld.CHUNK_SIZE,
 				clientConnection
 			);
 

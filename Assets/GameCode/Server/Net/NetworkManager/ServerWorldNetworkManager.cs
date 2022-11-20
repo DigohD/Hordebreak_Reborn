@@ -24,7 +24,7 @@ namespace FNZ.Server.Net.NetworkManager
 		{
 			GameServer.NetConnector.Register(NetMessageType.REQUEST_WORLD_SPAWN, OnRequestWorldSpawnPacketRecieved);
 			GameServer.NetConnector.Register(NetMessageType.CLIENT_CONFIRM_CHUNK_LOADED, OnClientConfirmChunkLoaded);
-			GameServer.NetConnector.Register(NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED, OnClientConfirmChunkUnloaded);
+			//GameServer.NetConnector.Register(NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED, OnClientConfirmChunkUnloaded);
 			GameServer.NetConnector.Register(NetMessageType.BASE_ROOM_NAME_CHANGE, OnBaseRoomNameChange);
 			GameServer.NetConnector.Register(NetMessageType.SERVER_PING_CHECK, OnServerPingResponse);
 		}
@@ -90,9 +90,13 @@ namespace FNZ.Server.Net.NetworkManager
 			GameServer.NetAPI.Player_SpawnRemote_BO(newPlayer, clientConnection);
 			GameServer.NetAPI.Effect_SpawnEffect_BOR(EffectIdConstants.TELEPORT, newPlayer.Position, 0, clientConnection);
 			
-			GameServer.ChunkManager.OnPlayerEnteringNewChunk(newPlayer);
+			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			var netBuffer = new NetBuffer();
+			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
+			chunk.NetSerialize(netBuffer);
+			GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, clientConnection);
 
-			playerComp.LastChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(newPlayer.Position);
+			playerComp.LastChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 
 			GameServer.NetAPI.World_Environment_STC(clientConnection);
 
@@ -112,12 +116,12 @@ namespace FNZ.Server.Net.NetworkManager
 
 			// Update new player's world map
 			var chunkPaths = GameServer.FilePaths.GetAllChunkPaths();
-			var nb = new NetBuffer();
+			
 			foreach (var chunkPath in chunkPaths)
 			{
-				var chunkReader = new ServerWorldChunk((byte)chunkPath.Item1.x, (byte)chunkPath.Item1.y, 32);
+				var chunkReader = new ServerWorldChunk(GameServer.MainWorld.WIDTH, GameServer.MainWorld);
 				
-				nb = new NetBuffer
+				var nb = new NetBuffer
 				{
 					Data = FileUtils.ReadFile(chunkPath.Item2)
 				};
@@ -147,38 +151,37 @@ namespace FNZ.Server.Net.NetworkManager
 			byte chunkX = incMsg.ReadByte();
 			byte chunkY = incMsg.ReadByte();
 
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 			if (chunk == null)
 			{
 				return;
 			}
 			
-			var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
-
-			if (state == null)
-			{
-				Debug.LogError($"No player chunk state connected to: {incMsg.SenderConnection.ToString()}");
-				return;
-			}
-
-			lock (state.Lock)
-			{
-				state.ChunksSentForLoadAwaitingConfirm.Remove(chunk);
-				state.CurrentlyLoadedChunks.Add(chunk);
-			}
+			// var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
+			//
+			// if (state == null)
+			// {
+			// 	Debug.LogError($"No player chunk state connected to: {incMsg.SenderConnection.ToString()}");
+			// 	return;
+			// }
+			//
+			// lock (state.Lock)
+			// {
+			// 	state.ChunksSentForLoadAwaitingConfirm.Remove(chunk);
+			// 	state.CurrentlyLoadedChunks.Add(chunk);
+			// }
 			
 			var hordeEntitiesToSpawn = new List<HordeEntitySpawnData>();
 			
 			foreach (var e in chunk.GetAllEnemies())
 			{
-				if (!state.MovingEntitiesSynced.Contains(e.NetId))
-					hordeEntitiesToSpawn.Add(new HordeEntitySpawnData
-					{
-						Position = e.Position,
-						Rotation = e.RotationDegrees,
-						NetId = e.NetId,
-						EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(e.EntityId)
-					});
+				hordeEntitiesToSpawn.Add(new HordeEntitySpawnData
+				{
+					Position = e.Position,
+					Rotation = e.RotationDegrees,
+					NetId = e.NetId,
+					EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(e.EntityId)
+				});
 			}
 			
 			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_STC(hordeEntitiesToSpawn, incMsg.SenderConnection);
@@ -186,30 +189,30 @@ namespace FNZ.Server.Net.NetworkManager
 			Profiler.EndSample();
 		}
 
-		private void OnClientConfirmChunkUnloaded(ServerNetworkConnector net, NetIncomingMessage incMsg)
-		{
-			Profiler.BeginSample("OnClientConfirmChunkUnloaded");
-
-			byte chunkX = incMsg.ReadByte();
-			byte chunkY = incMsg.ReadByte();
-
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
-			var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
-
-			if (state == null)
-			{
-				Debug.LogError($"No player chunk state connected to: {incMsg.SenderConnection.ToString()}");
-				return;
-			}
-
-			lock (state.Lock)
-			{
-				state.ChunksSentForUnloadAwaitingConfirm.Remove(chunk);
-				state.CurrentlyLoadedChunks.Remove(chunk);
-			}
-			
-			Profiler.EndSample();
-		}
+		// private void OnClientConfirmChunkUnloaded(ServerNetworkConnector net, NetIncomingMessage incMsg)
+		// {
+		// 	Profiler.BeginSample("OnClientConfirmChunkUnloaded");
+		//
+		// 	byte chunkX = incMsg.ReadByte();
+		// 	byte chunkY = incMsg.ReadByte();
+		//
+		// 	var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+		// 	var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
+		//
+		// 	if (state == null)
+		// 	{
+		// 		Debug.LogError($"No player chunk state connected to: {incMsg.SenderConnection.ToString()}");
+		// 		return;
+		// 	}
+		//
+		// 	lock (state.Lock)
+		// 	{
+		// 		state.ChunksSentForUnloadAwaitingConfirm.Remove(chunk);
+		// 		state.CurrentlyLoadedChunks.Remove(chunk);
+		// 	}
+		// 	
+		// 	Profiler.EndSample();
+		// }
 
 		private void OnBaseRoomNameChange(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
