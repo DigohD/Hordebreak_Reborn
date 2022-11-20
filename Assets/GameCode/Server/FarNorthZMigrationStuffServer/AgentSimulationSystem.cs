@@ -223,7 +223,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		{
 			foreach (var agent in Agents)
 			{
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>();
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null) continue;
 				if (!chunk.IsActive|| !chunk.IsInitialized)
 				{
@@ -285,13 +285,13 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			int2 currentTile = new int2((int)agent.position.x, (int)agent.position.y);
 
-			var neighbors = GameServer.World.GetTileStraightNeighbors(currentTile.x, currentTile.y);
+			var neighbors = GameServer.MainWorld.GetTileStraightNeighbors(currentTile.x, currentTile.y);
 			var players = new List<FNEEntity>();
 			neighbors.Add(currentTile);
 
 			foreach (var tile in neighbors)
 			{
-				var playersOnTile = GameServer.World.GetTilePlayers(tile);
+				var playersOnTile = GameServer.MainWorld.GetTilePlayers(tile);
 				if (playersOnTile != null)
 				{
 					foreach (var player in playersOnTile)
@@ -463,17 +463,13 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		private void UpdateAgentPositions()
 		{
 			m_PlayerEntitiesMap.Clear();
-			var players = GameServer.World.GetAllPlayers();
+			var players = GameServer.MainWorld.GetAllPlayers();
 
 			foreach (var agent in Agents)
 			{
 				if (!agent.active || !agent.entity.Enabled) continue;
-				var chunkIndices = GameServer.World.GetChunkIndices(agent.position);
 
-				byte chunkX = (byte)chunkIndices.x;
-				byte chunkY = (byte)chunkIndices.y;
-
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null) continue;
 				if (!chunk.IsActive || !chunk.IsInitialized) continue;
 
@@ -547,41 +543,41 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 				if (agent.currentTile.x != newPositionTile.x || agent.currentTile.y != newPositionTile.y)
 				{
-					var oldChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.currentTile);
-					var newChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(newPositionTile);
-
-					if (newChunk != oldChunk)
-					{
-						foreach (var state in GameServer.ChunkManager.GetAllPlayersChunkStates().Values)
-						{
-							bool oldChunkLoadedState = state.IsChunkInLoadedState(oldChunk);
-
-							if (oldChunkLoadedState != state.IsChunkInLoadedState(newChunk))
-							{
-								if (oldChunkLoadedState)
-								{
-									state.EntitiesToUnload.Add(new HordeEntityDestroyData
-									{
-										NetId = agent.entity.NetId,
-										Position = agent.entity.Position
-									});
-								}
-								else
-								{
-									state.EntitiesToLoad.Add(new HordeEntitySpawnData 
-									{
-										NetId = agent.entity.NetId,
-										EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(agent.entity.EntityId),
-										Position = agent.entity.Position,
-										Rotation = agent.entity.RotationDegrees
-									});
-								}
-							}
-						}
-					}
+					// var oldChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(agent.currentTile);
+					// var newChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(newPositionTile);
+					//
+					// if (newChunk != oldChunk)
+					// {
+					// 	foreach (var state in GameServer.ChunkManager.GetAllPlayersChunkStates().Values)
+					// 	{
+					// 		bool oldChunkLoadedState = state.IsChunkInLoadedState(oldChunk);
+					//
+					// 		if (oldChunkLoadedState != state.IsChunkInLoadedState(newChunk))
+					// 		{
+					// 			if (oldChunkLoadedState)
+					// 			{
+					// 				state.EntitiesToUnload.Add(new HordeEntityDestroyData
+					// 				{
+					// 					NetId = agent.entity.NetId,
+					// 					Position = agent.entity.Position
+					// 				});
+					// 			}
+					// 			else
+					// 			{
+					// 				state.EntitiesToLoad.Add(new HordeEntitySpawnData 
+					// 				{
+					// 					NetId = agent.entity.NetId,
+					// 					EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(agent.entity.EntityId),
+					// 					Position = agent.entity.Position,
+					// 					Rotation = agent.entity.RotationDegrees
+					// 				});
+					// 			}
+					// 		}
+					// 	}
+					// }
 					
-					GameServer.World.RemoveEnemyFromTile(agent.currentTile, agent.entity);
-					GameServer.World.AddEnemyToTile(newPositionTile, agent.entity);
+					GameServer.MainWorld.RemoveEnemyFromTile(agent.currentTile, agent.entity);
+					GameServer.MainWorld.AddEnemyToTile(newPositionTile, agent.entity);
 				}
 
 				agent.currentTile = newPositionTile;

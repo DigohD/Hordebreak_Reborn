@@ -344,7 +344,7 @@ namespace FNZ.Server.Model.Entity.Components.EquipmentSystem
 			{
 				if (!string.IsNullOrEmpty(consumableComp.Data.buildingRef))
 				{
-					var existingTileObject = GameServer.World.GetTileObject((int)targetPosition.x, (int)targetPosition.y);
+					var existingTileObject = GameServer.MainWorld.GetTileObject((int)targetPosition.x, (int)targetPosition.y);
 					if (existingTileObject != null && existingTileObject.Data.blocksBuilding)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -374,7 +374,7 @@ namespace FNZ.Server.Model.Entity.Components.EquipmentSystem
 							GameServer.RoomManager.CreateNewBase((int2) newEntity.Position);
 						}
 						
-						var tileId = GameServer.World.GetTileRoom(new float2(targetPosition));
+						var tileId = GameServer.MainWorld.GetTileRoom(new float2(targetPosition));
 						var room = (ServerRoom)GameServer.RoomManager.GetRoom(tileId);
 
 						if (room != null)

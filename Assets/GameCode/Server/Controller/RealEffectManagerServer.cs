@@ -146,7 +146,7 @@ namespace FNZ.Server.Controller
 			// Check if the lifetime of the projectile has expired
 			if (
 				proj.Lifetime > proj.Data.lifetime ||
-				GameServer.World.IsAnySurroundingTileInRadiusNull(
+				GameServer.MainWorld.IsAnySurroundingTileInRadiusNull(
 					new int2((int)proj.Position.x, (int)proj.Position.y),
 					RELEVANT_CHUNK_DESTRUCTION_PADDING
 				)
@@ -163,7 +163,7 @@ namespace FNZ.Server.Controller
 			var envHit = FNECollisionUtils.ProjectileRayCastForWallsAndTileObjectsInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.World
+				GameServer.MainWorld
 			);
 
 			float dist = envHit.IsHit ? Vector2.Distance(proj.Position - velocity, envHit.HitEntity.Position) : float.MaxValue;
@@ -205,7 +205,7 @@ namespace FNZ.Server.Controller
 			var hitStruct = FNECollisionUtils.RayCastForPlayersInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.World,
+				GameServer.MainWorld,
 				playerEntity != null ? playerEntity.NetId : -1
 			);
 
@@ -241,7 +241,7 @@ namespace FNZ.Server.Controller
 			var hitStruct = FNECollisionUtils.RayCastForEnemiesInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.World
+				GameServer.MainWorld
 			);
 
 			float dist = hitStruct.IsHit ? Vector2.Distance(proj.Position - velocity, hitStruct.HitEntity.Position) : float.MaxValue;
@@ -423,9 +423,9 @@ namespace FNZ.Server.Controller
 
 			if (explosion.targetsEnemies)
 			{
-				foreach (var tile in GameServer.World.GetSurroundingTilesInRadius((int2)position, (int)explosion.maxRadius + 1))
+				foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius((int2)position, (int)explosion.maxRadius + 1))
 				{
-					var enemies = GameServer.World.GetTileEnemies(tile).ToArray();
+					var enemies = GameServer.MainWorld.GetTileEnemies(tile).ToArray();
 
 					if (enemies == null)
 						continue;

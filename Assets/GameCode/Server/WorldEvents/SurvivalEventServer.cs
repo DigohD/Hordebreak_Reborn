@@ -61,14 +61,14 @@ namespace FNZ.Server.WorldEvents
                 var gridSizeX = m_Data.SpawnRadius * 2;
                 var gridSizeY = m_Data.SpawnRadius * 2;
             
-                if (startX + gridSizeX > GameServer.World.WIDTH) gridSizeX = GameServer.World.WIDTH - startX;
-                if (startY + gridSizeY > GameServer.World.HEIGHT) gridSizeY = GameServer.World.HEIGHT - startY;
+                if (startX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - startX;
+                if (startY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - startY;
 
                 for (var y = startY; y < gridSizeY + startY; y++)
                 {
                     for (var x = startX; x < gridSizeX + startX; x++)
                     {
-                        var tileObject = GameServer.World.GetTileObject(x, y);
+                        var tileObject = GameServer.MainWorld.GetTileObject(x, y);
 
                         if (tileObject == null) continue;
                         if (tileObject.HasComponent<SpawnPointComponentServer>())
@@ -157,7 +157,7 @@ namespace FNZ.Server.WorldEvents
 
         private bool ArePlayersWithinBoundary()
         {
-            var players = GameServer.World.GetAllPlayers();
+            var players = GameServer.MainWorld.GetAllPlayers();
             var eventSuccess = false;
             
             foreach (var player in players)

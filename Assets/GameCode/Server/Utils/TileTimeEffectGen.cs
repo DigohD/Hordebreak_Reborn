@@ -16,7 +16,7 @@ namespace FNZ.Server.Utils
 			var randomTileX = FNERandom.GetRandomIntInRange(-40, 40);
 			var randomTileY = FNERandom.GetRandomIntInRange(-40, 40);
 			var tilePos = new int2((int)playerPos.x + randomTileX, (int)playerPos.y + randomTileY);
-			var tileDataDef = GameServer.World.GetTileId(tilePos.x, tilePos.y);
+			var tileDataDef = GameServer.MainWorld.GetTileId(tilePos.x, tilePos.y);
 
 			if (tileDataDef == string.Empty)
 				return;
@@ -40,7 +40,7 @@ namespace FNZ.Server.Utils
 			}
 
 			var randomWeight = FNERandom.GetRandomIntInRange(1, totalWeight + 1);
-			var gameHour = GameServer.World.Environment.Hour;
+			var gameHour = GameServer.MainWorld.Environment.Hour;
 
 			foreach (var tile in timeTileEffects)
 			{

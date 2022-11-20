@@ -96,29 +96,29 @@ namespace FNZ.Server.Services
 			{
 				if (isChunkUnload && entity.EntityType == EntityType.ECS_ENEMY)
 				{
-					GameServer.World.RemoveTickableImmediate(entity);
+					GameServer.MainWorld.RemoveTickableImmediate(entity);
 				}
 				else
 				{
-					GameServer.World.RemoveTickableEntity(entity);
+					GameServer.MainWorld.RemoveTickableEntity(entity);
 				}
 			}
 			
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					GameServer.World.RemoveTileObject(entity);
+					GameServer.MainWorld.RemoveTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					GameServer.World.RemoveEdgeObject(entity);
+					GameServer.MainWorld.RemoveEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
-					GameServer.World.RemoveEnemyFromTile(entity);
+					GameServer.MainWorld.RemoveEnemyFromTile(entity);
 					break;
 				case EntityType.GO_ENEMY:
-					GameServer.World.RemoveEnemyFromTile(entity);
+					GameServer.MainWorld.RemoveEnemyFromTile(entity);
 					break;
 			}
 			
@@ -155,11 +155,11 @@ namespace FNZ.Server.Services
 			{
 				if (addTickablesImmediate)
                 {
-					GameServer.World.AddTickableEntityImmediate(entity);
+					GameServer.MainWorld.AddTickableEntityImmediate(entity);
                 }
                 else
                 {
-					GameServer.World.AddTickableEntity(entity);
+					GameServer.MainWorld.AddTickableEntity(entity);
 				}
 				
 			}
@@ -167,16 +167,16 @@ namespace FNZ.Server.Services
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					GameServer.World.AddTileObject(entity);
+					GameServer.MainWorld.AddTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					GameServer.World.AddEdgeObject(entity);
+					GameServer.MainWorld.AddEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
 				case EntityType.GO_ENEMY:
-					GameServer.World.AddEnemyToTile(entity);
+					GameServer.MainWorld.AddEnemyToTile(entity);
 					break;
 			}
 		}
@@ -254,8 +254,8 @@ namespace FNZ.Server.Services
                 var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
                 var spawnPosition = new float2(spawnPoint.x + finalOffset.x, spawnPoint.y + finalOffset.y);
-                var isTileBlocking = GameServer.World.IsTileBlocking((int) spawnPosition.x, (int) spawnPosition.y);
-                if (isTileBlocking != null && isTileBlocking.Value || GameServer.World.GetTileObject((int) spawnPosition.x, (int) spawnPosition.y) != null)
+                var isTileBlocking = GameServer.MainWorld.IsTileBlocking((int) spawnPosition.x, (int) spawnPosition.y);
+                if (isTileBlocking != null && isTileBlocking.Value || GameServer.MainWorld.GetTileObject((int) spawnPosition.x, (int) spawnPosition.y) != null)
                 {
 	                continue;
                 }

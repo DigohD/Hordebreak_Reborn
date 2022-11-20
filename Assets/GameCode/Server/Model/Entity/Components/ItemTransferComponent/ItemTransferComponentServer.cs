@@ -39,10 +39,10 @@ namespace FNZ.Server.Model.Entity.Components.ItemTransferComponent
 
 		private void CheckNeighbours()
 		{
-			m_Neighbours[0] = GameServer.World.GetTileObject((int)ParentEntity.Position.x - 1, (int)ParentEntity.Position.y);
-			m_Neighbours[1] = GameServer.World.GetTileObject((int)ParentEntity.Position.x + 1, (int)ParentEntity.Position.y);
-			m_Neighbours[2] = GameServer.World.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y - 1);
-			m_Neighbours[3] = GameServer.World.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y + 1);
+			m_Neighbours[0] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x - 1, (int)ParentEntity.Position.y);
+			m_Neighbours[1] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x + 1, (int)ParentEntity.Position.y);
+			m_Neighbours[2] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y - 1);
+			m_Neighbours[3] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y + 1);
 
 			//assign neighbours
 			for (int i = 0; i < m_Neighbours.Length; i++)

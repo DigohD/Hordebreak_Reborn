@@ -128,7 +128,7 @@ namespace FNZ.Server.Net.NetworkManager
                 senderConnection
             );
 
-            GameServer.World.RealEffectManager.SpawnProjectileClientAuthority(
+            GameServer.MainWorld.RealEffectManager.SpawnProjectileClientAuthority(
                 effectData,
                 (ProjectileEffectData) effectData.RealEffectData,
                 position,

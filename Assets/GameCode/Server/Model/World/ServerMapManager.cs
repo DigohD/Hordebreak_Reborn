@@ -34,10 +34,10 @@ namespace FNZ.Server.Model.World
 			var cX = chunk.ChunkX;
 			var cY = chunk.ChunkY;
 
-			var siteMap = GameServer.World.GetSiteMetaData();
+			var siteMap = GameServer.MainWorld.GetSiteMetaData();
 			
-			var width = GameServer.World.WIDTH_IN_CHUNKS;
-			var height = GameServer.World.HEIGHT_IN_CHUNKS;
+			var width = GameServer.MainWorld.WIDTH_IN_CHUNKS;
+			var height = GameServer.MainWorld.HEIGHT_IN_CHUNKS;
 			
 			var anyChanges = false;
 			
@@ -62,8 +62,8 @@ namespace FNZ.Server.Model.World
 						{
 							var siteMetaData = siteMap[x + y * width];
 
-							var siteCX = siteMetaData.centerWorldX / GameServer.World.CHUNK_SIZE;
-							var siteCY = siteMetaData.centerWorldY / GameServer.World.CHUNK_SIZE;
+							var siteCX = siteMetaData.centerWorldX / GameServer.MainWorld.CHUNK_SIZE;
+							var siteCY = siteMetaData.centerWorldY / GameServer.MainWorld.CHUNK_SIZE;
 							
 							var siteHash = siteCX + siteCY * width;
 							var siteData = DataBank.Instance.GetData<SiteData>(siteMetaData.siteId);
@@ -112,13 +112,13 @@ namespace FNZ.Server.Model.World
 		{
 			bool anyRevealed = false;
 			
-			var siteMetaData = GameServer.World.GetSiteMetaData();
+			var siteMetaData = GameServer.MainWorld.GetSiteMetaData();
 			var playerConns = GameServer.NetConnector.GetConnectedClientConnections();
 			foreach (var conn in playerConns)
 			{
 				var entity = GameServer.NetConnector.GetPlayerFromConnection(conn);
-				var playerChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(entity.Position);
-				var siteHash = playerChunk.ChunkX + playerChunk.ChunkY * GameServer.World.WIDTH_IN_CHUNKS;
+				var playerChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(entity.Position);
+				var siteHash = playerChunk.ChunkX + playerChunk.ChunkY * GameServer.MainWorld.WIDTH_IN_CHUNKS;
 				var playerComp = entity.GetComponent<PlayerComponentServer>();
 				WorldBlueprintGen.SiteMetaData currentSite = default; 
 				if (siteMetaData.ContainsKey(siteHash))
@@ -128,9 +128,9 @@ namespace FNZ.Server.Model.World
 					{
 						currentSite = chunkSite;
 
-						var siteCenterChunkX = chunkSite.centerWorldX / GameServer.World.CHUNK_SIZE;
-						var siteCenterChunkY = chunkSite.centerWorldY / GameServer.World.CHUNK_SIZE;
-						var siteCenterHash = siteCenterChunkX + siteCenterChunkY * GameServer.World.WIDTH_IN_CHUNKS;
+						var siteCenterChunkX = chunkSite.centerWorldX / GameServer.MainWorld.CHUNK_SIZE;
+						var siteCenterChunkY = chunkSite.centerWorldY / GameServer.MainWorld.CHUNK_SIZE;
+						var siteCenterHash = siteCenterChunkX + siteCenterChunkY * GameServer.MainWorld.WIDTH_IN_CHUNKS;
 						if (m_RevealedSites.ContainsKey(siteCenterHash))
 						{
 							var siteToReveal = m_RevealedSites[siteCenterHash];

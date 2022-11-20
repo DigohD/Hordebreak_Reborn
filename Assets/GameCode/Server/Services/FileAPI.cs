@@ -54,7 +54,7 @@ namespace FNZ.Server.Services
             {
 				var metaData = new SiteMetaData();
 				metaData.Deserialize(netBuffer);
-				siteMetaData[metaData.chunkX + metaData.chunkY * GameServer.World.WIDTH_IN_CHUNKS] = metaData;
+				siteMetaData[metaData.chunkX + metaData.chunkY * GameServer.MainWorld.WIDTH_IN_CHUNKS] = metaData;
 			}
 
 			return siteMetaData;

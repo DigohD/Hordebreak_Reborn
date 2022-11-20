@@ -59,9 +59,10 @@ namespace FNZ.Shared.Model.World
 
 	public abstract class WorldChunk
 	{
+		public bool IsMainWorld { get; set; }
 		public byte ChunkX { get; set; }
 		public byte ChunkY { get; set; }
-		public byte Size { get; set; }
+		public int Size { get; set; }
 
 		public bool IsInitialized = false;
 
@@ -89,7 +90,7 @@ namespace FNZ.Shared.Model.World
 
 		public ChunkCellData[,] ChunkCells;
 
-		public WorldChunk(byte chunkX, byte chunkY, byte size)
+		public WorldChunk(byte chunkX, byte chunkY, int size)
 		{
 			ChunkX = chunkX;
 			ChunkY = chunkY;

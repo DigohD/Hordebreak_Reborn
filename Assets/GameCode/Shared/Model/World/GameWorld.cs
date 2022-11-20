@@ -23,9 +23,8 @@ namespace FNZ.Shared.Model.World
 		public int WIDTH;
 		// The total height in tiles for the terrain
 		public int HEIGHT;
-
+		
 		protected WorldChunk m_Chunk;
-		//protected WorldChunk m_Chunk;
 
 		public virtual void InitializeWorld<T>() where T : WorldChunk {}
 
@@ -231,7 +230,7 @@ namespace FNZ.Shared.Model.World
 
 		public bool GetTileBlocking(int2 tile)
 		{
-			return m_Chunk.TileObjectBlockingList[GetFlatArrayIndexFromPos(tile-XDiffGui, tile-y)];
+			return m_Chunk.TileObjectBlockingList[GetFlatArrayIndexFromPos(tile.x, tile.y)];
 		}
 
 		public List<FNEEntity> GetTileEnemies(int2 tilePos)

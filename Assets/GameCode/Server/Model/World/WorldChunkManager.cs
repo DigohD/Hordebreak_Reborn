@@ -214,7 +214,7 @@ namespace FNZ.Server.Model.World
                         entities.Add(enemy);
                     }
 
-                    GameServer.World.AddChunkToUnloadQueue(new UnloadChunkData
+                    GameServer.MainWorld.AddChunkToUnloadQueue(new UnloadChunkData
                     {
                         Chunk = chunk,
                         Entities = entities

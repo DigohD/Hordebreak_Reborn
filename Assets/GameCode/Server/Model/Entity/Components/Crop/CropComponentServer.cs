@@ -36,7 +36,7 @@ namespace FNZ.Server.Model.Entity.Components
 				return;
 			}
 			
-			var room = GameServer.RoomManager.GetRoom(GameServer.World.GetTileRoom(ParentEntity.Position));
+			var room = GameServer.RoomManager.GetRoom(GameServer.MainWorld.GetTileRoom(ParentEntity.Position));
 
 			if(Data.environmentSpans.Count == 0)
             {

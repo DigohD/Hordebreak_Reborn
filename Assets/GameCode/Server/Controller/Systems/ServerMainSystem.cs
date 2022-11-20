@@ -107,7 +107,7 @@ namespace FNZ.Server.Controller.Systems
 
 		void SpawnHordeEntitiesInGrid(string id, int gridSizeX, int gridSizeY)
 		{
-			var playerPos = GameServer.World.GetAllPlayers()[0].Position;
+			var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
 
 			var px = playerPos.x;
 			var py = playerPos.y;
@@ -126,7 +126,7 @@ namespace FNZ.Server.Controller.Systems
 						entityId = "default_zombie";
 
 					var spawnPosition = new float2(px + x, py + y);
-					if (GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
+					if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPosition) == null)
 						continue;
 
 					var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
@@ -151,7 +151,7 @@ namespace FNZ.Server.Controller.Systems
 		
 		void SpawnHordeEntitiesInRadius(string id, int minRadius, int maxRadius)
 		{
-			var playerPos = GameServer.World.GetAllPlayers()[0].Position;
+			var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
 
 			var px = playerPos.x;
 			var py = playerPos.y;
@@ -169,7 +169,7 @@ namespace FNZ.Server.Controller.Systems
 				var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
 				var spawnPosition = new float2(px + finalOffset.x, py + finalOffset.y);
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(spawnPosition);
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(spawnPosition);
 				if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
 					continue;
 
@@ -179,7 +179,7 @@ namespace FNZ.Server.Controller.Systems
 				entitiesToSpawn.Add(modelEntity);
 			}
 			
-			GameServer.World.AddEntityToSpawnQueue(new SpawnEntityBatchData
+			GameServer.MainWorld.AddEntityToSpawnQueue(new SpawnEntityBatchData
 			{
 				Entities = entitiesToSpawn
 			});

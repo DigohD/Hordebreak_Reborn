@@ -87,7 +87,7 @@ namespace FNZ.Server.Controller
 		
 		private void OnPlayerEnteringNewChunk(PlayerChunkState state, float2 playerPos, int radius)
 		{
-			var world = GameServer.World;
+			var world = GameServer.MainWorld;
 
 			var newChunk = world.GetWorldChunk<ServerWorldChunk>(playerPos);
 
@@ -113,7 +113,7 @@ namespace FNZ.Server.Controller
 
 						var nChunk = world.GetWorldChunk<ServerWorldChunk>(cx, cy) ?? LoadWorldChunk(cx, cy);
 
-						GameServer.World.WorldMap.VisitChunk(nChunk);
+						GameServer.MainWorld.WorldMap.VisitChunk(nChunk);
 						
 						if (!state.CurrentlyLoadedChunks.Contains(nChunk) &&
 						    !state.ChunksSentForLoadAwaitingConfirm.Contains(nChunk) &&
@@ -171,8 +171,8 @@ namespace FNZ.Server.Controller
 
 		private ServerWorldChunk LoadWorldChunk(byte chunkX, byte chunkY)
 		{
-			var chunk = new ServerWorldChunk(chunkX, chunkY, GameServer.World.CHUNK_SIZE);
-			GameServer.World.AddWorldChunk(chunk);
+			var chunk = new ServerWorldChunk(chunkX, chunkY, GameServer.MainWorld.CHUNK_SIZE);
+			GameServer.MainWorld.AddWorldChunk(chunk);
 
 			var chunkFilePath = GameServer.FilePaths.GetChunkFilePath(chunkX, chunkY);
 
@@ -185,7 +185,7 @@ namespace FNZ.Server.Controller
 				GameServer.WorldGen.GenerateChunk(chunk);
 			}
 
-			GameServer.World.SyncEntities(new SyncEntitiesData
+			GameServer.MainWorld.SyncEntities(new SyncEntitiesData
 			{
 				Chunk = chunk,
 				Entities = chunk.EntitiesToSync,

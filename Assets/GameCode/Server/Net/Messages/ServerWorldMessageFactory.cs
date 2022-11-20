@@ -118,7 +118,7 @@ namespace FNZ.Server.Net.Messages
 
 			sendBuffer.Write((byte)NetMessageType.ENVIRONMENT);
 
-			GameServer.World.Environment.Serialize(sendBuffer);
+			GameServer.MainWorld.Environment.Serialize(sendBuffer);
 
 			return new NetMessage
 			{

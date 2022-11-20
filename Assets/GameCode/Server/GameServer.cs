@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using FNZ.Server.FarNorthZMigrationStuff;
 using FNZ.Server.Model;
 using FNZ.Server.Model.Entity.Components.Name;
@@ -25,7 +27,8 @@ namespace FNZ.Server
 		public static volatile bool APPLICATION_RUNNING = true;
 
 		public static World ECS_ServerWorld;
-		public static ServerWorld World;
+		public static ServerWorld MainWorld;
+		public static Dictionary<Guid, ServerWorld> WorldInstances = new Dictionary<Guid, ServerWorld>();
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
@@ -73,12 +76,14 @@ namespace FNZ.Server
 
 			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
 
-			World = WorldGen.GenerateWorld(
+			MainWorld = WorldGen.GenerateWorld(
 				seedX,
-				seedY
+				seedY,
+				512,
+				true
 			);
 
-			World.LoadSiteMetaData();
+			MainWorld.LoadSiteMetaData();
 
 			//ChunkManager = new WorldChunkManager();
 
@@ -114,7 +119,7 @@ namespace FNZ.Server
 		public void OnApplicationQuit()
 		{
 			Debug.Log("Server shutdown. Saving chunks...");
-			foreach (var chunk in World.GetCurrentlyLoadedChunks())
+			foreach (var chunk in MainWorld.GetCurrentlyLoadedChunks())
 			{
 				var path = FilePaths.GetOrCreateChunkFilePath(chunk);
 				var data = chunk.GetChunkData();
@@ -124,7 +129,7 @@ namespace FNZ.Server
 			Debug.Log("Server shutdown. Chunks saved successfully!");
 			
 			Debug.Log("Server shutdown. Saving players...");
-			foreach (var player in World.GetAllPlayers())
+			foreach (var player in MainWorld.GetAllPlayers())
 			{
 				var entity = NetConnector.GetPlayerFromConnection(NetConnector.GetConnectionFromPlayer(player));
 				var leavingPlayerName = entity.GetComponent<NameComponentServer>().entityName;

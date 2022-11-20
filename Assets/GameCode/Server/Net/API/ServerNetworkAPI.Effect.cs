@@ -21,9 +21,9 @@ namespace FNZ.Server.Net.API
 
 			if (effectData.alertsEnemies)
 			{
-				foreach (var tile in GameServer.World.GetSurroundingTilesInRadius((int2)location, effectData.enemyAlertDistance))
+				foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius((int2)location, effectData.enemyAlertDistance))
 				{
-					var enemies = GameServer.World.GetTileEnemies(tile);
+					var enemies = GameServer.MainWorld.GetTileEnemies(tile);
 					if (enemies == null || enemies.Count == 0) continue;
 
 					foreach (var enemy in enemies)
@@ -40,7 +40,7 @@ namespace FNZ.Server.Net.API
 			if (sfxData != null)
 				soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-			var locationChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(location);
+			var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
 			var chunkManager = GameServer.ChunkManager;
 
 			foreach (var player in connectedPlayers)
@@ -80,7 +80,7 @@ namespace FNZ.Server.Net.API
 			if (sfxData != null)
 				soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-			var locationChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(location);
+			var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
 			var chunkManager = GameServer.ChunkManager;
 
 			foreach (var player in connectedPlayers)
@@ -122,7 +122,7 @@ namespace FNZ.Server.Net.API
             if (sfxData != null)
                 soundDistance = sfxData.distance != 0 ? sfxData.distance : DefaultValues.DEFAULT_AUDIOSOURCE_MAXDISTANCE;
 
-            var locationChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(location);
+            var locationChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(location);
             var chunkManager = GameServer.ChunkManager;
 
             foreach (var player in connectedPlayers)

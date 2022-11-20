@@ -220,7 +220,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 		private bool TileHasHittableTileObject(int2 tile)
 		{
-			var go = GameServer.World.GetTileObject(tile);
+			var go = GameServer.MainWorld.GetTileObject(tile);
 			if (go != null)
 			{
 				if (go.GetComponent<TileObjectComponentServer>().hittable)
@@ -232,7 +232,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 		private bool TileHasHittableTileObject(int tileX, int tileY)
 		{
-			var go = GameServer.World.GetTileObject(tileX, tileY);
+			var go = GameServer.MainWorld.GetTileObject(tileX, tileY);
 			if (go != null)
 			{
 				if (go.GetComponent<TileObjectComponentServer>().hittable)
@@ -246,15 +246,15 @@ namespace FNZ.Server.Model.Entity.Components.AI
 		{
 			if (Mathf.Abs(m_FleeVector.x) >= Mathf.Abs(m_FleeVector.y))
 			{
-				if (m_FleeVector.x < 0 && GameServer.World.IsTileEastEdgeOccupied(tile))
+				if (m_FleeVector.x < 0 && GameServer.MainWorld.IsTileEastEdgeOccupied(tile))
 				{
-					var eastWall = GameServer.World.GetEdgeObject(tile.x + 1, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+					var eastWall = GameServer.MainWorld.GetEdgeObject(tile.x + 1, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 					if (eastWall.GetComponent<EdgeObjectComponentServer>().IsHittable)
 						return true;
 				}
-				else if (m_FleeVector.x > 0 && GameServer.World.IsTileWestEdgeOccupied(tile))
+				else if (m_FleeVector.x > 0 && GameServer.MainWorld.IsTileWestEdgeOccupied(tile))
 				{
-					var westWall = GameServer.World.GetEdgeObject(tile.x, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+					var westWall = GameServer.MainWorld.GetEdgeObject(tile.x, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 					if (westWall.GetComponent<EdgeObjectComponentServer>().IsHittable)
 						return true;
 				}
@@ -262,15 +262,15 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 			if (Mathf.Abs(m_FleeVector.y) >= Mathf.Abs(m_FleeVector.x))
 			{
-				if (m_FleeVector.y < 0 && GameServer.World.IsTileNorthEdgeOccupied(tile))
+				if (m_FleeVector.y < 0 && GameServer.MainWorld.IsTileNorthEdgeOccupied(tile))
 				{
-					var northWall = GameServer.World.GetEdgeObject(tile.x, tile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+					var northWall = GameServer.MainWorld.GetEdgeObject(tile.x, tile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 					if (northWall.GetComponent<EdgeObjectComponentServer>().IsHittable)
 						return true;
 				}
-				else if (m_FleeVector.y > 0 && GameServer.World.IsTileSouthEdgeOccupied(tile))
+				else if (m_FleeVector.y > 0 && GameServer.MainWorld.IsTileSouthEdgeOccupied(tile))
 				{
-					var southWall = GameServer.World.GetEdgeObject(tile.x, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+					var southWall = GameServer.MainWorld.GetEdgeObject(tile.x, tile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 					if (southWall.GetComponent<EdgeObjectComponentServer>().IsHittable)
 						return true;
 				}

@@ -103,11 +103,11 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				successfullyBuilt = FNEService.Tile.TryNetChangeTile(recipe.productRef, new float2(data.x, data.y));
 				if (successfullyBuilt)
 				{
-					bool traverseNorth = !GameServer.World.IsTileNorthEdgeOccupied(new int2((int)data.x, (int)data.y));
-					bool traverseEast = !GameServer.World.IsTileEastEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseNorth = !GameServer.MainWorld.IsTileNorthEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseEast = !GameServer.MainWorld.IsTileEastEdgeOccupied(new int2((int)data.x, (int)data.y));
 
-					bool traverseSouth = !GameServer.World.IsTileSouthEdgeOccupied(new int2((int)data.x, (int)data.y));
-					bool traverseWest = !GameServer.World.IsTileWestEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseSouth = !GameServer.MainWorld.IsTileSouthEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseWest = !GameServer.MainWorld.IsTileWestEdgeOccupied(new int2((int)data.x, (int)data.y));
 
 					if (traverseNorth)
 					{
@@ -135,7 +135,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				var objectType = DataBank.Instance.GetData<FNEEntityData>(recipe.productRef).entityType;
 				if (objectType == EntityType.TILE_OBJECT)
 				{
-					var existingTileObject = GameServer.World.GetTileObject((int)data.x, (int)data.y);
+					var existingTileObject = GameServer.MainWorld.GetTileObject((int)data.x, (int)data.y);
 					if (existingTileObject != null && existingTileObject.Data.blocksBuilding)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -163,7 +163,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 							GameServer.RoomManager.CreateNewBase((int2) newEntity.Position);
 						}
 						
-						var tileId = GameServer.World.GetTileRoom(new float2(data.x, data.y));
+						var tileId = GameServer.MainWorld.GetTileRoom(new float2(data.x, data.y));
 						var room = (ServerRoom)GameServer.RoomManager.GetRoom(tileId);
 
 						if (room != null)
@@ -182,7 +182,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				}
 				else if (objectType == EntityType.EDGE_OBJECT)
 				{
-					var existingEdgeObject = GameServer.World.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+					var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 					if (existingEdgeObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -260,7 +260,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				var objectType = DataBank.Instance.GetData<FNEEntityData>(addonData.productRef).entityType;
 				if (objectType == EntityType.EDGE_OBJECT)
 				{
-					var existingEdgeObject = GameServer.World.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+					var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 					if (existingEdgeObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -288,7 +288,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				}
 				if (objectType == EntityType.TILE_OBJECT)
 				{
-					var existingTileObject = GameServer.World.GetTileObject((int) data.x, (int) data.y);
+					var existingTileObject = GameServer.MainWorld.GetTileObject((int) data.x, (int) data.y);
 					if (existingTileObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -366,7 +366,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				var MountedData = DataBank.Instance.GetData<MountedObjectData>(buildingData.productRef);
 
-				var existingEdgeObject = GameServer.World.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+				var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 				if (existingEdgeObject == null)
 				{
 					GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -435,7 +435,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 			var senderConnection = incMsg.SenderConnection;
 
-			var existingEdgeObject = GameServer.World.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+			var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 			if (existingEdgeObject == null)
 			{
 				GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -568,7 +568,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				for (int x = data.startX; x <= data.endX; x++)
 				{
-					var existingTileObject = GameServer.World.GetTileObject((int)x, (int)y);
+					var existingTileObject = GameServer.MainWorld.GetTileObject((int)x, (int)y);
 					if (existingTileObject != null)
 					{
 						if (existingTileObject.Data.blocksTileBuilding)
@@ -595,7 +595,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 						maxX = x > maxX ? x : maxX;
 						maxY = y > maxY ? y : maxY;
 						
-						var tileRoomId = GameServer.World.GetTileRoom(new float2(x, y));
+						var tileRoomId = GameServer.MainWorld.GetTileRoom(new float2(x, y));
 						if (tileRoomId != 0)
 						{
 							var room = (ServerRoom) GameServer.RoomManager.GetRoom(tileRoomId);
@@ -636,33 +636,33 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				GameServer.NetAPI.World_RoomManager_BA();
 				
 				Dictionary<long, bool> chunksToMapUpdate = new Dictionary<long, bool>();
-				chunksToMapUpdate.Add((minX / 32) + (minY / 32) * GameServer.World.WIDTH_IN_CHUNKS, true);
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(
+				chunksToMapUpdate.Add((minX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
 					new float2(minX, minY)
 				);
 				GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
 
-				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (minY / 32) * GameServer.World.WIDTH_IN_CHUNKS))
+				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
 				{
-					chunksToMapUpdate.Add((maxX / 32) + (minY / 32) * GameServer.World.WIDTH_IN_CHUNKS, true);
-					chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(
+					chunksToMapUpdate.Add((maxX / 32) + (minY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
 						new float2(maxX, minY)
 					);
 					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
 				}
 
-				if (!chunksToMapUpdate.ContainsKey((minX / 32) + (maxY / 32) * GameServer.World.WIDTH_IN_CHUNKS))
+				if (!chunksToMapUpdate.ContainsKey((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
 				{
-					chunksToMapUpdate.Add((minX / 32) + (maxY / 32) * GameServer.World.WIDTH_IN_CHUNKS, true);
-					chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(
+					chunksToMapUpdate.Add((minX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS, true);
+					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
 						new float2(minX, maxY)
 					);
 					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);
 				}
 
-				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (maxY / 32) * GameServer.World.WIDTH_IN_CHUNKS))
+				if (!chunksToMapUpdate.ContainsKey((maxX / 32) + (maxY / 32) * GameServer.MainWorld.WIDTH_IN_CHUNKS))
 				{
-					chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(
+					chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(
 						new float2(maxX, maxY)
 					);
 					GameServer.NetAPI.World_ChunkMapUpdate_BA(chunk);					
@@ -681,7 +681,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
                 var unlockRefData = DataBank.Instance.GetData<BuildingData>(unlockRef);
 
-                foreach (var player in GameServer.World.GetAllPlayers())
+                foreach (var player in GameServer.MainWorld.GetAllPlayers())
                 {
                     var playerComponent = player.GetComponent<PlayerComponentServer>();
                     playerComponent.UnlockBuilding(unlockRef);

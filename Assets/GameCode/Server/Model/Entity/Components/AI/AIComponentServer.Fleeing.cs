@@ -24,7 +24,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 						float dist;
 						float longestDist = 0;
-						foreach (var tile in GameServer.World.GetSurroundingTilesInRadius((int2)m_FleeDestination, 1))
+						foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius((int2)m_FleeDestination, 1))
 						{
 							dist = Vector2.Distance(ParentEntity.Position, (float2)tile);
 							if (dist > longestDist)

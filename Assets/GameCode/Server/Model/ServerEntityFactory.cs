@@ -247,7 +247,7 @@ namespace FNZ.Server.Model
 				entity.GetComponent<EquipmentSystemComponentServer>().GivePlayerStartArmorSet();
 			}
 
-			GameServer.World.AddPlayerEntity(entity);
+			GameServer.MainWorld.AddPlayerEntity(entity);
 			return entity;
 		}
 
@@ -262,7 +262,7 @@ namespace FNZ.Server.Model
 			FileUtils.WriteFile(GameServer.FilePaths.CreatePlayerEntityFilePath(leavingPlayerName), netBuffer.Data);
 
 			GameServer.NetConnector.RemoveDisconnectedClient(entity);
-			GameServer.World.RemovePlayerEntity(entity);
+			GameServer.MainWorld.RemovePlayerEntity(entity);
 			GameServer.NetAPI.Player_RemoveRemote_BA(entity);
 
 			GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.TELEPORT, entity.Position, 0);

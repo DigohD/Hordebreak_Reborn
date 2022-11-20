@@ -790,10 +790,10 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 		{
 			var player = GameServer.NetConnector.GetPlayerFromConnection(senderConnection);
 
-			var tiles = GameServer.World.GetSurroundingTilesInRadius((int2)player.Position, 2);
+			var tiles = GameServer.MainWorld.GetSurroundingTilesInRadius((int2)player.Position, 2);
 			foreach (var tile in tiles)
 			{
-				var to = GameServer.World.GetTileObject(tile.x, tile.y);
+				var to = GameServer.MainWorld.GetTileObject(tile.x, tile.y);
 				if (to != null)
 				{
 					var cropComp = to.GetComponent<CropComponentServer>();
@@ -1255,17 +1255,17 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 				foreach (var word in playerStringParts)
 				{
 					if (bool.TryParse(word.ToLower(), out bool freezeTime))
-						GameServer.World.Environment.FreezeTime = freezeTime;
+						GameServer.MainWorld.Environment.FreezeTime = freezeTime;
 					else if (byte.TryParse(word, out byte serverHour))
-						GameServer.World.Environment.Hour = serverHour;
+						GameServer.MainWorld.Environment.Hour = serverHour;
 					else if (word.ToLower() == "freeze" || word.ToLower() == "stop")
-						GameServer.World.Environment.FreezeTime = true;
+						GameServer.MainWorld.Environment.FreezeTime = true;
 					else if (word.ToLower() == "unfreeze" || word.ToLower() == "go")
-						GameServer.World.Environment.FreezeTime = false;
+						GameServer.MainWorld.Environment.FreezeTime = false;
 				}
 			}
 
-			GameServer.NetAPI.Chat_SendMessage_STC($"Current time of day is: {GameServer.World.Environment.Hour}",
+			GameServer.NetAPI.Chat_SendMessage_STC($"Current time of day is: {GameServer.MainWorld.Environment.Hour}",
 				senderConnection, ChatColorMessage.MessageType.SERVER);
 		}
 
@@ -1486,7 +1486,7 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 
 		private void KillAll()
 		{
-			foreach (var c in GameServer.World.GetCurrentlyLoadedChunks())
+			foreach (var c in GameServer.MainWorld.GetCurrentlyLoadedChunks())
 			{
 				foreach(var e in c.GetAllEnemies())
 				{

@@ -45,7 +45,7 @@ namespace FNZ.Server.Model.World
 			// Calculate room properties
 			foreach (var tilePos in Tiles)
 			{
-				var tileData = GameServer.World.GetTileData(tilePos.x, tilePos.y);
+				var tileData = GameServer.MainWorld.GetTileData(tilePos.x, tilePos.y);
 
 				foreach (var rp in tileData.roomPropertyRefs)
 				{
@@ -55,7 +55,7 @@ namespace FNZ.Server.Model.World
 						m_TilePropertyCounts[rp]++;
 				}
 
-				var walls = GameServer.World.GetStraightDirectionsEdgeObjects(tilePos);
+				var walls = GameServer.MainWorld.GetStraightDirectionsEdgeObjects(tilePos);
 				foreach (var wall in walls)
 				{
 					if (wall == null)
@@ -110,7 +110,7 @@ namespace FNZ.Server.Model.World
 			// Calculate tile object effects in room
 			foreach (var tilePos in Tiles)
 			{
-				var tileObject = GameServer.World.GetTileObject(tilePos.x, tilePos.y);
+				var tileObject = GameServer.MainWorld.GetTileObject(tilePos.x, tilePos.y);
 				if (tileObject != null)
 				{
 					m_TileObjectsToCalculate.Add(tileObject);
@@ -222,14 +222,14 @@ namespace FNZ.Server.Model.World
 					var isWest = Tiles.Contains((int2) wallEntity.Position);
 					if (isWest)
 					{
-						connectedRoomId = GameServer.World.GetTileRoom(
+						connectedRoomId = GameServer.MainWorld.GetTileRoom(
 							new float2(wallEntity.Position.x - 1, wallEntity.Position.y)
 						);
 						isGiver = !edgeComp.OppositeMountedDirection;
 					}
 					else
 					{
-						connectedRoomId = GameServer.World.GetTileRoom(
+						connectedRoomId = GameServer.MainWorld.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y)
 						);
 						isGiver = edgeComp.OppositeMountedDirection;
@@ -240,14 +240,14 @@ namespace FNZ.Server.Model.World
 					var isSouth = Tiles.Contains((int2) wallEntity.Position);
 					if (isSouth)
 					{
-						connectedRoomId = GameServer.World.GetTileRoom(
+						connectedRoomId = GameServer.MainWorld.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y - 1)
 						);
 						isGiver = !edgeComp.OppositeMountedDirection;
 					}
 					else
 					{
-						connectedRoomId = GameServer.World.GetTileRoom(
+						connectedRoomId = GameServer.MainWorld.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y)
 						);
 						isGiver = edgeComp.OppositeMountedDirection;

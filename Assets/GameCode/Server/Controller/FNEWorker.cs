@@ -44,7 +44,7 @@ namespace FNZ.Server.Controller
 
                     try
                     {
-						GameServer.World.Tick(GameServer.DeltaTime);
+						GameServer.MainWorld.Tick(GameServer.DeltaTime);
 						AgentSimulationSystem.Instance.Tick();
 					}
 					catch(Exception e)

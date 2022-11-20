@@ -257,8 +257,8 @@ namespace FNZ.Server.Controller.Systems
             var gridSizeX = radius * 2;
             var gridSizeY = radius * 2;
 
-            if (worldStartX + gridSizeX > GameServer.World.WIDTH) gridSizeX = GameServer.World.WIDTH - worldStartX;
-            if (worldStartY + gridSizeY > GameServer.World.HEIGHT) gridSizeY = GameServer.World.HEIGHT - worldStartY;
+            if (worldStartX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - worldStartX;
+            if (worldStartY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - worldStartY;
 
             var gridAreea = gridSizeX * gridSizeY;
 

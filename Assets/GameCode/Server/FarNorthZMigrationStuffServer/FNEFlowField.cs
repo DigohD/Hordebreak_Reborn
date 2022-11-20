@@ -38,8 +38,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			this.gridSizeX = radius * 2;
 			this.gridSizeY = radius * 2;
 
-			if (worldStartX + gridSizeX > GameServer.World.WIDTH) gridSizeX = GameServer.World.WIDTH - worldStartX;
-			if (worldStartY + gridSizeY > GameServer.World.HEIGHT) gridSizeY = GameServer.World.HEIGHT - worldStartY;
+			if (worldStartX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - worldStartX;
+			if (worldStartY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - worldStartY;
 
 			gridSize = gridSizeX * gridSizeY;
 
@@ -53,7 +53,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			vectorField = new VectorFieldNode[gridSizeX, gridSizeY];
 			graph = new FF_Node[gridSizeX, gridSizeY];
 
-			GenerateDistanceField(GameServer.World, (int)sourcePosition.x, (int)sourcePosition.y);
+			GenerateDistanceField(GameServer.MainWorld, (int)sourcePosition.x, (int)sourcePosition.y);
 			GenerateVectorField(this.sourcePosition);
 		}
 
@@ -134,7 +134,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				FF_Node currentNode = openSet.RemoveFirst();
 
 				int2 currentTile = new int2(currentNode.gridX, currentNode.gridY);
-				var currentTileObject = GameServer.World.GetTileObject(currentTile.x, currentTile.y);
+				var currentTileObject = GameServer.MainWorld.GetTileObject(currentTile.x, currentTile.y);
 
 				foreach (var neighbour in world.GetTileStraightNeighbors(currentNode.gridX, currentNode.gridY))
 				{
@@ -198,9 +198,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			if (neighbourTile.x == west.x && neighbourTile.y == west.y) //neighborTile == West
 			{
-				if (GameServer.World.IsTileWestEdgeOccupied(currentTile))
+				if (GameServer.MainWorld.IsTileWestEdgeOccupied(currentTile))
 				{
-					var wall = GameServer.World.GetEdgeObject(currentTile.x, currentTile.y, 
+					var wall = GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, 
 						Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 					
 					return wall.GetComponent<EdgeObjectComponentServer>().IsPassable ? (byte) 0 : wall.Data.pathingCost;
@@ -208,9 +208,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			}
 			else if (neighbourTile.x == north.x && neighbourTile.y == north.y) //neighborTile == North
 			{
-				if (GameServer.World.IsTileNorthEdgeOccupied(currentTile))
+				if (GameServer.MainWorld.IsTileNorthEdgeOccupied(currentTile))
 				{
-					var wall = GameServer.World.GetEdgeObject(north.x, north.y,
+					var wall = GameServer.MainWorld.GetEdgeObject(north.x, north.y,
 						Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 					
 					return wall.GetComponent<EdgeObjectComponentServer>().IsPassable ? (byte) 0 : wall.Data.pathingCost;
@@ -218,9 +218,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			}
 			else if (neighbourTile.x == east.x && neighbourTile.y == east.y) //neighborTile == East
 			{
-				if (GameServer.World.IsTileEastEdgeOccupied(currentTile))
+				if (GameServer.MainWorld.IsTileEastEdgeOccupied(currentTile))
 				{
-					var wall = GameServer.World.GetEdgeObject(east.x, east.y,
+					var wall = GameServer.MainWorld.GetEdgeObject(east.x, east.y,
 						Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 					
 					return wall.GetComponent<EdgeObjectComponentServer>().IsPassable ? (byte) 0 : wall.Data.pathingCost;
@@ -228,9 +228,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			}
 			else if (neighbourTile.x == south.x && neighbourTile.y == south.y) //neighborTile == South
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(currentTile))
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(currentTile))
 				{
-					var wall = GameServer.World.GetEdgeObject(currentTile.x, currentTile.y,
+					var wall = GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y,
 						Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 					
 					return wall.GetComponent<EdgeObjectComponentServer>().IsPassable ? (byte) 0 : wall.Data.pathingCost;
@@ -242,8 +242,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 		private byte GetCostOfTileObject(int2 neighbour)
 		{
-			var tileObject = GameServer.World.GetTileObject(neighbour.x, neighbour.y);
-			var isBlocking = GameServer.World.IsTileBlocking(neighbour.x, neighbour.y);
+			var tileObject = GameServer.MainWorld.GetTileObject(neighbour.x, neighbour.y);
+			var isBlocking = GameServer.MainWorld.IsTileBlocking(neighbour.x, neighbour.y);
 			if (isBlocking != null && isBlocking.Value)
 			{
 				return 255;
@@ -266,19 +266,19 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			if (neighbourTile.x == west.x && neighbourTile.y == west.y) //neighborTile == West
 			{
-				return GameServer.World.GetEdgeObject(currentTile.x, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+				return GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 			}
 			else if (neighbourTile.x == north.x && neighbourTile.y == north.y) //neighborTile == North
 			{
-				return GameServer.World.GetEdgeObject(north.x, north.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+				return GameServer.MainWorld.GetEdgeObject(north.x, north.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 			}
 			else if (neighbourTile.x == east.x && neighbourTile.y == east.y) //neighborTile == East
 			{
-				return GameServer.World.GetEdgeObject(east.x, east.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+				return GameServer.MainWorld.GetEdgeObject(east.x, east.y, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 			}
 			else if (neighbourTile.x == south.x && neighbourTile.y == south.y) //neighborTile == South
 			{
-				return GameServer.World.GetEdgeObject(currentTile.x, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+				return GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
 			}
 
 			return null;
@@ -325,8 +325,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		{
 			var currentTile = new int2(node.gridX, node.gridY);
 
-			var edgeObjects = GameServer.World.GetStraightDirectionsEdgeObjects(currentTile);
-			var tileObjects = GameServer.World.GetStraightNeighborTileObjects(currentTile);
+			var edgeObjects = GameServer.MainWorld.GetStraightDirectionsEdgeObjects(currentTile);
+			var tileObjects = GameServer.MainWorld.GetStraightNeighborTileObjects(currentTile);
 			
 			int2 south = new int2(currentTile.x, currentTile.y - 1);
 			int2 west = new int2(currentTile.x - 1, currentTile.y);
@@ -388,9 +388,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				goalDirection.x = 0;
 			}
 			else if (goalDirection.x > 0 && goalDirection.y > 0 && //Heading northeast
-				(GameServer.World.GetTileObjectBlocking(currentTile.x + 1, currentTile.y + 1) ||
-				GameServer.World.GetEdgeObject(currentTile.x + 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
-				GameServer.World.GetEdgeObject(currentTile.x + 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
+				(GameServer.MainWorld.GetTileObjectBlocking(currentTile.x + 1, currentTile.y + 1) ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x + 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x + 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
 				))
 			{
 				if (northCost > eastCost)
@@ -403,9 +403,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				}
 			}
 			else if (goalDirection.x < 0 && goalDirection.y > 0 && //Heading northwest
-				(GameServer.World.GetTileObjectBlocking(currentTile.x - 1, currentTile.y + 1) ||
-				GameServer.World.GetEdgeObject(currentTile.x - 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
-				GameServer.World.GetEdgeObject(currentTile.x, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
+				(GameServer.MainWorld.GetTileObjectBlocking(currentTile.x - 1, currentTile.y + 1) ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x - 1, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y + 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
 				))
 			{
 				if (westCost > northCost)
@@ -418,9 +418,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				}
 			}
 			else if (goalDirection.x < 0 && goalDirection.y < 0 && //Heading southwest
-				(GameServer.World.GetTileObjectBlocking(currentTile.x - 1, currentTile.y - 1) ||
-				GameServer.World.GetEdgeObject(currentTile.x - 1, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
-				GameServer.World.GetEdgeObject(currentTile.x, currentTile.y - 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
+				(GameServer.MainWorld.GetTileObjectBlocking(currentTile.x - 1, currentTile.y - 1) ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x - 1, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y - 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null
 				))
 			{
 				if (westCost > southCost)
@@ -433,9 +433,9 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				}
 			}
 			else if (goalDirection.x > 0 && goalDirection.y < 0 && //Heading southeast
-				(GameServer.World.GetTileObjectBlocking(currentTile.x + 1, currentTile.y - 1) ||
-				GameServer.World.GetEdgeObject(currentTile.x + 1, currentTile.y - 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null ||
-				GameServer.World.GetEdgeObject(currentTile.x + 1, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null
+				(GameServer.MainWorld.GetTileObjectBlocking(currentTile.x + 1, currentTile.y - 1) ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x + 1, currentTile.y - 1, Shared.Model.World.GameWorld.EdgeObjectDirection.WEST) != null ||
+				GameServer.MainWorld.GetEdgeObject(currentTile.x + 1, currentTile.y, Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH) != null
 				))
 			{
 				if (eastCost > southCost)
@@ -474,8 +474,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 		private bool ShouldBlockVector(int2 tile, FNEEntity edgeObject)
 		{
-			var tileObject = GameServer.World.GetTileObject(tile.x, tile.y);
-			var isTileBlocking = GameServer.World.IsTileBlocking(tile.x, tile.y).GetValueOrDefault();
+			var tileObject = GameServer.MainWorld.GetTileObject(tile.x, tile.y);
+			var isTileBlocking = GameServer.MainWorld.IsTileBlocking(tile.x, tile.y).GetValueOrDefault();
 			return (isTileBlocking || (tileObject != null && !tileObject.Data.smallCollisionBox && tileObject.Data.pathingCost > 0) || (edgeObject != null && !edgeObject.GetComponent<EdgeObjectComponentServer>().IsPassable));
 		}
 

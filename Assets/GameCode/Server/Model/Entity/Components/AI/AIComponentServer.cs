@@ -103,8 +103,8 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 				if ((int)m_PrevPos.x != (int)ParentEntity.Position.x || (int)m_PrevPos.y != (int)ParentEntity.Position.y) //We have switched tile
 				{
-					GameServer.World.GetTileEnemies((int2)m_PrevPos).Remove(ParentEntity);
-					GameServer.World.AddEnemyToTile(ParentEntity);
+					GameServer.MainWorld.GetTileEnemies((int2)m_PrevPos).Remove(ParentEntity);
+					GameServer.MainWorld.AddEnemyToTile(ParentEntity);
 				}
 			}
 
@@ -118,7 +118,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			m_Path = null;
 			var currentTile = (int2)ParentEntity.Position;
 
-			List<int2> inVicinity = GameServer.World.GetSurroundingTilesInRadius((int2)ParentEntity.Position, m_AggroRange);
+			List<int2> inVicinity = GameServer.MainWorld.GetSurroundingTilesInRadius((int2)ParentEntity.Position, m_AggroRange);
 
 			float dist;
 			var closestDistance = float.MaxValue;
@@ -126,7 +126,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			{
 				if (FNEPathfinding.HasLineOfSight(currentTile, tile))
 				{
-					var players = GameServer.World.GetTilePlayers(tile);
+					var players = GameServer.MainWorld.GetTilePlayers(tile);
 					if (players == null || players.Count == 0) continue;
 
 					foreach (var player in players)
@@ -216,7 +216,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			{
 				//play animation code / Send play animation message here
 
-				GameServer.World.RealEffectManager.SpawnProjectileServerAuthority(
+				GameServer.MainWorld.RealEffectManager.SpawnProjectileServerAuthority(
 					m_Projectile,
 					(ProjectileEffectData)m_Projectile.RealEffectData,
 					ParentEntity.Position,

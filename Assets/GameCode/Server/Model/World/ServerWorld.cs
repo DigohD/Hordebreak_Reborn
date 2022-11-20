@@ -74,16 +74,15 @@ namespace FNZ.Server.Model.World
 
 		public ServerMapManager WorldMap;
 		
-		public ServerWorld(int widthInTiles, int heightInTiles, byte chunkSize)
+		public ServerWorld(int widthInTiles, int heightInTiles)
 		{
 			WIDTH = widthInTiles;
 			HEIGHT = heightInTiles;
-			CHUNK_SIZE = chunkSize;
 
 			WIDTH_IN_CHUNKS = WIDTH / CHUNK_SIZE;
 			HEIGHT_IN_CHUNKS = HEIGHT / CHUNK_SIZE;
 
-			m_Chunks = new ServerWorldChunk[WIDTH_IN_CHUNKS, HEIGHT_IN_CHUNKS];
+			m_Chunk = new ServerWorldChunk(0, 0, widthInTiles);
 
 			m_CurrentlyLoadedChunks = new List<ServerWorldChunk>();
 			m_Players = new List<FNEEntity>();
@@ -213,7 +212,7 @@ namespace FNZ.Server.Model.World
 					GameServer.EntityAPI.DestroyEntityImmediate(e, true);
 				}
 				
-				GameServer.World.RemoveChunk(data.Chunk);
+				GameServer.MainWorld.RemoveChunk(data.Chunk);
 			}
 		}
 
@@ -242,8 +241,8 @@ namespace FNZ.Server.Model.World
 		}
 		public void Tick(float deltaTime)
 		{
-			UnloadChunks();
-			InitialiazeGeneratedChunks();
+			//UnloadChunks();
+			//InitialiazeGeneratedChunks();
 			SpawnFlowFields();
 			SpawnEntities();
 			UpdateObstacles();
@@ -312,20 +311,12 @@ namespace FNZ.Server.Model.World
 
 		public void AddWorldChunk(ServerWorldChunk chunk)
 		{
-			lock (m_ChunksLock)
-			{
-				m_Chunks[chunk.ChunkX, chunk.ChunkY] = chunk;
-				m_CurrentlyLoadedChunks.Add(chunk);
-			}
+			m_Chunk = chunk;
 		}
 
 		public override void RemoveChunk<T>(T chunk)
 		{
-			lock (m_ChunksLock)
-			{
-				m_CurrentlyLoadedChunks.Remove(chunk as ServerWorldChunk);
-				m_Chunks[chunk.ChunkX, chunk.ChunkY] = null;
-			}
+			
 		}
 
 		public void AddPlayerEntity(FNEEntity playerEntity)

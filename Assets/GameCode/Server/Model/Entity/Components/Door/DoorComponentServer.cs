@@ -42,7 +42,7 @@ namespace FNZ.Server.Model.Entity.Components.Door
 			eoComp.IsPassable = true;
 			eoComp.IsHittable = false;
 			
-			GameServer.World.QueueObstacleForUpdate(new UpdateObstacleData
+			GameServer.MainWorld.QueueObstacleForUpdate(new UpdateObstacleData
 			{
 				Entity = ParentEntity,
 				ShouldRemove = true
@@ -60,7 +60,7 @@ namespace FNZ.Server.Model.Entity.Components.Door
 			eoComp.IsPassable = false;
 			eoComp.IsHittable = true;
 			
-			GameServer.World.QueueObstacleForUpdate(new UpdateObstacleData
+			GameServer.MainWorld.QueueObstacleForUpdate(new UpdateObstacleData
 			{
 				Entity = ParentEntity,
 				ShouldRemove = false

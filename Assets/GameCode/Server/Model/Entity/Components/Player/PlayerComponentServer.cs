@@ -245,12 +245,12 @@ namespace FNZ.Server.Model.Entity.Components.Player
 
 		private void CheckForEnemies(int2 currentTile)
 		{
-			List<int2> inVicinity = GameServer.World.GetSurroundingTilesInRadius(currentTile, sightRange);
+			List<int2> inVicinity = GameServer.MainWorld.GetSurroundingTilesInRadius(currentTile, sightRange);
 			bool shouldGenerateNewFlowField = false;
 
 			foreach (var tile in inVicinity)
 			{
-				var enemies = GameServer.World.GetTileEnemies(tile);
+				var enemies = GameServer.MainWorld.GetTileEnemies(tile);
 				if (enemies == null || enemies.Count == 0) continue;
 
 				bool seesPlayer = FNEPathfinding.HasLineOfSight(currentTile, tile);
@@ -301,13 +301,13 @@ namespace FNZ.Server.Model.Entity.Components.Player
 					ff = new FNEFlowField(ParentEntity.Position, sightRange);
 					shouldGenerateNewFlowField = false;
 				}
-				var tilePlayers = GameServer.World.GetTilePlayers(lastTile);
+				var tilePlayers = GameServer.MainWorld.GetTilePlayers(lastTile);
 				if (tilePlayers != null) 
 				{
 					tilePlayers.Remove(ParentEntity); 
 				}
 
-				GameServer.World.AddPlayerToTile(ParentEntity);
+				GameServer.MainWorld.AddPlayerToTile(ParentEntity);
 			}
 
 			lastTile = currentTile;

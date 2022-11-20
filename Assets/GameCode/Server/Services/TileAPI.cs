@@ -21,7 +21,7 @@ namespace FNZ.Server.Services
 
 		public bool TryChangeTile(string id, float2 position)
 		{
-			var world = GameServer.World;
+			var world = GameServer.MainWorld;
 			var data = DataBank.Instance.GetData<TileData>(id);
 			var oldTileDef = world.GetTileId((int)position.x, (int)position.y);
 

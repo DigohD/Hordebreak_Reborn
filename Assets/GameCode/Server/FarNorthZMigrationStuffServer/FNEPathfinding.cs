@@ -39,11 +39,11 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				if ((TO < 0 || deltaX == 0) && deltaY > 0)
 				{
 					var north = new int2(currentTile.x, currentTile.y + 1);
-					var northEO = GameServer.World.GetEdgeObject(north.x, north.y, GameWorld.EdgeObjectDirection.SOUTH);
+					var northEO = GameServer.MainWorld.GetEdgeObject(north.x, north.y, GameWorld.EdgeObjectDirection.SOUTH);
 
 					// Traverse Up through World grid
 					if ((northEO != null && !northEO.GetComponent<EdgeObjectComponentServer>().IsPassable) ||
-						GameServer.World.GetTileObject(north.x, north.y) != null && !GameServer.World.GetTileObject(north.x, north.y).Data.seeThrough)
+						GameServer.MainWorld.GetTileObject(north.x, north.y) != null && !GameServer.MainWorld.GetTileObject(north.x, north.y).Data.seeThrough)
 					{
 						return false;
 					}
@@ -54,11 +54,11 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				else if ((TO < 0 || deltaX == 0) && deltaY < 0)
 				{
 					var south = new int2(currentTile.x, currentTile.y - 1);
-					var southEO = GameServer.World.GetEdgeObject(currentTile.x, currentTile.y, GameWorld.EdgeObjectDirection.SOUTH);
+					var southEO = GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, GameWorld.EdgeObjectDirection.SOUTH);
 
 					// Traverse Down through World grid
 					if ((southEO != null && !southEO.GetComponent<EdgeObjectComponentServer>().IsPassable) ||
-						GameServer.World.GetTileObject(south.x, south.y) != null && !GameServer.World.GetTileObject(south.x, south.y).Data.seeThrough)
+						GameServer.MainWorld.GetTileObject(south.x, south.y) != null && !GameServer.MainWorld.GetTileObject(south.x, south.y).Data.seeThrough)
 					{
 						return false;
 					}
@@ -69,11 +69,11 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				else
 				{
 					var east = new int2(currentTile.x + 1, currentTile.y);
-					var eastEO = GameServer.World.GetEdgeObject(east.x, east.y, GameWorld.EdgeObjectDirection.WEST);
+					var eastEO = GameServer.MainWorld.GetEdgeObject(east.x, east.y, GameWorld.EdgeObjectDirection.WEST);
 
 					// traverse Right through World grid
 					if ((eastEO != null && !eastEO.GetComponent<EdgeObjectComponentServer>().IsPassable) ||
-						GameServer.World.GetTileObject(east.x, east.y) != null && !GameServer.World.GetTileObject(east.x, east.y).Data.seeThrough)
+						GameServer.MainWorld.GetTileObject(east.x, east.y) != null && !GameServer.MainWorld.GetTileObject(east.x, east.y).Data.seeThrough)
 					{
 						return false;
 					}
@@ -154,21 +154,21 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				}
 
 				var currentTile = new int2(currentNode.gridX, currentNode.gridY);
-				var neighbours = GameServer.World.GetTileStraightNeighbors(currentTile.x, currentTile.y);
-				foreach (var neighbor in GameServer.World.GetTileDiagonalNeighbors(currentTile.x, currentTile.y))
+				var neighbours = GameServer.MainWorld.GetTileStraightNeighbors(currentTile.x, currentTile.y);
+				foreach (var neighbor in GameServer.MainWorld.GetTileDiagonalNeighbors(currentTile.x, currentTile.y))
 					neighbours.Add(neighbor);
 
 				foreach (var neighbourTile in neighbours)
 				{
 					var neighbourNode = new FF_Node(neighbourTile.x, neighbourTile.y);
 
-					if (neighbourNode.Equals(targetNode) && GameServer.World.GetTileObject(neighbourTile.x, neighbourTile.y) != null &&
+					if (neighbourNode.Equals(targetNode) && GameServer.MainWorld.GetTileObject(neighbourTile.x, neighbourTile.y) != null &&
 						!NeighbourTileHasBlockingEdgeObject(currentTile, neighbourTile))
 					{
 						return RetracePath(startNode, currentNode);
 					}
 
-					if (GameServer.World.GetTileObjectBlocking(neighbourTile.x, neighbourTile.y) || closedSet.Contains(neighbourNode) ||
+					if (GameServer.MainWorld.GetTileObjectBlocking(neighbourTile.x, neighbourTile.y) || closedSet.Contains(neighbourNode) ||
 						NeighbourTileHasBlockingEdgeObject(currentTile, neighbourTile))
 					{
 						continue;
@@ -246,39 +246,39 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			if (neighbourTile.x == west.x && neighbourTile.y == west.y) //neighborTile == West
 			{
-				if (GameServer.World.IsTileWestEdgeOccupied(currentTile)) return true;
+				if (GameServer.MainWorld.IsTileWestEdgeOccupied(currentTile)) return true;
 			}
 			else if (neighbourTile.x == northWest.x && neighbourTile.y == northWest.y) //neighborTile == NorthWest
 			{
-				if (GameServer.World.IsTileWestEdgeOccupied(north) || GameServer.World.IsTileSouthEdgeOccupied(north) ||
-					GameServer.World.IsTileWestEdgeOccupied(currentTile) || GameServer.World.IsTileSouthEdgeOccupied(northWest)) return true;
+				if (GameServer.MainWorld.IsTileWestEdgeOccupied(north) || GameServer.MainWorld.IsTileSouthEdgeOccupied(north) ||
+					GameServer.MainWorld.IsTileWestEdgeOccupied(currentTile) || GameServer.MainWorld.IsTileSouthEdgeOccupied(northWest)) return true;
 			}
 			else if (neighbourTile.x == north.x && neighbourTile.y == north.y) //neighborTile == North
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(north)) return true;
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(north)) return true;
 			}
 			else if (neighbourTile.x == northEast.x && neighbourTile.y == northEast.y) //neighborTile == NorthEast
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(northEast) || GameServer.World.IsTileWestEdgeOccupied(northEast) ||
-					GameServer.World.IsTileSouthEdgeOccupied(north) || GameServer.World.IsTileWestEdgeOccupied(east)) return true;
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(northEast) || GameServer.MainWorld.IsTileWestEdgeOccupied(northEast) ||
+					GameServer.MainWorld.IsTileSouthEdgeOccupied(north) || GameServer.MainWorld.IsTileWestEdgeOccupied(east)) return true;
 			}
 			else if (neighbourTile.x == east.x && neighbourTile.y == east.y) //neighborTile == East
 			{
-				if (GameServer.World.IsTileWestEdgeOccupied(east)) return true;
+				if (GameServer.MainWorld.IsTileWestEdgeOccupied(east)) return true;
 			}
 			else if (neighbourTile.x == southEast.x && neighbourTile.y == southEast.y) //neighborTile == SouthEast
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(east) || GameServer.World.IsTileWestEdgeOccupied(east) ||
-					GameServer.World.IsTileWestEdgeOccupied(southEast) || GameServer.World.IsTileSouthEdgeOccupied(currentTile)) return true;
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(east) || GameServer.MainWorld.IsTileWestEdgeOccupied(east) ||
+					GameServer.MainWorld.IsTileWestEdgeOccupied(southEast) || GameServer.MainWorld.IsTileSouthEdgeOccupied(currentTile)) return true;
 			}
 			else if (neighbourTile.x == south.x && neighbourTile.y == south.y) //neightborTile == South
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(currentTile)) return true;
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(currentTile)) return true;
 			}
 			else if (neighbourTile.x == southWest.x && neighbourTile.y == southWest.y) //neighborTile == SouthWest
 			{
-				if (GameServer.World.IsTileSouthEdgeOccupied(west) || GameServer.World.IsTileWestEdgeOccupied(south) ||
-					GameServer.World.IsTileSouthEdgeOccupied(currentTile) || GameServer.World.IsTileWestEdgeOccupied(currentTile)) return true;
+				if (GameServer.MainWorld.IsTileSouthEdgeOccupied(west) || GameServer.MainWorld.IsTileWestEdgeOccupied(south) ||
+					GameServer.MainWorld.IsTileSouthEdgeOccupied(currentTile) || GameServer.MainWorld.IsTileWestEdgeOccupied(currentTile)) return true;
 			}
 
 			return false;

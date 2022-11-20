@@ -98,9 +98,9 @@ namespace FNZ.Server.Controller.Systems
 		private void OnClientConnected(NetConnection clientConnection)
 		{
 			GameServer.NetAPI.World_WorldSetup_STC(
-				GameServer.World.WIDTH,
-				GameServer.World.HEIGHT,
-				GameServer.World.CHUNK_SIZE,
+				GameServer.MainWorld.WIDTH,
+				GameServer.MainWorld.HEIGHT,
+				GameServer.MainWorld.CHUNK_SIZE,
 				clientConnection
 			);
 

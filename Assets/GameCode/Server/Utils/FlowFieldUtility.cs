@@ -31,7 +31,7 @@ namespace FNZ.Server.Utils
             FlowFieldType flowFieldType)
         {
             if (range <= 0) return;
-            GameServer.World.QueueFlowField(new FlowFieldGenData
+            GameServer.MainWorld.QueueFlowField(new FlowFieldGenData
             {
                 SourcePosition = sourcePosition,
                 Range = range,
@@ -54,7 +54,7 @@ namespace FNZ.Server.Utils
                     x < (flowField.gridSizeX + flowField.worldStartX);
                     x++)
                 {
-                    var enemiesOnTile = GameServer.World.GetTileEnemies(new int2(x, y));
+                    var enemiesOnTile = GameServer.MainWorld.GetTileEnemies(new int2(x, y));
                     if (enemiesOnTile == null) continue;
 
                     foreach (var e in enemiesOnTile)

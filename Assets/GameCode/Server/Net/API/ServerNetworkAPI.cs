@@ -126,7 +126,7 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_All_Relevant(NetMessage message, float2 impactPosition)
 		{
-			var world = GameServer.World;
+			var world = GameServer.MainWorld;
 			var chunkManager = GameServer.ChunkManager;
 			var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
 
@@ -152,7 +152,7 @@ namespace FNZ.Server.Net.API
 
 		private void Broadcast_All_InProximity(NetMessage message, float2 impactPosition, float radius)
 		{
-			var connectedPlayers = GameServer.World.GetAllPlayers();
+			var connectedPlayers = GameServer.MainWorld.GetAllPlayers();
 
 			var relevantConnections = new List<NetConnection>();
 
@@ -179,7 +179,7 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_All_Relevant_Batch(NetMessage message, ref NativeArray<float2> impactPositions)
 		{
-			var world = GameServer.World;
+			var world = GameServer.MainWorld;
 			var chunks = new List<ServerWorldChunk>();
 			var recipients = new List<NetConnection>();
 
@@ -216,7 +216,7 @@ namespace FNZ.Server.Net.API
 		/// </summary>
 		private void Broadcast_Other_Relevant(NetMessage message, float2 impactPosition, NetConnection connToExclude)
 		{
-			var world = GameServer.World;
+			var world = GameServer.MainWorld;
 			var chunkManager = GameServer.ChunkManager;
 			var chunk = world.GetWorldChunk<ServerWorldChunk>(impactPosition);
 

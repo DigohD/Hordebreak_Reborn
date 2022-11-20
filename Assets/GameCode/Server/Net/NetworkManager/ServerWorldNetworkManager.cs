@@ -61,7 +61,7 @@ namespace FNZ.Server.Net.NetworkManager
 			else
 			{
 				// Spawn player in the middle of a chunk
-				playerPosition = new float2(GameServer.World.WIDTH / 2, GameServer.World.HEIGHT / 2);
+				playerPosition = new float2(GameServer.MainWorld.WIDTH / 2, GameServer.MainWorld.HEIGHT / 2);
 				newPlayer = GameServer.EntityFactory.CreatePlayer(playerPosition, playerName);
 			}
 
@@ -73,7 +73,7 @@ namespace FNZ.Server.Net.NetworkManager
 				{
 					if (comp is ITickable)
 					{
-						GameServer.World.AddTickableEntity(newPlayer);
+						GameServer.MainWorld.AddTickableEntity(newPlayer);
 						break;
 					}
 				}
@@ -92,7 +92,7 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			GameServer.ChunkManager.OnPlayerEnteringNewChunk(newPlayer);
 
-			playerComp.LastChunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(newPlayer.Position);
+			playerComp.LastChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(newPlayer.Position);
 
 			GameServer.NetAPI.World_Environment_STC(clientConnection);
 
@@ -128,7 +128,7 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			GameServer.NetAPI.World_SiteMapUpdate_STC(
 				clientConnection,
-				GameServer.World.WorldMap.GetRevealedSiteMap()
+				GameServer.MainWorld.WorldMap.GetRevealedSiteMap()
 			);
 			
 			var hostEntity = GameServer.NetConnector.GetPlayerFromConnection(GameServer.NetConnector.GetServerHostConnection());
@@ -147,7 +147,7 @@ namespace FNZ.Server.Net.NetworkManager
 			byte chunkX = incMsg.ReadByte();
 			byte chunkY = incMsg.ReadByte();
 
-			var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
 			if (chunk == null)
 			{
 				return;
@@ -193,7 +193,7 @@ namespace FNZ.Server.Net.NetworkManager
 			byte chunkX = incMsg.ReadByte();
 			byte chunkY = incMsg.ReadByte();
 
-			var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
+			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>(chunkX, chunkY);
 			var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
 
 			if (state == null)

@@ -12,7 +12,7 @@ namespace FNZ.Server.Services
 			EffectData deathEffectData = DataBank.Instance.GetData<EffectData>(id);
 			if (deathEffectData != null && deathEffectData.HasRealEffect() && deathEffectData.GetRealEffectDataType() == typeof(ProjectileEffectData))
 				for (int i = 0; i < deathEffectData.repetitions; i++)
-					GameServer.World.RealEffectManager.SpawnProjectileServerAuthority(
+					GameServer.MainWorld.RealEffectManager.SpawnProjectileServerAuthority(
 						deathEffectData,
 						(ProjectileEffectData)deathEffectData.RealEffectData,
 						position,
@@ -22,7 +22,7 @@ namespace FNZ.Server.Services
 
 			if (deathEffectData != null && deathEffectData.HasRealEffect() && deathEffectData.GetRealEffectDataType() == typeof(ExplosionEffectData))
 			{
-				GameServer.World.RealEffectManager.ExecuteExplosionRealEffect(
+				GameServer.MainWorld.RealEffectManager.ExecuteExplosionRealEffect(
 					(ExplosionEffectData)deathEffectData.RealEffectData,
 					position
 				);
