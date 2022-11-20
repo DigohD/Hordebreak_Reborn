@@ -247,7 +247,7 @@ namespace FNZ.Client.View.Manager
 			var instance = activationData.View;
 			activationData.View.SetActive(true);
 			GameClient.ViewConnector.AddGameObject(activationData.View, activationData.NetId);
-			GameClient.WorldView.GetChunkView(new float2(instance.transform.position.x, instance.transform.position.z)).AddGameObject(instance);
+			GameClient.WorldView.AddGameObject(instance);
 			var idHolder = instance.GetComponent<GameObjectIdHolder>();
 
 			var viewScript = instance.GetComponent<EntityViewScript>();
@@ -340,7 +340,7 @@ namespace FNZ.Client.View.Manager
 			}
 
 			GameClient.ViewConnector.AddGameObject(instance, spawnData.netID);
-			GameClient.WorldView.GetChunkView(new Vector2(spawnData.position.x, spawnData.position.z)).AddGameObject(instance);
+			GameClient.WorldView.AddGameObject(instance);
 
 			var idHolder = instance.GetComponent<GameObjectIdHolder>();
 

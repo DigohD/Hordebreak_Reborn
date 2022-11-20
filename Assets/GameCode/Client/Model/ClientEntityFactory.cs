@@ -213,12 +213,12 @@ namespace FNZ.Client.Model
 			var entityGameObject = GameClient.ViewConnector.PopGameObjectView(entityToDestroy.NetId);
 			if (entityGameObject != null)
 			{
-				GameClient.WorldView.GetChunkView(entityToDestroy.Position).RemoveGameObject(entityGameObject);
+				GameClient.WorldView.RemoveGameObject(entityGameObject);
 				GameClient.ViewAPI.QueueGameObjectForDeactivation(entityGameObject);
 				var subViewGameObject = GameClient.ViewConnector.PopSubViewGameObjectView(entityToDestroy.NetId);
 				if (subViewGameObject != null)
 				{
-					GameClient.WorldView.GetChunkView(entityToDestroy.Position).RemoveGameObject(entityGameObject);
+					GameClient.WorldView.RemoveGameObject(entityGameObject);
 					GameClient.ViewAPI.QueueGameObjectForDeactivation(entityGameObject);
 				}
 			}
@@ -227,10 +227,8 @@ namespace FNZ.Client.Model
 				var entity = GameClient.ViewConnector.PopEntityView(entityToDestroy);
 				if (entity != default)
 				{
-                    // TODO: WTF is happening here? GetChunkView returns null when loading chunks from server from saves!?!?
-                    var chunkView = GameClient.WorldView.GetChunkView(entityToDestroy.Position);
-                    if (chunkView != null)
-                        chunkView.RemoveEntity(entity);
+                    if (GameClient.WorldView != null)
+						GameClient.WorldView.RemoveEntity(entity);
                     else
                         Debug.LogError("Chunkview was null when removing entity view from it!");
 

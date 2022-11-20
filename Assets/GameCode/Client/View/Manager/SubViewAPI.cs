@@ -137,7 +137,7 @@ namespace FNZ.Client.View.Manager
 			var instance = activationData.View;
 			activationData.View.SetActive(true);
 			GameClient.ViewConnector.AddSubViewGameObject(activationData.View, activationData.NetId);
-			GameClient.WorldView.GetChunkView(new float2(instance.transform.position.x, instance.transform.position.z)).AddSubViewGameObject(instance);
+			GameClient.WorldView.AddSubViewGameObject(instance);
 
 			foreach (Transform child in instance.transform)
 			{
@@ -167,7 +167,7 @@ namespace FNZ.Client.View.Manager
 			instance.transform.localScale = spawnData.scale;
 			
 			GameClient.ViewConnector.AddSubViewGameObject(instance, spawnData.netID);
-			GameClient.WorldView.GetChunkView(new Vector2(spawnData.position.x, spawnData.position.z)).AddSubViewGameObject(instance);
+			GameClient.WorldView.AddSubViewGameObject(instance);
 			
 			foreach (Transform child in instance.transform)
 			{
