@@ -143,7 +143,7 @@ namespace FNZ.Shared.Utils.CollisionUtils
 
 			for (int i = raycastHitList.Count - 1; i >= 0; i--)
 			{
-				if (world.GetWorldChunk<WorldChunk>(raycastHitList[i]) == null)
+				if (world.GetWorldChunk<WorldChunk>() == null)
 				{
 					raycastHitList.RemoveAt(i);
 				}
@@ -216,7 +216,7 @@ namespace FNZ.Shared.Utils.CollisionUtils
 
 			for (int i = raycastHitList.Count - 1; i >= 0; i--)
 			{
-				if (world.GetWorldChunk<WorldChunk>(raycastHitList[i]) == null)
+				if (world.GetWorldChunk<WorldChunk>() == null)
 				{
 					raycastHitList.RemoveAt(i);
 				}
@@ -282,13 +282,13 @@ namespace FNZ.Shared.Utils.CollisionUtils
 
 			FNERayCastHitStruct ret;
 
-			if (world.GetWorldChunk<WorldChunk>(start) != null)
+			if (world.GetWorldChunk<WorldChunk>() != null)
 			{
 				GetBresenhamTilesFromLine3Wide((int)start.x, (int)start.y, (int)end.x, (int)end.y, world, raycastHitList);
 
 				for (int i = raycastHitList.Count - 1; i >= 0; i--)
 				{
-					if (world.GetWorldChunk<WorldChunk>(raycastHitList[i]) == null)
+					if (world.GetWorldChunk<WorldChunk>() == null)
 					{
 						raycastHitList.RemoveAt(i);
 					}
@@ -338,13 +338,13 @@ namespace FNZ.Shared.Utils.CollisionUtils
 			List<int2> raycastHitList = PopRayCastHitList();
 			List<FNEEntity> entitiesToCheck = new List<FNEEntity>();
 
-			if (world.GetWorldChunk<WorldChunk>(start) != null)
+			if (world.GetWorldChunk<WorldChunk>() != null)
 			{
 				GetBresenhamTilesFromLine3Wide((int)start.x, (int)start.y, (int)end.x, (int)end.y, world, raycastHitList);
 
 				for (int i = raycastHitList.Count - 1; i >= 0; i--)
 				{
-					if (world.GetWorldChunk<WorldChunk>(raycastHitList[i]) == null)
+					if (world.GetWorldChunk<WorldChunk>() == null)
 					{
 						raycastHitList.RemoveAt(i);
 					}
@@ -403,13 +403,13 @@ namespace FNZ.Shared.Utils.CollisionUtils
 			
 			List<FNEEntity> entitiesToCheck = new List<FNEEntity>();
 
-			if (world.GetWorldChunk<WorldChunk>(start) != null)
+			if (world.GetWorldChunk<WorldChunk>() != null)
 			{
 				GetBresenhamTilesFromLine3Wide((int)start.x, (int)start.y, (int)end.x, (int)end.y, world, raycastHitList);
 
 				for (int i = raycastHitList.Count - 1; i >= 0; i--)
 				{
-					if (world.GetWorldChunk<WorldChunk>(raycastHitList[i]) == null)
+					if (world.GetWorldChunk<WorldChunk>() == null)
 					{
 						raycastHitList.RemoveAt(i);
 					}
@@ -913,7 +913,7 @@ namespace FNZ.Shared.Utils.CollisionUtils
 
 		private static void AddTileIfNotNull(GameWorld world, int2 tilePos, List<int2> output)
 		{
-			if (world.GetWorldChunk<WorldChunk>(tilePos) != null)
+			if (world.GetWorldChunk<WorldChunk>() != null)
 			{
 				output.Add(tilePos);
 			}
@@ -939,7 +939,7 @@ namespace FNZ.Shared.Utils.CollisionUtils
 			int numerator = longest >> 1;
 			for (int i = 0; i <= longest; i++)
 			{
-				if (world.GetWorldChunk<WorldChunk>(new int2(x, y)) == null)
+				if (world.GetWorldChunk<WorldChunk>() == null)
 				{
 					break;
 				}
