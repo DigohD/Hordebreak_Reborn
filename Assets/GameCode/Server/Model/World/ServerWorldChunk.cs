@@ -180,7 +180,7 @@ namespace FNZ.Server.Model.World
 				tileObject.FileDeserialize(nb);
 
 				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * Size] = tileObject.Data.blocking;
+				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * SideSize] = tileObject.Data.blocking;
 
 				EntitiesToSync.Add(tileObject);
 
@@ -259,9 +259,9 @@ namespace FNZ.Server.Model.World
 			var c = TotalEnemies();
 			nb.Write(c);
 
-			for (var y = 0; y < Size; y++)
+			for (var y = 0; y < SideSize; y++)
 			{
-				for (var x = 0; x < Size; x++)
+				for (var x = 0; x < SideSize; x++)
 				{
 					var enemies = ChunkCells[x, y].GetEnemies();
 
@@ -294,18 +294,18 @@ namespace FNZ.Server.Model.World
 
 		public void ChangeTile(int x, int y, string tileId)
 		{
-			int index = ((int)x - ChunkX * Size) + (y - ChunkY * Size) * Size;
+			int index = ((int)x - ChunkX * SideSize) + (y - ChunkY * SideSize) * SideSize;
 			TileIdCodes[index] = IdTranslator.Instance.GetIdCode<TileData>(tileId);
 			BlockingTiles[index] = DataBank.Instance.GetData<TileData>(tileId).isBlocking;
 		}
 
 		public void SetTileRooms()
 		{
-			var worldX = ChunkX * Size;
-			var worldY = ChunkY * Size;
+			var worldX = ChunkX * SideSize;
+			var worldY = ChunkY * SideSize;
 			for (int i = 0; i < TileRooms.Length; i++)
 			{
-				var worldEquivalent = new int2(worldX + (i % Size), worldY + (i / Size));
+				var worldEquivalent = new int2(worldX + (i % SideSize), worldY + (i / SideSize));
 				var tileRoom = GameServer.RoomManager.GetTileRoomWithoutWorldData(worldEquivalent);
 				if (tileRoom != null)
 					TileRooms[i] = tileRoom.Id;

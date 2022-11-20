@@ -61,7 +61,7 @@ namespace FNZ.Client.Utils
 
 			int overlapCount = 0;
 
-			int size = chunkModel.Size;
+			int size = chunkModel.SideSize;
 
 			Dictionary<string, List<int>> submeshData = new Dictionary<string, List<int>>();
 
@@ -132,7 +132,7 @@ namespace FNZ.Client.Utils
 			ref int overlapCount
 		)
 		{
-			int size = chunkModel.Size;
+			int size = chunkModel.SideSize;
 
 			TileData neighborData;
 			int tx;
@@ -443,7 +443,7 @@ namespace FNZ.Client.Utils
 		)
 		{
 			if (chunkModel == null) return;
-			var size = chunkModel.Size;
+			var size = chunkModel.SideSize;
 
 			var tileIdCodes = chunkModel.TileIdCodes;
 

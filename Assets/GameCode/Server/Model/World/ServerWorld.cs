@@ -223,7 +223,6 @@ namespace FNZ.Server.Model.World
 			UpdateObstacles();
 			AddTickablesFromQueue();
 			RemoveTickablesFromQueue();
-			WorldMap.Tick();
 			
 			// @TODO(Anders E): Let this try catch stay for awhile to make sure the concurrent modification issue is fixed. But remove it eventually
 			try

@@ -38,18 +38,14 @@ namespace FNZ.Server.Model.World
 				SeedY = seedY
 			};
 
-			var chunk = world.GetWorldChunk<ServerWorldChunk>();
-			chunk.IsMainWorld = isMainWorld;
-			GenerateChunk(chunk);
-			
 			return world;
 		}
 
 		public void GenerateChunk(ServerWorldChunk chunk)
 		{
-			m_TileObjectGenerationMap = new bool[chunk.Size * chunk.Size];
+			m_TileObjectGenerationMap = new bool[chunk.SideSize * chunk.SideSize];
 			
-			for (int i = 0; i < chunk.Size * chunk.Size; i++)
+			for (int i = 0; i < chunk.SideSize * chunk.SideSize; i++)
 			{
 				m_TileObjectGenerationMap[i] = false;
 			}
@@ -84,7 +80,7 @@ namespace FNZ.Server.Model.World
 		{
 			byte chunkX = chunk.ChunkX;
 			byte chunkY = chunk.ChunkY;
-			int chunkSize = chunk.Size;
+			int chunkSize = chunk.SideSize;
 
 			float[] heightMap = GenerateHeightMap(chunkX, chunkY, chunkSize, GameServer.MainWorld.SeedX, GameServer.MainWorld.SeedY);
 
@@ -122,7 +118,7 @@ namespace FNZ.Server.Model.World
 
 		private void GenerateEnvironmentObjects(ServerWorldChunk chunk)
 		{
-			int chunkSize = chunk.Size;
+			int chunkSize = chunk.SideSize;
 
 			var serverWorld = GameServer.MainWorld;
 
@@ -208,7 +204,7 @@ namespace FNZ.Server.Model.World
 				if (originalChunk != chunk)
 					continue;
 
-				int index = tile.x + tile.y * chunk.Size;
+				int index = tile.x + tile.y * chunk.SideSize;
 				ushort tileIdCode = chunk.TileIdCodes[index];
 				string tileId = IdTranslator.Instance.GetId<TileData>(tileIdCode);
 
@@ -1451,7 +1447,7 @@ namespace FNZ.Server.Model.World
 				}
 			}
 
-			AddTileObjectToGenerationMap(position, chunk.ChunkX, chunk.ChunkY);
+			AddTileObjectToGenerationMap(position);
 
 			chunk.EntitiesToSync.Add(entity);
 			
@@ -1466,9 +1462,9 @@ namespace FNZ.Server.Model.World
 			return m_TileObjectGenerationMap[tileX % 32 + ((tileY % 32) * 32)];
 		}
 
-		private void AddTileObjectToGenerationMap(float2 position, byte chunkX, byte chunkY)
+		private void AddTileObjectToGenerationMap(float2 position)
 		{
-			int index = ((int)position.x - chunkX * 32) + ((int)position.y - chunkY * 32) * 32;
+			int index = GameServer.MainWorld.GetFlatArrayIndexFromPos(position.x, position.y);
 			m_TileObjectGenerationMap[index] = true;
 		}
 

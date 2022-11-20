@@ -83,6 +83,10 @@ namespace FNZ.Server
 				true
 			);
 
+			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
+			chunk.IsMainWorld = true;
+			WorldGen.GenerateChunk(chunk);
+
 			//MainWorld.LoadSiteMetaData();
 
 			//ChunkManager = new WorldChunkManager();

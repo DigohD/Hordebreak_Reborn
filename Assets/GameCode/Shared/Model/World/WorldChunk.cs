@@ -63,7 +63,7 @@ namespace FNZ.Shared.Model.World
 		public bool IsMainWorld { get; set; }
 		public byte ChunkX { get; set; }
 		public byte ChunkY { get; set; }
-		public int Size { get; set; }
+		public int SideSize { get; set; }
 
 		public bool IsInitialized = false;
 
@@ -93,6 +93,8 @@ namespace FNZ.Shared.Model.World
 
 		public WorldChunk(int width, int height, GameWorld worldInstance)
 		{
+			SideSize = width;
+
 			m_WorldInstance = worldInstance;
 			ChunkX = 0;
 			ChunkY = 0;
@@ -124,9 +126,9 @@ namespace FNZ.Shared.Model.World
 
 			ChunkCells = new ChunkCellData[width, height];
 
-			for (var y = 0; y < Size; y++)
+			for (var y = 0; y < SideSize; y++)
 			{
-				for (var x = 0; x < Size; x++)
+				for (var x = 0; x < SideSize; x++)
 				{
 					ChunkCells[x, y] = new ChunkCellData();
 				}
@@ -137,66 +139,66 @@ namespace FNZ.Shared.Model.World
 
 		public void AddTileObject(FNEEntity tileObject)
 		{
-			int index = ((int)tileObject.Position.x - ChunkX * Size) + ((int)tileObject.Position.y - ChunkY * Size) * Size;
+			int index = ((int)tileObject.Position.x - ChunkX * SideSize) + ((int)tileObject.Position.y - ChunkY * SideSize) * SideSize;
 			TileObjects[index] = tileObject;
 			m_TileObjectCount++;
 		}
 
 		public void RemoveTileObject(FNEEntity tileObject)
 		{
-			int index = ((int)tileObject.Position.x - ChunkX * Size) + ((int)tileObject.Position.y - ChunkY * Size) * Size;
+			int index = ((int)tileObject.Position.x - ChunkX * SideSize) + ((int)tileObject.Position.y - ChunkY * SideSize) * SideSize;
 			TileObjects[index] = null;
 			m_TileObjectCount--;
 		}
 
 		public void AddSouthEdgeObject(FNEEntity southEdgeObject)
 		{
-			int index = ((int)southEdgeObject.Position.x - ChunkX * Size) + (((int)southEdgeObject.Position.y) - ChunkY * Size) * Size;
+			int index = ((int)southEdgeObject.Position.x - ChunkX * SideSize) + (((int)southEdgeObject.Position.y) - ChunkY * SideSize) * SideSize;
 			SouthEdgeObjects[index] = southEdgeObject;
 			m_SouthEdgeObjectCount++;
 		}
 
 		public FNEEntity GetSouthEdgeObject(float2 position)
 		{
-			int index = ((int)position.x - ChunkX * Size) + (((int)position.y) - ChunkY * Size) * Size;
+			int index = ((int)position.x - ChunkX * SideSize) + (((int)position.y) - ChunkY * SideSize) * SideSize;
 			return SouthEdgeObjects[index];
 		}
 
 		public void RemoveSouthEdgeObject(FNEEntity southEdgeObject)
 		{
-			int index = ((int)southEdgeObject.Position.x - ChunkX * Size) + (((int)southEdgeObject.Position.y) - ChunkY * Size) * Size;
+			int index = ((int)southEdgeObject.Position.x - ChunkX * SideSize) + (((int)southEdgeObject.Position.y) - ChunkY * SideSize) * SideSize;
 			SouthEdgeObjects[index] = null;
 			m_SouthEdgeObjectCount--;
 		}
 
 		public void AddWestEdgeObject(FNEEntity westEdgeObject)
 		{
-			int index = (((int)westEdgeObject.Position.x) - ChunkX * Size) + ((int)westEdgeObject.Position.y - ChunkY * Size) * Size;
+			int index = (((int)westEdgeObject.Position.x) - ChunkX * SideSize) + ((int)westEdgeObject.Position.y - ChunkY * SideSize) * SideSize;
 			WestEdgeObjects[index] = westEdgeObject;
 			m_WestEdgeObjectCount++;
 		}
 
 		public void AddTileRoom(int2 tilePos, long roomId)
 		{
-			int index = (tilePos.x - ChunkX * Size) + (tilePos.y - ChunkY * Size) * Size;
+			int index = (tilePos.x - ChunkX * SideSize) + (tilePos.y - ChunkY * SideSize) * SideSize;
 			TileRooms[index] = roomId;
 		}
 
 		public void RemoveTileRoom(int2 tilePos)
 		{
-			int index = (tilePos.x - ChunkX * Size) + (tilePos.y - ChunkY * Size) * Size;
+			int index = (tilePos.x - ChunkX * SideSize) + (tilePos.y - ChunkY * SideSize) * SideSize;
 			TileRooms[index] = 0;
 		}
 
 		public FNEEntity GetWestEdgeObject(float2 position)
 		{
-			int index = ((int)position.x - ChunkX * Size) + (((int)position.y) - ChunkY * Size) * Size;
+			int index = ((int)position.x - ChunkX * SideSize) + (((int)position.y) - ChunkY * SideSize) * SideSize;
 			return WestEdgeObjects[index];
 		}
 
 		public void RemoveWestEdgeObject(FNEEntity westEdgeObject)
 		{
-			int index = ((int)westEdgeObject.Position.x - ChunkX * Size) + (((int)westEdgeObject.Position.y) - ChunkY * Size) * Size;
+			int index = ((int)westEdgeObject.Position.x - ChunkX * SideSize) + (((int)westEdgeObject.Position.y) - ChunkY * SideSize) * SideSize;
 			WestEdgeObjects[index] = null;
 			m_WestEdgeObjectCount--;
 		}
@@ -244,22 +246,22 @@ namespace FNZ.Shared.Model.World
 
 		private void SerializeTiles(NetBuffer nb)
 		{
-			for (int i = 0; i < Size * Size; i++)
+			for (int i = 0; i < SideSize * SideSize; i++)
 			{
 				nb.Write(TileIdCodes[i]);
 				nb.Write(TileCosts[i]);
 				nb.Write(TileDangerLevels[i]);
 				nb.Write(TileObjectBlockingList[i]);
 				nb.Write(TileSeeThroughList[i]);
-				nb.Write((ushort)(TilePositionsX[i] % Size));
-				nb.Write((ushort)(TilePositionsY[i] % Size));
+				nb.Write((ushort)(TilePositionsX[i] % SideSize));
+				nb.Write((ushort)(TilePositionsY[i] % SideSize));
 				nb.Write(FNEUtil.PackFloatAsShort(TileTemperatures[i]));
 			}
 		}
 
 		private void DeserializeTiles(NetBuffer nb)
 		{
-			for (int i = 0; i < Size * Size; i++)
+			for (int i = 0; i < SideSize * SideSize; i++)
 			{
 				TileIdCodes[i] = nb.ReadUInt16();
 				BlockingTiles[i] = DataBank.Instance.GetData<TileData>(IdTranslator.Instance.GetId<TileData>(TileIdCodes[i])).isBlocking;
@@ -267,8 +269,8 @@ namespace FNZ.Shared.Model.World
 				TileDangerLevels[i] = nb.ReadByte();
 				TileObjectBlockingList[i] = nb.ReadBoolean();
 				TileSeeThroughList[i] = nb.ReadBoolean();
-				TilePositionsX[i] = nb.ReadUInt16() + ChunkX * Size;
-				TilePositionsY[i] = nb.ReadUInt16() + ChunkY * Size;
+				TilePositionsX[i] = nb.ReadUInt16() + ChunkX * SideSize;
+				TilePositionsY[i] = nb.ReadUInt16() + ChunkY * SideSize;
 				TileTemperatures[i] = FNEUtil.UnpackShortToFloat(nb.ReadUInt16());
 			}
 		}
@@ -325,14 +327,14 @@ namespace FNZ.Shared.Model.World
 
 		private int TileDataTotalBits()
 		{
-			int tileIdBits = sizeof(ushort) * Size * Size * 8;
-			int tileCostBits = sizeof(byte) * Size * Size * 8;
-			int tileDangerLevelBits = sizeof(byte) * Size * Size * 8;
-			int tileBlockingBits = sizeof(byte) * Size * Size * 8;
-			int tileSeeThroughBits = sizeof(byte) * Size * Size * 8;
-			int tilePositionsXBits = sizeof(ushort) * Size * Size * 8;
-			int tilePositionsYBits = sizeof(ushort) * Size * Size * 8;
-			int tileTemperatureBits = sizeof(ushort) * Size * Size * 8;
+			int tileIdBits = sizeof(ushort) * SideSize * SideSize * 8;
+			int tileCostBits = sizeof(byte) * SideSize * SideSize * 8;
+			int tileDangerLevelBits = sizeof(byte) * SideSize * SideSize * 8;
+			int tileBlockingBits = sizeof(byte) * SideSize * SideSize * 8;
+			int tileSeeThroughBits = sizeof(byte) * SideSize * SideSize * 8;
+			int tilePositionsXBits = sizeof(ushort) * SideSize * SideSize * 8;
+			int tilePositionsYBits = sizeof(ushort) * SideSize * SideSize * 8;
+			int tileTemperatureBits = sizeof(ushort) * SideSize * SideSize * 8;
 
 			return tileIdBits + tileCostBits + tileDangerLevelBits + tileBlockingBits
 				+ tileSeeThroughBits + tilePositionsXBits + tilePositionsYBits + tileTemperatureBits;
@@ -424,9 +426,9 @@ namespace FNZ.Shared.Model.World
 		{
 			var result = new List<FNEEntity>();
 
-			for (var y = 0; y < Size; y++)
+			for (var y = 0; y < SideSize; y++)
 			{
-				for (var x = 0; x < Size; x++)
+				for (var x = 0; x < SideSize; x++)
 				{
 					foreach (var e in ChunkCells[x, y].GetEnemies())
 						result.Add(e);
@@ -440,8 +442,8 @@ namespace FNZ.Shared.Model.World
         {
 			var count = 0;
 
-			for (var y = 0; y < Size; y++)
-				for (var x = 0; x < Size; x++)
+			for (var y = 0; y < SideSize; y++)
+				for (var x = 0; x < SideSize; x++)
 					count += ChunkCells[x, y].GetEnemies().Count;
 
 			return count;
@@ -451,9 +453,9 @@ namespace FNZ.Shared.Model.World
         {
 			var totalBits = 0;
 
-			for (var y = 0; y < Size; y++)
+			for (var y = 0; y < SideSize; y++)
 			{
-				for (var x = 0; x < Size; x++)
+				for (var x = 0; x < SideSize; x++)
 				{
 					var enemies = ChunkCells[x, y].GetEnemies();
 

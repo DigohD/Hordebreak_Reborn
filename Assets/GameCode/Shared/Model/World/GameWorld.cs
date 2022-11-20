@@ -60,6 +60,10 @@ namespace FNZ.Shared.Model.World
 			m_Chunk.RemoveTileObject(tileObject);
 		}
 
+		public int GetFlatArrayIndexFromPos(float tileX, float tileY)
+		{
+			return GetFlatArrayIndexFromPos((int) tileX, (int) tileY);
+		}
 		public int GetFlatArrayIndexFromPos(int tileX, int tileY)
         {
 			return tileX % WIDTH + ((tileY % HEIGHT) * WIDTH);
@@ -314,7 +318,7 @@ namespace FNZ.Shared.Model.World
 			{
 				for (int x = -radius; x <= radius; x++)
 				{
-					if (m_Chunk != null)
+					if (origin.x + x >= 0 && origin.x + x < WIDTH && origin.y + y >= 0 && origin.y + y < HEIGHT)
 						surrounding.Add(new int2(origin.x + x, origin.y + y));
 				}
 			}

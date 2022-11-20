@@ -131,7 +131,7 @@ namespace FNZ.Server.Net.Messages
 		public NetMessage CreateChunkMapUpdateMessage(ServerWorldChunk chunk)
 		{
 			var sendBuffer = m_NetServer.CreateMessage();
-			var predictedBufferSize = 3 + (chunk.Size * chunk.Size * 2);
+			var predictedBufferSize = 3 + (chunk.SideSize * chunk.SideSize * 2);
 			
 			sendBuffer.Write((byte) NetMessageType.CHUNK_MAP_UPDATE);
 			

@@ -85,11 +85,11 @@ namespace FNZ.Client.Model.World
 
         private void SetTileRooms()
         {
-            var worldX = ChunkX * Size;
-            var worldY = ChunkY * Size;
+            var worldX = ChunkX * SideSize;
+            var worldY = ChunkY * SideSize;
             for (var i = 0; i < TileRooms.Length; i++)
             {
-                var worldEquivalent = new int2(worldX + (i % Size), worldY + (i / Size));
+                var worldEquivalent = new int2(worldX + (i % SideSize), worldY + (i / SideSize));
                 var tileRoom = GameClient.RoomManager.GetTileRoomWithoutWorldData(worldEquivalent);
                 if (tileRoom != null)
                     TileRooms[i] = tileRoom.Id;
