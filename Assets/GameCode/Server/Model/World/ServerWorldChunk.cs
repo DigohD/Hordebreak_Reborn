@@ -17,7 +17,7 @@ namespace FNZ.Server.Model.World
 		public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
 
 		public ServerWorldChunk(int size, ServerWorld worldInstance)
-			: base(size, worldInstance)
+			: base(size, size, worldInstance)
 		{
 			
 		}
