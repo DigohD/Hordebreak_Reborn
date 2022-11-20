@@ -18,159 +18,63 @@ namespace FNZ.Shared.Model.World
 
 		// The size of a chunk in tiles (64 means the chunk is 64x64 tiles large)
 		public byte CHUNK_SIZE;
-		// The number of chunks in a row of the terrain
-		public int HEIGHT_IN_CHUNKS;
-		// The number of chunks in a column of the terrain
-		public int WIDTH_IN_CHUNKS;
+
 		// The total width in tiles for the terrain
 		public int WIDTH;
 		// The total height in tiles for the terrain
 		public int HEIGHT;
 
-		protected WorldChunk[,] m_Chunks;
+		protected WorldChunk m_Chunk;
 		//protected WorldChunk m_Chunk;
 
-		public virtual void InitializeWorld<T>() where T : WorldChunk
+		public virtual void InitializeWorld<T>() where T : WorldChunk {}
+
+		public void SetChunk<T>(T chunk) where T : WorldChunk
 		{
-			m_Chunks = new T[WIDTH, HEIGHT];
+			m_Chunk = chunk;
 		}
 
-		public void SetChunk<T>(byte chunkX, byte chunkY, T chunk) where T : WorldChunk
+		public T GetWorldChunk<T>() where T : WorldChunk
 		{
-			m_Chunks[chunkX, chunkY] = chunk;
-		}
-
-		public T GetWorldChunk<T>(float2 position) where T : WorldChunk
-		{
-			int worldX = (int)position.x;
-			int worldY = (int)position.y;
-
-			if (worldX < 0)
-				return default;
-			if (worldX >= WIDTH_IN_CHUNKS * CHUNK_SIZE)
-				return default;
-			if (worldY < 0)
-				return default;
-			if (worldY >= HEIGHT_IN_CHUNKS * CHUNK_SIZE)
-				return default;
-
-			int chunkYpos = worldY % CHUNK_SIZE;
-			int chunkYnr = (worldY - chunkYpos) / CHUNK_SIZE;
-			int chunkXpos = worldX % CHUNK_SIZE;
-			int chunkXnr = (worldX - chunkXpos) / CHUNK_SIZE;
-
-			return m_Chunks[chunkXnr, chunkYnr] as T;
+			return m_Chunk as T;
 		}
 
 		public ChunkCellData GetChunkCellData(int worldX, int worldY)
 		{
-			if (worldX < 0)
-				return null;
-			if (worldX >= WIDTH_IN_CHUNKS * CHUNK_SIZE)
-				return null;
-			if (worldY < 0)
-				return null;
-			if (worldY >= HEIGHT_IN_CHUNKS * CHUNK_SIZE)
-				return null;
-
-			int chunkXpos = worldX % CHUNK_SIZE;
-			int chunkXnr = (worldX - chunkXpos) / CHUNK_SIZE;
-
-			int chunkYpos = worldY % CHUNK_SIZE;
-			int chunkYnr = (worldY - chunkYpos) / CHUNK_SIZE;
-			var chunk = m_Chunks[chunkXnr, chunkYnr];
-			if (chunk == null) return null;
-			return chunk.ChunkCells[chunkXpos, chunkYpos];
+			return m_Chunk.ChunkCells[worldX, worldY];
 		}
 
-		public T GetWorldChunk<T>(int chunkX, int chunkY) where T : WorldChunk
+		public virtual void RemoveChunk()
 		{
-			return m_Chunks[chunkX, chunkY] as T;
-		}
-
-		public virtual void RemoveChunk<T>(T chunk) where T : WorldChunk
-		{
-			m_Chunks[chunk.ChunkX, chunk.ChunkY] = null;
-		}
-
-		public ICollection<T> GetNeighbouringChunks<T>(T chunk) where T : WorldChunk
-		{
-			var neighbors = new List<T>();
-
-			for (int y = -1; y <= 1; y++)
-			{
-				for (int x = -1; x <= 1; x++)
-				{
-					byte cx = (byte)(chunk.ChunkX + x);
-					byte cy = (byte)(chunk.ChunkY + y);
-
-					if (cx < 0 || cy < 0 || cx >= WIDTH_IN_CHUNKS
-						|| cy >= HEIGHT_IN_CHUNKS) continue;
-
-					if (m_Chunks[cx, cy] == null) continue;
-
-					neighbors.Add(m_Chunks[cx, cy] as T);
-				}
-			}
-
-			return neighbors;
-		}
-
-		public int2 GetChunkIndices(float2 position)
-		{
-			int worldX = (int)position.x;
-			int worldY = (int)position.y;
-			int chunkYpos = worldY % CHUNK_SIZE;
-			int chunkYnr = (worldY - chunkYpos) / CHUNK_SIZE;
-			int chunkXpos = worldX % CHUNK_SIZE;
-			int chunkXnr = (worldX - chunkXpos) / CHUNK_SIZE;
-			return new int2(chunkXnr, chunkYnr);
-		}
-
-		public int2 GetChunkTileIndices<T>(T chunk, float2 worldPosition) where T : WorldChunk
-		{
-			int worldX = (int)worldPosition.x;
-			int worldY = (int)worldPosition.y;
-
-			int tileXnr = worldX - (chunk.ChunkX * CHUNK_SIZE);
-			int tileYnr = worldY - (chunk.ChunkY * CHUNK_SIZE);
-
-			return new int2(tileXnr, tileYnr);
+			m_Chunk = null;
 		}
 
 		public void AddTileObject(FNEEntity tileObject)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(tileObject.Position);
-			if (chunk == null) return;
-			chunk.AddTileObject(tileObject);
+			if (m_Chunk == null) return;
+			m_Chunk.AddTileObject(tileObject);
 		}
 
 		public void RemoveTileObject(FNEEntity tileObject)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(tileObject.Position);
-			if (chunk == null) return;
-			chunk.RemoveTileObject(tileObject);
+			if (m_Chunk == null) return;
+			m_Chunk.RemoveTileObject(tileObject);
 		}
 
-		public FNEEntity GetTileObject(int tileX, int tileY)
-		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, tileY / CHUNK_SIZE];
-			return chunk?.TileObjects[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+		public int GetFlatArrayIndexFromPos(int tileX, int tileY)
+        {
+			return tileX % WIDTH + ((tileY % HEIGHT) * WIDTH);
 		}
 
 		public bool? IsTileBlocking(int tileX, int tileY)
 		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, tileY / CHUNK_SIZE];
-			return chunk?.BlockingTiles[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+			return m_Chunk?.BlockingTiles[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
-		public FNEEntity GetTileObject(int2 tile)
+		public FNEEntity GetTileObject(int tileX, int tileY)
 		{
-			int tileX = tile.x;
-			int tileY = tile.y;
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, (tileY / CHUNK_SIZE)];
-			if (chunk == null) return null;
-			return chunk.TileObjects[tile.x % CHUNK_SIZE + ((tile.y % CHUNK_SIZE) * CHUNK_SIZE)];
+			if (m_Chunk == null) return null;
+			return m_Chunk.TileObjects[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
 		public List<FNEEntity> GetStraightNeighborTileObjects(int2 currentTile)
@@ -198,21 +102,19 @@ namespace FNZ.Shared.Model.World
 		}
 
 		public void AddEdgeObject(FNEEntity edgeObject)
-		{
-			var chunk = GetWorldChunk<WorldChunk>(edgeObject.Position);
-			
-			if (chunk == null) return;
+		{			
+			if (m_Chunk == null) return;
 
 			bool isWest = edgeObject.Position.x % 1 == 0;
 			bool isSouth = edgeObject.Position.y % 1 == 0;
 
 			if (isWest)
 			{
-				chunk.AddWestEdgeObject(edgeObject);
+				m_Chunk.AddWestEdgeObject(edgeObject);
 			}
 			else if (isSouth)
 			{
-				chunk.AddSouthEdgeObject(edgeObject);
+				m_Chunk.AddSouthEdgeObject(edgeObject);
 			}
 			else
 			{
@@ -222,33 +124,29 @@ namespace FNZ.Shared.Model.World
 
 		public void RemoveEdgeObject(FNEEntity edgeObject)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(edgeObject.Position);
-
-			if (chunk == null) return;
+			if (m_Chunk == null) return;
 
 			bool isWest = edgeObject.Position.x % 1 == 0;
 			bool isSouth = edgeObject.Position.y % 1 == 0;
 
 			if (isWest)
 			{
-				chunk.RemoveWestEdgeObject(edgeObject);
+				m_Chunk.RemoveWestEdgeObject(edgeObject);
 			}
 			else if (isSouth)
 			{
-				chunk.RemoveSouthEdgeObject(edgeObject);
+				m_Chunk.RemoveSouthEdgeObject(edgeObject);
 			}
 		}
 
 		public FNEEntity GetEdgeObject(int tileX, int tileY, EdgeObjectDirection dir)
 		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, (tileY / CHUNK_SIZE)];
-
-			if (chunk == null)
+			if (m_Chunk == null)
 				return null;
 			if (dir == EdgeObjectDirection.SOUTH)
-				return chunk.SouthEdgeObjects[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+				return m_Chunk.SouthEdgeObjects[GetFlatArrayIndexFromPos(tileX, tileY)];
 			else
-				return chunk.WestEdgeObjects[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+				return m_Chunk.WestEdgeObjects[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
 		public FNEEntity GetEdgeObjectAtPosition(float2 pos)
@@ -267,41 +165,31 @@ namespace FNZ.Shared.Model.World
 
 		public List<FNEEntity> GetStraightDirectionsEdgeObjects(int2 tilePos)
 		{
-			var chunk = m_Chunks[tilePos.x / CHUNK_SIZE, (tilePos.y / CHUNK_SIZE)];
-			var chunkNorth = m_Chunks[tilePos.x / CHUNK_SIZE, ((tilePos.y + 1) / CHUNK_SIZE)];
-			var chunkEast = m_Chunks[(tilePos.x + 1) / CHUNK_SIZE, ((tilePos.y) / CHUNK_SIZE)];
-
 			return new List<FNEEntity>()
 			{
-				chunk?.SouthEdgeObjects[tilePos.x % CHUNK_SIZE + ((tilePos.y % CHUNK_SIZE) * CHUNK_SIZE)],
-				chunk?.WestEdgeObjects[tilePos.x % CHUNK_SIZE + ((tilePos.y % CHUNK_SIZE) * CHUNK_SIZE)],
-				chunkNorth?.SouthEdgeObjects[tilePos.x % CHUNK_SIZE + (((tilePos.y + 1) % CHUNK_SIZE) * CHUNK_SIZE)],
-				chunkEast?.WestEdgeObjects[(tilePos.x + 1) % CHUNK_SIZE + ((tilePos.y % CHUNK_SIZE) * CHUNK_SIZE)]
+				m_Chunk?.SouthEdgeObjects[GetFlatArrayIndexFromPos(tilePos.x, tilePos.y)],
+				m_Chunk?.WestEdgeObjects[GetFlatArrayIndexFromPos(tilePos.x, tilePos.y)],
+				m_Chunk?.SouthEdgeObjects[GetFlatArrayIndexFromPos(tilePos.x, tilePos.y + 1)],
+				m_Chunk?.WestEdgeObjects[GetFlatArrayIndexFromPos(tilePos.x + 1, tilePos.y)]
 			};
 		}
 
 		public void AddTileRoom(int2 tilePos, long roomId)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(tilePos);
-			chunk.AddTileRoom(tilePos, roomId);
+			m_Chunk.AddTileRoom(tilePos, roomId);
 		}
 
 		public void RemoveTileRoom(int2 tilePos)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(tilePos);
-			chunk.RemoveTileRoom(tilePos);
+			m_Chunk.RemoveTileRoom(tilePos);
 		}
 
 		public long GetTileRoom(float2 position)
 		{
-			var chunk = GetWorldChunk<WorldChunk>(position);
-
-			if (chunk == null)
+			if (m_Chunk == null)
 				return 0;
 
-			int2 tileIndices = GetChunkTileIndices(chunk, position);
-
-			return chunk.TileRooms[tileIndices.x + tileIndices.y * CHUNK_SIZE];
+			return m_Chunk.TileRooms[(int) position.x + (int) position.y * WIDTH];
 		}
 
 		public string GetTileId(int tileX, int tileY)
@@ -321,33 +209,29 @@ namespace FNZ.Shared.Model.World
 
 		public ushort GetTileIdCode(int tileX, int tileY)
 		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, (tileY / CHUNK_SIZE)];
-
-			if (chunk == null)
+			if (m_Chunk == null)
 				return 0;
 
-			return chunk.TileIdCodes[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+			return m_Chunk.TileIdCodes[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
 		public bool GetTileObjectBlocking(int tileX, int tileY)
 		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, (tileY / CHUNK_SIZE)];
-			if (chunk == null)
+			if (m_Chunk == null)
 				return false;
-			return chunk.TileObjectBlockingList[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+			return m_Chunk.TileObjectBlockingList[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
 		public bool GetBlockedTile(int tileX, int tileY)
 		{
-			var chunk = m_Chunks[tileX / CHUNK_SIZE, (tileY / CHUNK_SIZE)];
-			if (chunk == null)
+			if (m_Chunk == null)
 				return false;
-			return chunk.BlockingTiles[tileX % CHUNK_SIZE + ((tileY % CHUNK_SIZE) * CHUNK_SIZE)];
+			return m_Chunk.BlockingTiles[GetFlatArrayIndexFromPos(tileX, tileY)];
 		}
 
 		public bool GetTileBlocking(int2 tile)
 		{
-			return m_Chunks[tile.x / CHUNK_SIZE, (tile.y / CHUNK_SIZE)].TileObjectBlockingList[tile.x % CHUNK_SIZE + ((tile.y % CHUNK_SIZE) * CHUNK_SIZE)];
+			return m_Chunk.TileObjectBlockingList[GetFlatArrayIndexFromPos(tile-XDiffGui, tile-y)];
 		}
 
 		public List<FNEEntity> GetTileEnemies(int2 tilePos)
@@ -415,7 +299,7 @@ namespace FNZ.Shared.Model.World
 			{
 				for (int x = -radius; x <= radius; x++)
 				{
-					if (GetWorldChunk<WorldChunk>(new int2(origin.x + x, origin.y + y)) == null)
+					if (x < 0 || y < 0 || x >= WIDTH || y >= HEIGHT)
 						return true;
 				}
 			}
@@ -431,7 +315,7 @@ namespace FNZ.Shared.Model.World
 			{
 				for (int x = -radius; x <= radius; x++)
 				{
-					if (GetWorldChunk<WorldChunk>(new int2(origin.x + x, origin.y + y)) != null)
+					if (m_Chunk != null)
 						surrounding.Add(new int2(origin.x + x, origin.y + y));
 				}
 			}
@@ -439,6 +323,7 @@ namespace FNZ.Shared.Model.World
 			return surrounding;
 		}
 
+		// TODO: Do not return lists
 		public List<int2> GetTileStraightNeighbors(int x, int y)
 		{
 			return new List<int2>
@@ -450,6 +335,7 @@ namespace FNZ.Shared.Model.World
 			};
 		}
 
+		// TODO: Do not return lists
 		public List<int2> GetTileDiagonalNeighbors(int x, int y)
 		{
 			return new List<int2>

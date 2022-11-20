@@ -223,7 +223,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		{
 			foreach (var agent in Agents)
 			{
-				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>(agent.position);
+				var chunk = GameServer.World.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null) continue;
 				if (!chunk.IsActive|| !chunk.IsInitialized)
 				{

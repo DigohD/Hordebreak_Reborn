@@ -67,8 +67,6 @@ namespace FNZ.Client.Net.NetworkManager
 			GameClient.World.WIDTH = incMsg.ReadInt32();
 			GameClient.World.HEIGHT = incMsg.ReadInt32();
 			GameClient.World.CHUNK_SIZE = incMsg.ReadByte();
-			GameClient.World.WIDTH_IN_CHUNKS = GameClient.World.WIDTH / GameClient.World.CHUNK_SIZE;
-			GameClient.World.HEIGHT_IN_CHUNKS = GameClient.World.HEIGHT / GameClient.World.CHUNK_SIZE;
 
 			GameClient.World.InitializeWorld<ClientWorldChunk>();
 
@@ -144,7 +142,7 @@ namespace FNZ.Client.Net.NetworkManager
 			int tileY = incMsg.ReadInt32();
 			string id = IdTranslator.Instance.GetId<TileData>(incMsg.ReadUInt16());
 
-			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>(new float2(tileX, tileY));
+			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
 
 			var CHUNKI_SIZE = GameClient.World.CHUNK_SIZE;
 			int index = ((int)tileX - chunk.ChunkX * CHUNKI_SIZE) + (tileY - chunk.ChunkY * CHUNKI_SIZE) * CHUNKI_SIZE;
@@ -249,27 +247,6 @@ namespace FNZ.Client.Net.NetworkManager
 			}
 
 			GameClient.World.WorldMap.HandleRevealedChunk(chunkX, chunkY, tileIdCodes);
-		}
-		
-		private void OnSiteMapUpdateReceived(ClientNetworkConnector net, NetIncomingMessage incMsg)
-		{
-			var siteMap = GameClient.World.WorldMap.GetRevealedSiteMap();
-			
-			siteMap.Clear();
-			
-			var count = incMsg.ReadUInt16();
-
-			var siteData = new MapManager.RevealedSiteData();
-			for (int i = 0; i < count; i++)
-			{
-				siteData.Deserialize(incMsg);
-				var cX = (int) siteData.PosX / GameClient.World.CHUNK_SIZE;
-				var cY = (int) siteData.PosY / GameClient.World.CHUNK_SIZE;
-				
-				siteMap.Add(cX + cY * GameClient.World.WIDTH_IN_CHUNKS, siteData);
-			}
-
-			d_OnSiteMapUpdate?.Invoke(siteMap);
 		}
 	}
 }
