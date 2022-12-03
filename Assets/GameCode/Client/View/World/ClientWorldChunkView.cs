@@ -14,32 +14,26 @@ namespace FNZ.Client.View.World
 	{
 		public byte ChunkX, ChunkY;
 
-		private List<Entity> m_EntityViews = new List<Entity>();
-		private List<Entity> m_EntitySubViews = new List<Entity>();
-		private List<GameObject> m_GameObjectViews = new List<GameObject>();
-		private List<GameObject> m_GameObjectSubViews = new List<GameObject>();
-
 		private ClientWorldChunk m_ChunkModel;
 
 		private Mesh m_OverlapMesh;
 		private MeshRenderer m_OverlapMeshRenderer;
 		private MeshFilter m_OverlapMeshFilter;
 
-		public void Init(ClientWorldChunk chunkModel)
+		public void Init(ClientWorldChunk chunkModel, byte chunkX, byte chunkY)
 		{
+			this.ChunkX = chunkX;
+			this.ChunkY = chunkY;
+
 			m_ChunkModel = chunkModel;
 
-			m_ChunkModel.d_OnChunkUnloadedEvent += OnChunkUnloaded;
 			m_ChunkModel.d_OnGenerateUVsEvent += () =>
 			{
 				BuildTileSheetMeshes();
 				GenerateUVs();
 				BuildOverlapMesh();
-				ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel);
+				ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel, ChunkX, ChunkY);
 			};
-
-			ChunkX = m_ChunkModel.ChunkX;
-			ChunkY = m_ChunkModel.ChunkY;
 
 			m_OverlapMesh = new Mesh();
 
@@ -59,84 +53,28 @@ namespace FNZ.Client.View.World
 			Profiler.EndSample();
 			
 			Profiler.BeginSample("GenerateTileEdgeMeshes");
-			ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel);
+			ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel, chunkX, chunkY);
 			Profiler.EndSample();
-		}
-
-		private void OnChunkUnloaded()
-		{
-			if (m_GameObjectViews.Count > 0)
-			{
-				GameClient.ViewAPI.QueueGameObjectsForDeactivation(m_GameObjectViews);
-				m_GameObjectViews.Clear();
-			}
-			
-			if (m_GameObjectSubViews.Count > 0)
-			{
-				GameClient.SubViewAPI.QueueSubViewGameObjectsForDeactivation(m_GameObjectSubViews);
-				m_GameObjectSubViews.Clear();
-			}
-
-			if (m_EntityViews.Count > 0)
-			{
-				GameClient.ViewAPI.DestroyViewEntities(m_EntityViews);
-				m_EntityViews.Clear();
-			}
-			
-			if (m_EntitySubViews.Count > 0)
-			{
-				GameClient.ViewAPI.DestroyViewEntities(m_EntitySubViews);
-				m_EntitySubViews.Clear();
-			}
-
-			Destroy(gameObject);
-		}
-
-		public void AddGameObject(GameObject go)
-		{
-			m_GameObjectViews.Add(go);
-		}
-		
-		public void AddSubViewGameObject(GameObject go)
-		{
-			m_GameObjectSubViews.Add(go);
-		}
-
-		public void RemoveGameObject(GameObject go)
-		{
-			m_GameObjectViews.Remove(go);
-		}
-
-		public void AddEntity(Entity e)
-		{
-			m_EntityViews.Add(e);
-		}
-		
-		public void AddSubViewEntity(Entity e)
-		{
-			m_EntitySubViews.Add(e);
-		}
-
-		public void RemoveEntity(Entity e)
-		{
-			m_EntityViews.Remove(e);
 		}
 
 		public void GenerateUVs()
 		{
 			Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
 			Vector2[] uvs = new Vector2[mesh.vertices.Length];
-			int size = m_ChunkModel.SideSize;
+			byte size = 32;
 
 			for (int y = 0; y < size; y++)
 			{
 				for (int x = 0; x < size; x++)
 				{
-					int tileIndex = x + y * size;
+					int tileX = ChunkX * 32 + x;
+					int tileY = ChunkY * 32 + y;
+
+					int tileIndex = tileX + tileY * m_ChunkModel.SideSize;
 					var id = IdTranslator.Instance.GetId<TileData>(m_ChunkModel.TileIdCodes[tileIndex]);
 					var tileData = DataBank.Instance.GetData<TileData>(id);
 
-					CalculateUV(uvs, tileIndex, ClientTileSheetPacker.GetAtlasIndex(tileData.Id));
+					CalculateUV(uvs, x + y * size, ClientTileSheetPacker.GetAtlasIndex(tileData.Id));
 				}
 			}
 
@@ -169,7 +107,7 @@ namespace FNZ.Client.View.World
 		{
 			Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
 
-			int size = m_ChunkModel.SideSize;
+			byte size = 32;
 
 			Dictionary<string, List<int>> submeshData = new Dictionary<string, List<int>>();
 			List<int> waterSubmesh = null;
@@ -181,7 +119,10 @@ namespace FNZ.Client.View.World
 			{
 				for (int x = 0; x < size; x++)
 				{
-					int tileIndex = x + y * size;
+					int tileX = ChunkX * 32 + x;
+					int tileY = ChunkY * 32 + y;
+
+					int tileIndex = tileX + tileY * m_ChunkModel.SideSize;
 					var id = IdTranslator.Instance.GetId<TileData>(m_ChunkModel.TileIdCodes[tileIndex]);
 					TileData td = DataBank.Instance.GetData<TileData>(id);
 					if (td.isTransparent)
@@ -327,7 +268,11 @@ namespace FNZ.Client.View.World
 
 		public void BuildOverlapMesh()
 		{
-			Tuple<Mesh, Material[]> overlapMeshAndMats = ViewUtils.CreateChunkOverlapMesh(m_ChunkModel);
+			Tuple<Mesh, Material[]> overlapMeshAndMats = ViewUtils.CreateChunkOverlapMesh(
+				m_ChunkModel,
+				ChunkX,
+				ChunkY
+			);
 			m_OverlapMeshFilter.mesh = overlapMeshAndMats.Item1;
 			m_OverlapMeshRenderer.sharedMaterials = overlapMeshAndMats.Item2;
 		}

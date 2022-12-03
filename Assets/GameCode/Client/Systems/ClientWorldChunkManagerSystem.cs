@@ -96,30 +96,26 @@ namespace FNZ.Client.Systems
             var chunkX = chunk.ChunkX;
             var chunkY = chunk.ChunkY;
 
-            Profiler.BeginSample("Tilemap view creation");
+            for(byte x = 0; x < chunk.SideSize / 32; x++)
+            {
+                for (byte y = 0; y < chunk.SideSize / 32; y++)
+                {
+                    var chunkViewGO = Object.Instantiate((GameObject)Resources.Load("Prefab/Chunk/Chunk"));
+                    chunkViewGO.transform.position = new Vector3(x * 32, 0f, y * 32);
+                    chunkViewGO.transform.rotation = Quaternion.Euler(270, 90, 90);
 
-            Profiler.BeginSample("Instantiate ChunkView");
-            var chunkViewGO = Object.Instantiate((GameObject)Resources.Load("Prefab/Chunk/Chunk"));
-            chunkViewGO.transform.position = new Vector3(0, 0f, 0);
-            chunkViewGO.transform.rotation = Quaternion.Euler(270, 90, 90);
+                    chunkViewGO.name = "world_chunk-" + x + "-" + y;
+                    var chunkView = chunkViewGO.AddComponent<ClientWorldChunkView>();
 
-            chunkViewGO.name = "world_chunk-" + chunkX + "-" + chunkY;
-            var chunkView = chunkViewGO.AddComponent<ClientWorldChunkView>();
-            
-            GameClient.WorldView.AddChunkView(chunkView);
-            Profiler.EndSample();
-            
-            Profiler.BeginSample("Init ChunkView");
-            chunkView.Init(chunk);
-            Profiler.EndSample();
+                    GameClient.WorldView.AddChunkView(chunkView);
 
-            chunk.view = chunkView;
+                    chunkView.Init(chunk, x, y);
+                }
+            }
 
             chunk.EntitiesToSync.Clear();
 
             GameClient.NetAPI.CMD_World_ConfirmChunkLoaded(chunk);
-
-            Profiler.EndSample();
         }
     }
 }

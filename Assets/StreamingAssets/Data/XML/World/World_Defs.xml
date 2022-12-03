@@ -15,19 +15,19 @@
             </BiomeTileData>
             <BiomeTileData>
                 <tileRef>mud</tileRef>
-                <height>-0.1</height>
+                <height>-0.4</height>
             </BiomeTileData>
             <BiomeTileData>
                 <tileRef>muddy_dirt</tileRef>
-                <height>0.1</height>
+                <height>-0.3</height>
             </BiomeTileData>
             <BiomeTileData>
                 <tileRef>dirt</tileRef>
-                <height>0.4</height>
+                <height>-0.2</height>
             </BiomeTileData>
             <BiomeTileData>
                 <tileRef>grassy_dirt</tileRef>
-                <height>0.7</height>
+                <height>-0.1</height>
             </BiomeTileData>
             <BiomeTileData>
                 <tileRef>grass</tileRef>

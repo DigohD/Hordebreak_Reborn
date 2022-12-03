@@ -111,15 +111,14 @@ namespace FNZ.Client.Systems
 
 				var entity = entities[i];
 				var worldView = GameClient.WorldView;
-				var chunkView = worldView.GetChunkView(new float2(spawnData.Transform.Position.x, spawnData.Transform.Position.z));
 
 				if (spawnData.IsSubView)
 				{
-					chunkView.AddSubViewEntity(entity);
+					worldView.AddSubViewEntity(entity);
 				}
 				else
 				{
-					chunkView.AddEntity(entity);
+					worldView.AddEntity(entity);
 				}
 
 				if (spawnData.NetId != -1)

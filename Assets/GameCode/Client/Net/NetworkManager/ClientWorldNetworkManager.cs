@@ -129,7 +129,6 @@ namespace FNZ.Client.Net.NetworkManager
 			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
 			chunk.ClearChunk();
 			GameClient.World.SetChunk<ClientWorldChunk>(null);
-			GameClient.WorldView.RemoveChunkView();
 			//GameClient.NetAPI.CMD_World_ConfirmChunkUnloaded(chunk);
 		}
 
