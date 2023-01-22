@@ -119,7 +119,7 @@ namespace FNZ.Server.Model.World
 
 			foreach (var wallId in m_RoomWalls)
 			{
-				var wallEntity = GameServer.NetConnector.GetEntity(wallId);
+				var wallEntity = GameServer.NetConnector.GetFneEntity(wallId);
 				var edgeComp = wallEntity.GetComponent<EdgeObjectComponentServer>();
 
 				if (edgeComp.MountedObjectData != null)

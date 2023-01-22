@@ -30,7 +30,7 @@ namespace FNZ.Server.Net.NetworkManager
 			for (var i = 0; i < count; i++)
 			{
 				var netId = incMsg.ReadInt32();
-				var entity = net.GetEntity(netId);
+				var entity = net.GetFneEntity(netId);
 				
 				if (!entity.Enabled)
 					entity.Enabled = true;
@@ -76,7 +76,7 @@ namespace FNZ.Server.Net.NetworkManager
 
 		private void OnComponentUpdate(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
-			FNEEntity entity = net.GetEntity(incMsg.ReadInt32());
+			FNEEntity entity = net.GetFneEntity(incMsg.ReadInt32());
 			Type compType = FNEComponent.ComponentIdTypeDict[incMsg.ReadUInt16()];
 
 			foreach (var component in entity.Components)
@@ -93,17 +93,25 @@ namespace FNZ.Server.Net.NetworkManager
 
 		private void OnComponentNetEvent(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
-			FNEEntity entity = net.GetEntity(incMsg.ReadInt32());
-			Type compType = FNEComponent.ComponentIdTypeDict[incMsg.ReadUInt16()];
+			var netId = incMsg.ReadInt32();
 
-			foreach (var component in entity.Components)
+			var componentId = incMsg.ReadUInt16();
+
+			FNEEntity entity = net.GetFneEntity(netId);
+			if (entity != null)
 			{
-				if (component.GetType().BaseType == compType)
+				Type compType = FNEComponent.ComponentIdTypeDict[componentId];
+
+				foreach (var component in entity.Components)
 				{
-					component.OnNetEvent(incMsg);
-					break;
+					if (component.GetType().BaseType == compType)
+					{
+						component.OnNetEvent(incMsg);
+						break;
+					}
 				}
 			}
+			
 		}
 
 		private void OnClientLeftServer(ServerNetworkConnector net, NetIncomingMessage incMsg)

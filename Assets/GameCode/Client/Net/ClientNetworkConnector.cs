@@ -4,6 +4,7 @@ using Lidgren.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Entities;
 using UnityEngine;
 
 namespace FNZ.Client.Net
@@ -73,10 +74,20 @@ namespace FNZ.Client.Net
 
 		public FNEEntity GetEntity(int netId)
 		{
-			return m_NetEntities.GetEntity(netId);
+			return m_NetEntities.GetFneEntity(netId);
+		}
+
+		public Entity GetEcsEntity(int netId)
+		{
+			return m_NetEntities.GetEcsEntity(netId);
 		}
 
 		public void SyncEntity(FNEEntity entity, int netId)
+		{
+			m_NetEntities.Add(entity, netId);
+		}
+
+		public void SyncEntity(Entity entity, int netId)
 		{
 			m_NetEntities.Add(entity, netId);
 		}
@@ -92,9 +103,10 @@ namespace FNZ.Client.Net
 			m_NetEntities.Remove(entity.NetId);
 		}
 
-		public int GetNumberOfSyncedEntities()
+		public void UnsyncEntity(int netId)
 		{
-			return m_NetEntities.GetNumOfSyncedEntities();
+			//Debug.Log($"[CLIENT]: Unsyncing entity with NetId: {entity.NetId}");
+			m_NetEntities.Remove(netId);
 		}
 
 		private void OnServerPing(ClientNetworkConnector net, NetIncomingMessage incMsg)

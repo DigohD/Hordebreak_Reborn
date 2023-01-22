@@ -215,7 +215,7 @@ namespace FNZ.Server.Model.Entity.Components.Excavator
                 incMsg.SenderConnection
             );
 
-            m_LockedEntity = GameServer.NetConnector.GetEntity(data.NetId);
+            m_LockedEntity = GameServer.NetConnector.GetFneEntity(data.NetId);
             m_ExcavateTicks = 0;
         }
 

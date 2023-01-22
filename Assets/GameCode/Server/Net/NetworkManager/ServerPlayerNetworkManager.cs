@@ -16,7 +16,7 @@ namespace FNZ.Server.Net.NetworkManager
 
 		private void OnPlayerPosAndRotUpdate(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
-			FNEEntity playerEntity = net.GetEntity(incMsg.ReadInt32());
+			FNEEntity playerEntity = net.GetFneEntity(incMsg.ReadInt32());
 
 			playerEntity.DeserializePosition(incMsg);
 			playerEntity.DeserializeRotation(incMsg);

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Unity.Entities;
 using UnityEngine;
 
 namespace FNZ.Server.Net
@@ -177,19 +178,29 @@ namespace FNZ.Server.Net
 			m_NetEntities.Add(entity);
 		}
 
+		public int SyncEntity(Entity entity)
+		{
+			return m_NetEntities.Add(entity);
+		}
+
 		public void UnsyncEntity(FNEEntity entity)
 		{
 			m_NetEntities.Remove(entity.NetId);
 		}
 
-		public FNEEntity GetEntity(int netId)
+		public void UnsyncEntity(int netId)
 		{
-			return m_NetEntities.GetEntity(netId);
+			m_NetEntities.Remove(netId);
 		}
 
-		public int GetNumberOfSyncedEntities()
+		public FNEEntity GetFneEntity(int netId)
 		{
-			return m_NetEntities.GetNumOfSyncedEntities();
+			return m_NetEntities.GetFneEntity(netId);
+		}
+
+		public Entity GetEcsEntity(int netId)
+		{
+			return m_NetEntities.GetEcsEntity(netId);
 		}
 	}
 }
