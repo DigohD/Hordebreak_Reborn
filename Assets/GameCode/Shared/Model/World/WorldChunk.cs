@@ -59,7 +59,7 @@ namespace FNZ.Shared.Model.World
 
 	public abstract class WorldChunk
 	{
-		private GameWorld m_WorldInstance;
+		protected GameWorld m_WorldInstance;
 		public bool IsMainWorld { get; set; }
 		public byte ChunkX { get; set; }
 		public byte ChunkY { get; set; }
