@@ -4,9 +4,9 @@
     <DataDef xsi:type="TileData">
 		<id>grass</id>
 		<category>nature</category>
-		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/Grass/MudPlains_DefaultMaterial_BaseMap.png</albedopath>
-		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/Grass/MudPlains_DefaultMaterial_MaskMap.png</maskmappath>
-		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/Grass/MudPlains_DefaultMaterial_Normal.png</normalpath>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Vegetation_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Vegetation_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Vegetation_Normal.png</normalpath>
 		<overlapPriority>10</overlapPriority>
 		<hardEdges>false</hardEdges>
 		<mapColor>#55aa55</mapColor>
@@ -58,11 +58,62 @@
 	</DataDef>
 
 	<DataDef xsi:type="TileData">
+		<id>dense_grassy_dirt</id>
+		<category>nature</category>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Dense_Vegetation_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Dense_Vegetation_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Dense_Vegetation_Normal.png</normalpath>
+		<overlapPriority>9</overlapPriority>
+		<hardEdges>false</hardEdges>
+		<mapColor>#88aa66</mapColor>
+		<chanceToSpawnTileObject>15</chanceToSpawnTileObject>
+		<tileObjectGenDataList>
+			
+			<TileObjectGenData>
+				<objectRef>to_biome_1_tree_a</objectRef>
+				<weight>400</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_biome_1_tree_b</objectRef>
+				<weight>300</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_cotton_wild</objectRef>
+				<weight>125</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_biome_1_rock_large</objectRef>
+				<weight>500</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_potato_plant</objectRef>
+				<weight>100</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_krystberry_bush_wild</objectRef>
+				<weight>150</weight>
+			</TileObjectGenData>
+
+			<TileObjectGenData>
+				<objectRef>to_crashed_robot</objectRef>
+				<weight>10</weight>
+			</TileObjectGenData>
+		</tileObjectGenDataList>
+		<timeEffectFrequency>100</timeEffectFrequency>
+		<atmosphereRef>mud_plains_atmosphere</atmosphereRef>
+	</DataDef>
+
+	<DataDef xsi:type="TileData">
 		<id>grassy_dirt</id>
 		<category>nature</category>
-		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/GrassyDirt/MudPlains_DefaultMaterial_BaseMap.png</albedopath>
-		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/GrassyDirt/MudPlains_DefaultMaterial_MaskMap.png</maskmappath>
-		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/GrassyDirt/MudPlains_DefaultMaterial_Normal.png</normalpath>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Vegetation_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Vegetation_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Vegetation_Normal.png</normalpath>
 		<overlapPriority>9</overlapPriority>
 		<hardEdges>false</hardEdges>
 		<mapColor>#88aa66</mapColor>
@@ -111,9 +162,9 @@
 	<DataDef xsi:type="TileData">
 		<id>dirt</id>
 		<category>nature</category>
-		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/Dirt/MudPlains_DefaultMaterial_BaseMap.png</albedopath>
-		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/Dirt/MudPlains_DefaultMaterial_MaskMap.png</maskmappath>
-		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/Dirt/MudPlains_DefaultMaterial_Normal.png</normalpath>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Normal.png</normalpath>
 		<overlapPriority>8</overlapPriority>
 		<mapColor>#886644</mapColor>
 		<hardEdges>false</hardEdges>
@@ -167,9 +218,9 @@
 	<DataDef xsi:type="TileData">
 		<id>muddy_dirt</id>
 		<category>nature</category>
-		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/MuddyDirt/MudPlains_DefaultMaterial_BaseMap.png</albedopath>
-		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/MuddyDirt/MudPlains_DefaultMaterial_MaskMap.png</maskmappath>
-		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/MuddyDirt/MudPlains_DefaultMaterial_Normal.png</normalpath>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Rock_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Dirt_Rock_Normal.png</normalpath>
 		<overlapPriority>7</overlapPriority>
 		<mapColor>#775533</mapColor>
 		<hardEdges>false</hardEdges>
@@ -213,9 +264,9 @@
 	<DataDef xsi:type="TileData">
 		<id>mud</id>
 		<category>nature</category>
-		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/Mud/MudPlains_DefaultMaterial_BaseMap.png</albedopath>
-		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/Mud/MudPlains_DefaultMaterial_MaskMap.png</maskmappath>
-		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/Mud/MudPlains_DefaultMaterial_Normal.png</normalpath>
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_Normal.png</normalpath>
 		<overlapPriority>6</overlapPriority>
 		<hardEdges>false</hardEdges>
 		<mapColor>#554422</mapColor>
@@ -242,13 +293,21 @@
 	<DataDef xsi:type="TileData">
 		<id>water_tile</id>
 		<category>nature</category>
-		<overlapPriority>1000000</overlapPriority>
+		<overlapPriority>1000000</overlapPriority>´
+		<albedopath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_Albedo.png</albedopath>
+		<maskmappath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_MaskMap.png</maskmappath>
+		<normalpath>Data/XML/World/Tile/TileMaps/Mudplains/FNE_Ground_Texture_Rock_Normal.png</normalpath>
 		<hardEdges>true</hardEdges>
 		<mapColor>#444499</mapColor>
 		<isWater>true</isWater>
 		<isBlocking>true</isBlocking>
 		<WaterTileData>
-			<edgeMeshRef>water_edge</edgeMeshRef>
+			<edgeMeshRefs>
+				<edgeMeshRef>biome_1_water_edge_1_view</edgeMeshRef>
+				<edgeMeshRef>biome_1_water_edge_2_view</edgeMeshRef>
+				<edgeMeshRef>biome_1_water_edge_3_view</edgeMeshRef>
+				<edgeMeshRef>biome_1_water_edge_4_view</edgeMeshRef>
+			</edgeMeshRefs>
 			<tileHeightOffset>-0.2</tileHeightOffset>
 		</WaterTileData>
 	</DataDef>

@@ -11,6 +11,7 @@ using FNZ.Client.View.Manager;
 using Unity.Mathematics;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using FNZ.Shared.Utils;
 
 namespace FNZ.Client.Utils
 {
@@ -143,6 +144,8 @@ namespace FNZ.Client.Utils
 
 			#region RIGHT NEIGHBOR
 
+			TileData neighborData = null;
+
 			string neighborId = null;
 			int neighborIndex = -1;
 			if (tileIndex % 512 < 511)
@@ -159,10 +162,12 @@ namespace FNZ.Client.Utils
 				}
 			}
 
-			TileData neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+			if (neighborId != null)
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+			
 			int tx = x + 1;
 			int ty = y;
-			if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+			if (neighborData != null && neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
 			{
 				// VERTICES!
 				overlapVerts.Add(new Vector3(tx, y, 0));
@@ -202,7 +207,7 @@ namespace FNZ.Client.Utils
 
             neighborId = null;
             neighborIndex = -1;
-			if (tileIndex / 512 < 511)
+			if (tileIndex / 512 > 0)
 			{
 				try
 				{
@@ -216,10 +221,12 @@ namespace FNZ.Client.Utils
 				}
 			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+			if(neighborId != null)
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+			
             tx = x;
             ty = y - 1;
-            if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+            if (neighborData != null && neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
             {
                 // VERTICES!
                 overlapVerts.Add(new Vector3(tx, ty + 1, 0));
@@ -273,10 +280,12 @@ namespace FNZ.Client.Utils
 				}
 			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-            tx = x - 1;
+			if (neighborId != null)
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+
+			tx = x - 1;
             ty = y;
-            if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+            if (neighborData != null && neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
             {
                 // VERTICES!
                 overlapVerts.Add(new Vector3(tx + 1, ty + 1, 0));
@@ -317,7 +326,7 @@ namespace FNZ.Client.Utils
 
             neighborId = null;
             neighborIndex = -1;
-			if (tileIndex / 512 > 0)
+			if (tileIndex / 512 < 511)
 			{
 				try
 				{
@@ -331,10 +340,12 @@ namespace FNZ.Client.Utils
 				}
 			}
 
-			neighborData = DataBank.Instance.GetData<TileData>(neighborId);
-            tx = x;
+			if (neighborId != null)
+				neighborData = DataBank.Instance.GetData<TileData>(neighborId);
+
+			tx = x;
             ty = y + 1;
-            if (neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
+            if (neighborData != null && neighborId != tileData.Id && tileData.overlapPriority > neighborData.overlapPriority)
             {
                 // VERTICES!
                 overlapVerts.Add(new Vector3(tx + 1, ty, 0));
@@ -465,15 +476,19 @@ namespace FNZ.Client.Utils
 						continue;
 					if (td.isTransparent && (td.TransparentTileData == null || td.TransparentTileData.edgeMeshRef == null))
 						continue;
-					if (td.isWater && (td.WaterTileData == null || td.WaterTileData.edgeMeshRef == null))
+					if (td.isWater && (td.WaterTileData == null || td.WaterTileData.edgeMeshRefs == null))
 						continue;
 
 					FNEEntityViewData viewData = null;
 					if(td.isTransparent)
 						viewData = DataBank.Instance.GetData<FNEEntityViewData>(td.TransparentTileData.edgeMeshRef);
 					
-					else if(td.isWater)
-						viewData = DataBank.Instance.GetData<FNEEntityViewData>(td.WaterTileData.edgeMeshRef);
+					else if (td.isWater)
+                    {
+						var randomVariant = FNERandom.GetRandomIntInRange(0, td.WaterTileData.edgeMeshRefs.Count);
+						viewData = DataBank.Instance.GetData<FNEEntityViewData>(td.WaterTileData.edgeMeshRefs[randomVariant]);
+					}
+						
 
 					var edgePrefab = PrefabBank.GetPrefab("", viewData.Id);
 

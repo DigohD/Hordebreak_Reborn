@@ -2,9 +2,9 @@
 <Defs xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <DataDef xsi:type="FNEEntityViewData">
-		<id>water_edge</id>
-		<entityMeshData>mesh_water_edge</entityMeshData>
-		<entityTextureData>texture_city_factory_assets_abyss_wall_edge_view</entityTextureData>
+		<id>biome_1_water_edge_1_view</id>
+		<entityMeshData>mesh_biome_1_water_edge_1</entityMeshData>
+		<entityTextureData>texture_biome_1_water_edge</entityTextureData>
 		<viewIsGameObject>false</viewIsGameObject>
 		<seeThrough>true</seeThrough>
 		<hittable>false</hittable>
@@ -13,9 +13,69 @@
         <scaleMod>1.02</scaleMod>
 	</DataDef>
 
-    <DataDef xsi:type="FNEEntityMeshData">
-		<id>mesh_water_edge</id>
-		<meshPath>Data/XML/World/Tile/TileMaps/Mudplains/Water/WaterEdge.glb</meshPath>
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_water_edge_1</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Nature/WaterEdges/Biome_1/Biome_1_Water_Edge_1.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>biome_1_water_edge_2_view</id>
+		<entityMeshData>mesh_biome_1_water_edge_2</entityMeshData>
+		<entityTextureData>texture_biome_1_water_edge</entityTextureData>
+		<viewIsGameObject>false</viewIsGameObject>
+		<seeThrough>true</seeThrough>
+		<hittable>false</hittable>
+		<seeThroughRange>255</seeThroughRange>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_water_edge_2</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Nature/WaterEdges/Biome_1/Biome_1_Water_Edge_2.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityViewData">
+		<id>biome_1_water_edge_3_view</id>
+		<entityMeshData>mesh_biome_1_water_edge_3</entityMeshData>
+		<entityTextureData>texture_biome_1_water_edge</entityTextureData>
+		<viewIsGameObject>false</viewIsGameObject>
+		<seeThrough>true</seeThrough>
+		<hittable>false</hittable>
+		<seeThroughRange>255</seeThroughRange>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_water_edge_3</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Nature/WaterEdges/Biome_1/Biome_1_Water_Edge_3.glb</meshPath>
+	</DataDef>
+
+		<DataDef xsi:type="FNEEntityViewData">
+		<id>biome_1_water_edge_4_view</id>
+		<entityMeshData>mesh_biome_1_water_edge_4</entityMeshData>
+		<entityTextureData>texture_biome_1_water_edge</entityTextureData>
+		<viewIsGameObject>false</viewIsGameObject>
+		<seeThrough>true</seeThrough>
+		<hittable>false</hittable>
+		<seeThroughRange>255</seeThroughRange>
+		<isTransparent>false</isTransparent>
+        <scaleMod>1.02</scaleMod>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityMeshData">
+		<id>mesh_biome_1_water_edge_4</id>
+		<meshPath>Data/XML/Entity/EdgeObject/Nature/WaterEdges/Biome_1/Biome_1_Water_Edge_4.glb</meshPath>
+	</DataDef>
+
+	<DataDef xsi:type="FNEEntityTextureData">
+		<id>texture_biome_1_water_edge</id>
+		<isPartOfAssetBundle>true</isPartOfAssetBundle>
+		<assetBundlePath>Data/XML/AssetBundles/assetbundle_nature_mudplains</assetBundlePath>
+		<albedoName>Biome_1_Water_Edge_Albedo</albedoName>
+		<normalMapName>Biome_1_Water_Edge_Normal</normalMapName>
+		<maskMapName>Biome_1_Water_Edge_MaskMap</maskMapName>
 	</DataDef>
 
 </Defs>
