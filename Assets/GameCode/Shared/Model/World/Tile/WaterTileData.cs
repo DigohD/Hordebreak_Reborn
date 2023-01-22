@@ -8,8 +8,9 @@ namespace FNZ.Shared.Model.World.Tile
 	[XmlType("WaterTileData")]
 	public class WaterTileData
 	{
-		[XmlElement("edgeMeshRef")]
-		public string edgeMeshRef { get; set; }
+		[XmlArray("edgeMeshRefs")]
+		[XmlArrayItem("edgeMeshRef", typeof(string))]
+		public List<string> edgeMeshRefs { get; set; }
 
 		[XmlElement("tileHeightOffset")]
 		public float tileHeightOffset { get; set; }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4224949728
+CRC: 2693160426
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b8fca6e19f569dab9d733b6ac61fd2d6
+    Hash: 7b2d93c46dea1541d6daf8d180698199
   TypeTreeHash:
     serializedVersion: 2
     Hash: b0363f7088f9761414f730641bf9a24b
@@ -17,6 +17,7 @@ Assets:
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Krystberry_Bush_Sapling/KrystBerry_Sapling_Bush_Normal.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Potato/Seedling/potatoplot_Seedling_DefaultMaterial_MaskMap.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Minerals/Rock_Small/Rock_1_R_LP_Stone_Material_Normal.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Minerals/Water_Edge/Biome_1_Water_Edge_Albedo.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Pine/View_1/Pine_1_Mask.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Tree/Tree_Albedo.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Minerals/Rock_Large/Rock_2_R_LP_Stone_Material_BaseColor.png
@@ -51,6 +52,8 @@ Assets:
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Cotton/Cotton_Bush_Normal.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Pine/View_2/Pine_2_BaseColor.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Tree_B/Tree_B_Albedo.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Minerals/Water_Edge/Biome_1_Water_Edge_MaskMap.png
+- Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Minerals/Water_Edge/Biome_1_Water_Edge_Normal.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Krystberry_Bush/KrystBerry_Bush_MaskMap.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Potato/Mature/PlantBox_Potato_Mature_DefaultMaterial_BaseMap.png
 - Assets/Resources/AssetBundles/Textures/Biomes/Mudplains/Nature/Plant/Pine/View_2/Pine_2_Normal.png

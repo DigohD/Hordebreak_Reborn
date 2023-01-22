@@ -25,9 +25,6 @@ namespace FNZ.Client.View.World
 			this.ChunkX = chunkX;
 			this.ChunkY = chunkY;
 
-			if (chunkX != 8 || chunkY != 8)
-				return;
-
 			m_ChunkModel = chunkModel;
 
 			m_ChunkModel.d_OnGenerateUVsEvent += () =>
