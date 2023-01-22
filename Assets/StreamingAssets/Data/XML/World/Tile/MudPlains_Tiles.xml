@@ -10,7 +10,7 @@
 		<overlapPriority>10</overlapPriority>
 		<hardEdges>false</hardEdges>
 		<mapColor>#55aa55</mapColor>
-		<chanceToSpawnTileObject>25</chanceToSpawnTileObject>
+		<chanceToSpawnTileObject>10</chanceToSpawnTileObject>
 		<tileObjectGenDataList>	
 			<TileObjectGenData>
 				<objectRef>to_potato_plant</objectRef>
@@ -66,7 +66,7 @@
 		<overlapPriority>9</overlapPriority>
 		<hardEdges>false</hardEdges>
 		<mapColor>#88aa66</mapColor>
-		<chanceToSpawnTileObject>15</chanceToSpawnTileObject>
+		<chanceToSpawnTileObject>5</chanceToSpawnTileObject>
 		<tileObjectGenDataList>
 			
 			<TileObjectGenData>
@@ -117,7 +117,7 @@
 		<overlapPriority>8</overlapPriority>
 		<mapColor>#886644</mapColor>
 		<hardEdges>false</hardEdges>
-		<chanceToSpawnTileObject>15</chanceToSpawnTileObject>
+		<chanceToSpawnTileObject>5</chanceToSpawnTileObject>
 		<tileObjectGenDataList>
 
 			<TileObjectGenData>

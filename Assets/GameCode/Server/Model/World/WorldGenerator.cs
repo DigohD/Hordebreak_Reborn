@@ -28,16 +28,10 @@ namespace FNZ.Server.Model.World
 			m_WorldGenData = data;
 		}
 
-		public ServerWorld GenerateWorld(int seedX, int seedY, int width, int height, bool isMainWorld)
+		public ServerWorld GenerateWorld(ServerWorld world, bool isMainWorld)
 		{
 			IdTranslator.Instance.GenerateMissingIds();
-
-			var world = new ServerWorld(width, height)
-			{
-				SeedX = seedX,
-				SeedY = seedY
-			};
-
+			
 			world.GetWorldChunk<ServerWorldChunk>().IsMainWorld = isMainWorld;
 
 			GenerateChunk(world);
@@ -1452,10 +1446,10 @@ namespace FNZ.Server.Model.World
 
 			AddTileObjectToGenerationMap(position, world);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 			
-			//GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
@@ -1479,10 +1473,10 @@ namespace FNZ.Server.Model.World
 				rotation
 			);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 
-			//chunk.AddSouthEdgeObject(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			chunk.AddSouthEdgeObject(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
@@ -1495,10 +1489,10 @@ namespace FNZ.Server.Model.World
 				rotation
 			);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 
-			//chunk.AddWestEdgeObject(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			chunk.AddWestEdgeObject(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
@@ -1584,7 +1578,7 @@ namespace FNZ.Server.Model.World
 
 					var modelEntity = GameServer.EntityAPI.CreateEntityImmediate(enemy, spawnPos, spawnRotation);
 					
-					chunk.MovingEntitiesToSync.Add(modelEntity);
+					//chunk.MovingEntitiesToSync.Add(modelEntity);
 
 					if (FNERandom.GetRandomIntInRange(0, 20) == 0)
 					{
@@ -1603,7 +1597,7 @@ namespace FNZ.Server.Model.World
 							spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
 
 							modelEntity = GameServer.EntityAPI.CreateEntityImmediate(enemy, spawnPosition, spawnRotation);
-							chunk.MovingEntitiesToSync.Add(modelEntity);
+							//chunk.MovingEntitiesToSync.Add(modelEntity);
 						}
 					}
 				}
