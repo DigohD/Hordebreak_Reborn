@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FNZ.Server.Controller;
 using FNZ.Server.Controller.Systems;
 using FNZ.Server.FarNorthZMigrationStuff;
+using FNZ.Server.Model.World;
 using FNZ.Server.Utils;
 using FNZ.Shared.Model;
 using FNZ.Shared.Model.Entity;
@@ -18,9 +19,12 @@ namespace FNZ.Server.Services
 	{
 		private readonly ServerEntityManagerSystem m_SpawnerSystem;
 
-		public EntityAPI()
+		private readonly ServerWorld _world;
+
+		public EntityAPI(ServerWorld world)
 		{
 			m_SpawnerSystem = GameServer.ECS_ServerWorld.GetExistingSystem<ServerEntityManagerSystem>();
+			_world = world;
 		}
 
 	    public void AddEntityToSpawnQueue(string entityId, bool netSync, float2 position, float rotation = 0)
@@ -96,29 +100,29 @@ namespace FNZ.Server.Services
 			{
 				if (isChunkUnload && entity.EntityType == EntityType.ECS_ENEMY)
 				{
-					GameServer.MainWorld.RemoveTickableImmediate(entity);
+					_world.RemoveTickableImmediate(entity);
 				}
 				else
 				{
-					GameServer.MainWorld.RemoveTickableEntity(entity);
+					_world.RemoveTickableEntity(entity);
 				}
 			}
 			
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					GameServer.MainWorld.RemoveTileObject(entity);
+					_world.RemoveTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					GameServer.MainWorld.RemoveEdgeObject(entity);
+					_world.RemoveEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
-					GameServer.MainWorld.RemoveEnemyFromTile(entity);
+					_world.RemoveEnemyFromTile(entity);
 					break;
 				case EntityType.GO_ENEMY:
-					GameServer.MainWorld.RemoveEnemyFromTile(entity);
+					_world.RemoveEnemyFromTile(entity);
 					break;
 			}
 			
@@ -155,11 +159,11 @@ namespace FNZ.Server.Services
 			{
 				if (addTickablesImmediate)
                 {
-					GameServer.MainWorld.AddTickableEntityImmediate(entity);
+	                _world.AddTickableEntityImmediate(entity);
                 }
                 else
                 {
-					GameServer.MainWorld.AddTickableEntity(entity);
+	                _world.AddTickableEntity(entity);
 				}
 				
 			}
@@ -167,16 +171,16 @@ namespace FNZ.Server.Services
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					GameServer.MainWorld.AddTileObject(entity);
+					_world.AddTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					GameServer.MainWorld.AddEdgeObject(entity);
+					_world.AddEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
 				case EntityType.GO_ENEMY:
-					GameServer.MainWorld.AddEnemyToTile(entity);
+					_world.AddEnemyToTile(entity);
 					break;
 			}
 		}

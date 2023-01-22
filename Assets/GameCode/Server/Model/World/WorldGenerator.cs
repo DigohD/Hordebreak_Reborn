@@ -28,30 +28,31 @@ namespace FNZ.Server.Model.World
 			m_WorldGenData = data;
 		}
 
-		public ServerWorld GenerateWorld(int seedX, int seedY, int size, bool isMainWorld)
+		public ServerWorld GenerateWorld(ServerWorld world, bool isMainWorld)
 		{
 			IdTranslator.Instance.GenerateMissingIds();
+			
+			world.GetWorldChunk<ServerWorldChunk>().IsMainWorld = isMainWorld;
 
-			var world = new ServerWorld(size, size)
-			{
-				SeedX = seedX,
-				SeedY = seedY
-			};
+			GenerateChunk(world);
 
 			return world;
 		}
 
-		public void GenerateChunk(ServerWorldChunk chunk)
+		private void GenerateChunk(ServerWorld world)
 		{
-			m_TileObjectGenerationMap = new bool[chunk.SideSize * chunk.SideSize];
+			var size = world.WIDTH * world.HEIGHT;
+			m_TileObjectGenerationMap = new bool[size];
 			
-			for (int i = 0; i < chunk.SideSize * chunk.SideSize; i++)
+			for (int i = 0; i < size; i++)
 			{
 				m_TileObjectGenerationMap[i] = false;
 			}
 
+			var chunk = world.GetWorldChunk<ServerWorldChunk>();
+
 			Profiler.BeginSample("GenerateTileMap");
-			GenerateTileMap(chunk);
+			GenerateTileMap(chunk, world.SeedX, world.SeedY);
 			Profiler.EndSample();
 			
 			// Profiler.BeginSample("GenerateSites");
@@ -59,7 +60,7 @@ namespace FNZ.Server.Model.World
 			// Profiler.EndSample();
 			
 			Profiler.BeginSample("GenerateEnvironmentObjects");
-			GenerateEnvironmentObjects(chunk);
+			GenerateEnvironmentObjects(chunk, world);
 			Profiler.EndSample();
 			
 			//Profiler.BeginSample("GenerateEnemies");
@@ -76,13 +77,13 @@ namespace FNZ.Server.Model.World
 			// );
 		}
 
-		private void GenerateTileMap(ServerWorldChunk chunk)
+		private void GenerateTileMap(ServerWorldChunk chunk, int seedX, int seedY)
 		{
 			byte chunkX = chunk.ChunkX;
 			byte chunkY = chunk.ChunkY;
 			int chunkSize = chunk.SideSize;
 
-			float[] heightMap = GenerateHeightMap(chunkX, chunkY, chunkSize, GameServer.MainWorld.SeedX, GameServer.MainWorld.SeedY);
+			float[] heightMap = GenerateHeightMap(chunkX, chunkY, chunkSize, seedX, seedY);
 
 			for (int y = 0; y < chunkSize; y++)
 			{
@@ -116,12 +117,10 @@ namespace FNZ.Server.Model.World
 			}
 		}
 
-		private void GenerateEnvironmentObjects(ServerWorldChunk chunk)
+		private void GenerateEnvironmentObjects(ServerWorldChunk chunk, ServerWorld world)
 		{
 			int chunkSize = chunk.SideSize;
-
-			var serverWorld = GameServer.MainWorld;
-
+			
 			// Spawn drop pod near player on initial spawn chunk
 			if (chunk.IsMainWorld)
 			{
@@ -134,7 +133,8 @@ namespace FNZ.Server.Model.World
 					pos,
 					0,
 					chunk,
-					"to_player_drop_pod"
+					"to_player_drop_pod",
+					world
 				);
 			}
 			
@@ -148,7 +148,7 @@ namespace FNZ.Server.Model.World
 					string tileId = IdTranslator.Instance.GetId<TileData>(tileIdCode);
 					var tileData = DataBank.Instance.GetData<TileData>(tileId);
 
-					if (HasTileObject(chunk.TilePositionsX[index], chunk.TilePositionsY[index]))
+					if (HasTileObject(chunk.TilePositionsX[index], chunk.TilePositionsY[index], world))
 						continue;
 
 					int rnd = FNERandom.GetRandomIntInRange(0, 101);
@@ -170,20 +170,21 @@ namespace FNZ.Server.Model.World
 							{
 								var pos = new float2(chunk.TilePositionsX[index], chunk.TilePositionsY[index]);
 
-								if (HasTileObject((int)pos.x, (int)pos.y))
+								if (HasTileObject((int)pos.x, (int)pos.y, world))
 									continue;
 
 								GenerateTileObject(
 									pos,
 									index,
 									chunk,
-									tileObjId
+									tileObjId,
+									world
 								);
 
 								var cluster = entry.clusterData;
 								if (cluster == null) continue;
 
-								GenerateClusterObjects(pos, cluster.radius, cluster.density, tileObjId, tileId);
+								GenerateClusterObjects(pos, cluster.radius, cluster.density, tileObjId, tileId, world);
 							}
 							else
 							{
@@ -195,15 +196,11 @@ namespace FNZ.Server.Model.World
 			}
 		}
 
-		private void GenerateClusterObjects(float2 basePos, float radius, float density, string tileObjectId, string originalTileId)
+		private void GenerateClusterObjects(float2 basePos, float radius, float density, string tileObjectId, string originalTileId, ServerWorld world)
 		{
-			var originalChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-			foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius(new int2((int)basePos.x, (int)basePos.y), (int)radius))
+			var chunk = world.GetWorldChunk<ServerWorldChunk>();
+			foreach (var tile in world.GetSurroundingTilesInRadius(new int2((int)basePos.x, (int)basePos.y), (int)radius))
 			{
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-				if (originalChunk != chunk)
-					continue;
-
 				int index = tile.x + tile.y * chunk.SideSize;
 				ushort tileIdCode = chunk.TileIdCodes[index];
 				string tileId = IdTranslator.Instance.GetId<TileData>(tileIdCode);
@@ -213,1221 +210,1221 @@ namespace FNZ.Server.Model.World
 				var rndClusterDensity = FNERandom.GetRandomIntInRange(0, 101);
 				if (rndClusterDensity <= density)
 				{
-					if (HasTileObject(tile.x, tile.y))
+					if (HasTileObject(tile.x, tile.y, world))
 						continue;
 
-					GenerateTileObject(tile, index, chunk, tileObjectId);
+					GenerateTileObject(tile, index, chunk, tileObjectId, world);
 				}
 			}
 		}
 
-		private void GenerateSites(ServerWorldChunk chunk)
-        {
-			int totalWeight = 0;
-
-			var sites = DataBank.Instance.GetData<WorldGenData>("default_world").sites;
-
-			foreach (var siteEntry in sites)
-			{
-				totalWeight += siteEntry.weight;
-			}
-
-
-			var siteRandom = FNERandom.GetRandomIntInRange(1, totalWeight + 1);
-
-			foreach (var siteEntry in sites)
-			{
-				if (siteRandom <= siteEntry.weight)
-				{
-					var siteId = siteEntry.siteRef;
-
-					var siteData = DataBank.Instance.GetData<SiteData>(siteId);
-
-					// 0 => 0* | 1 => 90* | 2 => 180* | 3 => 270*
-					//byte siteRot = (byte)(FNERandom.GetRandomIntInRange(0, 4));
-					byte siteRot = 0;
-					
-					var startX = 0;
-					var startY = 0;
-					if(siteRot % 2 == 0)
-					{
-						startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
-						startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
-					}
-					else
-					{
-						startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
-						startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
-					}
-					
-
-					ImportSite(siteData, $"{Application.streamingAssetsPath}/{siteData.filePath}", startX, startY, chunk, siteRot);
-					break;
-				}
-				else
-				{
-					siteRandom -= siteEntry.weight;
-				}
-			}
-		}
-
-		private void GenerateSitesV2(ServerWorldChunk chunk)
-		{
-			var fullSiteMetaData = GameServer.MainWorld.GetSiteMetaData();
-			
-			if(!fullSiteMetaData.ContainsKey(chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH))
-			{
-				return;
-			}
-			
-			var siteMetaData = fullSiteMetaData[chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH];
-			
-			var siteData = DataBank.Instance.GetData<SiteData>(siteMetaData.siteId);
-
-			//Debug.LogWarning("LOAD SITE: " + siteData.Id);
-
-			// Import minor site
-			if (siteData.width < 32 && siteData.height < 32)
-			{
-				//Debug.LogWarning("LOAD MINOR: " + siteData.Id);
-				// 0 => 0* | 1 => 90* | 2 => 180* | 3 => 270*
-				//byte siteRot = (byte)(FNERandom.GetRandomIntInRange(0, 4));
-
-				byte siteRot = 0;
-
-				var startX = siteMetaData.centerWorldX % 32 - siteMetaData.width / 2;
-				var startY = siteMetaData.centerWorldY % 32 - siteMetaData.height / 2;
-
-				/*if (siteRot % 2 == 0)
-				{
-					startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
-					startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
-				}
-				else
-				{
-					startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
-					startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
-				}*/
-				
-				ImportSite(
-					siteData,
-					$"{Application.streamingAssetsPath}/{siteData.filePath}", 
-					startX, 
-					startY, 
-					chunk, 
-					siteRot
-				);
-				return;
-			}
-
-			//Debug.LogWarning("LOAD MAJOR PART: " + siteData.Id);
-			ImportMajorSite(
-				$"{Application.streamingAssetsPath}/{siteData.filePath}",
-				siteMetaData.centerWorldX,
-				siteMetaData.centerWorldY,
-				siteMetaData.width,
-				siteMetaData.height,
-				chunk,
-				0
-			);
-		}
-
-		// Import multi-chunk site
-		private void ImportMajorSite(
-			string filePath,
-			int centerWorldX,
-			int centerWorldY,
-			ushort width,
-			ushort height,
-			ServerWorldChunk chunk,
-			byte siteRot
-		)
-		{
-			NetBuffer nb = new NetBuffer();
-			using (var fs = new FileStream(filePath, FileMode.Open))
-			{
-				using (var br = new BinaryReader(fs))
-				{
-					nb.Data = br.ReadBytes((int)br.BaseStream.Length);
-				}
-			}
-
-			var versionCode = nb.ReadInt32();
-
-			if(versionCode != (int) FileUtils.FNS_File_Version_Code.FNS_FILE_VERSION_1)
-            {
-				//Debug.Log("NOT LATEST VERSION: " + filePath);
-				return;
-            }
-
-			var idTransl = new IdTranslator();
-			idTransl.Deserialize(nb);
-
-			// site width in tiles
-			var widthInTiles = nb.ReadInt16();
-			// site height in tiles
-			var heightInTiles = nb.ReadInt16();
-
-			if(widthInTiles != width || heightInTiles != height)
-            {
-				Debug.LogError("Site height or width does not match xml declaration");
-				return;
-            }
-
-			siteRot = 0;
-
-			if (siteRot == 0)
-			{
-				#region 0DegreeImport
-
-				var startX = centerWorldX - widthInTiles / 2;
-				var endX = startX + widthInTiles;
-				var startY = centerWorldY - heightInTiles / 2;
-				var endY = startY + heightInTiles;
-
-				for (int x = startX; x < endX; x++)
-				{
-					for (int y = startY; y < endY; y++)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileMajorSite(x, y, nb, chunk, idTransl);
-							ReadTileEdgeObjectsMajorSite(x, y, nb, chunk, idTransl, siteRot);
-							ReadTileObjectMajorSite(x, y, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-			/*else if (siteRot == 1)
-			{
-				#region 90DegreeImport
-
-				for (int y = 0; y < widthInTiles; y++)
-				{
-					for (int x = heightInTiles; x > 0; --x)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-			else if (siteRot == 2)
-			{
-				#region 180DegreeImport
-
-				for (int x = widthInTiles; x > 0; --x)
-				{
-					for (int y = heightInTiles; y > 0; --y)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-			else if (siteRot == 3)
-			{
-				#region 270DegreeImport
-
-				for (int y = widthInTiles; y > 0; --y)
-				{
-					for (int x = 0; x < heightInTiles; x++)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}*/
-		}
-
-		private void ImportSite(
-			SiteData siteData,
-			string filePath,
-			int startTileX,
-			int startTileY,
-			ServerWorldChunk chunk,
-			byte siteRot
-		)
-		{
-			NetBuffer nb = new NetBuffer();
-			using (var fs = new FileStream(filePath, FileMode.Open))
-			{
-				using (var br = new BinaryReader(fs))
-				{
-					nb.Data = br.ReadBytes((int)br.BaseStream.Length);
-				}
-			}
-
-			var versionCode = nb.ReadInt32();
-
-			if (versionCode != (int)FileUtils.FNS_File_Version_Code.FNS_FILE_VERSION_1)
-			{
-				Debug.Log("NOT LATEST VERSION: " + filePath);
-				return;
-			}
-
-			var idTransl = new IdTranslator();
-			idTransl.Deserialize(nb);
-
-			// site width in tiles
-			var widthInTiles = nb.ReadInt16();
-			// site height in tiles
-			var heightInTiles = nb.ReadInt16();
-
-			if (siteData.width != widthInTiles)
-			{
-				Debug.LogError("Site width in XML does not match site file: " + siteData.Id + " - Site width in site file is " + widthInTiles);
-				return;
-			}
-			if (siteData.height != heightInTiles)
-			{
-				Debug.LogError("Site height in XML does not match site file: " + siteData.Id + " - Site height in site file is " + heightInTiles);
-				return;
-			}
-			
-			Debug.Log("CHUNK ON: " + chunk.ChunkX + " : " + chunk.ChunkY);
-			Debug.Log("TILE POS: " + startTileX + " : " + startTileY);
-			
-			if(siteRot == 0)
-            {
-				#region 0DegreeImport
-
-				for (int x = 0; x < widthInTiles; x++)
-				{
-					for (int y = 0; y < heightInTiles; y++)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-            else if(siteRot == 1)
-            {
-				#region 90DegreeImport
-
-				for (int y = 0; y < widthInTiles; y++)
-				{
-					for (int x = heightInTiles; x > 0; --x)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-			else if (siteRot == 2)
-			{
-				#region 180DegreeImport
-
-				for (int x = widthInTiles; x > 0; --x)
-				{
-					for (int y = heightInTiles; y > 0; --y)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-			else if (siteRot == 3)
-			{
-				#region 270DegreeImport
-
-				for (int y = widthInTiles; y > 0; --y)
-				{
-					for (int x = 0; x < heightInTiles; x++)
-					{
-						bool isNullTile = nb.ReadBoolean();
-						if (!isNullTile)
-						{
-							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
-							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
-						}
-					}
-				}
-
-				#endregion
-			}
-
-			var siteCenterX = startTileX + (widthInTiles / 2f);
-			var siteCenterY = startTileY + (heightInTiles / 2f);
-			
-			GameServer.EntityAPI.SpawnEnemiesWithBudget(
-				siteData.enemyBudget,
-				siteData.enemySpawning,
-				new float2((chunk.ChunkX * 32) + siteCenterX, (chunk.ChunkY * 32) + siteCenterY),
-				0,
-				widthInTiles > heightInTiles ? (float) widthInTiles / 2f : (float) heightInTiles / 2f,
-				false,
-				float2.zero,
-				0,
-				0.5f,
-				""
-			);
-		}
-
-		private void ReadTileMajorSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl)
-		{
-			string id = idTransl.GetId<TileData>(br.ReadUInt16());
-
-			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
-
-			if (!chunkRect.Contains(new Vector2Int(tileX, tileY)))
-				return;
-
-			ushort chunkTileX = (ushort)(tileX - chunk.ChunkX * 32);
-			ushort chunkTileY = (ushort)(tileY - chunk.ChunkY * 32);
-
-			chunk.TileIdCodes[chunkTileX + chunkTileY * 32] = IdTranslator.Instance.GetIdCode<TileData>(id);
-			chunk.BlockingTiles[chunkTileX + chunkTileY * 32] = DataBank.Instance.GetData<TileData>(id).isBlocking;
-		}
-
-		private void ReadTileSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl)
-		{
-			string id = idTransl.GetId<TileData>(br.ReadUInt16());
-			
-			chunk.TileIdCodes[tileX + tileY * 32] = IdTranslator.Instance.GetIdCode<TileData>(id);
-			chunk.BlockingTiles[tileX + tileY * 32] = DataBank.Instance.GetData<TileData>(id).isBlocking;
-		}
-
-		private void ReadTileEdgeObjectsSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
-		{
-			bool hasWestEdge = br.ReadBoolean();
-			if (hasWestEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				FNEEntity entity = null;
-                switch (siteRotation)
-                {
-					// Still West
-					case 0:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rotation
-						);
-
-						if (rotation == 180 || rotation == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes South
-					case 1:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot90
-						);
-
-						if (rot90 == 180 || rot90 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes East
-					case 2:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot180
-						);
-						if (rot180 == 180 || rot180 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes North
-					case 3:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot270
-						);
-						if (rot270 == 180 || rot270 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-                }
-
-                if (hasMountedObject)
-                {
-					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-				}
-			}
-
-			bool hasSouthEdge = br.ReadBoolean();
-			if (hasSouthEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				FNEEntity entity = null;
-				switch (siteRotation)
-                {
-					// Still South
-					case 0:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rotation
-						);
-						if (rotation == 180 || rotation == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes East
-					case 1:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot90
-						);
-						if (rot90 == 180 || rot90 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes North
-					case 2:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot180
-						);
-						if (rot180 == 180 || rot180 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes West
-					case 3:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot270
-						);
-						if (rot270 == 180 || rot270 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-                }
-
-				if (hasMountedObject)
-				{
-					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-				}
-			}
-
-			bool hasEastEdge = br.ReadBoolean();
-			if (hasEastEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				FNEEntity entity = null;
-				switch (siteRotation)
-				{
-					// Still East
-					case 0:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rotation
-						);
-						if (rotation == 180 || rotation == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes North
-					case 1:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot90
-						);
-						if (rot90 == 180 || rot90 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes West
-					case 2:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot180
-						);
-						if (rot180 == 180 || rot180 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes South
-					case 3:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot270
-						);
-						if (rot270 == 180 || rot270 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-				}
-
-				if (hasMountedObject)
-				{
-					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-				}
-			}
-
-			bool hasNorthEdge = br.ReadBoolean();
-			if (hasNorthEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				FNEEntity entity = null;
-				switch (siteRotation)
-				{
-					// Still North
-					case 0:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rotation
-						);
-						if (rotation == 180 || rotation == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes West
-					case 1:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot90
-						);
-						if (rot90 == 180 || rot90 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes South
-					case 2:
-						entity = GenerateSouthEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot180
-						);
-						if (rot180 == 180 || rot180 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-
-					// Becomes East
-					case 3:
-						entity = GenerateWestEdgeObject(
-							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
-							chunk,
-							idTransl.GetId<FNEEntityData>(idCode),
-							rot270
-						);
-						if (rot270 == 180 || rot270 == 90)
-						{
-							mountedRotation = !mountedRotation;
-						}
-						break;
-				}
-
-				if (hasMountedObject)
-				{
-					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-				}
-			}
-		}
-
-		private void ReadTileObjectSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
-        {
-			bool hasTileObject = br.ReadBoolean();
-			if (!hasTileObject)
-				return;
-
-			string id = idTransl.GetId<FNEEntityData>(br.ReadUInt16());
-			ushort rotation = br.ReadUInt16();
-
-			var entity = GenerateTileObject(
-				new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY),
-				tileX + tileY * 32,
-				chunk,
-				id
-			);
-
-			entity.RotationDegrees = rotation + (siteRotation * 90);
-		}
-
-		private void ReadTileObjectMajorSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
-		{
-			bool hasTileObject = br.ReadBoolean();
-			if (!hasTileObject)
-				return;
-
-			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
-			var idCode = br.ReadUInt16();
-			ushort rotation = br.ReadUInt16();
-
-			if (!chunkRect.Contains(new Vector2Int(tileX, tileY)))
-				return;
-
-			ushort chunkTileX = (ushort)(tileX - chunk.ChunkX * 32);
-			ushort chunkTileY = (ushort)(tileY - chunk.ChunkY * 32);
-
-			string id = idTransl.GetId<FNEEntityData>(idCode);
-
-			var entity = GenerateTileObject(
-				new float2(chunk.ChunkX * 32 + chunkTileX, chunk.ChunkY * 32 + chunkTileY),
-				chunkTileX + chunkTileY * 32,
-				chunk,
-				id
-			);
-
-			entity.RotationDegrees = rotation + (siteRotation * 90);
-		}
-
-		private void ReadTileEdgeObjectsMajorSite(
-			int tileX, 
-			int tileY, 
-			NetBuffer br, 
-			ServerWorldChunk chunk, 
-			IdTranslator idTransl, 
-			byte siteRotation
-		)
-		{
-			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
-
-			bool hasWestEdge = br.ReadBoolean();
-			
-			if (hasWestEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-                {
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
-                {
-					FNEEntity entity = null;
-					switch (siteRotation)
-					{
-						// Still West
-						case 0:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rotation
-							);
-							if (rotation == 180 || rotation == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes South
-						case 1:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot90
-							);
-							if (rot90 == 180 || rot90 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes East
-						case 2:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX + 1, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot180
-							);
-							if (rot180 == 180 || rot180 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes North
-						case 3:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY + 1),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot270
-							);
-							if (rot270 == 180 || rot270 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-					}
-
-					if (hasMountedObject)
-					{
-						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-					}
-				}
-			}
-
-			bool hasSouthEdge = br.ReadBoolean();
-			
-			if (hasSouthEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
-                {
-					FNEEntity entity = null;
-					switch (siteRotation)
-					{
-						// Still South
-						case 0:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rotation
-							);
-							if (rotation == 180 || rotation == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes East
-						case 1:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX + 1, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot90
-							);
-							if (rot90 == 180 || rot90 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes North
-						case 2:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY + 1),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot180
-							);
-							if (rot180 == 180 || rot180 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes West
-						case 3:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot270
-							);
-							if (rot270 == 180 || rot270 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-					}
-
-					if (hasMountedObject)
-					{
-						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-					}
-				}
-					
-			}
-
-			bool hasEastEdge = br.ReadBoolean();
-			
-
-			if (hasEastEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
-                {
-					FNEEntity entity = null;
-					switch (siteRotation)
-					{
-						// Still East
-						case 0:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX + 1, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rotation
-							);
-							if (rotation == 180 || rotation == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes North
-						case 1:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY + 1),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot90
-							);
-							if (rot90 == 180 || rot90 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes West
-						case 2:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot180
-							);
-							if (rot180 == 180 || rot180 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes South
-						case 3:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot270
-							);
-							if (rot270 == 180 || rot270 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-					}
-
-					if (hasMountedObject)
-					{
-						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-					}
-				}
-			}
-
-			bool hasNorthEdge = br.ReadBoolean();
-
-			if (hasNorthEdge)
-			{
-				ushort idCode = br.ReadUInt16();
-				short rotation = br.ReadInt16();
-				bool hasMountedObject = br.ReadBoolean();
-				ushort mountedIdCode = ushort.MaxValue;
-				bool mountedRotation = false;
-
-				int rot90 = (rotation + 90) % 360;
-				int rot180 = (rotation + 180) % 360;
-				int rot270 = (rotation + 270) % 360;
-
-				if (hasMountedObject)
-				{
-					mountedIdCode = br.ReadUInt16();
-					mountedRotation = br.ReadBoolean();
-				}
-
-				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
-                {
-					FNEEntity entity = null;
-					switch (siteRotation)
-					{
-						// Still North
-						case 0:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY + 1),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rotation
-							);
-							if (rotation == 180 || rotation == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes West
-						case 1:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot90
-							);
-							if (rot90 == 180 || rot90 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes South
-						case 2:
-							entity = GenerateSouthEdgeObject(
-								new float2(tileX + 0.5f, tileY),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot180
-							);
-							if (rot180 == 180 || rot180 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-
-						// Becomes East
-						case 3:
-							entity = GenerateWestEdgeObject(
-								new float2(tileX + 1, tileY + 0.5f),
-								chunk,
-								idTransl.GetId<FNEEntityData>(idCode),
-								rot270
-							);
-							if (rot270 == 180 || rot270 == 90)
-							{
-								mountedRotation = !mountedRotation;
-							}
-							break;
-					}
-
-					if (hasMountedObject)
-					{
-						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
-						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
-
-						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
-						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
-					}
-				}	
-			}
-		}
-
-		public FNEEntity GenerateTileObject(float2 position, int index, ServerWorldChunk chunk, string id)
+		// private void GenerateSites(ServerWorldChunk chunk)
+  //       {
+		// 	int totalWeight = 0;
+  //
+		// 	var sites = DataBank.Instance.GetData<WorldGenData>("default_world").sites;
+  //
+		// 	foreach (var siteEntry in sites)
+		// 	{
+		// 		totalWeight += siteEntry.weight;
+		// 	}
+  //
+  //
+		// 	var siteRandom = FNERandom.GetRandomIntInRange(1, totalWeight + 1);
+  //
+		// 	foreach (var siteEntry in sites)
+		// 	{
+		// 		if (siteRandom <= siteEntry.weight)
+		// 		{
+		// 			var siteId = siteEntry.siteRef;
+  //
+		// 			var siteData = DataBank.Instance.GetData<SiteData>(siteId);
+  //
+		// 			// 0 => 0* | 1 => 90* | 2 => 180* | 3 => 270*
+		// 			//byte siteRot = (byte)(FNERandom.GetRandomIntInRange(0, 4));
+		// 			byte siteRot = 0;
+		// 			
+		// 			var startX = 0;
+		// 			var startY = 0;
+		// 			if(siteRot % 2 == 0)
+		// 			{
+		// 				startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
+		// 				startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
+		// 			}
+		// 			else
+		// 			{
+		// 				startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
+		// 				startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
+		// 			}
+		// 			
+  //
+		// 			ImportSite(siteData, $"{Application.streamingAssetsPath}/{siteData.filePath}", startX, startY, chunk, siteRot);
+		// 			break;
+		// 		}
+		// 		else
+		// 		{
+		// 			siteRandom -= siteEntry.weight;
+		// 		}
+		// 	}
+		// }
+
+// 		private void GenerateSitesV2(ServerWorldChunk chunk)
+// 		{
+// 			var fullSiteMetaData = GameServer.MainWorld.GetSiteMetaData();
+// 			
+// 			if(!fullSiteMetaData.ContainsKey(chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH))
+// 			{
+// 				return;
+// 			}
+// 			
+// 			var siteMetaData = fullSiteMetaData[chunk.ChunkX + chunk.ChunkY * GameServer.MainWorld.WIDTH];
+// 			
+// 			var siteData = DataBank.Instance.GetData<SiteData>(siteMetaData.siteId);
+//
+// 			//Debug.LogWarning("LOAD SITE: " + siteData.Id);
+//
+// 			// Import minor site
+// 			if (siteData.width < 32 && siteData.height < 32)
+// 			{
+// 				//Debug.LogWarning("LOAD MINOR: " + siteData.Id);
+// 				// 0 => 0* | 1 => 90* | 2 => 180* | 3 => 270*
+// 				//byte siteRot = (byte)(FNERandom.GetRandomIntInRange(0, 4));
+//
+// 				byte siteRot = 0;
+//
+// 				var startX = siteMetaData.centerWorldX % 32 - siteMetaData.width / 2;
+// 				var startY = siteMetaData.centerWorldY % 32 - siteMetaData.height / 2;
+//
+// 				/*if (siteRot % 2 == 0)
+// 				{
+// 					startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
+// 					startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
+// 				}
+// 				else
+// 				{
+// 					startX = FNERandom.GetRandomIntInRange(1, 32 - siteData.height);
+// 					startY = FNERandom.GetRandomIntInRange(1, 32 - siteData.width);
+// 				}*/
+// 				
+// 				ImportSite(
+// 					siteData,
+// 					$"{Application.streamingAssetsPath}/{siteData.filePath}", 
+// 					startX, 
+// 					startY, 
+// 					chunk, 
+// 					siteRot
+// 				);
+// 				return;
+// 			}
+//
+// 			//Debug.LogWarning("LOAD MAJOR PART: " + siteData.Id);
+// 			ImportMajorSite(
+// 				$"{Application.streamingAssetsPath}/{siteData.filePath}",
+// 				siteMetaData.centerWorldX,
+// 				siteMetaData.centerWorldY,
+// 				siteMetaData.width,
+// 				siteMetaData.height,
+// 				chunk,
+// 				0
+// 			);
+// 		}
+//
+// 		// Import multi-chunk site
+// 		private void ImportMajorSite(
+// 			string filePath,
+// 			int centerWorldX,
+// 			int centerWorldY,
+// 			ushort width,
+// 			ushort height,
+// 			ServerWorldChunk chunk,
+// 			byte siteRot
+// 		)
+// 		{
+// 			NetBuffer nb = new NetBuffer();
+// 			using (var fs = new FileStream(filePath, FileMode.Open))
+// 			{
+// 				using (var br = new BinaryReader(fs))
+// 				{
+// 					nb.Data = br.ReadBytes((int)br.BaseStream.Length);
+// 				}
+// 			}
+//
+// 			var versionCode = nb.ReadInt32();
+//
+// 			if(versionCode != (int) FileUtils.FNS_File_Version_Code.FNS_FILE_VERSION_1)
+//             {
+// 				//Debug.Log("NOT LATEST VERSION: " + filePath);
+// 				return;
+//             }
+//
+// 			var idTransl = new IdTranslator();
+// 			idTransl.Deserialize(nb);
+//
+// 			// site width in tiles
+// 			var widthInTiles = nb.ReadInt16();
+// 			// site height in tiles
+// 			var heightInTiles = nb.ReadInt16();
+//
+// 			if(widthInTiles != width || heightInTiles != height)
+//             {
+// 				Debug.LogError("Site height or width does not match xml declaration");
+// 				return;
+//             }
+//
+// 			siteRot = 0;
+//
+// 			if (siteRot == 0)
+// 			{
+// 				#region 0DegreeImport
+//
+// 				var startX = centerWorldX - widthInTiles / 2;
+// 				var endX = startX + widthInTiles;
+// 				var startY = centerWorldY - heightInTiles / 2;
+// 				var endY = startY + heightInTiles;
+//
+// 				for (int x = startX; x < endX; x++)
+// 				{
+// 					for (int y = startY; y < endY; y++)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileMajorSite(x, y, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsMajorSite(x, y, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectMajorSite(x, y, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+// 			/*else if (siteRot == 1)
+// 			{
+// 				#region 90DegreeImport
+//
+// 				for (int y = 0; y < widthInTiles; y++)
+// 				{
+// 					for (int x = heightInTiles; x > 0; --x)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+// 			else if (siteRot == 2)
+// 			{
+// 				#region 180DegreeImport
+//
+// 				for (int x = widthInTiles; x > 0; --x)
+// 				{
+// 					for (int y = heightInTiles; y > 0; --y)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+// 			else if (siteRot == 3)
+// 			{
+// 				#region 270DegreeImport
+//
+// 				for (int y = widthInTiles; y > 0; --y)
+// 				{
+// 					for (int x = 0; x < heightInTiles; x++)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}*/
+// 		}
+//
+// 		private void ImportSite(
+// 			SiteData siteData,
+// 			string filePath,
+// 			int startTileX,
+// 			int startTileY,
+// 			ServerWorldChunk chunk,
+// 			byte siteRot
+// 		)
+// 		{
+// 			NetBuffer nb = new NetBuffer();
+// 			using (var fs = new FileStream(filePath, FileMode.Open))
+// 			{
+// 				using (var br = new BinaryReader(fs))
+// 				{
+// 					nb.Data = br.ReadBytes((int)br.BaseStream.Length);
+// 				}
+// 			}
+//
+// 			var versionCode = nb.ReadInt32();
+//
+// 			if (versionCode != (int)FileUtils.FNS_File_Version_Code.FNS_FILE_VERSION_1)
+// 			{
+// 				Debug.Log("NOT LATEST VERSION: " + filePath);
+// 				return;
+// 			}
+//
+// 			var idTransl = new IdTranslator();
+// 			idTransl.Deserialize(nb);
+//
+// 			// site width in tiles
+// 			var widthInTiles = nb.ReadInt16();
+// 			// site height in tiles
+// 			var heightInTiles = nb.ReadInt16();
+//
+// 			if (siteData.width != widthInTiles)
+// 			{
+// 				Debug.LogError("Site width in XML does not match site file: " + siteData.Id + " - Site width in site file is " + widthInTiles);
+// 				return;
+// 			}
+// 			if (siteData.height != heightInTiles)
+// 			{
+// 				Debug.LogError("Site height in XML does not match site file: " + siteData.Id + " - Site height in site file is " + heightInTiles);
+// 				return;
+// 			}
+// 			
+// 			Debug.Log("CHUNK ON: " + chunk.ChunkX + " : " + chunk.ChunkY);
+// 			Debug.Log("TILE POS: " + startTileX + " : " + startTileY);
+// 			
+// 			if(siteRot == 0)
+//             {
+// 				#region 0DegreeImport
+//
+// 				for (int x = 0; x < widthInTiles; x++)
+// 				{
+// 					for (int y = 0; y < heightInTiles; y++)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+//             else if(siteRot == 1)
+//             {
+// 				#region 90DegreeImport
+//
+// 				for (int y = 0; y < widthInTiles; y++)
+// 				{
+// 					for (int x = heightInTiles; x > 0; --x)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+// 			else if (siteRot == 2)
+// 			{
+// 				#region 180DegreeImport
+//
+// 				for (int x = widthInTiles; x > 0; --x)
+// 				{
+// 					for (int y = heightInTiles; y > 0; --y)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+// 			else if (siteRot == 3)
+// 			{
+// 				#region 270DegreeImport
+//
+// 				for (int y = widthInTiles; y > 0; --y)
+// 				{
+// 					for (int x = 0; x < heightInTiles; x++)
+// 					{
+// 						bool isNullTile = nb.ReadBoolean();
+// 						if (!isNullTile)
+// 						{
+// 							ReadTileSite(x + startTileX, y + startTileY, nb, chunk, idTransl);
+// 							ReadTileEdgeObjectsSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 							ReadTileObjectSite(x + startTileX, y + startTileY, nb, chunk, idTransl, siteRot);
+// 						}
+// 					}
+// 				}
+//
+// 				#endregion
+// 			}
+//
+// 			var siteCenterX = startTileX + (widthInTiles / 2f);
+// 			var siteCenterY = startTileY + (heightInTiles / 2f);
+// 			
+// 			GameServer.EntityAPI.SpawnEnemiesWithBudget(
+// 				siteData.enemyBudget,
+// 				siteData.enemySpawning,
+// 				new float2((chunk.ChunkX * 32) + siteCenterX, (chunk.ChunkY * 32) + siteCenterY),
+// 				0,
+// 				widthInTiles > heightInTiles ? (float) widthInTiles / 2f : (float) heightInTiles / 2f,
+// 				false,
+// 				float2.zero,
+// 				0,
+// 				0.5f,
+// 				""
+// 			);
+// 		}
+//
+// 		private void ReadTileMajorSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl)
+// 		{
+// 			string id = idTransl.GetId<TileData>(br.ReadUInt16());
+//
+// 			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
+//
+// 			if (!chunkRect.Contains(new Vector2Int(tileX, tileY)))
+// 				return;
+//
+// 			ushort chunkTileX = (ushort)(tileX - chunk.ChunkX * 32);
+// 			ushort chunkTileY = (ushort)(tileY - chunk.ChunkY * 32);
+//
+// 			chunk.TileIdCodes[chunkTileX + chunkTileY * 32] = IdTranslator.Instance.GetIdCode<TileData>(id);
+// 			chunk.BlockingTiles[chunkTileX + chunkTileY * 32] = DataBank.Instance.GetData<TileData>(id).isBlocking;
+// 		}
+//
+// 		private void ReadTileSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl)
+// 		{
+// 			string id = idTransl.GetId<TileData>(br.ReadUInt16());
+// 			
+// 			chunk.TileIdCodes[tileX + tileY * 32] = IdTranslator.Instance.GetIdCode<TileData>(id);
+// 			chunk.BlockingTiles[tileX + tileY * 32] = DataBank.Instance.GetData<TileData>(id).isBlocking;
+// 		}
+//
+// 		private void ReadTileEdgeObjectsSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
+// 		{
+// 			bool hasWestEdge = br.ReadBoolean();
+// 			if (hasWestEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				FNEEntity entity = null;
+//                 switch (siteRotation)
+//                 {
+// 					// Still West
+// 					case 0:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rotation
+// 						);
+//
+// 						if (rotation == 180 || rotation == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes South
+// 					case 1:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot90
+// 						);
+//
+// 						if (rot90 == 180 || rot90 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes East
+// 					case 2:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot180
+// 						);
+// 						if (rot180 == 180 || rot180 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes North
+// 					case 3:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot270
+// 						);
+// 						if (rot270 == 180 || rot270 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//                 }
+//
+//                 if (hasMountedObject)
+//                 {
+// 					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 				}
+// 			}
+//
+// 			bool hasSouthEdge = br.ReadBoolean();
+// 			if (hasSouthEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				FNEEntity entity = null;
+// 				switch (siteRotation)
+//                 {
+// 					// Still South
+// 					case 0:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rotation
+// 						);
+// 						if (rotation == 180 || rotation == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes East
+// 					case 1:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot90
+// 						);
+// 						if (rot90 == 180 || rot90 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes North
+// 					case 2:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot180
+// 						);
+// 						if (rot180 == 180 || rot180 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes West
+// 					case 3:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot270
+// 						);
+// 						if (rot270 == 180 || rot270 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//                 }
+//
+// 				if (hasMountedObject)
+// 				{
+// 					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 				}
+// 			}
+//
+// 			bool hasEastEdge = br.ReadBoolean();
+// 			if (hasEastEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				FNEEntity entity = null;
+// 				switch (siteRotation)
+// 				{
+// 					// Still East
+// 					case 0:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rotation
+// 						);
+// 						if (rotation == 180 || rotation == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes North
+// 					case 1:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot90
+// 						);
+// 						if (rot90 == 180 || rot90 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes West
+// 					case 2:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot180
+// 						);
+// 						if (rot180 == 180 || rot180 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes South
+// 					case 3:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot270
+// 						);
+// 						if (rot270 == 180 || rot270 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+// 				}
+//
+// 				if (hasMountedObject)
+// 				{
+// 					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 				}
+// 			}
+//
+// 			bool hasNorthEdge = br.ReadBoolean();
+// 			if (hasNorthEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				FNEEntity entity = null;
+// 				switch (siteRotation)
+// 				{
+// 					// Still North
+// 					case 0:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY + 1),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rotation
+// 						);
+// 						if (rotation == 180 || rotation == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes West
+// 					case 1:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot90
+// 						);
+// 						if (rot90 == 180 || rot90 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes South
+// 					case 2:
+// 						entity = GenerateSouthEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 0.5f, chunk.ChunkY * 32 + tileY),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot180
+// 						);
+// 						if (rot180 == 180 || rot180 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+//
+// 					// Becomes East
+// 					case 3:
+// 						entity = GenerateWestEdgeObject(
+// 							new float2(chunk.ChunkX * 32 + tileX + 1, chunk.ChunkY * 32 + tileY + 0.5f),
+// 							chunk,
+// 							idTransl.GetId<FNEEntityData>(idCode),
+// 							rot270
+// 						);
+// 						if (rot270 == 180 || rot270 == 90)
+// 						{
+// 							mountedRotation = !mountedRotation;
+// 						}
+// 						break;
+// 				}
+//
+// 				if (hasMountedObject)
+// 				{
+// 					var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 					var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 					entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 					entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 				}
+// 			}
+// 		}
+//
+// 		private void ReadTileObjectSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
+//         {
+// 			bool hasTileObject = br.ReadBoolean();
+// 			if (!hasTileObject)
+// 				return;
+//
+// 			string id = idTransl.GetId<FNEEntityData>(br.ReadUInt16());
+// 			ushort rotation = br.ReadUInt16();
+//
+// 			var entity = GenerateTileObject(
+// 				new float2(chunk.ChunkX * 32 + tileX, chunk.ChunkY * 32 + tileY),
+// 				tileX + tileY * 32,
+// 				chunk,
+// 				id
+// 			);
+//
+// 			entity.RotationDegrees = rotation + (siteRotation * 90);
+// 		}
+//
+// 		private void ReadTileObjectMajorSite(int tileX, int tileY, NetBuffer br, ServerWorldChunk chunk, IdTranslator idTransl, byte siteRotation)
+// 		{
+// 			bool hasTileObject = br.ReadBoolean();
+// 			if (!hasTileObject)
+// 				return;
+//
+// 			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
+// 			var idCode = br.ReadUInt16();
+// 			ushort rotation = br.ReadUInt16();
+//
+// 			if (!chunkRect.Contains(new Vector2Int(tileX, tileY)))
+// 				return;
+//
+// 			ushort chunkTileX = (ushort)(tileX - chunk.ChunkX * 32);
+// 			ushort chunkTileY = (ushort)(tileY - chunk.ChunkY * 32);
+//
+// 			string id = idTransl.GetId<FNEEntityData>(idCode);
+//
+// 			var entity = GenerateTileObject(
+// 				new float2(chunk.ChunkX * 32 + chunkTileX, chunk.ChunkY * 32 + chunkTileY),
+// 				chunkTileX + chunkTileY * 32,
+// 				chunk,
+// 				id
+// 			);
+//
+// 			entity.RotationDegrees = rotation + (siteRotation * 90);
+// 		}
+//
+// 		private void ReadTileEdgeObjectsMajorSite(
+// 			int tileX, 
+// 			int tileY, 
+// 			NetBuffer br, 
+// 			ServerWorldChunk chunk, 
+// 			IdTranslator idTransl, 
+// 			byte siteRotation
+// 		)
+// 		{
+// 			var chunkRect = new RectInt(chunk.ChunkX * 32, chunk.ChunkY * 32, 32, 32);
+//
+// 			bool hasWestEdge = br.ReadBoolean();
+// 			
+// 			if (hasWestEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+//                 {
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
+//                 {
+// 					FNEEntity entity = null;
+// 					switch (siteRotation)
+// 					{
+// 						// Still West
+// 						case 0:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rotation
+// 							);
+// 							if (rotation == 180 || rotation == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes South
+// 						case 1:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot90
+// 							);
+// 							if (rot90 == 180 || rot90 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes East
+// 						case 2:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX + 1, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot180
+// 							);
+// 							if (rot180 == 180 || rot180 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes North
+// 						case 3:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY + 1),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot270
+// 							);
+// 							if (rot270 == 180 || rot270 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+// 					}
+//
+// 					if (hasMountedObject)
+// 					{
+// 						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 					}
+// 				}
+// 			}
+//
+// 			bool hasSouthEdge = br.ReadBoolean();
+// 			
+// 			if (hasSouthEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
+//                 {
+// 					FNEEntity entity = null;
+// 					switch (siteRotation)
+// 					{
+// 						// Still South
+// 						case 0:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rotation
+// 							);
+// 							if (rotation == 180 || rotation == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes East
+// 						case 1:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX + 1, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot90
+// 							);
+// 							if (rot90 == 180 || rot90 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes North
+// 						case 2:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY + 1),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot180
+// 							);
+// 							if (rot180 == 180 || rot180 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes West
+// 						case 3:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot270
+// 							);
+// 							if (rot270 == 180 || rot270 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+// 					}
+//
+// 					if (hasMountedObject)
+// 					{
+// 						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 					}
+// 				}
+// 					
+// 			}
+//
+// 			bool hasEastEdge = br.ReadBoolean();
+// 			
+//
+// 			if (hasEastEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
+//                 {
+// 					FNEEntity entity = null;
+// 					switch (siteRotation)
+// 					{
+// 						// Still East
+// 						case 0:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX + 1, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rotation
+// 							);
+// 							if (rotation == 180 || rotation == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes North
+// 						case 1:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY + 1),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot90
+// 							);
+// 							if (rot90 == 180 || rot90 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes West
+// 						case 2:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot180
+// 							);
+// 							if (rot180 == 180 || rot180 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes South
+// 						case 3:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot270
+// 							);
+// 							if (rot270 == 180 || rot270 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+// 					}
+//
+// 					if (hasMountedObject)
+// 					{
+// 						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 					}
+// 				}
+// 			}
+//
+// 			bool hasNorthEdge = br.ReadBoolean();
+//
+// 			if (hasNorthEdge)
+// 			{
+// 				ushort idCode = br.ReadUInt16();
+// 				short rotation = br.ReadInt16();
+// 				bool hasMountedObject = br.ReadBoolean();
+// 				ushort mountedIdCode = ushort.MaxValue;
+// 				bool mountedRotation = false;
+//
+// 				int rot90 = (rotation + 90) % 360;
+// 				int rot180 = (rotation + 180) % 360;
+// 				int rot270 = (rotation + 270) % 360;
+//
+// 				if (hasMountedObject)
+// 				{
+// 					mountedIdCode = br.ReadUInt16();
+// 					mountedRotation = br.ReadBoolean();
+// 				}
+//
+// 				if (chunkRect.Contains(new Vector2Int(tileX, tileY)))
+//                 {
+// 					FNEEntity entity = null;
+// 					switch (siteRotation)
+// 					{
+// 						// Still North
+// 						case 0:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY + 1),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rotation
+// 							);
+// 							if (rotation == 180 || rotation == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes West
+// 						case 1:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot90
+// 							);
+// 							if (rot90 == 180 || rot90 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes South
+// 						case 2:
+// 							entity = GenerateSouthEdgeObject(
+// 								new float2(tileX + 0.5f, tileY),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot180
+// 							);
+// 							if (rot180 == 180 || rot180 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+//
+// 						// Becomes East
+// 						case 3:
+// 							entity = GenerateWestEdgeObject(
+// 								new float2(tileX + 1, tileY + 0.5f),
+// 								chunk,
+// 								idTransl.GetId<FNEEntityData>(idCode),
+// 								rot270
+// 							);
+// 							if (rot270 == 180 || rot270 == 90)
+// 							{
+// 								mountedRotation = !mountedRotation;
+// 							}
+// 							break;
+// 					}
+//
+// 					if (hasMountedObject)
+// 					{
+// 						var id = idTransl.GetId<MountedObjectData>(mountedIdCode);
+// 						var mountedObjectData = DataBank.Instance.GetData<MountedObjectData>(id);
+//
+// 						entity.GetComponent<EdgeObjectComponentServer>().MountedObjectData = mountedObjectData;
+// 						entity.GetComponent<EdgeObjectComponentServer>().OppositeMountedDirection = mountedRotation;
+// 					}
+// 				}	
+// 			}
+// 		}
+
+		public FNEEntity GenerateTileObject(float2 position, int index, ServerWorldChunk chunk, string id, ServerWorld world)
 		{
 			var entity = GameServer.EntityAPI.CreateEntityImmediate(
 				id,
@@ -1447,24 +1444,24 @@ namespace FNZ.Server.Model.World
 				}
 			}
 
-			AddTileObjectToGenerationMap(position);
+			AddTileObjectToGenerationMap(position, world);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 			
-			//GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
 
-		private bool HasTileObject(int tileX, int tileY)
+		private bool HasTileObject(int tileX, int tileY, ServerWorld world)
 		{
-			return m_TileObjectGenerationMap[tileX % 32 + ((tileY % 32) * 32)];
+			return m_TileObjectGenerationMap[tileX % world.WIDTH + ((tileY % world.WIDTH) * world.WIDTH)];
 		}
 
-		private void AddTileObjectToGenerationMap(float2 position)
+		private void AddTileObjectToGenerationMap(float2 position, ServerWorld world)
 		{
-			int index = GameServer.MainWorld.GetFlatArrayIndexFromPos(position.x, position.y);
+			int index = world.GetFlatArrayIndexFromPos(position.x, position.y);
 			m_TileObjectGenerationMap[index] = true;
 		}
 
@@ -1476,10 +1473,10 @@ namespace FNZ.Server.Model.World
 				rotation
 			);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 
-			//chunk.AddSouthEdgeObject(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			chunk.AddSouthEdgeObject(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
@@ -1492,10 +1489,10 @@ namespace FNZ.Server.Model.World
 				rotation
 			);
 
-			chunk.EntitiesToSync.Add(entity);
+			//chunk.EntitiesToSync.Add(entity);
 
-			//chunk.AddWestEdgeObject(entity);
-			//GameServer.NetConnector.SyncEntity(entity);
+			chunk.AddWestEdgeObject(entity);
+			GameServer.NetConnector.SyncEntity(entity);
 
 			return entity;
 		}
@@ -1532,8 +1529,8 @@ namespace FNZ.Server.Model.World
 			var chunkX = chunk.ChunkX;
 			var chunkY = chunk.ChunkY;
 
-			var worldCenterChunkX = GameServer.MainWorld.WIDTH / 2;
-			var worldCenterChunkY = GameServer.MainWorld.HEIGHT / 2;
+			var worldCenterChunkX = chunk.SideSize / 2;
+			var worldCenterChunkY = chunk.SideSize / 2;
 
 			if (chunkX >= worldCenterChunkX - 2 && chunkX <= worldCenterChunkX + 2
 			&& chunkY >= worldCenterChunkY - 2 && chunkY <= worldCenterChunkY + 2)
@@ -1578,14 +1575,10 @@ namespace FNZ.Server.Model.World
 						else if (rand <= 90 && rand >= 0)
 							enemy = "default_zombie";
 					}
-					
-					var chunkForSpawnPos = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-					if (chunkForSpawnPos == null)
-						continue;
-					
+
 					var modelEntity = GameServer.EntityAPI.CreateEntityImmediate(enemy, spawnPos, spawnRotation);
 					
-					chunk.MovingEntitiesToSync.Add(modelEntity);
+					//chunk.MovingEntitiesToSync.Add(modelEntity);
 
 					if (FNERandom.GetRandomIntInRange(0, 20) == 0)
 					{
@@ -1599,13 +1592,12 @@ namespace FNZ.Server.Model.World
 							var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
 					
 							var spawnPosition = new float2(spawnPos.x + finalOffset.x, spawnPos.y + finalOffset.y);
-							if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>() == null)
-								continue;
+							//TODO do a boundary check
 
 							spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
 
 							modelEntity = GameServer.EntityAPI.CreateEntityImmediate(enemy, spawnPosition, spawnRotation);
-							chunk.MovingEntitiesToSync.Add(modelEntity);
+							//chunk.MovingEntitiesToSync.Add(modelEntity);
 						}
 					}
 				}

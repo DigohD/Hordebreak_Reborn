@@ -15,6 +15,7 @@ using FNZ.Server.WorldEvents;
 using FNZ.Shared;
 using FNZ.Shared.Model;
 using FNZ.Shared.Utils;
+using GameCode.Server.Model.World;
 using Lidgren.Network;
 using Unity.Entities;
 using UnityEngine;
@@ -27,7 +28,8 @@ namespace FNZ.Server
 
 		public static World ECS_ServerWorld;
 		public static ServerWorld MainWorld;
-		public static Dictionary<Guid, ServerWorld> WorldInstances = new Dictionary<Guid, ServerWorld>();
+		public static WorldInstanceManager WorldInstanceManager;
+		
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
@@ -44,19 +46,14 @@ namespace FNZ.Server
 
 		public static FNELogger Logger;
 
-		public static ServerWorld GetWorldInstance(Guid instanceId)
-		{
-			return WorldInstances[instanceId];
-		}
-
 		public void Start()
 		{
+			WorldInstanceManager = new WorldInstanceManager();
 			Logger = new FNELogger("Logs\\Server");
 			ECS_ServerWorld = ECSWorldCreator.CreateWorld("ServerWorld", WorldFlags.Simulation, false);
 			ECSWorldCreator.InitializeServerWorld(ECS_ServerWorld);
 
 			EntityFactory = new ServerEntityFactory();
-			EntityAPI = new EntityAPI();
 
 			FilePaths = new ServerFilePaths(SharedConfigs.WorldName);
 
@@ -75,22 +72,20 @@ namespace FNZ.Server
 			}
 			
 			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
+			
+			var world = new ServerWorld(512, 512)
+			{
+				SeedX = seedX,
+				SeedY = seedY
+			};
+			
+			EntityAPI = new EntityAPI(world);
 
 			MainWorld = WorldGen.GenerateWorld(
-				seedX,
-				seedY,
-				512,
+				world,
 				true
 			);
-
-			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
-			chunk.IsMainWorld = true;
-			WorldGen.GenerateChunk(chunk);
-
-			//MainWorld.LoadSiteMetaData();
-
-			//ChunkManager = new WorldChunkManager();
-
+			
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
 				RoomManager = new ServerRoomManager();
@@ -122,6 +117,8 @@ namespace FNZ.Server
 
 		public void OnApplicationQuit()
 		{
+			APPLICATION_RUNNING = false;
+			
 			Debug.Log("Server shutdown. Saving chunks...");
 			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
 			
@@ -180,7 +177,7 @@ namespace FNZ.Server
 			
 			Debug.Log("Server shutdown successfully!");
 
-			APPLICATION_RUNNING = false;
+			
 		}
 	}
 }

@@ -103,7 +103,7 @@ namespace FNZ.Server.Model.World
             for (int i = 0; i < count; i++)
             {
                 int netId = reader.ReadInt32();
-                m_FailedCalculationList.Add(GameServer.NetConnector.GetEntity(netId));
+                m_FailedCalculationList.Add(GameServer.NetConnector.GetFneEntity(netId));
             }
 		}
 

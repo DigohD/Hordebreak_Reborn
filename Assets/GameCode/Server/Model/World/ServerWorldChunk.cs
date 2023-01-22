@@ -4,7 +4,7 @@ using FNZ.Shared.Model.World;
 using FNZ.Shared.Model.World.Tile;
 using FNZ.Shared.Net.Dto.Hordes;
 using Lidgren.Network;
-using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -13,8 +13,8 @@ namespace FNZ.Server.Model.World
 	public class ServerWorldChunk : WorldChunk
 	{
 		public bool IsActive = true;
-		public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
-		public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
+		// public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
+		// public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
 
 		public ServerWorldChunk(int size, ServerWorld worldInstance)
 			: base(size, size, worldInstance)
@@ -103,8 +103,13 @@ namespace FNZ.Server.Model.World
 		private void FileSerializeEdgeObjects(NetBuffer nb)
 		{
 			nb.Write(m_SouthEdgeObjectCount);
+			
+			var southEdgeObjectsOrdered = SouthEdgeObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-			foreach (var edgeObject in SouthEdgeObjects)
+			foreach (var edgeObject in southEdgeObjectsOrdered)
 			{
 				if (edgeObject == null) continue;
 
@@ -113,8 +118,13 @@ namespace FNZ.Server.Model.World
 			}
 
 			nb.Write(m_WestEdgeObjectCount);
+			
+			var westEdgeObjectsOrdered = WestEdgeObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-			foreach (var edgeObject in WestEdgeObjects)
+			foreach (var edgeObject in westEdgeObjectsOrdered)
 			{
 				if (edgeObject == null) continue;
 
@@ -126,8 +136,13 @@ namespace FNZ.Server.Model.World
 		private void FileSerializeTileObjects(NetBuffer nb)
 		{
 			nb.Write(m_TileObjectCount);
+			
+			var list = TileObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-			foreach (var tileObject in TileObjects)
+			foreach (var tileObject in list)
 			{
 				if (tileObject == null) continue;
 				nb.Write(IdTranslator.Instance.GetIdCode<FNEEntityData>(tileObject.EntityId));
@@ -146,10 +161,10 @@ namespace FNZ.Server.Model.World
 				var edgeObj = GameServer.EntityAPI.CreateEntityImmediate(id, new float2(), 0);
 				edgeObj.FileDeserialize(nb);
 
-				EntitiesToSync.Add(edgeObj);
+				//EntitiesToSync.Add(edgeObj);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
-				//GameServer.NetConnector.SyncEntity(edgeObj);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
+				GameServer.NetConnector.SyncEntity(edgeObj);
 			}
 
 			int westCount = nb.ReadInt32();
@@ -161,10 +176,10 @@ namespace FNZ.Server.Model.World
 				var edgeObj = GameServer.EntityAPI.CreateEntityImmediate(id, new float2(), 0);
 				edgeObj.FileDeserialize(nb);
 
-				EntitiesToSync.Add(edgeObj);
+				//EntitiesToSync.Add(edgeObj);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
-				//GameServer.NetConnector.SyncEntity(edgeObj);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
+				GameServer.NetConnector.SyncEntity(edgeObj);
 			}
 		}
 
@@ -182,10 +197,10 @@ namespace FNZ.Server.Model.World
 				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * SideSize] = tileObject.Data.blocking;
 
-				EntitiesToSync.Add(tileObject);
+				//EntitiesToSync.Add(tileObject);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(tileObject);
-				//GameServer.NetConnector.SyncEntity(tileObject);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(tileObject);
+				GameServer.NetConnector.SyncEntity(tileObject);
 			}
 		}
 
@@ -206,18 +221,23 @@ namespace FNZ.Server.Model.World
 					entity.FileDeserialize(nb);
 				}
 
-				MovingEntitiesToSync.Add(entity);
+				//MovingEntitiesToSync.Add(entity);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
-				//GameServer.NetConnector.SyncEntity(entity);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
+				GameServer.NetConnector.SyncEntity(entity);
 			}
 		}
 
 		private void NetSerializeEdgeObjects(NetBuffer nb)
 		{
 			nb.Write(m_SouthEdgeObjectCount);
+			
+			var southEdgeObjectsOrdered = SouthEdgeObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-			foreach (var edgeObject in SouthEdgeObjects)
+			foreach (var edgeObject in southEdgeObjectsOrdered)
 			{
 				if (edgeObject == null) continue;
 
@@ -226,8 +246,13 @@ namespace FNZ.Server.Model.World
 			}
 
 			nb.Write(m_WestEdgeObjectCount);
+			
+			var westEdgeObjectsOrdered = WestEdgeObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-            foreach (var edgeObject in WestEdgeObjects)
+            foreach (var edgeObject in westEdgeObjectsOrdered)
 			{
 				if (edgeObject == null) continue;
 
@@ -239,10 +264,15 @@ namespace FNZ.Server.Model.World
 		private void NetSerializeTileObjects(NetBuffer nb)
 		{
 			nb.Write(m_TileObjectCount);
+			
+			var list = TileObjects
+				.Where(x => x != null)
+				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.ToList();
 
-			for (var i = 0; i < TileObjects.Length; i++)
+			for (var i = 0; i < m_TileObjectCount; i++)
             {
-				var tileObject = TileObjects[i];
+				var tileObject = list[i];
 
 				if (tileObject == null)
 				{
