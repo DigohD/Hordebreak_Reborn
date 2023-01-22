@@ -365,7 +365,7 @@ namespace FNZ.Server.Model.Entity.Components.Inventory
 			{
 				if (data.InteractedEntityId > 0)
 				{
-					var entity = GameServer.NetConnector.GetEntity(data.InteractedEntityId);
+					var entity = GameServer.NetConnector.GetFneEntity(data.InteractedEntityId);
 					FNEComponent entityComponent;
 
 					entityComponent = entity.GetComponent<InventoryComponentServer>();
@@ -481,7 +481,7 @@ namespace FNZ.Server.Model.Entity.Components.Inventory
 			{
 				if (data.InteractedEntityId > 0)
 				{
-					var entity = GameServer.NetConnector.GetEntity(data.InteractedEntityId);
+					var entity = GameServer.NetConnector.GetFneEntity(data.InteractedEntityId);
 					FNEComponent entityComponent;
 					entityComponent = entity.GetComponent<InventoryComponentServer>();
 
