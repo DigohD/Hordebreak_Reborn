@@ -1,4 +1,6 @@
-﻿using FNZ.Client.StaticData;
+﻿using System;
+using System.Collections.Generic;
+using FNZ.Client.StaticData;
 using FNZ.Shared.Model.World;
 using FNZ.Shared.Net;
 using Lidgren.Network;
@@ -27,6 +29,29 @@ namespace FNZ.Client.Net.Messages
 				Type = NetMessageType.REQUEST_WORLD_SPAWN,
 				DeliveryMethod = NetDeliveryMethod.ReliableOrdered,
 				Channel = SequenceChannel.WORLD_SETUP,
+			};
+		}
+
+		public NetMessage CreateRequestWorldInstanceSpawnMessage(Guid id, List<string> players)
+		{
+			var sendBuffer = m_NetClient.CreateMessage();
+			
+			sendBuffer.Write((byte)NetMessageType.REQUEST_WORLD_INSTANCE);
+			sendBuffer.Write(id.ToString());
+			
+			sendBuffer.Write((ushort)players.Count);
+
+			foreach (var player in players)
+			{
+				sendBuffer.Write(player);	
+			}
+
+			return new NetMessage
+			{	
+				Buffer = sendBuffer,
+				Type = NetMessageType.REQUEST_WORLD_INSTANCE,
+				DeliveryMethod = NetDeliveryMethod.ReliableOrdered,
+				Channel = SequenceChannel.WORLD_SETUP
 			};
 		}
 

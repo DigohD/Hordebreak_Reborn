@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using FNZ.Shared.Model.World;
 using FNZ.Shared.Net;
 using Lidgren.Network;
@@ -9,6 +11,12 @@ namespace FNZ.Client.Net.API
 		public void CMD_World_RequestWorldSpawn()
 		{
 			var message = m_WorldMessageFactory.CreateRequestWorldSpawnMessage();
+			Command(message);
+		}
+		
+		public void CMD_World_RequestWorldInstanceSpawn(Guid worldInstanceId, List<string> players)
+		{
+			var message = m_WorldMessageFactory.CreateRequestWorldInstanceSpawnMessage(worldInstanceId, players);
 			Command(message);
 		}
 

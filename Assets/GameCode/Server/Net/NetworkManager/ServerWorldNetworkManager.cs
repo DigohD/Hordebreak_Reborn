@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace FNZ.Server.Net.NetworkManager
 		public ServerWorldNetworkManager()
 		{
 			GameServer.NetConnector.Register(NetMessageType.REQUEST_WORLD_SPAWN, OnRequestWorldSpawnPacketRecieved);
+			GameServer.NetConnector.Register(NetMessageType.REQUEST_WORLD_INSTANCE, OnRequestWorldInstanceSpawnPacketRecieved);
 			GameServer.NetConnector.Register(NetMessageType.CLIENT_CONFIRM_CHUNK_LOADED, OnClientConfirmChunkLoaded);
 			//GameServer.NetConnector.Register(NetMessageType.CLIENT_CONFIRM_CHUNK_UNLOADED, OnClientConfirmChunkUnloaded);
 			GameServer.NetConnector.Register(NetMessageType.BASE_ROOM_NAME_CHANGE, OnBaseRoomNameChange);
@@ -142,6 +144,19 @@ namespace FNZ.Server.Net.NetworkManager
 
 			GameServer.NetAPI.Entity_UpdateComponent_STC(playerComp, clientConnection);
 			// End update player's world map state
+		}
+		
+		private void OnRequestWorldInstanceSpawnPacketRecieved(ServerNetworkConnector net, NetIncomingMessage incMsg)
+		{
+			var worldInstanceId = Guid.Parse(incMsg.ReadString());
+
+			var playerCount = incMsg.ReadUInt16();
+
+			for (var i = 0; i < playerCount; i++)
+			{
+				var playerName = incMsg.ReadString();
+				
+			}
 		}
 
 		private void OnClientConfirmChunkLoaded(ServerNetworkConnector net, NetIncomingMessage incMsg)
