@@ -444,6 +444,7 @@ namespace FNZ.Client.Utils
 		{
 			if (chunkModel == null) return;
 			var size = 32;
+			var worldSize = 512;
 
 			var tileIdCodes = chunkModel.TileIdCodes;
 
@@ -456,7 +457,7 @@ namespace FNZ.Client.Utils
 			{
 				for (int x = initX; x < initX + size; x++)
 				{
-					int tileIndex = x + y * 32;
+					int tileIndex = x + y * 512;
 					var id = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex]);
 					TileData td = DataBank.Instance.GetData<TileData>(id);
 
@@ -482,7 +483,7 @@ namespace FNZ.Client.Utils
 					var chunkOffsetX = x;
 					var chunkOffsetY = y;
 
-					if (x < 32 - 1)
+					if (x < 512 - 1)
 					{
 						var rightNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex + 1]);;
 						if (rightNeighborId != td.Id)
@@ -513,9 +514,9 @@ namespace FNZ.Client.Utils
 						}
 					}
 
-					if (y < 32 - 1)
+					if (y < 512 - 1)
 					{
-						var upNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex + size]); ;
+						var upNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[tileIndex + worldSize]); ;
 						if (upNeighborId != td.Id)
 						{
 							var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
@@ -530,7 +531,7 @@ namespace FNZ.Client.Utils
 
 					if (y > 0)
 					{
-						var downNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[x + ((y - 1) * size)]);
+						var downNeighborId = IdTranslator.Instance.GetId<TileData>(tileIdCodes[x + ((y - 1) * worldSize)]);
 						if (downNeighborId != td.Id)
 						{
 							var renderMeshEntitySpawnData = GameClient.ViewAPI.ConvertGameObjectToEntitySpawnData(edgePrefab,
