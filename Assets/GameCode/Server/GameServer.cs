@@ -54,7 +54,6 @@ namespace FNZ.Server
 			ECSWorldCreator.InitializeServerWorld(ECS_ServerWorld);
 
 			EntityFactory = new ServerEntityFactory();
-			EntityAPI = new EntityAPI();
 
 			FilePaths = new ServerFilePaths(SharedConfigs.WorldName);
 
@@ -73,15 +72,20 @@ namespace FNZ.Server
 			}
 			
 			WorldGen = new WorldGenerator(DataBank.Instance.GetData<WorldGenData>("default_world"));
+			
+			var world = new ServerWorld(512, 512)
+			{
+				SeedX = seedX,
+				SeedY = seedY
+			};
+			
+			EntityAPI = new EntityAPI(world);
 
 			MainWorld = WorldGen.GenerateWorld(
-				seedX,
-				seedY,
-				512,
-				512,
+				world,
 				true
 			);
-
+			
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
 				RoomManager = new ServerRoomManager();
@@ -113,6 +117,8 @@ namespace FNZ.Server
 
 		public void OnApplicationQuit()
 		{
+			APPLICATION_RUNNING = false;
+			
 			Debug.Log("Server shutdown. Saving chunks...");
 			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
 			
@@ -171,7 +177,7 @@ namespace FNZ.Server
 			
 			Debug.Log("Server shutdown successfully!");
 
-			APPLICATION_RUNNING = false;
+			
 		}
 	}
 }

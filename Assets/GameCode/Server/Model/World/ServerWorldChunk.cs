@@ -13,8 +13,8 @@ namespace FNZ.Server.Model.World
 	public class ServerWorldChunk : WorldChunk
 	{
 		public bool IsActive = true;
-		public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
-		public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
+		// public List<FNEEntity> EntitiesToSync = new List<FNEEntity>();
+		// public List<FNEEntity> MovingEntitiesToSync = new List<FNEEntity>();
 
 		public ServerWorldChunk(int size, ServerWorld worldInstance)
 			: base(size, size, worldInstance)
@@ -146,10 +146,10 @@ namespace FNZ.Server.Model.World
 				var edgeObj = GameServer.EntityAPI.CreateEntityImmediate(id, new float2(), 0);
 				edgeObj.FileDeserialize(nb);
 
-				EntitiesToSync.Add(edgeObj);
+				//EntitiesToSync.Add(edgeObj);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
-				//GameServer.NetConnector.SyncEntity(edgeObj);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
+				GameServer.NetConnector.SyncEntity(edgeObj);
 			}
 
 			int westCount = nb.ReadInt32();
@@ -161,10 +161,10 @@ namespace FNZ.Server.Model.World
 				var edgeObj = GameServer.EntityAPI.CreateEntityImmediate(id, new float2(), 0);
 				edgeObj.FileDeserialize(nb);
 
-				EntitiesToSync.Add(edgeObj);
+				//EntitiesToSync.Add(edgeObj);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
-				//GameServer.NetConnector.SyncEntity(edgeObj);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(edgeObj);
+				GameServer.NetConnector.SyncEntity(edgeObj);
 			}
 		}
 
@@ -182,10 +182,10 @@ namespace FNZ.Server.Model.World
 				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
 				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * SideSize] = tileObject.Data.blocking;
 
-				EntitiesToSync.Add(tileObject);
+				//EntitiesToSync.Add(tileObject);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(tileObject);
-				//GameServer.NetConnector.SyncEntity(tileObject);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(tileObject);
+				GameServer.NetConnector.SyncEntity(tileObject);
 			}
 		}
 
@@ -206,10 +206,10 @@ namespace FNZ.Server.Model.World
 					entity.FileDeserialize(nb);
 				}
 
-				MovingEntitiesToSync.Add(entity);
+				//MovingEntitiesToSync.Add(entity);
 
-				//GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
-				//GameServer.NetConnector.SyncEntity(entity);
+				GameServer.EntityAPI.AddEntityToWorldStateImmediate(entity);
+				GameServer.NetConnector.SyncEntity(entity);
 			}
 		}
 

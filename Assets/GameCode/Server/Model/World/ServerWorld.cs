@@ -145,8 +145,8 @@ namespace FNZ.Server.Model.World
 						entity.Agent.active = false;
 				}
 				
-				chunk.EntitiesToSync.Clear();
-				chunk.MovingEntitiesToSync.Clear();
+				// chunk.EntitiesToSync.Clear();
+				// chunk.MovingEntitiesToSync.Clear();
 
 				chunk.IsInitialized = true;
 			}

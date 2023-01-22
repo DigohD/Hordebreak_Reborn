@@ -19,7 +19,7 @@ namespace FNZ.Server.Model.Entity.Components.Player
 		public ServerWorldChunk LastChunk;
 		private FNEFlowField ff = null;
 
-		public int2 lastTile = new int2(4080, 4080);
+		public int2 lastTile = new int2(256, 256);
 
 		private int shotAlertTimer = 0;
 		private int sightRange = 14;
