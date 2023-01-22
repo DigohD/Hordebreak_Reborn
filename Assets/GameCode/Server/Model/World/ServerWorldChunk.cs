@@ -5,6 +5,7 @@ using FNZ.Shared.Model.World.Tile;
 using FNZ.Shared.Net.Dto.Hordes;
 using Lidgren.Network;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -239,10 +240,12 @@ namespace FNZ.Server.Model.World
 		private void NetSerializeTileObjects(NetBuffer nb)
 		{
 			nb.Write(m_TileObjectCount);
+			
+			var list = TileObjects.Where(x => x != null).OrderBy(x => math.distance(x.Position, new float2(256, 256))).ToList();
 
-			for (var i = 0; i < TileObjects.Length; i++)
+			for (var i = 0; i < m_TileObjectCount; i++)
             {
-				var tileObject = TileObjects[i];
+				var tileObject = list[i];
 
 				if (tileObject == null)
 				{
