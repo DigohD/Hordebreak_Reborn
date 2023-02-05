@@ -15,7 +15,7 @@ using UnityEngine.Profiling;
 namespace FNZ.Client.Model.World
 {
     public delegate void OnChunkUnloaded();
-    public delegate void OnGenerateUVs();
+    public delegate void OnGenerateUVs(int tileX, int tileY);
 
     public class ClientWorldChunk : WorldChunk
     {
@@ -155,9 +155,9 @@ namespace FNZ.Client.Model.World
             }
         }
 
-        public void DelegateInvokeRerender()
+        public void DelegateInvokeRerender(int tileX, int tileY)
         {
-            d_OnGenerateUVsEvent?.Invoke();
+            d_OnGenerateUVsEvent?.Invoke(tileX, tileY);
         }
     }
 }

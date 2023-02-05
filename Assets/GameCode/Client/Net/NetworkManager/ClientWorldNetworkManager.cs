@@ -21,11 +21,14 @@ namespace FNZ.Client.Net.NetworkManager
 {
 	public delegate void NewHour(byte hour);
 	public delegate void OnSiteMapUpdate(Dictionary<int, MapManager.RevealedSiteData> siteMap);
+	public delegate void TriggerUnloadWorld();
 
 	public class ClientWorldNetworkManager : INetworkManager
 	{
 		private List<GameObject> arrows = new List<GameObject>();
 		private readonly ClientChunkWorker m_ChunkWorkerThread;
+
+
 
 		private struct FFNode
 		{
@@ -57,7 +60,8 @@ namespace FNZ.Client.Net.NetworkManager
 
 		public static NewHour d_NewHour;
 		public static OnSiteMapUpdate d_OnSiteMapUpdate;
-		
+		public static TriggerUnloadWorld d_TriggerUnloadWorld;
+
 		private void OnWorldSetupMessageReceived(ClientNetworkConnector net, NetIncomingMessage incMsg)
 		{
 			IdTranslator.Instance.Deserialize(incMsg);
@@ -129,6 +133,8 @@ namespace FNZ.Client.Net.NetworkManager
 			var chunk = GameClient.World.GetWorldChunk<ClientWorldChunk>();
 			chunk.ClearChunk();
 			GameClient.World.SetChunk<ClientWorldChunk>(null);
+
+			d_TriggerUnloadWorld?.Invoke();
 			//GameClient.NetAPI.CMD_World_ConfirmChunkUnloaded(chunk);
 		}
 
@@ -145,7 +151,7 @@ namespace FNZ.Client.Net.NetworkManager
 			int index = GameClient.World.GetFlatArrayIndexFromPos(tileX, tileY);
 			chunk.TileIdCodes[index] = IdTranslator.Instance.GetIdCode<TileData>(id);
 			chunk.BlockingTiles[index] = DataBank.Instance.GetData<TileData>(id).isBlocking;
-			chunk.DelegateInvokeRerender();
+			chunk.DelegateInvokeRerender(tileX, tileY);
 		}
 
 		private void OnRoomManagerMessageReceived(ClientNetworkConnector net, NetIncomingMessage incMsg)
