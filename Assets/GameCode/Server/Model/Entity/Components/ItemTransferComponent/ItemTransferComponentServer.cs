@@ -7,6 +7,7 @@ using FNZ.Shared.Model.Entity.Components.ItemTransferComponent;
 using FNZ.Shared.Model.Items;
 using FNZ.Shared.Model.Items.Components;
 using System.Linq;
+using FNZ.Server.Model.World;
 
 namespace FNZ.Server.Model.Entity.Components.ItemTransferComponent
 {
@@ -19,6 +20,15 @@ namespace FNZ.Server.Model.Entity.Components.ItemTransferComponent
 
 		private const byte REFILL_THRESHHOLD = 15;
 		private byte ticker = 0;
+
+		private ServerWorld _world;
+		
+		public override void Init()
+		{
+			base.Init();
+			
+			_world = GameServer.GetWorldInstance(ParentEntity.WorldInstanceIndex);
+		}
 
 		public void Tick(float dt)
 		{
@@ -39,10 +49,10 @@ namespace FNZ.Server.Model.Entity.Components.ItemTransferComponent
 
 		private void CheckNeighbours()
 		{
-			m_Neighbours[0] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x - 1, (int)ParentEntity.Position.y);
-			m_Neighbours[1] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x + 1, (int)ParentEntity.Position.y);
-			m_Neighbours[2] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y - 1);
-			m_Neighbours[3] = GameServer.MainWorld.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y + 1);
+			m_Neighbours[0] = _world.GetTileObject((int)ParentEntity.Position.x - 1, (int)ParentEntity.Position.y);
+			m_Neighbours[1] = _world.GetTileObject((int)ParentEntity.Position.x + 1, (int)ParentEntity.Position.y);
+			m_Neighbours[2] = _world.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y - 1);
+			m_Neighbours[3] = _world.GetTileObject((int)ParentEntity.Position.x, (int)ParentEntity.Position.y + 1);
 
 			//assign neighbours
 			for (int i = 0; i < m_Neighbours.Length; i++)

@@ -10,6 +10,7 @@ using FNZ.Shared.Model.Entity.Components.AI;
 using FNZ.Shared.Model.Entity.Components.Enemy;
 using FNZ.Shared.Model.Entity.Components.EnemyStats;
 using System.Collections.Generic;
+using FNZ.Server.Model.World;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -36,6 +37,8 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 		private int m_AggroRange;
 
+		private ServerWorld _world;
+
 		public override void Init()
 		{
 			base.Init();
@@ -59,6 +62,8 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			m_LungeSpeedMod = m_EnemyStatComp.lungeSpeedMod;
 			m_AggroRange = m_EnemyStatComp.aggroRange;
 			m_FleeDestination = ParentEntity.Position;
+
+			_world = GameServer.GetWorldInstance(ParentEntity.WorldInstanceIndex);
 		}
 
 		public void Tick(float dt)
@@ -103,8 +108,8 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 				if ((int)m_PrevPos.x != (int)ParentEntity.Position.x || (int)m_PrevPos.y != (int)ParentEntity.Position.y) //We have switched tile
 				{
-					GameServer.MainWorld.GetTileEnemies((int2)m_PrevPos).Remove(ParentEntity);
-					GameServer.MainWorld.AddEnemyToTile(ParentEntity);
+					_world.GetTileEnemies((int2)m_PrevPos).Remove(ParentEntity);
+					_world.AddEnemyToTile(ParentEntity);
 				}
 			}
 
@@ -118,7 +123,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			m_Path = null;
 			var currentTile = (int2)ParentEntity.Position;
 
-			List<int2> inVicinity = GameServer.MainWorld.GetSurroundingTilesInRadius((int2)ParentEntity.Position, m_AggroRange);
+			List<int2> inVicinity = _world.GetSurroundingTilesInRadius((int2)ParentEntity.Position, m_AggroRange);
 
 			float dist;
 			var closestDistance = float.MaxValue;
@@ -126,7 +131,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			{
 				if (FNEPathfinding.HasLineOfSight(currentTile, tile))
 				{
-					var players = GameServer.MainWorld.GetTilePlayers(tile);
+					var players = _world.GetTilePlayers(tile);
 					if (players == null || players.Count == 0) continue;
 
 					foreach (var player in players)
@@ -216,7 +221,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			{
 				//play animation code / Send play animation message here
 
-				GameServer.MainWorld.RealEffectManager.SpawnProjectileServerAuthority(
+				_world.RealEffectManager.SpawnProjectileServerAuthority(
 					m_Projectile,
 					(ProjectileEffectData)m_Projectile.RealEffectData,
 					ParentEntity.Position,

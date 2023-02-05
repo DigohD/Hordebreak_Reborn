@@ -27,13 +27,12 @@ namespace FNZ.Server
 		public static volatile bool APPLICATION_RUNNING = true;
 
 		public static World ECS_ServerWorld;
-		public static ServerWorld MainWorld;
+
 		public static WorldInstanceManager WorldInstanceManager;
 		
 		public static ServerNetworkAPI NetAPI;
 		public static ServerNetworkConnector NetConnector;
 		public static ServerEntityFactory EntityFactory;
-		//public static WorldChunkManager ChunkManager;
 		public static WorldGenerator WorldGen;
 		public static ServerFilePaths FilePaths;
 		public static ServerMetaWorld MetaWorld;
@@ -45,6 +44,11 @@ namespace FNZ.Server
 		public static float DeltaTime;
 
 		public static FNELogger Logger;
+
+		public static ServerWorld GetWorldInstance(int index)
+		{
+			return WorldInstanceManager.GetWorldInstance(index);
+		}
 
 		public void Start()
 		{
@@ -78,14 +82,15 @@ namespace FNZ.Server
 				SeedX = seedX,
 				SeedY = seedY
 			};
-			
-			EntityAPI = new EntityAPI(world);
+			EntityAPI = new EntityAPI();
 
-			MainWorld = WorldGen.GenerateWorld(
+			var baseWorld = WorldGen.GenerateWorld(
 				world,
 				true
 			);
 			
+			baseWorld.WorldInstanceIndex = WorldInstanceManager.AddWorldInstance(Guid.NewGuid(), baseWorld);
+
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
 				RoomManager = new ServerRoomManager();

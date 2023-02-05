@@ -1,7 +1,5 @@
-﻿using FNZ.Server.FarNorthZMigrationStuff;
-using FNZ.Server.Model.Entity.Components.EdgeObject;
+﻿using FNZ.Server.Model.Entity.Components.EdgeObject;
 using FNZ.Server.Model.World;
-using FNZ.Server.Utils;
 using FNZ.Shared.Model.Entity.Components.Door;
 using Lidgren.Network;
 
@@ -9,6 +7,14 @@ namespace FNZ.Server.Model.Entity.Components.Door
 {
 	public class DoorComponentServer : DoorComponentShared
 	{
+		private ServerWorld _world;
+		
+		public override void Init()
+		{
+			base.Init();
+			_world = GameServer.WorldInstanceManager.GetWorldInstance(ParentEntity.WorldInstanceIndex);
+		}
+
 		private void NE_Receive_DoorInteract(NetIncomingMessage incMsg)
 		{
 			// TODO: handle agent simulation obstacles here
@@ -42,7 +48,7 @@ namespace FNZ.Server.Model.Entity.Components.Door
 			eoComp.IsPassable = true;
 			eoComp.IsHittable = false;
 			
-			GameServer.MainWorld.QueueObstacleForUpdate(new UpdateObstacleData
+			_world.QueueObstacleForUpdate(new UpdateObstacleData
 			{
 				Entity = ParentEntity,
 				ShouldRemove = true
@@ -60,7 +66,7 @@ namespace FNZ.Server.Model.Entity.Components.Door
 			eoComp.IsPassable = false;
 			eoComp.IsHittable = true;
 			
-			GameServer.MainWorld.QueueObstacleForUpdate(new UpdateObstacleData
+			_world.QueueObstacleForUpdate(new UpdateObstacleData
 			{
 				Entity = ParentEntity,
 				ShouldRemove = false

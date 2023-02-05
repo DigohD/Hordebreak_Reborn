@@ -23,6 +23,8 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 {
 	public class BuilderComponentServer : BuilderComponentShared
 	{
+		private ServerWorld _world;
+		
 		public override void Init()
 		{
 			base.Init();
@@ -31,6 +33,8 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				BuildingCategoryLists[buildingData.categoryRef].Add(buildingData);
 			}
+
+			_world = GameServer.WorldInstanceManager.GetWorldInstance(ParentEntity.WorldInstanceIndex);
 		}
 
 		public override void OnNetEvent(NetIncomingMessage incMsg)
@@ -103,11 +107,11 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				successfullyBuilt = FNEService.Tile.TryNetChangeTile(recipe.productRef, new float2(data.x, data.y));
 				if (successfullyBuilt)
 				{
-					bool traverseNorth = !GameServer.MainWorld.IsTileNorthEdgeOccupied(new int2((int)data.x, (int)data.y));
-					bool traverseEast = !GameServer.MainWorld.IsTileEastEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseNorth = !_world.IsTileNorthEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseEast = !_world.IsTileEastEdgeOccupied(new int2((int)data.x, (int)data.y));
 
-					bool traverseSouth = !GameServer.MainWorld.IsTileSouthEdgeOccupied(new int2((int)data.x, (int)data.y));
-					bool traverseWest = !GameServer.MainWorld.IsTileWestEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseSouth = !_world.IsTileSouthEdgeOccupied(new int2((int)data.x, (int)data.y));
+					bool traverseWest = !_world.IsTileWestEdgeOccupied(new int2((int)data.x, (int)data.y));
 
 					if (traverseNorth)
 					{
@@ -135,7 +139,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				var objectType = DataBank.Instance.GetData<FNEEntityData>(recipe.productRef).entityType;
 				if (objectType == EntityType.TILE_OBJECT)
 				{
-					var existingTileObject = GameServer.MainWorld.GetTileObject((int)data.x, (int)data.y);
+					var existingTileObject = _world.GetTileObject((int)data.x, (int)data.y);
 					if (existingTileObject != null && existingTileObject.Data.blocksBuilding)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -163,7 +167,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 							GameServer.RoomManager.CreateNewBase((int2) newEntity.Position);
 						}
 						
-						var tileId = GameServer.MainWorld.GetTileRoom(new float2(data.x, data.y));
+						var tileId = _world.GetTileRoom(new float2(data.x, data.y));
 						var room = (ServerRoom)GameServer.RoomManager.GetRoom(tileId);
 
 						if (room != null)
@@ -182,7 +186,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				}
 				else if (objectType == EntityType.EDGE_OBJECT)
 				{
-					var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+					var existingEdgeObject = _world.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 					if (existingEdgeObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -260,7 +264,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				var objectType = DataBank.Instance.GetData<FNEEntityData>(addonData.productRef).entityType;
 				if (objectType == EntityType.EDGE_OBJECT)
 				{
-					var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+					var existingEdgeObject = _world.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 					if (existingEdgeObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -288,7 +292,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				}
 				if (objectType == EntityType.TILE_OBJECT)
 				{
-					var existingTileObject = GameServer.MainWorld.GetTileObject((int) data.x, (int) data.y);
+					var existingTileObject = _world.GetTileObject((int) data.x, (int) data.y);
 					if (existingTileObject == null)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -366,7 +370,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				var MountedData = DataBank.Instance.GetData<MountedObjectData>(buildingData.productRef);
 
-				var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+				var existingEdgeObject = _world.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 				if (existingEdgeObject == null)
 				{
 					GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -435,7 +439,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 			var senderConnection = incMsg.SenderConnection;
 
-			var existingEdgeObject = GameServer.MainWorld.GetEdgeObjectAtPosition(new float2(data.x, data.y));
+			var existingEdgeObject = _world.GetEdgeObjectAtPosition(new float2(data.x, data.y));
 			if (existingEdgeObject == null)
 			{
 				GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -568,7 +572,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			{
 				for (int x = data.startX; x <= data.endX; x++)
 				{
-					var existingTileObject = GameServer.MainWorld.GetTileObject((int)x, (int)y);
+					var existingTileObject = _world.GetTileObject((int)x, (int)y);
 					if (existingTileObject != null)
 					{
 						if (existingTileObject.Data.blocksTileBuilding)
@@ -595,7 +599,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 						maxX = x > maxX ? x : maxX;
 						maxY = y > maxY ? y : maxY;
 						
-						var tileRoomId = GameServer.MainWorld.GetTileRoom(new float2(x, y));
+						var tileRoomId = _world.GetTileRoom(new float2(x, y));
 						if (tileRoomId != 0)
 						{
 							var room = (ServerRoom) GameServer.RoomManager.GetRoom(tileRoomId);
@@ -681,7 +685,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
                 var unlockRefData = DataBank.Instance.GetData<BuildingData>(unlockRef);
 
-                foreach (var player in GameServer.MainWorld.GetAllPlayers())
+                foreach (var player in _world.GetAllPlayers())
                 {
                     var playerComponent = player.GetComponent<PlayerComponentServer>();
                     playerComponent.UnlockBuilding(unlockRef);

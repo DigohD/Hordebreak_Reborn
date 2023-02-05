@@ -1,5 +1,6 @@
 ﻿using FNZ.Server.Controller;
 using FNZ.Server.Model.Entity.Components.Inventory;
+using FNZ.Server.Model.World;
 using FNZ.Server.Net.API;
 using FNZ.Server.Services.QuestManager;
 using FNZ.Server.Utils;
@@ -15,15 +16,18 @@ namespace FNZ.Server.Model.Entity.Components
 {
 	public class CropComponentServer : CropComponentShared, ITickable
 	{
+		private ServerWorld _world;
+		
+		public override void Init()
+		{
+			_world = GameServer.WorldInstanceManager.GetWorldInstance(ParentEntity.WorldInstanceIndex);
+			growth = 0;
+		}
+
 		public void Tick(float dt)
 		{
 			GrowCrop();
 		}
-
-		public override void Init()
-        {
-			growth = 0;
-        }
 
 		private void GrowCrop()
 		{
@@ -36,7 +40,7 @@ namespace FNZ.Server.Model.Entity.Components
 				return;
 			}
 			
-			var room = GameServer.RoomManager.GetRoom(GameServer.MainWorld.GetTileRoom(ParentEntity.Position));
+			var room = GameServer.RoomManager.GetRoom(_world.GetTileRoom(ParentEntity.Position));
 
 			if(Data.environmentSpans.Count == 0)
             {

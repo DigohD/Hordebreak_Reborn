@@ -19,9 +19,11 @@ namespace FNZ.Server.Model.World
 		private const byte RevealPadding = 5;
 		private const byte DetectRadius = 4;
 
-		public ServerMapManager(int widthInChunks, int heightInChunks) : base(widthInChunks, heightInChunks)
+		private ServerWorld _world;
+		
+		public ServerMapManager(ServerWorld world, int widthInChunks, int heightInChunks) : base(widthInChunks, heightInChunks)
 		{
-			
+			_world = world;
 		}
 
 		public void Tick()
@@ -34,10 +36,10 @@ namespace FNZ.Server.Model.World
 			var cX = chunk.ChunkX;
 			var cY = chunk.ChunkY;
 
-			var siteMap = GameServer.MainWorld.GetSiteMetaData();
+			var siteMap = _world.GetSiteMetaData();
 			
-			var width = GameServer.MainWorld.WIDTH;
-			var height = GameServer.MainWorld.HEIGHT;
+			var width = _world.WIDTH;
+			var height = _world.HEIGHT;
 			
 			var anyChanges = false;
 			
@@ -62,8 +64,8 @@ namespace FNZ.Server.Model.World
 						{
 							var siteMetaData = siteMap[x + y * width];
 
-							var siteCX = siteMetaData.centerWorldX / GameServer.MainWorld.WIDTH;
-							var siteCY = siteMetaData.centerWorldY / GameServer.MainWorld.HEIGHT;
+							var siteCX = siteMetaData.centerWorldX / _world.WIDTH;
+							var siteCY = siteMetaData.centerWorldY / _world.HEIGHT;
 							
 							var siteHash = siteCX + siteCY * width;
 							var siteData = DataBank.Instance.GetData<SiteData>(siteMetaData.siteId);
@@ -112,13 +114,13 @@ namespace FNZ.Server.Model.World
 		{
 			bool anyRevealed = false;
 			
-			var siteMetaData = GameServer.MainWorld.GetSiteMetaData();
+			var siteMetaData = _world.GetSiteMetaData();
 			var playerConns = GameServer.NetConnector.GetConnectedClientConnections();
 			foreach (var conn in playerConns)
 			{
 				var entity = GameServer.NetConnector.GetPlayerFromConnection(conn);
-				var playerChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-				var siteHash = playerChunk.ChunkX + playerChunk.ChunkY * GameServer.MainWorld.WIDTH;
+				var playerChunk = _world.GetWorldChunk<ServerWorldChunk>();
+				var siteHash = playerChunk.ChunkX + playerChunk.ChunkY * _world.WIDTH;
 				var playerComp = entity.GetComponent<PlayerComponentServer>();
 				WorldBlueprintGen.SiteMetaData currentSite = default; 
 				if (siteMetaData.ContainsKey(siteHash))
@@ -128,9 +130,9 @@ namespace FNZ.Server.Model.World
 					{
 						currentSite = chunkSite;
 
-						var siteCenterChunkX = chunkSite.centerWorldX / GameServer.MainWorld.WIDTH;
-						var siteCenterChunkY = chunkSite.centerWorldY / GameServer.MainWorld.HEIGHT;
-						var siteCenterHash = siteCenterChunkX + siteCenterChunkY * GameServer.MainWorld.WIDTH;
+						var siteCenterChunkX = chunkSite.centerWorldX / _world.WIDTH;
+						var siteCenterChunkY = chunkSite.centerWorldY / _world.HEIGHT;
+						var siteCenterHash = siteCenterChunkX + siteCenterChunkY * _world.WIDTH;
 						if (m_RevealedSites.ContainsKey(siteCenterHash))
 						{
 							var siteToReveal = m_RevealedSites[siteCenterHash];

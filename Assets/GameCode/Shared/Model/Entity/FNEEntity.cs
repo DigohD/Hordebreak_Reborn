@@ -30,6 +30,7 @@ namespace FNZ.Shared.Model.Entity
 
         public NPC_Agent Agent;
 
+        public int WorldInstanceIndex = -1;
         public string EntityId;
         public string EntityType;
 

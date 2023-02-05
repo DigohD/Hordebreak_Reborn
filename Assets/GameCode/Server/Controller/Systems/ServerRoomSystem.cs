@@ -39,7 +39,7 @@ namespace FNZ.Server.Controller.Systems
             for (var i = m_Queue.Length - 1; i >= 0; i--)
             {
                 var roomData = m_Queue[i];
-                var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+                var chunk = GameServer.GetWorldInstance(0).GetWorldChunk<ServerWorldChunk>();
                 if (chunk == null) continue;
                 chunk.AddTileRoom(roomData.Position, roomData.RoomId);
                 m_Queue.RemoveAt(i);
