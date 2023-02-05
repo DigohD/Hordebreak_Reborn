@@ -59,7 +59,7 @@ namespace FNZ.Shared.Model.World
 
 	public abstract class WorldChunk
 	{
-		protected GameWorld m_WorldInstance;
+		protected GameWorld WorldInstance;
 		public bool IsMainWorld { get; set; }
 		public byte ChunkX { get; set; }
 		public byte ChunkY { get; set; }
@@ -90,12 +90,17 @@ namespace FNZ.Shared.Model.World
 		public List<FNETransform> FloatPointObjects;
 
 		public ChunkCellData[,] ChunkCells;
+		
+		public T GetWorldInstance<T>() where T : GameWorld
+		{
+			return WorldInstance as T;
+		}
 
 		public WorldChunk(int width, int height, GameWorld worldInstance)
 		{
 			SideSize = width;
 
-			m_WorldInstance = worldInstance;
+			WorldInstance = worldInstance;
 			ChunkX = 0;
 			ChunkY = 0;
 

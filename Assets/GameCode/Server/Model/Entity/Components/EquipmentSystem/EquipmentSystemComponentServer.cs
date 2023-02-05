@@ -21,9 +21,11 @@ namespace FNZ.Server.Model.Entity.Components.EquipmentSystem
 {
 	public class EquipmentSystemComponentServer : EquipmentSystemComponentShared
 	{
+		private ServerWorld _world;
 		public override void Init()
 		{
 			base.Init();
+			_world = GameServer.GetWorldInstance(ParentEntity.WorldInstanceIndex);
 		}
 
 		public void GivePlayerStartArmorSet()
@@ -344,7 +346,7 @@ namespace FNZ.Server.Model.Entity.Components.EquipmentSystem
 			{
 				if (!string.IsNullOrEmpty(consumableComp.Data.buildingRef))
 				{
-					var existingTileObject = GameServer.MainWorld.GetTileObject((int)targetPosition.x, (int)targetPosition.y);
+					var existingTileObject = _world.GetTileObject((int)targetPosition.x, (int)targetPosition.y);
 					if (existingTileObject != null && existingTileObject.Data.blocksBuilding)
 					{
 						GameServer.NetAPI.Notification_SendWarningNotification_STC(
@@ -374,7 +376,7 @@ namespace FNZ.Server.Model.Entity.Components.EquipmentSystem
 							GameServer.RoomManager.CreateNewBase((int2) newEntity.Position);
 						}
 						
-						var tileId = GameServer.MainWorld.GetTileRoom(new float2(targetPosition));
+						var tileId = _world.GetTileRoom(new float2(targetPosition));
 						var room = (ServerRoom)GameServer.RoomManager.GetRoom(tileId);
 
 						if (room != null)

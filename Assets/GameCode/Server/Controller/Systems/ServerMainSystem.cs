@@ -105,85 +105,85 @@ namespace FNZ.Server.Controller.Systems
 
 		}
 
-		void SpawnHordeEntitiesInGrid(string id, int gridSizeX, int gridSizeY)
-		{
-			var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
-
-			var px = playerPos.x;
-			var py = playerPos.y;
-
-			var spawnDataList = new List<HordeEntitySpawnData>(gridSizeX * gridSizeY);
-
-			for (var y = 0; y < gridSizeY; y++)
-			{
-				for (var x = 0; x < gridSizeX; x++)
-				{
-					var entityId = id;
-					var rand = FNERandom.GetRandomIntInRange(0, 100);
-					if (rand <= 100 && rand > 90)
-						entityId = "default_zombie";
-					else if (rand <= 90 && rand >= 0)
-						entityId = "default_zombie";
-
-					var spawnPosition = new float2(px + x, py + y);
-					if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>() == null)
-						continue;
-
-					var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
-
-					var modelEntity = GameServer.EntityAPI.SpawnEntityImmediate(entityId, spawnPosition, spawnRotation);
-					GameServer.NetConnector.SyncEntity(modelEntity);
-
-					var spawnData = new HordeEntitySpawnData
-					{
-						Position = spawnPosition,
-						Rotation = spawnRotation,
-						EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(entityId),
-						NetId = modelEntity.NetId
-					};
-
-					spawnDataList.Add(spawnData);
-				}
-			}
-
-			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(spawnDataList);
-		}
+		// void SpawnHordeEntitiesInGrid(string id, int gridSizeX, int gridSizeY)
+		// {
+		// 	var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
+		//
+		// 	var px = playerPos.x;
+		// 	var py = playerPos.y;
+		//
+		// 	var spawnDataList = new List<HordeEntitySpawnData>(gridSizeX * gridSizeY);
+		//
+		// 	for (var y = 0; y < gridSizeY; y++)
+		// 	{
+		// 		for (var x = 0; x < gridSizeX; x++)
+		// 		{
+		// 			var entityId = id;
+		// 			var rand = FNERandom.GetRandomIntInRange(0, 100);
+		// 			if (rand <= 100 && rand > 90)
+		// 				entityId = "default_zombie";
+		// 			else if (rand <= 90 && rand >= 0)
+		// 				entityId = "default_zombie";
+		//
+		// 			var spawnPosition = new float2(px + x, py + y);
+		// 			if (GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>() == null)
+		// 				continue;
+		//
+		// 			var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
+		//
+		// 			var modelEntity = GameServer.EntityAPI.SpawnEntityImmediate(entityId, spawnPosition, spawnRotation);
+		// 			GameServer.NetConnector.SyncEntity(modelEntity);
+		//
+		// 			var spawnData = new HordeEntitySpawnData
+		// 			{
+		// 				Position = spawnPosition,
+		// 				Rotation = spawnRotation,
+		// 				EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(entityId),
+		// 				NetId = modelEntity.NetId
+		// 			};
+		//
+		// 			spawnDataList.Add(spawnData);
+		// 		}
+		// 	}
+		//
+		// 	GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(spawnDataList);
+		// }
 		
-		void SpawnHordeEntitiesInRadius(string id, int minRadius, int maxRadius)
-		{
-			var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
-
-			var px = playerPos.x;
-			var py = playerPos.y;
-
-			var spawnDataList = new List<HordeEntitySpawnData>(1500);
-			var entitiesToSpawn = new List<FNEEntity>();
-
-			for (var e = 0; e < 200; e++)
-			{
-				var entityId = id;
-
-				var distance = FNERandom.GetRandomFloatInRange(minRadius, maxRadius);
-				var v = new Vector2(distance, 0);
-				
-				var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
-					
-				var spawnPosition = new float2(px + finalOffset.x, py + finalOffset.y);
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-				if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
-					continue;
-
-				var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
-
-				var modelEntity = GameServer.EntityAPI.CreateEntityImmediate(entityId, spawnPosition, spawnRotation);
-				entitiesToSpawn.Add(modelEntity);
-			}
-			
-			GameServer.MainWorld.AddEntityToSpawnQueue(new SpawnEntityBatchData
-			{
-				Entities = entitiesToSpawn
-			});
-		}
+		// void SpawnHordeEntitiesInRadius(string id, int minRadius, int maxRadius)
+		// {
+		// 	var playerPos = GameServer.MainWorld.GetAllPlayers()[0].Position;
+		//
+		// 	var px = playerPos.x;
+		// 	var py = playerPos.y;
+		//
+		// 	var spawnDataList = new List<HordeEntitySpawnData>(1500);
+		// 	var entitiesToSpawn = new List<FNEEntity>();
+		//
+		// 	for (var e = 0; e < 200; e++)
+		// 	{
+		// 		var entityId = id;
+		//
+		// 		var distance = FNERandom.GetRandomFloatInRange(minRadius, maxRadius);
+		// 		var v = new Vector2(distance, 0);
+		// 		
+		// 		var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
+		// 			
+		// 		var spawnPosition = new float2(px + finalOffset.x, py + finalOffset.y);
+		// 		var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+		// 		if (chunk == null || !chunk.IsActive || !chunk.IsInitialized)
+		// 			continue;
+		//
+		// 		var spawnRotation = FNERandom.GetRandomIntInRange(0, 360);
+		//
+		// 		var modelEntity = GameServer.EntityAPI.CreateEntityImmediate(entityId, spawnPosition, spawnRotation);
+		// 		entitiesToSpawn.Add(modelEntity);
+		// 	}
+		// 	
+		// 	GameServer.MainWorld.AddEntityToSpawnQueue(new SpawnEntityBatchData
+		// 	{
+		// 		Entities = entitiesToSpawn
+		// 	});
+		// }
 
 		protected override void OnDestroy()
 		{

@@ -12,6 +12,7 @@ using FNZ.Shared.Utils.CollisionUtils;
 using Lidgren.Network;
 using System;
 using System.Collections.Generic;
+using FNZ.Server.Model.World;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ namespace FNZ.Server.Controller
 
 	public class RealEffectManagerServer : RealEffectManager
 	{
+		private ServerWorld _world;
+		public RealEffectManagerServer(ServerWorld world)
+		{
+			_world = world;
+		}
 		protected struct ProjectileEffectStorage
 		{
 			public float Lifetime;
@@ -146,7 +152,7 @@ namespace FNZ.Server.Controller
 			// Check if the lifetime of the projectile has expired
 			if (
 				proj.Lifetime > proj.Data.lifetime ||
-				GameServer.MainWorld.IsAnySurroundingTileInRadiusNull(
+				_world.IsAnySurroundingTileInRadiusNull(
 					new int2((int)proj.Position.x, (int)proj.Position.y),
 					RELEVANT_CHUNK_DESTRUCTION_PADDING
 				)
@@ -163,7 +169,7 @@ namespace FNZ.Server.Controller
 			var envHit = FNECollisionUtils.ProjectileRayCastForWallsAndTileObjectsInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.MainWorld
+				_world
 			);
 
 			float dist = envHit.IsHit ? Vector2.Distance(proj.Position - velocity, envHit.HitEntity.Position) : float.MaxValue;
@@ -205,7 +211,7 @@ namespace FNZ.Server.Controller
 			var hitStruct = FNECollisionUtils.RayCastForPlayersInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.MainWorld,
+				_world,
 				playerEntity != null ? playerEntity.NetId : -1
 			);
 
@@ -241,7 +247,7 @@ namespace FNZ.Server.Controller
 			var hitStruct = FNECollisionUtils.RayCastForEnemiesInModel(
 				proj.Position - velocity,
 				proj.Position,
-				GameServer.MainWorld
+				_world
 			);
 
 			float dist = hitStruct.IsHit ? Vector2.Distance(proj.Position - velocity, hitStruct.HitEntity.Position) : float.MaxValue;
@@ -423,12 +429,9 @@ namespace FNZ.Server.Controller
 
 			if (explosion.targetsEnemies)
 			{
-				foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius((int2)position, (int)explosion.maxRadius + 1))
+				foreach (var tile in _world.GetSurroundingTilesInRadius((int2)position, (int)explosion.maxRadius + 1))
 				{
-					var enemies = GameServer.MainWorld.GetTileEnemies(tile).ToArray();
-
-					if (enemies == null)
-						continue;
+					var enemies = _world.GetTileEnemies(tile).ToArray();
 
 					for (int e = enemies.Length - 1; e >= 0; e--)
 					{

@@ -32,11 +32,12 @@ namespace FNZ.Server.Model
 			BuildTable();
 		}
 
-		public FNEEntity CreateEntity(string entityId, float2 position, float rotation = 0, bool enabled = true)
+		public FNEEntity CreateEntity(string entityId, float2 position, int worldInstanceIndex, float rotation = 0, bool enabled = true)
 		{
 			var entity = new FNEEntity();
 
 			entity.Init(entityId, position, rotation, enabled);
+			entity.WorldInstanceIndex = worldInstanceIndex;
 
 			var componentsFromXML = DataBank.Instance.GetData<FNEEntityData>(entity.EntityId).components;
 
@@ -219,6 +220,7 @@ namespace FNZ.Server.Model
 		{
 			var entity = new FNEEntity();
 			entity.Init("player", position);
+			entity.WorldInstanceIndex = 0;
 
 			var nameComp = entity.AddComponent<NameComponentServer>();
 			nameComp.entityName = name;
@@ -247,7 +249,7 @@ namespace FNZ.Server.Model
 				entity.GetComponent<EquipmentSystemComponentServer>().GivePlayerStartArmorSet();
 			}
 
-			GameServer.MainWorld.AddPlayerEntity(entity);
+			GameServer.GetWorldInstance(entity.WorldInstanceIndex).AddPlayerEntity(entity);
 			return entity;
 		}
 

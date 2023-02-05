@@ -28,6 +28,15 @@ namespace FNZ.Server.Model.Entity.Components.Player
 		public bool IsOP = false;
 		private bool alertTimerStarted = false;
 
+		private ServerWorld _world;
+
+		public override void Init()
+		{
+			base.Init();
+
+			_world = GameServer.GetWorldInstance(ParentEntity.WorldInstanceIndex);
+		}
+
 		public override void InitComponentLinks()
 		{
 			base.InitComponentLinks();
@@ -239,12 +248,12 @@ namespace FNZ.Server.Model.Entity.Components.Player
 
 		private void CheckForEnemies(int2 currentTile)
 		{
-			List<int2> inVicinity = GameServer.MainWorld.GetSurroundingTilesInRadius(currentTile, sightRange);
+			List<int2> inVicinity = _world.GetSurroundingTilesInRadius(currentTile, sightRange);
 			bool shouldGenerateNewFlowField = false;
 
 			foreach (var tile in inVicinity)
 			{
-				var enemies = GameServer.MainWorld.GetTileEnemies(tile);
+				var enemies = _world.GetTileEnemies(tile);
 				if (enemies == null || enemies.Count == 0) continue;
 
 				bool seesPlayer = FNEPathfinding.HasLineOfSight(currentTile, tile);
@@ -295,13 +304,13 @@ namespace FNZ.Server.Model.Entity.Components.Player
 					ff = new FNEFlowField(ParentEntity.Position, sightRange);
 					shouldGenerateNewFlowField = false;
 				}
-				var tilePlayers = GameServer.MainWorld.GetTilePlayers(lastTile);
+				var tilePlayers = _world.GetTilePlayers(lastTile);
 				if (tilePlayers != null) 
 				{
 					tilePlayers.Remove(ParentEntity); 
 				}
 
-				GameServer.MainWorld.AddPlayerToTile(ParentEntity);
+				_world.AddPlayerToTile(ParentEntity);
 			}
 
 			lastTile = currentTile;

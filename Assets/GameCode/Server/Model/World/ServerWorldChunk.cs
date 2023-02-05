@@ -106,7 +106,7 @@ namespace FNZ.Server.Model.World
 			
 			var southEdgeObjectsOrdered = SouthEdgeObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
 			foreach (var edgeObject in southEdgeObjectsOrdered)
@@ -121,7 +121,7 @@ namespace FNZ.Server.Model.World
 			
 			var westEdgeObjectsOrdered = WestEdgeObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
 			foreach (var edgeObject in westEdgeObjectsOrdered)
@@ -139,7 +139,7 @@ namespace FNZ.Server.Model.World
 			
 			var list = TileObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
 			foreach (var tileObject in list)
@@ -191,11 +191,10 @@ namespace FNZ.Server.Model.World
 			{
 				string entityId = IdTranslator.Instance.GetId<FNEEntityData>(nb.ReadUInt16());
 
-				var tileObject = GameServer.EntityAPI.CreateEntityImmediate(entityId, new float2());
+				var tileObject = GameServer.EntityAPI.CreateEntityImmediate(entityId, new float2(), WorldInstance.WorldInstanceIndex);
 				tileObject.FileDeserialize(nb);
-
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-				chunk.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * SideSize] = tileObject.Data.blocking;
+				
+				this.TileObjectBlockingList[(int)tileObject.Position.x + (int)tileObject.Position.y * SideSize] = tileObject.Data.blocking;
 
 				//EntitiesToSync.Add(tileObject);
 
@@ -214,7 +213,7 @@ namespace FNZ.Server.Model.World
 				data.FileDeserialize(nb);
 
 				var entityId = IdTranslator.Instance.GetId<FNEEntityData>(data.EntityIdCode);
-				var entity = GameServer.EntityAPI.CreateEntityImmediate(entityId, data.Position, data.Rotation);
+				var entity = GameServer.EntityAPI.CreateEntityImmediate(entityId, data.Position, WorldInstance.WorldInstanceIndex, data.Rotation);
 
 				if (entity.EntityType == EntityType.GO_ENEMY)
 				{
@@ -234,7 +233,7 @@ namespace FNZ.Server.Model.World
 			
 			var southEdgeObjectsOrdered = SouthEdgeObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
 			foreach (var edgeObject in southEdgeObjectsOrdered)
@@ -249,7 +248,7 @@ namespace FNZ.Server.Model.World
 			
 			var westEdgeObjectsOrdered = WestEdgeObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
             foreach (var edgeObject in westEdgeObjectsOrdered)
@@ -267,7 +266,7 @@ namespace FNZ.Server.Model.World
 			
 			var list = TileObjects
 				.Where(x => x != null)
-				.OrderBy(x => math.distance(x.Position, new float2(m_WorldInstance.WIDTH / 2.0f, m_WorldInstance.HEIGHT / 2.0f)))
+				.OrderBy(x => math.distance(x.Position, new float2(WorldInstance.WIDTH / 2.0f, WorldInstance.HEIGHT / 2.0f)))
 				.ToList();
 
 			for (var i = 0; i < m_TileObjectCount; i++)

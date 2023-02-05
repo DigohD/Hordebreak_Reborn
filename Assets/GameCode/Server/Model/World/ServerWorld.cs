@@ -41,6 +41,8 @@ namespace FNZ.Server.Model.World
 	{
 		public int SeedX;
 		public int SeedY;
+
+		public bool ShouldTick;
 		
 		private readonly List<FNEEntity> m_Players;
 		private readonly List<FNEEntity> m_TickableEntities;
@@ -78,6 +80,7 @@ namespace FNZ.Server.Model.World
 			HEIGHT = heightInTiles;
 
 			m_Chunk = new ServerWorldChunk(widthInTiles, this);
+			WorldMap = new ServerMapManager(this, WIDTH, HEIGHT);
 
 			m_Players = new List<FNEEntity>();
 			m_TickableEntities = new List<FNEEntity>();
@@ -85,11 +88,12 @@ namespace FNZ.Server.Model.World
 			m_TickableEntitiesToAdd = new ConcurrentQueue<FNEEntity>();
 
 			Environment = new EnvironmentServer();
-			RealEffectManager = new RealEffectManagerServer();
-			WorldMap = new ServerMapManager(WIDTH, HEIGHT);
+			RealEffectManager = new RealEffectManagerServer(this);
 			
 			s_NonResponsiveConnections = new List<NetConnection>();
 			s_PlayerConnectionWarningSystem = new Dictionary<NetConnection, byte>();
+
+			ShouldTick = true;
 		}
 
 		public void QueueFlowField(FlowFieldGenData data)

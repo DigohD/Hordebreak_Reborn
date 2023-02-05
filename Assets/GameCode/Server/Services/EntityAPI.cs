@@ -17,45 +17,7 @@ namespace FNZ.Server.Services
 {
 	public class EntityAPI
 	{
-		private readonly ServerEntityManagerSystem m_SpawnerSystem;
-
-		private readonly ServerWorld _world;
-
-		public EntityAPI(ServerWorld world)
-		{
-			m_SpawnerSystem = GameServer.ECS_ServerWorld.GetExistingSystem<ServerEntityManagerSystem>();
-			_world = world;
-		}
-
-	    public void AddEntityToSpawnQueue(string entityId, bool netSync, float2 position, float rotation = 0)
-		{
-			var spawnData = new FNEEntitySpawnData
-			{
-				EntityId = entityId,
-				NetSync = netSync,
-				Position = position,
-				Rotation = rotation
-			};
-
-			m_SpawnerSystem.AddEntityToSpawnQueue(spawnData);
-		}
-
-		public void AddEntityToWorldStateQueue(FNEEntity entity)
-		{
-			m_SpawnerSystem.AddEntityToWorldStateQueue(entity);
-		}
-
-		public void AddEntityToWorldStateAndNetSyncQueue(FNEEntity entity)
-		{
-			m_SpawnerSystem.AddEntityToWorldStateAndNetSyncQueue(entity);
-		}
-
-		public void AddEntityToDestroyQueue(FNEEntity entity)
-		{
-			m_SpawnerSystem.AddEntityToDestroyQueue(entity);
-		}
-
-		public FNEEntity CreateEntityImmediate(string entityId, float2 position, float rotation = 0)
+		public FNEEntity CreateEntityImmediate(string entityId, float2 position, int worldInstanceIndex, float rotation = 0)
 		{
 			if (string.IsNullOrEmpty(entityId))
             {
@@ -63,12 +25,12 @@ namespace FNZ.Server.Services
 				return null;
             }
 
-			return GameServer.EntityFactory.CreateEntity(entityId, position, rotation, false);
+			return GameServer.EntityFactory.CreateEntity(entityId, position, worldInstanceIndex, rotation, false);
 		}
 
-		public FNEEntity SpawnEntityImmediate(string entityId, float2 position, float rotation = 0)
+		public FNEEntity SpawnEntityImmediate(string entityId, float2 position, int worldInstanceIndex, float rotation = 0)
 		{
-			var entity = GameServer.EntityFactory.CreateEntity(entityId, position, rotation);
+			var entity = GameServer.EntityFactory.CreateEntity(entityId, position, worldInstanceIndex, rotation);
 
 			if (entity == null)
 			{
@@ -80,9 +42,9 @@ namespace FNZ.Server.Services
 			return entity;
 		}
 
-		public FNEEntity NetSpawnEntityImmediate(string entityId, float2 position, float rotation = 0)
+		public FNEEntity NetSpawnEntityImmediate(string entityId, float2 position, int worldInstanceIndex, float rotation = 0)
 		{
-			var entity = SpawnEntityImmediate(entityId, position, rotation);
+			var entity = SpawnEntityImmediate(entityId, position, worldInstanceIndex, rotation);
 			NetSyncEntityToRelevantClients(entity);
 			return entity;
 		}
@@ -96,33 +58,35 @@ namespace FNZ.Server.Services
 			if (entity.Agent != null)
 				entity.Agent.active = false;
 
+			var world = GameServer.WorldInstanceManager.GetWorldInstance(entity.WorldInstanceIndex);
+
 			if (IsEntityTickable(entity))
 			{
 				if (isChunkUnload && entity.EntityType == EntityType.ECS_ENEMY)
 				{
-					_world.RemoveTickableImmediate(entity);
+					world.RemoveTickableImmediate(entity);
 				}
 				else
 				{
-					_world.RemoveTickableEntity(entity);
+					world.RemoveTickableEntity(entity);
 				}
 			}
 			
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					_world.RemoveTileObject(entity);
+					world.RemoveTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					_world.RemoveEdgeObject(entity);
+					world.RemoveEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
-					_world.RemoveEnemyFromTile(entity);
+					world.RemoveEnemyFromTile(entity);
 					break;
 				case EntityType.GO_ENEMY:
-					_world.RemoveEnemyFromTile(entity);
+					world.RemoveEnemyFromTile(entity);
 					break;
 			}
 			
@@ -155,15 +119,17 @@ namespace FNZ.Server.Services
 
 		public void AddEntityToWorldStateImmediate(FNEEntity entity, bool addTickablesImmediate = false)
 		{
+			var world = GameServer.WorldInstanceManager.GetWorldInstance(entity.WorldInstanceIndex);
+			
 			if (IsEntityTickable(entity))
 			{
 				if (addTickablesImmediate)
                 {
-	                _world.AddTickableEntityImmediate(entity);
+	                world.AddTickableEntityImmediate(entity);
                 }
                 else
                 {
-	                _world.AddTickableEntity(entity);
+	                world.AddTickableEntity(entity);
 				}
 				
 			}
@@ -171,16 +137,16 @@ namespace FNZ.Server.Services
 			switch (entity.EntityType)
 			{
 				case EntityType.TILE_OBJECT:
-					_world.AddTileObject(entity);
+					world.AddTileObject(entity);
 					break;
 
 				case EntityType.EDGE_OBJECT:
-					_world.AddEdgeObject(entity);
+					world.AddEdgeObject(entity);
 					break;
 
 				case EntityType.ECS_ENEMY:
 				case EntityType.GO_ENEMY:
-					_world.AddEnemyToTile(entity);
+					world.AddEnemyToTile(entity);
 					break;
 			}
 		}
@@ -195,7 +161,8 @@ namespace FNZ.Server.Services
 			 float2 flowfieldPosition,
 			 int flowfieldRadius,
 			 float playerBudgetScale,
-			 string enemySpawnEffect
+			 string enemySpawnEffect,
+			 int worldInstanceIndex
 		 )
 		 {
 			var budgetMul = 1f + (GameServer.NetConnector.GetConnectedClientsCount() - 1) * 0.75f;
@@ -264,7 +231,7 @@ namespace FNZ.Server.Services
 	                continue;
                 }
                 
-                var entity = GameServer.EntityAPI.SpawnEntityImmediate(enemyToSpawn, spawnPosition);
+                var entity = GameServer.EntityAPI.SpawnEntityImmediate(enemyToSpawn, spawnPosition, worldInstanceIndex);
 
                 GameServer.NetConnector.SyncEntity(entity);
 

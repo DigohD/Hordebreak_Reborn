@@ -24,6 +24,7 @@ namespace FNZ.Shared.Model.World
 		public int HEIGHT;
 		
 		protected WorldChunk m_Chunk;
+		public int WorldInstanceIndex;
 
 		public virtual void InitializeWorld<T>() where T : WorldChunk {}
 

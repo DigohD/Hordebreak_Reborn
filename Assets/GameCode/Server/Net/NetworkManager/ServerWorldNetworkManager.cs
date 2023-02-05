@@ -149,10 +149,20 @@ namespace FNZ.Server.Net.NetworkManager
 		private void OnRequestWorldInstanceSpawnPacketRecieved(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
 			var worldInstanceId = Guid.Parse(incMsg.ReadString());
-
-			Debug.LogWarning("ID: " + worldInstanceId);
-
-			//GameServer.WorldInstanceManager.AddWorldInstance();
+			
+			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
+			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
+			
+			var world = new ServerWorld(512, 512)
+			{
+				SeedX = seedX,
+				SeedY = seedY
+			};
+			
+			var index = GameServer.WorldInstanceManager.AddWorldInstance(worldInstanceId, world);
+			world.WorldInstanceIndex = index;
+			
+			GameServer.WorldGen.GenerateWorld(world, false);
 		}
 
 		private void OnClientConfirmChunkLoaded(ServerNetworkConnector net, NetIncomingMessage incMsg)

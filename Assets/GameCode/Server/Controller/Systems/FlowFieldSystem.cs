@@ -221,129 +221,129 @@ namespace FNZ.Server.Controller.Systems
         public int Range;
     }
     
-    [DisableAutoCreation]
-    public class FlowFieldSystem : SystemBase
-    {
-        private NativeQueue<FlowFieldRequestData> m_FlowFieldRequestQueue;
+    //[DisableAutoCreation]
+    // public class FlowFieldSystem : SystemBase
+    // {
+    //     private NativeQueue<FlowFieldRequestData> m_FlowFieldRequestQueue;
+    //
+    //     protected override void OnCreate()
+    //     {
+    //         m_FlowFieldRequestQueue = new NativeQueue<FlowFieldRequestData>(Allocator.Persistent);
+    //     }
+    //
+    //     protected override void OnDestroy()
+    //     {
+    //         m_FlowFieldRequestQueue.Dispose();
+    //     }
+    //
+    //     protected override void OnUpdate()
+    //     {
+    //         if (m_FlowFieldRequestQueue.Count <= 0) return;
+    //
+    //         var requestData = m_FlowFieldRequestQueue.Dequeue();
+    //
+    //         var sourcePosition = requestData.SourcePosition;
+    //         var radius = requestData.Range;
+    //         
+    //         var tileWorldX = (int)sourcePosition.x;
+    //         var tileWorldY = (int)sourcePosition.y;
+    //
+    //         var worldStartX = tileWorldX - radius;
+    //         var worldStartY = tileWorldY - radius;
+    //
+    //         if (worldStartX < 0) worldStartX = 0;
+    //         if (worldStartY < 0) worldStartY = 0;
+    //
+    //         var gridSizeX = radius * 2;
+    //         var gridSizeY = radius * 2;
+    //
+    //         if (worldStartX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - worldStartX;
+    //         if (worldStartY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - worldStartY;
+    //
+    //         var gridAreea = gridSizeX * gridSizeY;
+    //
+    //         var graph = new NativeArray<HeapNode>(gridAreea, Allocator.Temp);
+    //         var vectorField = new NativeArray<float2>(gridAreea, Allocator.Temp);
+    //         var openSet = new NativeHeap(gridAreea, Allocator.Temp);
+    //         
+    //         // Generate Distance Field
+    //         for (var y = worldStartY; y < worldStartY + gridSizeY; y++)
+    //         {
+    //             for (var x = worldStartX; x < worldStartX + gridSizeX; x++)
+    //             {
+    //                 var gridX = x - worldStartX;
+    //                 var gridY = y - worldStartY;
+    //                 
+    //                 var item = new HeapNode
+    //                 {
+    //                     GridX = gridX,
+    //                     GridY = gridY,
+    //                     GridCost = 1,
+    //                     PathDistanceCost = 65535,
+    //                     ParentHeapIndex = -1
+    //                 };
+    //
+    //                 graph[gridX + gridY * gridSizeX] = item;
+    //
+    //                 openSet.Add(ref item);
+    //             }
+    //         }
+    //         
+    //         var goalX = (int)(sourcePosition.x) - worldStartX;
+    //         var goalY = (int)(sourcePosition.y) - worldStartY;
+    //
+    //         var startNode = graph[goalX + goalY * gridSizeX];
+    //         startNode.PathDistanceCost = 0;
+    //         openSet.UpdateItem(ref startNode);
+    //
+    //         while (openSet.Count > 0)
+    //         {
+    //             var currentNode = openSet.RemoveFirst();
+    //             
+    //             var currentTile = new int2(currentNode.GridX, currentNode.GridY);
+    //             var x = currentTile.x;
+    //             var y = currentTile.y;
+    //
+    //             var neighbours = new FixedList32<int2>
+    //             {
+    //                 new int2(x, y - 1), //South
+    //                 new int2(x - 1, y), //West
+    //                 new int2(x, y + 1), //North
+    //                 new int2(x + 1, y)  //East
+    //             };
+    //
+    //             for (var i = 0; i < neighbours.Length; i++)
+    //             {
+    //                 var neighbour = neighbours[i];
+    //                 
+    //             }
+    //             
+    //         }
+    //         
+    //         // Generate Vector Field
+    //
+    //         var result = vectorField.ToArray();
+    //
+    //         graph.Dispose();
+    //         vectorField.Dispose();
+    //         openSet.Dispose();
+    //     }
 
-        protected override void OnCreate()
-        {
-            m_FlowFieldRequestQueue = new NativeQueue<FlowFieldRequestData>(Allocator.Persistent);
-        }
-
-        protected override void OnDestroy()
-        {
-            m_FlowFieldRequestQueue.Dispose();
-        }
-
-        protected override void OnUpdate()
-        {
-            if (m_FlowFieldRequestQueue.Count <= 0) return;
-
-            var requestData = m_FlowFieldRequestQueue.Dequeue();
-
-            var sourcePosition = requestData.SourcePosition;
-            var radius = requestData.Range;
-            
-            var tileWorldX = (int)sourcePosition.x;
-            var tileWorldY = (int)sourcePosition.y;
-
-            var worldStartX = tileWorldX - radius;
-            var worldStartY = tileWorldY - radius;
-
-            if (worldStartX < 0) worldStartX = 0;
-            if (worldStartY < 0) worldStartY = 0;
-
-            var gridSizeX = radius * 2;
-            var gridSizeY = radius * 2;
-
-            if (worldStartX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - worldStartX;
-            if (worldStartY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - worldStartY;
-
-            var gridAreea = gridSizeX * gridSizeY;
-
-            var graph = new NativeArray<HeapNode>(gridAreea, Allocator.Temp);
-            var vectorField = new NativeArray<float2>(gridAreea, Allocator.Temp);
-            var openSet = new NativeHeap(gridAreea, Allocator.Temp);
-            
-            // Generate Distance Field
-            for (var y = worldStartY; y < worldStartY + gridSizeY; y++)
-            {
-                for (var x = worldStartX; x < worldStartX + gridSizeX; x++)
-                {
-                    var gridX = x - worldStartX;
-                    var gridY = y - worldStartY;
-                    
-                    var item = new HeapNode
-                    {
-                        GridX = gridX,
-                        GridY = gridY,
-                        GridCost = 1,
-                        PathDistanceCost = 65535,
-                        ParentHeapIndex = -1
-                    };
-
-                    graph[gridX + gridY * gridSizeX] = item;
-
-                    openSet.Add(ref item);
-                }
-            }
-            
-            var goalX = (int)(sourcePosition.x) - worldStartX;
-            var goalY = (int)(sourcePosition.y) - worldStartY;
-
-            var startNode = graph[goalX + goalY * gridSizeX];
-            startNode.PathDistanceCost = 0;
-            openSet.UpdateItem(ref startNode);
-
-            while (openSet.Count > 0)
-            {
-                var currentNode = openSet.RemoveFirst();
-                
-                var currentTile = new int2(currentNode.GridX, currentNode.GridY);
-                var x = currentTile.x;
-                var y = currentTile.y;
-
-                var neighbours = new FixedList32<int2>
-                {
-                    new int2(x, y - 1), //South
-                    new int2(x - 1, y), //West
-                    new int2(x, y + 1), //North
-                    new int2(x + 1, y)  //East
-                };
-
-                for (var i = 0; i < neighbours.Length; i++)
-                {
-                    var neighbour = neighbours[i];
-                    
-                }
-                
-            }
-            
-            // Generate Vector Field
-
-            var result = vectorField.ToArray();
-
-            graph.Dispose();
-            vectorField.Dispose();
-            openSet.Dispose();
-        }
-
-        private struct GenerateFlowFieldJob : IJob
-        {
-            public NativeArray<HeapNode> Graph;
-            public NativeArray<float2> VectorField;
-            public NativeHeap OpenSet;
-            
-            public void Execute()
-            {
-                
-            }
-        }
-
-        public void RequestFlowField(FlowFieldRequestData data)
-        {
-            m_FlowFieldRequestQueue.Enqueue(data);
-        }
-    }
+        // private struct GenerateFlowFieldJob : IJob
+        // {
+        //     public NativeArray<HeapNode> Graph;
+        //     public NativeArray<float2> VectorField;
+        //     public NativeHeap OpenSet;
+        //     
+        //     public void Execute()
+        //     {
+        //         
+        //     }
+        // }
+        //
+        // public void RequestFlowField(FlowFieldRequestData data)
+        // {
+        //     m_FlowFieldRequestQueue.Enqueue(data);
+        // }
+    // }
 }
