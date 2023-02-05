@@ -22,8 +22,11 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 		private int radius;
 
-		public FNEFlowField(Vector2 sourcePosition, int radius)
+		private ServerWorld _world;
+
+		public FNEFlowField(ServerWorld world, Vector2 sourcePosition, int radius)
 		{
+			_world = world;
 			this.sourcePosition = sourcePosition;
 
 			int tileWorldX = (int)sourcePosition.x;
@@ -38,8 +41,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			this.gridSizeX = radius * 2;
 			this.gridSizeY = radius * 2;
 
-			if (worldStartX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - worldStartX;
-			if (worldStartY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - worldStartY;
+			if (worldStartX + gridSizeX > world.WIDTH) gridSizeX = world.WIDTH - worldStartX;
+			if (worldStartY + gridSizeY > world.HEIGHT) gridSizeY = world.HEIGHT - worldStartY;
 
 			gridSize = gridSizeX * gridSizeY;
 
@@ -53,7 +56,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 			vectorField = new VectorFieldNode[gridSizeX, gridSizeY];
 			graph = new FF_Node[gridSizeX, gridSizeY];
 
-			GenerateDistanceField(GameServer.MainWorld, (int)sourcePosition.x, (int)sourcePosition.y);
+			GenerateDistanceField(_world, (int)sourcePosition.x, (int)sourcePosition.y);
 			GenerateVectorField(this.sourcePosition);
 		}
 
@@ -134,7 +137,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 				FF_Node currentNode = openSet.RemoveFirst();
 
 				int2 currentTile = new int2(currentNode.gridX, currentNode.gridY);
-				var currentTileObject = GameServer.MainWorld.GetTileObject(currentTile.x, currentTile.y);
+				var currentTileObject = world.GetTileObject(currentTile.x, currentTile.y);
 
 				foreach (var neighbour in world.GetTileStraightNeighbors(currentNode.gridX, currentNode.gridY))
 				{
