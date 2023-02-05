@@ -65,6 +65,8 @@ namespace RVO
 		internal float timeHorizon_ = 0.0f;
 		internal float timeHorizonObst_ = 0.0f;
 
+		public ServerWorld World;
+
 		/**
          * <summary>Computes the neighbors of this agent.</summary>
          */
@@ -113,29 +115,29 @@ namespace RVO
 			ComputeObstacle(northeastTile, agent, rangeSq);
 			ComputeObstacle(southeastTile, agent, rangeSq);
 
-			FNEEntity southWall = GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
-			FNEEntity westWall = GameServer.MainWorld.GetEdgeObject(currentTile.x, currentTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
-			FNEEntity northWall = GameServer.MainWorld.GetEdgeObject(northTile.x, northTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
-			FNEEntity eastWall = GameServer.MainWorld.GetEdgeObject(eastTile.x, eastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+			FNEEntity southWall = World.GetEdgeObject(currentTile.x, currentTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+			FNEEntity westWall = World.GetEdgeObject(currentTile.x, currentTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
+			FNEEntity northWall = World.GetEdgeObject(northTile.x, northTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH);
+			FNEEntity eastWall = World.GetEdgeObject(eastTile.x, eastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST);
 
 			ComputeWallObstacle(southWall, agent, rangeSq);
 			ComputeWallObstacle(westWall, agent, rangeSq);
 			ComputeWallObstacle(northWall, agent, rangeSq);
 			ComputeWallObstacle(eastWall, agent, rangeSq);
 
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(southTile.x, southTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(westTile.x, westTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(northwestTile.x, northwestTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(northTile.x, northTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(northeastTile.x, northeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(northeastTile.x, northeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(eastTile.x, eastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
-			ComputeWallObstacle(GameServer.MainWorld.GetEdgeObject(southeastTile.x, southeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(southTile.x, southTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(westTile.x, westTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(northwestTile.x, northwestTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(northTile.x, northTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(northeastTile.x, northeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(northeastTile.x, northeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(eastTile.x, eastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.SOUTH), agent, rangeSq);
+			ComputeWallObstacle(World.GetEdgeObject(southeastTile.x, southeastTile.y, FNZ.Shared.Model.World.GameWorld.EdgeObjectDirection.WEST), agent, rangeSq);
 		}
 
 		private bool ComputeObstacle(int2 tile, Agent agent, float rangeSq)
 		{
-			var tileObject = GameServer.MainWorld.GetTileObject(tile.x, tile.y);
+			var tileObject = World.GetTileObject(tile.x, tile.y);
 
 			if (tileObject != null)
 			{
@@ -240,9 +242,9 @@ namespace RVO
 
 		private void ComputeAgentNeighbour(int2 tile, float rangeSq)
 		{
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			var chunk = World.GetWorldChunk<ServerWorldChunk>();
 			if (chunk == null || !chunk.IsActive || !chunk.IsInitialized) return;
-			var cc = GameServer.MainWorld.GetChunkCellData(tile.x, tile.y);
+			var cc = World.GetChunkCellData(tile.x, tile.y);
 			if (cc == null) return;
 			var tileEnemies = cc.GetEnemies();
 			if (tileEnemies != null)

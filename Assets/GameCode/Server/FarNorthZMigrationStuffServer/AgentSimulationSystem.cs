@@ -41,9 +41,16 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		private List<HordeEntityAttackTargetData> m_AttackersList = new List<HordeEntityAttackTargetData>();
 		private Dictionary<FNEEntity, List<HordeEntityUpdateNetData>> m_PlayerEntitiesMap = new Dictionary<FNEEntity, List<HordeEntityUpdateNetData>>();
 
+		private ServerWorld _world;
+
 		private AgentSimulationSystem()
 		{
 			m_SimulationTimeStep = m_SimulationTimeStep * c_SimSpeedFactor;
+		}
+
+		public void SetWorld(ServerWorld world)
+		{
+			_world = world;
 		}
 
 		public NPC_Agent AddAgent(FNEEntity e, Vector2 position, float radius, float speed)
@@ -222,7 +229,7 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		{
 			foreach (var agent in Agents)
 			{
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+				var chunk = _world.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null) continue;
 				if (!chunk.IsActive|| !chunk.IsInitialized)
 				{
@@ -284,13 +291,13 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 
 			int2 currentTile = new int2((int)agent.position.x, (int)agent.position.y);
 
-			var neighbors = GameServer.MainWorld.GetTileStraightNeighbors(currentTile.x, currentTile.y);
+			var neighbors = _world.GetTileStraightNeighbors(currentTile.x, currentTile.y);
 			var players = new List<FNEEntity>();
 			neighbors.Add(currentTile);
 
 			foreach (var tile in neighbors)
 			{
-				var playersOnTile = GameServer.MainWorld.GetTilePlayers(tile);
+				var playersOnTile = _world.GetTilePlayers(tile);
 				if (playersOnTile != null)
 				{
 					foreach (var player in playersOnTile)
@@ -462,13 +469,13 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 		private void UpdateAgentPositions()
 		{
 			m_PlayerEntitiesMap.Clear();
-			var players = GameServer.MainWorld.GetAllPlayers();
+			var players = _world.GetAllPlayers();
 
 			foreach (var agent in Agents)
 			{
 				if (!agent.active || !agent.entity.Enabled) continue;
 
-				var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+				var chunk = _world.GetWorldChunk<ServerWorldChunk>();
 				if (chunk == null) continue;
 				if (!chunk.IsActive || !chunk.IsInitialized) continue;
 
@@ -572,8 +579,8 @@ namespace FNZ.Server.FarNorthZMigrationStuff
 					// 	}
 					// }
 					
-					GameServer.MainWorld.RemoveEnemyFromTile(agent.currentTile, agent.entity);
-					GameServer.MainWorld.AddEnemyToTile(newPositionTile, agent.entity);
+					_world.RemoveEnemyFromTile(agent.currentTile, agent.entity);
+					_world.AddEnemyToTile(newPositionTile, agent.entity);
 				}
 
 				agent.currentTile = newPositionTile;
