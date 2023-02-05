@@ -22,7 +22,7 @@ namespace FNZ.Client.Net.NetworkManager
 			GameClient.MetaWorld.DeserializeMetaWorld(incMsg);
 			var testPlace = GameClient.MetaWorld.Places[0];
 			Debug.LogWarning(testPlace.Coords);
-			Debug.LogWarning(testPlace.Name);
+			Debug.LogWarning(testPlace.Id);
 			d_OnMetaWorldUpdate?.Invoke();
 		}
 	}

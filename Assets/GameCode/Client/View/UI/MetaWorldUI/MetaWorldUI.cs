@@ -210,7 +210,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				var newX = place.Coords.x * 10;
 				var newY = place.Coords.y * 10;
 
-				m_PlaceMarkers[place.Name].Item2.transform.localPosition = (Vector2)new float2(newX, newY) * m_MarkerTranspose;
+				m_PlaceMarkers[place.Id.ToString()].Item2.transform.localPosition = (Vector2)new float2(newX, newY) * m_MarkerTranspose;
 
 				if (newX > m_AllowedBoundingBox.x + m_AllowedBoundingBox.width)
 				{
@@ -283,8 +283,8 @@ namespace FNZ.Client.View.UI.MetaWorld
 				});
 				trigger.triggers.Add(entry);
 
-				m_PlaceMarkers.Add(place.Name, new Tuple<Place, GameObject>(place, newMarker));
-				newMarker.name = place.Name;
+				m_PlaceMarkers.Add(place.Id.ToString(), new Tuple<Place, GameObject>(place, newMarker));
+				newMarker.name = place.Id.ToString();
 				newMarker.GetComponent<Image>().sprite = m_PlaceMarkerSprite;
 			}
 		}

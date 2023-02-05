@@ -150,13 +150,7 @@ namespace FNZ.Server.Net.NetworkManager
 		{
 			var worldInstanceId = Guid.Parse(incMsg.ReadString());
 
-			var playerCount = incMsg.ReadUInt16();
-
-			for (var i = 0; i < playerCount; i++)
-			{
-				var playerName = incMsg.ReadString();
-				
-			}
+			//GameServer.WorldInstanceManager.AddWorldInstance();
 		}
 
 		private void OnClientConfirmChunkLoaded(ServerNetworkConnector net, NetIncomingMessage incMsg)

@@ -1,9 +1,7 @@
+using System;
 using FNZ.Shared.Model.World.Site;
 using Lidgren.Network;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEngine;
 
 namespace FNZ.Shared.Model.World.MetaWorld 
 {
@@ -16,20 +14,19 @@ namespace FNZ.Shared.Model.World.MetaWorld
 		// The main site id of the place
 		public string SiteId;
 
-		// Name of the place for display in game
-		public string Name;
+		public Guid Id;
 
-		public Place(float2 coords, string name, string siteId)
+		public Place(float2 coords, Guid id, string siteId)
 		{
 			Coords = coords;
-			Name = name;
+			Id = id;
 			SiteId = siteId;
 		}
 
 		public void Deserialize(NetBuffer reader)
 		{
 			Coords = new float2(reader.ReadFloat(), reader.ReadFloat());
-			Name = reader.ReadString();
+			Id = Guid.Parse(reader.ReadString());
 			SiteId = IdTranslator.Instance.GetId<SiteData>(reader.ReadUInt16());
 		}
 
@@ -37,13 +34,13 @@ namespace FNZ.Shared.Model.World.MetaWorld
 		{
 			writer.Write(Coords.x);
 			writer.Write(Coords.y);
-			writer.Write(Name);
+			writer.Write(Id.ToString());
 			writer.Write(IdTranslator.Instance.GetIdCode<SiteData>(SiteId));
 		}
 
 		public int GetByteSize()
 		{
-			return 8 + Name.Length * 4;
+			return 8 + Id.ToString().Length * 4;
 		}
 	}
 }

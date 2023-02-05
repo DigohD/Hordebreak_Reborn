@@ -32,19 +32,12 @@ namespace FNZ.Client.Net.Messages
 			};
 		}
 
-		public NetMessage CreateRequestWorldInstanceSpawnMessage(Guid id, List<string> players)
+		public NetMessage CreateRequestWorldInstanceSpawnMessage(Guid id)
 		{
 			var sendBuffer = m_NetClient.CreateMessage();
 			
 			sendBuffer.Write((byte)NetMessageType.REQUEST_WORLD_INSTANCE);
 			sendBuffer.Write(id.ToString());
-			
-			sendBuffer.Write((ushort)players.Count);
-
-			foreach (var player in players)
-			{
-				sendBuffer.Write(player);	
-			}
 
 			return new NetMessage
 			{	
