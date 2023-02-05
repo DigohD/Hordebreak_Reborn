@@ -150,6 +150,8 @@ namespace FNZ.Server.Net.NetworkManager
 		{
 			var worldInstanceId = Guid.Parse(incMsg.ReadString());
 
+			Debug.LogWarning("ID: " + worldInstanceId);
+
 			//GameServer.WorldInstanceManager.AddWorldInstance();
 		}
 
