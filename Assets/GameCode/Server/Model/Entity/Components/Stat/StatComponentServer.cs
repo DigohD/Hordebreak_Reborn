@@ -10,6 +10,7 @@ using FNZ.Shared.Model.Entity.EntityViewData;
 using FNZ.Shared.Model.Items.Components;
 using System;
 using System.Collections.Generic;
+using FNZ.Server.Model.World;
 using FNZ.Server.Services;
 using FNZ.Server.Utils;
 using FNZ.Shared.Model.Effect;
@@ -31,9 +32,12 @@ namespace FNZ.Server.Model.Entity.Components
 
 		private PlayerComponentServer m_PlayerComp;
 
+		private ServerWorld _world;
+
 		public override void Init()
 		{
 			base.Init();
+			_world = GameServer.WorldInstanceManager.GetWorldInstance(ParentEntity.WorldInstanceIndex);
 		}
 
 		public override void InitComponentLinks()
@@ -91,7 +95,7 @@ namespace FNZ.Server.Model.Entity.Components
 				return true;
 
 			if (m_PlayerComp != null)
-				GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_player_on_hit", m_PlayerComp.ParentEntity.Position, m_PlayerComp.ParentEntity.RotationDegrees);
+				GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_player_on_hit", m_PlayerComp.ParentEntity.Position, m_PlayerComp.ParentEntity.RotationDegrees);
 
 			var armorMul = 100f / (100f + Armor);
 			damageAmount *= armorMul;
@@ -155,23 +159,23 @@ namespace FNZ.Server.Model.Entity.Components
 								}
 								else
 								{*/
-									GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_shrubber_death", ParentEntity.Position, 0);
+									GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_shrubber_death", ParentEntity.Position, 0);
 								//}
 								break;
 
 							case "default_zombie":
-								GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_zombie_death", ParentEntity.Position, 0);
+								GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_zombie_death", ParentEntity.Position, 0);
 								break;
 							case "zombie_big":
 								// DEMO CODE
 								
 								FNEService.Effect.SpawnRealEffectsAtPosition("effect_big_zombie_death", ParentEntity.Position);
 
-								GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_big_zombie_death", ParentEntity.Position, 0);
+								GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_big_zombie_death", ParentEntity.Position, 0);
 								break;
 
 							default:
-								GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_zombie_death", ParentEntity.Position, 0);
+								GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_zombie_death", ParentEntity.Position, 0);
 								break;
 						}
 						//GameServer.NetAPI.Effect_SpawnEffect_BAR("effect_shrubber_death", ParentEntity.Position, 0);

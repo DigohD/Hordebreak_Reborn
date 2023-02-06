@@ -7,7 +7,12 @@ namespace FNZ.Server.Model.World
 	{
 		private float m_Timer = 0;
 
-		public EnvironmentServer() : base() { }
+		private ServerWorld _world;
+
+		public EnvironmentServer(ServerWorld world) : base()
+		{
+			_world = world;
+		}
 
 		public void Tick(float deltaTime)
 		{
@@ -24,7 +29,7 @@ namespace FNZ.Server.Model.World
 					m_Hour = 0;
 				}
 
-				GameServer.NetAPI.World_Environment_BA();
+				GameServer.NetAPI.World_Environment_BA(_world);
 			}
 
 			foreach (var connection in GameServer.NetConnector.GetConnectedClientConnections())

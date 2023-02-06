@@ -256,7 +256,7 @@ namespace FNZ.Server.Model.Entity.Components.Player
 				var enemies = _world.GetTileEnemies(tile);
 				if (enemies == null || enemies.Count == 0) continue;
 
-				bool seesPlayer = FNEPathfinding.HasLineOfSight(currentTile, tile);
+				bool seesPlayer = FNEPathfinding.HasLineOfSight(_world, currentTile, tile);
 
 				foreach (var enemy in enemies)
 				{
@@ -286,7 +286,7 @@ namespace FNZ.Server.Model.Entity.Components.Player
 			{
 				if (shouldGenerateNewFlowField)
 				{
-					ff = new FNEFlowField(ParentEntity.Position, sightRange);
+					ff = new FNEFlowField(_world, ParentEntity.Position, sightRange);
 
 					shouldGenerateNewFlowField = false;
 				}
@@ -301,7 +301,7 @@ namespace FNZ.Server.Model.Entity.Components.Player
 			{
 				if (shouldGenerateNewFlowField)
 				{
-					ff = new FNEFlowField(ParentEntity.Position, sightRange);
+					ff = new FNEFlowField(_world, ParentEntity.Position, sightRange);
 					shouldGenerateNewFlowField = false;
 				}
 				var tilePlayers = _world.GetTilePlayers(lastTile);

@@ -1470,6 +1470,7 @@ namespace FNZ.Server.Model.World
 			var entity = GameServer.EntityAPI.CreateEntityImmediate(
 				id,
 				position,
+				chunk.GetWorldInstance<ServerWorld>().WorldInstanceIndex,
 				rotation
 			);
 
@@ -1486,6 +1487,7 @@ namespace FNZ.Server.Model.World
 			var entity = GameServer.EntityAPI.CreateEntityImmediate(
 				id,
 				position,
+				chunk.GetWorldInstance<ServerWorld>().WorldInstanceIndex,
 				rotation
 			);
 
@@ -1543,7 +1545,7 @@ namespace FNZ.Server.Model.World
 				new int2(chunkX, chunkY), 
 				new int2(worldCenterChunkX, worldCenterChunkY));
 			
-			var siteMetaData = GameServer.MainWorld.GetSiteMetaData();
+			var siteMetaData = chunk.GetWorldInstance<ServerWorld>().GetSiteMetaData();
 			var isSite = false;
 			if (siteMetaData.ContainsKey(chunkX * chunkY))
 			{

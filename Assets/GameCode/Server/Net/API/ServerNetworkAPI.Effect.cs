@@ -14,16 +14,16 @@ namespace FNZ.Server.Net.API
 {
 	public partial class ServerNetworkAPI
 	{
-		public void Effect_SpawnEffect_BAR(string effectId, float2 location, float rotation)
+		public void Effect_SpawnEffect_BAR(ServerWorld world, string effectId, float2 location, float rotation)
 		{
 			EffectData effectData = DataBank.Instance.GetData<EffectData>(effectId);
 			SFXData sfxData = null;
 
 			if (effectData.alertsEnemies)
 			{
-				foreach (var tile in GameServer.MainWorld.GetSurroundingTilesInRadius((int2)location, effectData.enemyAlertDistance))
+				foreach (var tile in world.GetSurroundingTilesInRadius((int2)location, effectData.enemyAlertDistance))
 				{
-					var enemies = GameServer.MainWorld.GetTileEnemies(tile);
+					var enemies = world.GetTileEnemies(tile);
 					if (enemies == null || enemies.Count == 0) continue;
 
 					foreach (var enemy in enemies)

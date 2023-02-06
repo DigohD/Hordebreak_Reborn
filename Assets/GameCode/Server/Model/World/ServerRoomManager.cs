@@ -194,7 +194,7 @@ namespace FNZ.Server.Model.World
 
 		public ServerRoom GetRoom(int2 tilePos)
 		{
-			var id = GameServer.MainWorld.GetTileRoom(tilePos);
+			var id = GameServer.GetWorldInstance(0).GetTileRoom(tilePos);
 			if (!m_Rooms.ContainsKey(id))
 				return null;
 
@@ -222,7 +222,7 @@ namespace FNZ.Server.Model.World
 				return false;
 			}
 
-			var world = GameServer.MainWorld;
+			var world = GameServer.GetWorldInstance(0);
 			
 			// Do Room fill
 			bool traverseNorth =  !world.IsTileNorthEdgeOccupied(tilePos);
@@ -255,7 +255,9 @@ namespace FNZ.Server.Model.World
 
 		private bool CreateRoom(List<int2> roomTiles, long roomId, FNEEntity builder, long baseId)
 		{
-			long previousRoomId = GameServer.MainWorld.GetTileRoom(roomTiles[0]);
+			var world = GameServer.GetWorldInstance(0);
+			
+			long previousRoomId = world.GetTileRoom(roomTiles[0]);
 			var previousRoom = GameServer.RoomManager.GetRoom(previousRoomId);
 
 			if (previousRoomId != 0 && previousRoom.Size == roomTiles.Count)
@@ -281,28 +283,28 @@ namespace FNZ.Server.Model.World
 			
 			foreach (var tilePos in roomTiles)
 			{
-				previousRoomId = GameServer.MainWorld.GetTileRoom(tilePos);
+				previousRoomId = world.GetTileRoom(tilePos);
 				if (previousRoomId == 0)
 				{
 					// Add tile to new room
 					newRoom.AddTileToRoom(tilePos);
-					GameServer.MainWorld.AddTileRoom(tilePos, roomId);
+					world.AddTileRoom(tilePos, roomId);
 
-					GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(tilePos.x + 0.5f, tilePos.y + 0.5f), 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(world, "tile_debug2", new float2(tilePos.x + 0.5f, tilePos.y + 0.5f), 0);
 				}
 				else
 				{
 					// Remove tile from old room
 					GameServer.RoomManager.GetRoom(previousRoomId).RemoveTileFromRoom(tilePos);
-					GameServer.MainWorld.RemoveTileRoom(tilePos);
+					world.RemoveTileRoom(tilePos);
 					if (GameServer.RoomManager.GetRoom(previousRoomId).Size == 0)
 						RemoveRoom(previousRoomId);
 
 					// Add tile to new room
 					newRoom.AddTileToRoom(tilePos);
-					GameServer.MainWorld.AddTileRoom(tilePos, roomId);
+					world.AddTileRoom(tilePos, roomId);
 
-					GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(tilePos.x + 0.5f, tilePos.y + 0.5f), 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(world, "tile_debug2", new float2(tilePos.x + 0.5f, tilePos.y + 0.5f), 0);
 				}
 			}
 

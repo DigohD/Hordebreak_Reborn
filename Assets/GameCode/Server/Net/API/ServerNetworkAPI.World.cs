@@ -58,15 +58,15 @@ namespace FNZ.Server.Net.API
 			SendToClient(message, clientConnection);
 		}
 
-		public void World_Environment_BA()
+		public void World_Environment_BA(ServerWorld world)
 		{
-			var message = m_WorldMessageFactory.CreateEnvironmentMessage();
+			var message = m_WorldMessageFactory.CreateEnvironmentMessage(world);
 			Broadcast_All(message);
 		}
 
-		public void World_Environment_STC(NetConnection clientConnection)
+		public void World_Environment_STC(NetConnection clientConnection, ServerWorld world)
 		{
-			var message = m_WorldMessageFactory.CreateEnvironmentMessage();
+			var message = m_WorldMessageFactory.CreateEnvironmentMessage(world);
 			SendToClient(message, clientConnection);
 		}
 		

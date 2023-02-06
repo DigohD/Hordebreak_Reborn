@@ -205,7 +205,7 @@ namespace FNZ.Server.Model
 				var tmpRotation = tuple.Item1.RotationDegrees;
 
 				GameServer.EntityAPI.NetDestroyEntityImmediate(tuple.Item1);
-				var newEntity = GameServer.EntityAPI.NetSpawnEntityImmediate(tuple.Item2, tmpPos, tmpRotation);
+				var newEntity = GameServer.EntityAPI.NetSpawnEntityImmediate(tuple.Item2, tmpPos, tuple.Item1.WorldInstanceIndex, tmpRotation);
 
 				foreach (var comp in tuple.Item1.Components)
 				{
@@ -263,11 +263,12 @@ namespace FNZ.Server.Model
 			entity.FileSerialize(netBuffer);
 			FileUtils.WriteFile(GameServer.FilePaths.CreatePlayerEntityFilePath(leavingPlayerName), netBuffer.Data);
 
+			var world = GameServer.GetWorldInstance(entity.WorldInstanceIndex);
 			GameServer.NetConnector.RemoveDisconnectedClient(entity);
-			GameServer.MainWorld.RemovePlayerEntity(entity);
+			world.RemovePlayerEntity(entity);
 			GameServer.NetAPI.Player_RemoveRemote_BA(entity);
 
-			GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.TELEPORT, entity.Position, 0);
+			GameServer.NetAPI.Effect_SpawnEffect_BAR(world, EffectIdConstants.TELEPORT, entity.Position, 0);
 			GameServer.NetAPI.Chat_SendMessage_BO($"{leavingPlayerName} has left the server.", connection, Utils.ChatColorMessage.MessageType.SERVER);
 		}
 

@@ -394,6 +394,7 @@ namespace FNZ.Server.Controller
 				});
 
 				GameServer.NetAPI.Effect_SpawnEffect_BAR(
+					_world,
 					data.Id,
 					position,
 					finalZ

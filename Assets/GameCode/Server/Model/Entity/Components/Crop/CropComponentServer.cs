@@ -149,7 +149,7 @@ namespace FNZ.Server.Model.Entity.Components
 			GameServer.NetAPI.Entity_UpdateComponent_BA(inventory);
 			GameServer.NetAPI.Notification_SendNotification_STC("harvest_notification_icon", "grey", "false",
 				crop.amount + "x " + Localization.GetString(crop.Data.nameRef), incMsg.SenderConnection);
-			GameServer.NetAPI.Effect_SpawnEffect_BAR(Data.harvestEffectRef, ParentEntity.Position + new float2(0.5f, 0.5f), ParentEntity.RotationDegrees);
+			GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, Data.harvestEffectRef, ParentEntity.Position + new float2(0.5f, 0.5f), ParentEntity.RotationDegrees);
 			QuestManager.OnHarvestCrop(crop);
 
             if (Data.consumedOnHarvest)
