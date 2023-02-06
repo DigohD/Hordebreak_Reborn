@@ -111,13 +111,13 @@ namespace FNZ.Server.Net.Messages
 			};
 		}
 
-		public NetMessage CreateEnvironmentMessage()
+		public NetMessage CreateEnvironmentMessage(ServerWorld world)
 		{
 			var sendBuffer = m_NetServer.CreateMessage();
 
 			sendBuffer.Write((byte)NetMessageType.ENVIRONMENT);
 
-			GameServer.MainWorld.Environment.Serialize(sendBuffer);
+			world.Environment.Serialize(sendBuffer);
 
 			return new NetMessage
 			{

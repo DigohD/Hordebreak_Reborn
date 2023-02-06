@@ -129,7 +129,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			var closestDistance = float.MaxValue;
 			foreach (var tile in inVicinity)
 			{
-				if (FNEPathfinding.HasLineOfSight(currentTile, tile))
+				if (FNEPathfinding.HasLineOfSight(_world, currentTile, tile))
 				{
 					var players = _world.GetTilePlayers(tile);
 					if (players == null || players.Count == 0) continue;
@@ -164,7 +164,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 		{
 			if (m_TargetPlayer == null)
 			{
-				SetNewPath(FNEPathfinding.FindPath(5000, ParentEntity.Position, location));
+				SetNewPath(FNEPathfinding.FindPath(_world, 5000, ParentEntity.Position, location));
 				m_CurrentBehaviour = EnemyBehaviour.Investigate;
 
 				if (m_Path == null || m_Path.Count == 0)

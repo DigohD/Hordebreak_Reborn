@@ -47,8 +47,10 @@ namespace FNZ.Server.WorldEvents
                 StartTimeStamp = FNEUtil.NanoTime(),
                 UniqueId = m_UniqueId
             };
+
+            var world = GameServer.GetWorldInstance(m_Parent.WorldInstanceIndex);
 				
-            GameServer.NetAPI.WorldEvent_SpawnWorldEventToPlayersInRange(eventDto, m_Position, m_Data.PlayerRangeRadius);
+            GameServer.NetAPI.WorldEvent_SpawnWorldEventToPlayersInRange(eventDto,world, m_Position, m_Data.PlayerRangeRadius);
             
             if (m_SpawnPoints.Count <= 0)
             {
@@ -61,14 +63,14 @@ namespace FNZ.Server.WorldEvents
                 var gridSizeX = m_Data.SpawnRadius * 2;
                 var gridSizeY = m_Data.SpawnRadius * 2;
             
-                if (startX + gridSizeX > GameServer.MainWorld.WIDTH) gridSizeX = GameServer.MainWorld.WIDTH - startX;
-                if (startY + gridSizeY > GameServer.MainWorld.HEIGHT) gridSizeY = GameServer.MainWorld.HEIGHT - startY;
+                if (startX + gridSizeX > world.WIDTH) gridSizeX = world.WIDTH - startX;
+                if (startY + gridSizeY > world.HEIGHT) gridSizeY =world.HEIGHT - startY;
 
                 for (var y = startY; y < gridSizeY + startY; y++)
                 {
                     for (var x = startX; x < gridSizeX + startX; x++)
                     {
-                        var tileObject = GameServer.MainWorld.GetTileObject(x, y);
+                        var tileObject = world.GetTileObject(x, y);
 
                         if (tileObject == null) continue;
                         if (tileObject.HasComponent<SpawnPointComponentServer>())
@@ -102,7 +104,8 @@ namespace FNZ.Server.WorldEvents
                 m_Position,
                 m_Data.SpawnRadius,
                 0.75f,
-                m_Data.EnemySpawnEffectRef
+                m_Data.EnemySpawnEffectRef,
+                m_Parent.WorldInstanceIndex
             );
         }
         
@@ -157,7 +160,8 @@ namespace FNZ.Server.WorldEvents
 
         private bool ArePlayersWithinBoundary()
         {
-            var players = GameServer.MainWorld.GetAllPlayers();
+            var world = GameServer.GetWorldInstance(m_Parent.WorldInstanceIndex);
+            var players = world.GetAllPlayers();
             var eventSuccess = false;
             
             foreach (var player in players)

@@ -151,9 +151,9 @@ namespace FNZ.Server.Net.API
 			// }
 		}
 
-		private void Broadcast_All_InProximity(NetMessage message, float2 impactPosition, float radius)
+		private void Broadcast_All_InProximity(ServerWorld world, NetMessage message, float2 impactPosition, float radius)
 		{
-			var connectedPlayers = GameServer.MainWorld.GetAllPlayers();
+			var connectedPlayers = world.GetAllPlayers();
 
 			var relevantConnections = new List<NetConnection>();
 

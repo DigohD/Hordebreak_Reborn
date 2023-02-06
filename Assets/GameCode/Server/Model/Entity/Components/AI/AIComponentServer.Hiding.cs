@@ -147,7 +147,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 			if (!hidingSpot1)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, (float2)hidingTile);
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, (float2)hidingTile);
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);
@@ -156,7 +156,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			}
 			else if (!hidingSpot2)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, new float2(hidingTile.x - m_FleeVectorFixed.x, hidingTile.y));
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, new float2(hidingTile.x - m_FleeVectorFixed.x, hidingTile.y));
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);
@@ -165,7 +165,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			}
 			else if (!hidingSpot3)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, new float2(hidingTile.x, hidingTile.y - m_FleeVectorFixed.y));
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, new float2(hidingTile.x, hidingTile.y - m_FleeVectorFixed.y));
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);
@@ -189,7 +189,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 
 			if (!hidingSpot1)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, (float2)hidingTile);
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, (float2)hidingTile);
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);
@@ -198,7 +198,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			}
 			else if (!hidingSpot2)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, new float2(hidingTile.x - m_FleeVectorFixed.x, hidingTile.y));
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, new float2(hidingTile.x - m_FleeVectorFixed.x, hidingTile.y));
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);
@@ -207,7 +207,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 			}
 			else if (!hidingSpot3)
 			{
-				hidingPath = FNEPathfinding.FindPath(500, ParentEntity.Position, new float2(hidingTile.x, hidingTile.y - m_FleeVectorFixed.y));
+				hidingPath = FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, new float2(hidingTile.x, hidingTile.y - m_FleeVectorFixed.y));
 				if (hidingPath.Count != 0)
 				{
 					SetNewPath(hidingPath);

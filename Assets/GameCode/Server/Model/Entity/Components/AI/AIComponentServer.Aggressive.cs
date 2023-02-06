@@ -11,7 +11,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 		{
 			if (m_TargetPlayer != null && !m_TargetPlayerComponent.IsDead && m_DistanceToTarget <= m_AggroRange)
 			{
-				if (FNEPathfinding.HasLineOfSight((int2)ParentEntity.Position, (int2)m_TargetPlayer.Position) && m_DistanceToTarget <= m_AttackRange)
+				if (FNEPathfinding.HasLineOfSight(_world, (int2)ParentEntity.Position, (int2)m_TargetPlayer.Position) && m_DistanceToTarget <= m_AttackRange)
 				{
 					m_Path = null;
 					m_Direction = m_TargetPlayer.Position - ParentEntity.Position;
@@ -21,7 +21,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 				}
 				else
 				{
-					if (FNEPathfinding.HasLineOfSight((int2)ParentEntity.Position, (int2)m_TargetPlayer.Position))
+					if (FNEPathfinding.HasLineOfSight(_world, (int2)ParentEntity.Position, (int2)m_TargetPlayer.Position))
 					{
 						if (m_DistanceToTarget <= m_LungeDistance)
 							MoveToDestination(m_TargetPlayer.Position, m_LungeSpeedMod);
@@ -31,7 +31,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 					else if (m_Path != null)
 						FollowPath();
 					else
-						SetNewPath(FNEPathfinding.FindPath(500, ParentEntity.Position, m_TargetPlayer.Position));
+						SetNewPath(FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, m_TargetPlayer.Position));
 				}
 			}
 			else

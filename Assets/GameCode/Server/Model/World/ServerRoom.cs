@@ -42,10 +42,12 @@ namespace FNZ.Server.Model.World
             m_RoomWalls.Clear();
 			Resources.Clear();
 
+			var world = GameServer.GetWorldInstance(0);
+
 			// Calculate room properties
 			foreach (var tilePos in Tiles)
 			{
-				var tileData = GameServer.MainWorld.GetTileData(tilePos.x, tilePos.y);
+				var tileData = world.GetTileData(tilePos.x, tilePos.y);
 
 				foreach (var rp in tileData.roomPropertyRefs)
 				{
@@ -55,7 +57,7 @@ namespace FNZ.Server.Model.World
 						m_TilePropertyCounts[rp]++;
 				}
 
-				var walls = GameServer.MainWorld.GetStraightDirectionsEdgeObjects(tilePos);
+				var walls = world.GetStraightDirectionsEdgeObjects(tilePos);
 				foreach (var wall in walls)
 				{
 					if (wall == null)
@@ -110,7 +112,7 @@ namespace FNZ.Server.Model.World
 			// Calculate tile object effects in room
 			foreach (var tilePos in Tiles)
 			{
-				var tileObject = GameServer.MainWorld.GetTileObject(tilePos.x, tilePos.y);
+				var tileObject = world.GetTileObject(tilePos.x, tilePos.y);
 				if (tileObject != null)
 				{
 					m_TileObjectsToCalculate.Add(tileObject);
@@ -133,6 +135,7 @@ namespace FNZ.Server.Model.World
 		// the base calculation is complete, and has either succeeded or failed.
 		public bool CalculateRoomStatus()
 		{
+			var world = GameServer.GetWorldInstance(0);
 			bool toReturn = false;
 
 			// Calculate tile object effects in room
@@ -222,14 +225,14 @@ namespace FNZ.Server.Model.World
 					var isWest = Tiles.Contains((int2) wallEntity.Position);
 					if (isWest)
 					{
-						connectedRoomId = GameServer.MainWorld.GetTileRoom(
+						connectedRoomId = world.GetTileRoom(
 							new float2(wallEntity.Position.x - 1, wallEntity.Position.y)
 						);
 						isGiver = !edgeComp.OppositeMountedDirection;
 					}
 					else
 					{
-						connectedRoomId = GameServer.MainWorld.GetTileRoom(
+						connectedRoomId = world.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y)
 						);
 						isGiver = edgeComp.OppositeMountedDirection;
@@ -240,14 +243,14 @@ namespace FNZ.Server.Model.World
 					var isSouth = Tiles.Contains((int2) wallEntity.Position);
 					if (isSouth)
 					{
-						connectedRoomId = GameServer.MainWorld.GetTileRoom(
+						connectedRoomId = world.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y - 1)
 						);
 						isGiver = !edgeComp.OppositeMountedDirection;
 					}
 					else
 					{
-						connectedRoomId = GameServer.MainWorld.GetTileRoom(
+						connectedRoomId = world.GetTileRoom(
 							new float2(wallEntity.Position.x, wallEntity.Position.y)
 						);
 						isGiver = edgeComp.OppositeMountedDirection;

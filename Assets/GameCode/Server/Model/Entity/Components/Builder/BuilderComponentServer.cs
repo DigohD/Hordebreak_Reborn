@@ -115,22 +115,22 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 					if (traverseNorth)
 					{
-						GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(data.x, data.y + 1), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "tile_debug2", new float2(data.x, data.y + 1), 0);
 					}
 					if (traverseSouth)
 					{
-						GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(data.x, data.y - 1), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "tile_debug2", new float2(data.x, data.y - 1), 0);
 					}
 					if (traverseEast)
 					{
-						GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(data.x + 1, data.y), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "tile_debug2", new float2(data.x + 1, data.y), 0);
 					}
 					if (traverseWest)
 					{
-						GameServer.NetAPI.Effect_SpawnEffect_BAR("tile_debug2", new float2(data.x - 1, data.y), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "tile_debug2", new float2(data.x - 1, data.y), 0);
 					}
 
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_TILE, new float2(data.x, data.y), 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_TILE, new float2(data.x, data.y), 0);
 				}
 			}
 			else
@@ -177,7 +177,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 						GameServer.NetAPI.World_RoomManager_BA();
 						QuestManager.OnConstruction(recipe);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_TILE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_TILE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), 0);
 
 						if (recipe.unlockRefs != null && recipe.unlockRefs.Count > 0)
 							HandleUnlockRefs(recipe, playerComp, senderConnection);
@@ -209,7 +209,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 					if (newEntity != null)
 					{
 						QuestManager.OnConstruction(recipe);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), newEntity.RotationDegrees);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), newEntity.RotationDegrees);
 
 						if (recipe.unlockRefs != null && recipe.unlockRefs.Count > 0)
 							HandleUnlockRefs(recipe, playerComp, senderConnection);
@@ -287,7 +287,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 					if (newEntity != null)
 					{
 						QuestManager.OnAddonConstruction(addonData);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), newEntity.RotationDegrees);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), newEntity.RotationDegrees);
 					}
 				}
 				if (objectType == EntityType.TILE_OBJECT)
@@ -306,7 +306,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 						GameServer.EntityFactory.QueueEntityForReplacement(existingTileObject, addonData.productRef);
 						
 						QuestManager.OnAddonConstruction(addonData);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_TILE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingTileObject.RotationDegrees);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_TILE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingTileObject.RotationDegrees);
 
 						successfullyBuilt = true;
 					}
@@ -396,7 +396,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 				);
 
 				QuestManager.OnConstruction(buildingData);
-				GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingEdgeObject.RotationDegrees);
+				GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingEdgeObject.RotationDegrees);
 
 				successfullyBuilt = true;
 			}
@@ -460,7 +460,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 			FNEService.EdgeObject.NetRemoveMountedObject(existingEdgeObject);
 
-			GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingEdgeObject.RotationDegrees);
+			GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(data.x, data.y) + new float2(0.5f, 0.5f), existingEdgeObject.RotationDegrees);
 		}
 
 		private void NE_Receive_Buildwall(NetIncomingMessage incMsg)
@@ -507,7 +507,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 						batch.Add(newEntity);
 						GameServer.NetConnector.SyncEntity(newEntity);
 						GameServer.RoomManager.PromptRoomConstruction(new float2(newEntity.Position.x, newEntity.Position.y), ParentEntity);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(newEntity.Position.x, newEntity.Position.y), 90);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(newEntity.Position.x, newEntity.Position.y), 90);
 						successfullWalls++;
 					}
 				}
@@ -529,7 +529,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 						batch.Add(newEntity);
 						GameServer.NetConnector.SyncEntity(newEntity);
 						GameServer.RoomManager.PromptRoomConstruction(new float2(newEntity.Position.x, newEntity.Position.y), ParentEntity);
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_EDGE_OBJECT, new float2(newEntity.Position.x, newEntity.Position.y), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_EDGE_OBJECT, new float2(newEntity.Position.x, newEntity.Position.y), 0);
 						successfullWalls++;
 					}
 				}
@@ -612,7 +612,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 							//QuestManager.OnRoomCreation(room, GameServer.NetConnector.GetConnectionFromPlayer(ParentEntity));
 						}
 
-						GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.BUILD_TILE, new float2(x + 0.5f, y + 0.5f), 0);
+						GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, EffectIdConstants.BUILD_TILE, new float2(x + 0.5f, y + 0.5f), 0);
 						successfullTiles++;
 					}
 				}

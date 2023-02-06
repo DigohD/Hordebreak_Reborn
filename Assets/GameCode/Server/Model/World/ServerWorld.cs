@@ -87,7 +87,7 @@ namespace FNZ.Server.Model.World
 			m_TickableEntitiesToRemove = new ConcurrentQueue<FNEEntity>();
 			m_TickableEntitiesToAdd = new ConcurrentQueue<FNEEntity>();
 
-			Environment = new EnvironmentServer();
+			Environment = new EnvironmentServer(this);
 			RealEffectManager = new RealEffectManagerServer(this);
 			
 			s_NonResponsiveConnections = new List<NetConnection>();

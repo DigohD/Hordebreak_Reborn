@@ -34,7 +34,7 @@ namespace FNZ.Server.Model.Entity.Components.AI
 							}
 						}
 
-						SetNewPath(FNEPathfinding.FindPath(500, ParentEntity.Position, m_FleeDestination));
+						SetNewPath(FNEPathfinding.FindPath(_world, 500, ParentEntity.Position, m_FleeDestination));
 					}
 					else
 					{
