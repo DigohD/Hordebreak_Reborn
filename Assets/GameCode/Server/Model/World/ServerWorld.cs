@@ -199,7 +199,7 @@ namespace FNZ.Server.Model.World
 		{
 			if (!m_FlowFieldsToSpawn.TryDequeue(out var data)) return;
 
-			FlowFieldUtility.GenerateFlowFieldAndUpdateEnemies(data.SourcePosition, data.Range, data.FlowFieldType);
+			FlowFieldUtility.GenerateFlowFieldAndUpdateEnemies(this, data.SourcePosition, data.Range, data.FlowFieldType);
 		}
 
 		private void UpdateObstacles()
@@ -431,15 +431,15 @@ namespace FNZ.Server.Model.World
 			s_PlayerConnectionWarningSystem.Remove(senderConnection);
 		}
 
-		public void LoadSiteMetaData()
-        {
-			var filePath = GameServer.FilePaths.GetOrCreateChunkSiteMetaFilePath();
-
-			if (File.Exists(filePath))
-			{
-				m_SiteMetaData = FNEService.File.LoadSiteMetaDataFromFile(filePath);
-			}
-		}
+		// public void LoadSiteMetaData()
+  //       {
+		// 	var filePath = GameServer.FilePaths.GetOrCreateChunkSiteMetaFilePath();
+  //
+		// 	if (File.Exists(filePath))
+		// 	{
+		// 		m_SiteMetaData = FNEService.File.LoadSiteMetaDataFromFile(filePath);
+		// 	}
+		// }
 
 		public Dictionary<int, SiteMetaData> GetSiteMetaData()
         {

@@ -1,3 +1,4 @@
+using FNZ.Server.Model.World;
 using FNZ.Shared.Model;
 using FNZ.Shared.Model.World.Tile;
 using Unity.Mathematics;
@@ -7,9 +8,9 @@ namespace FNZ.Server.Services
 
 	public class TileAPI
 	{
-		public bool TryNetChangeTile(string id, float2 position)
+		public bool TryNetChangeTile(string id, float2 position, ServerWorld world)
 		{
-			var tileChanged = TryChangeTile(id, position);
+			var tileChanged = TryChangeTile(id, position, world);
 
 			if (tileChanged)
 			{
@@ -19,9 +20,8 @@ namespace FNZ.Server.Services
 			return tileChanged;
 		}
 
-		public bool TryChangeTile(string id, float2 position)
+		public bool TryChangeTile(string id, float2 position, ServerWorld world)
 		{
-			var world = GameServer.MainWorld;
 			var data = DataBank.Instance.GetData<TileData>(id);
 			var oldTileDef = world.GetTileId((int)position.x, (int)position.y);
 

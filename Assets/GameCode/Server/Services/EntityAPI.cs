@@ -164,7 +164,8 @@ namespace FNZ.Server.Services
 			 string enemySpawnEffect,
 			 int worldInstanceIndex
 		 )
-		 {
+		 { 
+			 var world = GameServer.GetWorldInstance(worldInstanceIndex);
 			var budgetMul = 1f + (GameServer.NetConnector.GetConnectedClientsCount() - 1) * 0.75f;
 
 			budget = (int)(budget * budgetMul);
@@ -223,10 +224,10 @@ namespace FNZ.Server.Services
                 var v = new Vector2(distance, 0);
 				
                 var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
-					
+
                 var spawnPosition = new float2(spawnPoint.x + finalOffset.x, spawnPoint.y + finalOffset.y);
-                var isTileBlocking = GameServer.MainWorld.IsTileBlocking((int) spawnPosition.x, (int) spawnPosition.y);
-                if (isTileBlocking != null && isTileBlocking.Value || GameServer.MainWorld.GetTileObject((int) spawnPosition.x, (int) spawnPosition.y) != null)
+                var isTileBlocking = world.IsTileBlocking((int) spawnPosition.x, (int) spawnPosition.y);
+                if (isTileBlocking != null && isTileBlocking.Value || world.GetTileObject((int) spawnPosition.x, (int) spawnPosition.y) != null)
                 {
 	                continue;
                 }
@@ -237,7 +238,7 @@ namespace FNZ.Server.Services
 
                 if (!string.IsNullOrEmpty(enemySpawnEffect))
                 {
-	                GameServer.NetAPI.Effect_SpawnEffect_BAR(enemySpawnEffect, spawnPosition, 0);
+	                GameServer.NetAPI.Effect_SpawnEffect_BAR(world, enemySpawnEffect, spawnPosition, 0);
                 }
                 
                 hordeEntitySpawnDataBatch.Add(new HordeEntitySpawnData
@@ -252,40 +253,40 @@ namespace FNZ.Server.Services
             GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(hordeEntitySpawnDataBatch);
             if (generateFlowfield)
             {
-	            FlowFieldUtility.GenerateFlowFieldAndUpdateEnemies(flowfieldPosition, flowfieldRadius, FlowFieldType.Sound);
+	            FlowFieldUtility.GenerateFlowFieldAndUpdateEnemies(world, flowfieldPosition, flowfieldRadius, FlowFieldType.Sound);
             }
         }
 		 
-		 public float2 SpawnSingleEnemyWithinRadius(
-			 string id,
-			 float2 spawnPoint,
-			 float spawnRadius
-		 )
-		 { var distance = FNERandom.GetRandomFloatInRange(0, spawnRadius);
-			var v = new Vector2(distance, 0);
-
-			var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
-
-			var spawnPosition = new float2(spawnPoint.x + finalOffset.x, spawnPoint.y + finalOffset.y);
-
-			var entity = GameServer.EntityAPI.SpawnEntityImmediate("shrubber", spawnPosition);
-
-			GameServer.NetConnector.SyncEntity(entity);
-			
-			var hordeEntitySpawnDataBatch = new List<HordeEntitySpawnData>();
-				
-			hordeEntitySpawnDataBatch.Add(new HordeEntitySpawnData
-			{
-				NetId = entity.NetId,
-				EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(entity.EntityId),
-				Position = spawnPosition,
-				Rotation = entity.RotationDegrees,
-			});
-			
-			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(hordeEntitySpawnDataBatch);
-
-			return spawnPosition;
-		 }
+		 // public float2 SpawnSingleEnemyWithinRadius(
+			//  string id,
+			//  float2 spawnPoint,
+			//  float spawnRadius
+		 // )
+		 // { var distance = FNERandom.GetRandomFloatInRange(0, spawnRadius);
+			// var v = new Vector2(distance, 0);
+		 //
+			// var finalOffset = Quaternion.Euler(0, 0, FNERandom.GetRandomFloatInRange(0, 360)) * v;
+		 //
+			// var spawnPosition = new float2(spawnPoint.x + finalOffset.x, spawnPoint.y + finalOffset.y);
+		 //
+			// var entity = GameServer.EntityAPI.SpawnEntityImmediate("shrubber", spawnPosition);
+		 //
+			// GameServer.NetConnector.SyncEntity(entity);
+			//
+			// var hordeEntitySpawnDataBatch = new List<HordeEntitySpawnData>();
+			// 	
+			// hordeEntitySpawnDataBatch.Add(new HordeEntitySpawnData
+			// {
+			// 	NetId = entity.NetId,
+			// 	EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(entity.EntityId),
+			// 	Position = spawnPosition,
+			// 	Rotation = entity.RotationDegrees,
+			// });
+			//
+			// GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_BAR(hordeEntitySpawnDataBatch);
+		 //
+			// return spawnPosition;
+		 // }
 		
 		private bool IsEntityTickable(FNEEntity entity)
 		{

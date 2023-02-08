@@ -59,7 +59,8 @@ namespace FNZ.Server.WorldEvents
                 m_Position,
                 m_Data.SpawnRadius,
                 0.75f, 
-                m_Data.EnemySpawnEffectRef
+                m_Data.EnemySpawnEffectRef,
+                m_Parent.WorldInstanceIndex
             );
         }
         

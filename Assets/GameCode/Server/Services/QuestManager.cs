@@ -975,8 +975,8 @@ namespace FNZ.Server.Services.QuestManager
 			if (!string.IsNullOrEmpty(buildingId))
 			{
 				var buildingData = DataBank.Instance.GetData<BuildingData>(buildingId);
-
-				foreach (var player in GameServer.MainWorld.GetAllPlayers())
+				
+				foreach (var player in GameServer.GetPlayers())
 				{
 					var playerComponent = player.GetComponent<PlayerComponentServer>();
 					playerComponent.UnlockBuilding(buildingId);

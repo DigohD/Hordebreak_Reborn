@@ -31,6 +31,11 @@ namespace GameCode.Server.Model.World
             return index;
         }
 
+        public List<ServerWorld> GetAllInstances()
+        {
+            return _instances;
+        }
+
         public ServerWorld GetWorldInstance(int index)
         {
             return _instances[index];

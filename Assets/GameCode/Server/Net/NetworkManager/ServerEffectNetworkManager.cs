@@ -110,10 +110,15 @@ namespace FNZ.Server.Net.NetworkManager
         )
         {
             var effectData = DataBank.Instance.GetData<EffectData>(effectId);
+            
+            var sender = GameServer.NetConnector.GetPlayerFromConnection(senderConnection);
+
+            var world = GameServer.GetWorldInstance(sender.WorldInstanceIndex);
 
             if (effectData.enemyAlertDistance > 0)
             {
                 FlowFieldUtility.QueueFlowFieldForSpawn(
+                    world,
                     position, 
                     effectData.enemyAlertDistance, 
                     FlowFieldType.Sound
@@ -128,7 +133,7 @@ namespace FNZ.Server.Net.NetworkManager
                 senderConnection
             );
 
-            GameServer.MainWorld.RealEffectManager.SpawnProjectileClientAuthority(
+            world.RealEffectManager.SpawnProjectileClientAuthority(
                 effectData,
                 (ProjectileEffectData) effectData.RealEffectData,
                 position,

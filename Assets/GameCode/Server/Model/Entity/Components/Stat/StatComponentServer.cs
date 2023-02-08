@@ -169,7 +169,7 @@ namespace FNZ.Server.Model.Entity.Components
 							case "zombie_big":
 								// DEMO CODE
 								
-								FNEService.Effect.SpawnRealEffectsAtPosition("effect_big_zombie_death", ParentEntity.Position);
+								FNEService.Effect.SpawnRealEffectsAtPosition(_world, "effect_big_zombie_death", ParentEntity.Position);
 
 								GameServer.NetAPI.Effect_SpawnEffect_BAR(_world, "effect_big_zombie_death", ParentEntity.Position, 0);
 								break;
