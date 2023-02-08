@@ -21,8 +21,8 @@ namespace FNZ.Server.Net.NetworkManager
 			playerEntity.DeserializePosition(incMsg);
 			playerEntity.DeserializeRotation(incMsg);
 
-			var currentChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-			var playerComp = playerEntity.GetComponent<PlayerComponentServer>();
+			// var currentChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			// var playerComp = playerEntity.GetComponent<PlayerComponentServer>();
 
 			// if (currentChunk != playerComp.LastChunk)
 			// {

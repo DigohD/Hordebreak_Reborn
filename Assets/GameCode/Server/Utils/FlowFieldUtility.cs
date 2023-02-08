@@ -1,4 +1,5 @@
 using FNZ.Server.FarNorthZMigrationStuff;
+using FNZ.Server.Model.World;
 using FNZ.Shared.Utils;
 using Unity.Mathematics;
 
@@ -20,18 +21,19 @@ namespace FNZ.Server.Utils
     
     public static class FlowFieldUtility
     {
-        public static FNEFlowField GenerateFlowField(float2 sourcePosition, int range)
+        public static FNEFlowField GenerateFlowField(ServerWorld world, float2 sourcePosition, int range)
         {
-            return range <= 0 ? null : new FNEFlowField(sourcePosition, range);
+            return range <= 0 ? null : new FNEFlowField(world, sourcePosition, range);
         }
 
         public static void QueueFlowFieldForSpawn( 
+            ServerWorld world,
             float2 sourcePosition, 
             int range, 
             FlowFieldType flowFieldType)
         {
             if (range <= 0) return;
-            GameServer.MainWorld.QueueFlowField(new FlowFieldGenData
+            world.QueueFlowField(new FlowFieldGenData
             {
                 SourcePosition = sourcePosition,
                 Range = range,
@@ -40,13 +42,14 @@ namespace FNZ.Server.Utils
         }
 
         public static FNEFlowField GenerateFlowFieldAndUpdateEnemies(
+            ServerWorld world,
             float2 sourcePosition, 
             int range, 
             FlowFieldType flowFieldType)
         {
             if (range <= 0) return null;
             
-            var flowField = new FNEFlowField(sourcePosition, range);
+            var flowField = new FNEFlowField(world, sourcePosition, range);
 
             for (var y = flowField.worldStartY; y < (flowField.gridSizeY + flowField.worldStartY); y++)
             {
@@ -54,7 +57,7 @@ namespace FNZ.Server.Utils
                     x < (flowField.gridSizeX + flowField.worldStartX);
                     x++)
                 {
-                    var enemiesOnTile = GameServer.MainWorld.GetTileEnemies(new int2(x, y));
+                    var enemiesOnTile = world.GetTileEnemies(new int2(x, y));
                     if (enemiesOnTile == null) continue;
 
                     foreach (var e in enemiesOnTile)

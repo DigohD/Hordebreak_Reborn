@@ -104,7 +104,7 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 			}
 			else if (isTile)
 			{
-				successfullyBuilt = FNEService.Tile.TryNetChangeTile(recipe.productRef, new float2(data.x, data.y));
+				successfullyBuilt = FNEService.Tile.TryNetChangeTile(recipe.productRef, new float2(data.x, data.y), _world);
 				if (successfullyBuilt)
 				{
 					bool traverseNorth = !_world.IsTileNorthEdgeOccupied(new int2((int)data.x, (int)data.y));
@@ -589,7 +589,8 @@ namespace FNZ.Server.Model.Entity.Components.Builder
 
 					var success = FNEService.Tile.TryNetChangeTile(
 						recipe.productRef,
-						new float2(x, y)
+						new float2(x, y),
+						_world
 					);
 
 					if (success)

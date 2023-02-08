@@ -41,24 +41,24 @@ namespace FNZ.Server.Services
 			chunk.FileDeserialize(netBuffer);
 		}
 
-		public Dictionary<int, SiteMetaData> LoadSiteMetaDataFromFile(string filePath)
-		{
-			var netBuffer = new NetBuffer
-			{
-				Data = FileUtils.ReadFile(filePath)
-			};
-
-			int count = netBuffer.ReadInt32();
-			Dictionary<int, SiteMetaData> siteMetaData = new Dictionary<int, SiteMetaData>();
-			for (int i = 0; i < count; i++)
-            {
-				var metaData = new SiteMetaData();
-				metaData.Deserialize(netBuffer);
-				siteMetaData[metaData.chunkX + metaData.chunkY * GameServer.MainWorld.WIDTH] = metaData;
-			}
-
-			return siteMetaData;
-		}
+		// public Dictionary<int, SiteMetaData> LoadSiteMetaDataFromFile(string filePath)
+		// {
+		// 	var netBuffer = new NetBuffer
+		// 	{
+		// 		Data = FileUtils.ReadFile(filePath)
+		// 	};
+  //
+		// 	int count = netBuffer.ReadInt32();
+		// 	Dictionary<int, SiteMetaData> siteMetaData = new Dictionary<int, SiteMetaData>();
+		// 	for (int i = 0; i < count; i++)
+  //           {
+		// 		var metaData = new SiteMetaData();
+		// 		metaData.Deserialize(netBuffer);
+		// 		siteMetaData[metaData.chunkX + metaData.chunkY * GameServer.MainWorld.WIDTH] = metaData;
+		// 	}
+  //
+		// 	return siteMetaData;
+		// }
 
 		public ServerRoomManager LoadRoomManagerFromFile(string filePath)
 		{

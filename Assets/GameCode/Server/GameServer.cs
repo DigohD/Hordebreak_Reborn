@@ -14,6 +14,7 @@ using FNZ.Server.Utils;
 using FNZ.Server.WorldEvents;
 using FNZ.Shared;
 using FNZ.Shared.Model;
+using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Utils;
 using GameCode.Server.Model.World;
 using Lidgren.Network;
@@ -45,10 +46,17 @@ namespace FNZ.Server
 
 		public static FNELogger Logger;
 
+		private static List<FNEEntity> _players = new List<FNEEntity>();
+
+		public static List<FNEEntity> GetPlayers() => _players;
+
 		public static ServerWorld GetWorldInstance(int index)
 		{
 			return WorldInstanceManager.GetWorldInstance(index);
 		}
+
+		public static List<ServerWorld> GetAllWorldInstances()
+			=> WorldInstanceManager.GetAllInstances();
 
 		public void Start()
 		{

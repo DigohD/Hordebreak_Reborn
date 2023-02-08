@@ -13,10 +13,12 @@ namespace FNZ.Server.Utils
 		{
 			float2 playerPos = player.Position;
 
+			var world = GameServer.GetWorldInstance(player.WorldInstanceIndex);
+
 			var randomTileX = FNERandom.GetRandomIntInRange(-40, 40);
 			var randomTileY = FNERandom.GetRandomIntInRange(-40, 40);
 			var tilePos = new int2((int)playerPos.x + randomTileX, (int)playerPos.y + randomTileY);
-			var tileDataDef = GameServer.MainWorld.GetTileId(tilePos.x, tilePos.y);
+			var tileDataDef = world.GetTileId(tilePos.x, tilePos.y);
 
 			if (tileDataDef == string.Empty)
 				return;
@@ -40,7 +42,7 @@ namespace FNZ.Server.Utils
 			}
 
 			var randomWeight = FNERandom.GetRandomIntInRange(1, totalWeight + 1);
-			var gameHour = GameServer.MainWorld.Environment.Hour;
+			var gameHour = world.Environment.Hour;
 
 			foreach (var tile in timeTileEffects)
 			{
@@ -63,7 +65,7 @@ namespace FNZ.Server.Utils
 					{
 						if (randomWeight <= tile.weight)
 						{
-							GameServer.NetAPI.Effect_SpawnEffect_BAR(tile.effectRef, tilePos, rotation);
+							GameServer.NetAPI.Effect_SpawnEffect_BAR(world, tile.effectRef, tilePos, rotation);
 						}
 						else
 						{
@@ -78,7 +80,7 @@ namespace FNZ.Server.Utils
 					{
 						if (randomWeight <= tile.weight)
 						{
-							GameServer.NetAPI.Effect_SpawnEffect_BAR(tile.effectRef, tilePos, rotation);
+							GameServer.NetAPI.Effect_SpawnEffect_BAR(world, tile.effectRef, tilePos, rotation);
 						}
 						else
 						{

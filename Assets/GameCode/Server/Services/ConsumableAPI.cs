@@ -15,12 +15,13 @@ namespace FNZ.Server.Services
 		{
 			var consumable = item.GetComponent<ItemConsumableComponent>().Data;
 			var statCompServer = player.GetComponent<StatComponentServer>();
+			var world = GameServer.GetWorldInstance(player.WorldInstanceIndex);
 
 			switch (consumable.buff)
 			{
 				case ConsumableBuff.HEALTH_GAIN:
 					statCompServer.Heal(consumable.amount);
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(consumable.effectRef, new float2(player.Position.x, player.Position.y), player.RotationDegrees);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(world, consumable.effectRef, new float2(player.Position.x, player.Position.y), player.RotationDegrees);
 					GameServer.NetAPI.Entity_UpdateComponent_STC(statCompServer, incMsg.SenderConnection);
 
 					if (item.amount == 1) { ics.RemoveItem(item); }
@@ -29,7 +30,7 @@ namespace FNZ.Server.Services
 
 				case ConsumableBuff.HEALTH_LOSS:
 					statCompServer.Server_ApplyDamage(consumable.amount, DamageTypesConstants.TRUE_DAMAGE);
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(consumable.effectRef, new float2(player.Position.x, player.Position.y), player.RotationDegrees);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(world, consumable.effectRef, new float2(player.Position.x, player.Position.y), player.RotationDegrees);
 					GameServer.NetAPI.Entity_UpdateComponent_STC(statCompServer, incMsg.SenderConnection);
 
 					if (item.amount == 1) { ics.RemoveItem(item); }

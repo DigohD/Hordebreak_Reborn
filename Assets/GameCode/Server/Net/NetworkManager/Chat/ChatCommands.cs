@@ -373,9 +373,9 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 			}
 
 			if (playerEntity != null)
-				GameServer.NetAPI.Effect_SpawnEffect_BAR(effectId, playerEntity.Position, 0);
+				GameServer.NetAPI.Effect_SpawnEffect_BAR(GameServer.GetWorldInstance(playerEntity.WorldInstanceIndex), effectId, playerEntity.Position, 0);
 			else if (boolX && boolY)
-				GameServer.NetAPI.Effect_SpawnEffect_BAR(effectId, coordinates, 0);
+				GameServer.NetAPI.Effect_SpawnEffect_BAR(GameServer.GetWorldInstance(0), effectId, coordinates, 0);
 			else
 			{
 				string availableEffects = Localization.GetString("available_effects_header_mesage");
@@ -433,7 +433,8 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 				int.TryParse(playerStringParts[1], out radius);
 
 			var playerEntity = GameServer.NetConnector.GetPlayerFromConnection(senderConnection);
-			var ff = new FNEFlowField(playerEntity.Position, radius);
+			
+			var ff = new FNEFlowField(GameServer.GetWorldInstance(playerEntity.WorldInstanceIndex), playerEntity.Position, radius);
 			GameServer.NetAPI.World_SendFlowField_STC(ff, senderConnection);
 		}
 
@@ -790,10 +791,12 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 		{
 			var player = GameServer.NetConnector.GetPlayerFromConnection(senderConnection);
 
-			var tiles = GameServer.MainWorld.GetSurroundingTilesInRadius((int2)player.Position, 2);
+			var world = GameServer.GetWorldInstance(player.WorldInstanceIndex);
+
+			var tiles = world.GetSurroundingTilesInRadius((int2)player.Position, 2);
 			foreach (var tile in tiles)
 			{
-				var to = GameServer.MainWorld.GetTileObject(tile.x, tile.y);
+				var to = world.GetTileObject(tile.x, tile.y);
 				if (to != null)
 				{
 					var cropComp = to.GetComponent<CropComponentServer>();
@@ -824,7 +827,7 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 					targetPlayerHealthComponent.Server_ApplyDamage(mjolnirDamage, DamageTypesConstants.TRUE_DAMAGE);
 
 					GameServer.NetAPI.Entity_UpdateComponent_BAR(targetPlayerHealthComponent);
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.MJOLNIR, targetPlayerEntity.Position, 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(GameServer.GetWorldInstance(targetPlayerEntity.WorldInstanceIndex), EffectIdConstants.MJOLNIR, targetPlayerEntity.Position, 0);
 					GameServer.NetAPI.Chat_SendMessage_STC(mjolnirMessage, targetPlayerConnection, ChatColorMessage.MessageType.WARNING);
 				}
 				else
@@ -1250,22 +1253,24 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 
 		private void Time(string[] playerStringParts, NetConnection senderConnection, bool isOp)
 		{
+			var player = GameServer.NetConnector.GetPlayerFromConnection(senderConnection);
+			var world = GameServer.GetWorldInstance(player.WorldInstanceIndex);
 			if (isOp && playerStringParts.Length >= 2)
 			{
 				foreach (var word in playerStringParts)
 				{
 					if (bool.TryParse(word.ToLower(), out bool freezeTime))
-						GameServer.MainWorld.Environment.FreezeTime = freezeTime;
+						world.Environment.FreezeTime = freezeTime;
 					else if (byte.TryParse(word, out byte serverHour))
-						GameServer.MainWorld.Environment.Hour = serverHour;
+						world.Environment.Hour = serverHour;
 					else if (word.ToLower() == "freeze" || word.ToLower() == "stop")
-						GameServer.MainWorld.Environment.FreezeTime = true;
+						world.Environment.FreezeTime = true;
 					else if (word.ToLower() == "unfreeze" || word.ToLower() == "go")
-						GameServer.MainWorld.Environment.FreezeTime = false;
+						world.Environment.FreezeTime = false;
 				}
 			}
 
-			GameServer.NetAPI.Chat_SendMessage_STC($"Current time of day is: {GameServer.MainWorld.Environment.Hour}",
+			GameServer.NetAPI.Chat_SendMessage_STC($"Current time of day is: {world.Environment.Hour}",
 				senderConnection, ChatColorMessage.MessageType.SERVER);
 		}
 
@@ -1350,7 +1355,7 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 					}
 
 					GameServer.NetAPI.Player_Teleport_STC(playerToTeleportConnection, teleportDestination);
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(EffectIdConstants.TELEPORT, location, 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(GameServer.GetWorldInstance(entity.WorldInstanceIndex), EffectIdConstants.TELEPORT, location, 0);
 
 					var teleportedPlayerName = GameServer.NetConnector.GetPlayerFromConnection(playerToTeleportConnection).GetComponent<NameComponentServer>().entityName;
 					string message = Localization.GetString("player_was_teleported_message");
@@ -1486,11 +1491,15 @@ namespace FNZ.Server.Net.NetworkManager.Chat
 
 		private void KillAll()
 		{
-			var c = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-			foreach(var e in c.GetAllEnemies())
+			foreach (var world in GameServer.GetAllWorldInstances())
 			{
-				e.GetComponent<StatComponentServer>().Server_ApplyDamage(1000000, "");
+				var c = world.GetWorldChunk<ServerWorldChunk>();
+				foreach(var e in c.GetAllEnemies())
+				{
+					e.GetComponent<StatComponentServer>().Server_ApplyDamage(1000000, "");
+				}
 			}
+			
 		}
 
 		private void Quest(string[] playerStringParts, NetConnection senderConnection)

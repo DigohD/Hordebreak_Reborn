@@ -38,12 +38,14 @@ namespace FNZ.Server.WorldEvents
 					break;
 			}
 
+			var world = GameServer.GetWorldInstance(entity.WorldInstanceIndex);
+
 			if (eventToSpawn != null)
 			{
 				m_Events.Add(eventToSpawn);
 				eventToSpawn.OnTrigger();
 				if(!string.IsNullOrEmpty(worldEventData.EffectRef))
-					GameServer.NetAPI.Effect_SpawnEffect_BAR(worldEventData.EffectRef, entity.Position + new float2(0.5f, 0.5f), 0);
+					GameServer.NetAPI.Effect_SpawnEffect_BAR(world, worldEventData.EffectRef, entity.Position + new float2(0.5f, 0.5f), 0);
 			}
 		}
 
