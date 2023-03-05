@@ -1,3 +1,4 @@
+using FNZ.Server.Model.World;
 using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Model.Entity.Components;
 using FNZ.Shared.Net;
@@ -123,6 +124,13 @@ namespace FNZ.Server.Net.API
 			var message = m_EntityMessageFactory.CreateUpdateComponentMessage(component);
 			Broadcast_All_Relevant(message, component.ParentEntity.Position);
 		}
+
+		public void Entity_UpdateComponent_BAIP(FNEComponent component, ServerWorld world)
+		{
+			var message = m_EntityMessageFactory.CreateUpdateComponentMessage(component);
+			Broadcast_All_InProximity(world, message, component.ParentEntity.Position, 60);
+		}
+
 		public void Entity_UpdateComponent_BAR_Batched(FNEComponent[] components)
 		{
 			var positions = new NativeArray<float2>(components.Length, Allocator.TempJob);
