@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using FNZ.Server.Model;
 using FNZ.Server.Model.Entity.Components.Name;
 using FNZ.Server.Model.MetaWorld;
@@ -45,10 +46,8 @@ namespace FNZ.Server
 		public static float DeltaTime;
 
 		public static FNELogger Logger;
-
-		private static List<FNEEntity> _players = new List<FNEEntity>();
-
-		public static List<FNEEntity> GetPlayers() => _players;
+		
+		public static List<FNEEntity> GetPlayers() => GetAllWorldInstances().SelectMany(x => x.GetAllPlayers()).ToList();
 
 		public static ServerWorld GetWorldInstance(int index)
 		{
@@ -133,7 +132,7 @@ namespace FNZ.Server
 			APPLICATION_RUNNING = false;
 			
 			Debug.Log("Server shutdown. Saving chunks...");
-			var chunk = MainWorld.GetWorldChunk<ServerWorldChunk>();
+			var chunk = GetWorldInstance(0).GetWorldChunk<ServerWorldChunk>();
 			
 			var path = FilePaths.GetOrCreateChunkFilePath(chunk);
 			var data = chunk.GetChunkData();
@@ -142,7 +141,7 @@ namespace FNZ.Server
 			Debug.Log("Server shutdown. Chunks saved successfully!");
 			
 			Debug.Log("Server shutdown. Saving players...");
-			foreach (var player in MainWorld.GetAllPlayers())
+			foreach (var player in GetPlayers())
 			{
 				var entity = NetConnector.GetPlayerFromConnection(NetConnector.GetConnectionFromPlayer(player));
 				var leavingPlayerName = entity.GetComponent<NameComponentServer>().entityName;

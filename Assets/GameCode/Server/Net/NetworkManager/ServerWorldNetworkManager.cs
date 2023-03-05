@@ -56,6 +56,8 @@ namespace FNZ.Server.Net.NetworkManager
 			float2 playerPosition = float2.zero;
 			FNEEntity newPlayer = null;
 
+			var mainWorld = GameServer.GetWorldInstance(0);
+
 			if (playerNames.Count > 0 && playerNames.Contains(playerName))
 			{
 				newPlayer = GameServer.EntityFactory.CreatePlayer(playerPosition, playerName);
@@ -63,7 +65,7 @@ namespace FNZ.Server.Net.NetworkManager
 			else
 			{
 				// Spawn player in the middle of a chunk
-				playerPosition = new float2(GameServer.MainWorld.WIDTH / 2, GameServer.MainWorld.HEIGHT / 2);
+				playerPosition = new float2(mainWorld.WIDTH / 2, mainWorld.HEIGHT / 2);
 				newPlayer = GameServer.EntityFactory.CreatePlayer(playerPosition, playerName);
 			}
 
@@ -71,14 +73,7 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			if (newPlayer != null)
 			{
-				foreach (var comp in newPlayer.Components)
-				{
-					if (comp is ITickable)
-					{
-						GameServer.MainWorld.AddTickableEntity(newPlayer);
-						break;
-					}
-				}
+				mainWorld.AddTickableEntity(newPlayer);
 			}
 
 			newPlayer.Enabled = true;
@@ -92,15 +87,15 @@ namespace FNZ.Server.Net.NetworkManager
 			GameServer.NetAPI.Player_SpawnRemote_BO(newPlayer, clientConnection);
 			GameServer.NetAPI.Effect_SpawnEffect_BOR(EffectIdConstants.TELEPORT, newPlayer.Position, 0, clientConnection);
 			
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			var chunk = mainWorld.GetWorldChunk<ServerWorldChunk>();
 			var netBuffer = new NetBuffer();
 			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
 			chunk.NetSerialize(netBuffer);
 			GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, clientConnection);
 
-			playerComp.LastChunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			playerComp.LastChunk = mainWorld.GetWorldChunk<ServerWorldChunk>();
 
-			GameServer.NetAPI.World_Environment_STC(clientConnection);
+			GameServer.NetAPI.World_Environment_STC(clientConnection, mainWorld);
 
 			if (net.GetConnectedClientsCount() > 1)
 				GameServer.NetAPI.Chat_SendMessage_BO($"{playerName} connected to server.", clientConnection, Utils.ChatColorMessage.MessageType.SERVER);
@@ -121,7 +116,7 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			foreach (var chunkPath in chunkPaths)
 			{
-				var chunkReader = new ServerWorldChunk(GameServer.MainWorld.WIDTH, GameServer.MainWorld);
+				var chunkReader = new ServerWorldChunk(mainWorld.WIDTH, mainWorld);
 				
 				var nb = new NetBuffer
 				{
@@ -134,7 +129,7 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			GameServer.NetAPI.World_SiteMapUpdate_STC(
 				clientConnection,
-				GameServer.MainWorld.WorldMap.GetRevealedSiteMap()
+				mainWorld.WorldMap.GetRevealedSiteMap()
 			);
 			
 			var hostEntity = GameServer.NetConnector.GetPlayerFromConnection(GameServer.NetConnector.GetServerHostConnection());
@@ -153,30 +148,49 @@ namespace FNZ.Server.Net.NetworkManager
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
 			
-			var world = new ServerWorld(512, 512)
+			var newWorldInstance = new ServerWorld(512, 512)
 			{
 				SeedX = seedX,
 				SeedY = seedY
 			};
 			
-			var index = GameServer.WorldInstanceManager.AddWorldInstance(worldInstanceId, world);
-			world.WorldInstanceIndex = index;
+			var index = GameServer.WorldInstanceManager.AddWorldInstance(worldInstanceId, newWorldInstance);
+			newWorldInstance.WorldInstanceIndex = index;
 			
-			GameServer.WorldGen.GenerateWorld(world, false);
+			GameServer.WorldGen.GenerateWorld(newWorldInstance, false);
+			
+			var chunk = newWorldInstance.GetWorldChunk<ServerWorldChunk>();
+			var netBuffer = new NetBuffer();
+			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
+			chunk.NetSerialize(netBuffer);
+
+			var mainWorld = GameServer.GetWorldInstance(0);
+
+			var playersToTransfer = mainWorld.GetAllPlayers();
+			
+			foreach (var player in playersToTransfer)
+			{
+				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, GameServer.NetConnector.GetConnectionFromPlayer(player));
+				mainWorld.RemoveTickableEntity(player);
+				newWorldInstance.AddPlayerEntity(player);
+				newWorldInstance.AddTickableEntity(player);
+			}
+			
+			playersToTransfer.Clear();
 		}
 
 		private void OnClientConfirmChunkLoaded(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
 			Profiler.BeginSample("OnClientConfirmChunkLoaded");
 
-			byte chunkX = incMsg.ReadByte();
-			byte chunkY = incMsg.ReadByte();
-
-			var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
-			if (chunk == null)
-			{
-				return;
-			}
+			// byte chunkX = incMsg.ReadByte();
+			// byte chunkY = incMsg.ReadByte();
+			//
+			// var chunk = GameServer.MainWorld.GetWorldChunk<ServerWorldChunk>();
+			// if (chunk == null)
+			// {
+			// 	return;
+			// }
 			
 			// var state = GameServer.ChunkManager.GetPlayerChunkState(incMsg.SenderConnection);
 			//
@@ -192,20 +206,20 @@ namespace FNZ.Server.Net.NetworkManager
 			// 	state.CurrentlyLoadedChunks.Add(chunk);
 			// }
 			
-			var hordeEntitiesToSpawn = new List<HordeEntitySpawnData>();
-			
-			foreach (var e in chunk.GetAllEnemies())
-			{
-				hordeEntitiesToSpawn.Add(new HordeEntitySpawnData
-				{
-					Position = e.Position,
-					Rotation = e.RotationDegrees,
-					NetId = e.NetId,
-					EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(e.EntityId)
-				});
-			}
-			
-			GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_STC(hordeEntitiesToSpawn, incMsg.SenderConnection);
+			// var hordeEntitiesToSpawn = new List<HordeEntitySpawnData>();
+			//
+			// foreach (var e in chunk.GetAllEnemies())
+			// {
+			// 	hordeEntitiesToSpawn.Add(new HordeEntitySpawnData
+			// 	{
+			// 		Position = e.Position,
+			// 		Rotation = e.RotationDegrees,
+			// 		NetId = e.NetId,
+			// 		EntityIdCode = IdTranslator.Instance.GetIdCode<FNEEntityData>(e.EntityId)
+			// 	});
+			// }
+			//
+			// GameServer.NetAPI.Entity_SpawnHordeEntity_Batched_STC(hordeEntitiesToSpawn, incMsg.SenderConnection);
 
 			Profiler.EndSample();
 		}
