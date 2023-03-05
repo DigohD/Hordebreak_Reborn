@@ -181,6 +181,7 @@ namespace FNZ.Server.Net.NetworkManager
 				mainWorld.RemoveTickableEntity(player);
 				newWorldInstance.AddPlayerEntity(player);
 				newWorldInstance.AddTickableEntity(player);
+				player.WorldInstanceIndex = index;
 			}
 			
 			playersToTransfer.Clear();
