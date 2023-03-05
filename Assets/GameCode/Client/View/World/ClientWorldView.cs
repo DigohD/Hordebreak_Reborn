@@ -10,7 +10,7 @@ namespace FNZ.Client.View.World
 	public class ClientWorldView
 	{
 		private ClientWorld m_WorldModel;
-		private List<ClientWorldChunkView> m_WorldChunkViews;
+		private Dictionary<int2, ClientWorldChunkView> m_WorldChunkViews;
 
 		private List<Entity> m_EntityViews = new List<Entity>();
 		private List<Entity> m_EntitySubViews = new List<Entity>();
@@ -20,21 +20,21 @@ namespace FNZ.Client.View.World
 		public ClientWorldView(ClientWorld worldModel)
 		{
 			m_WorldModel = worldModel;
-			m_WorldChunkViews = new List<ClientWorldChunkView>();
+			m_WorldChunkViews = new Dictionary<int2, ClientWorldChunkView>();
 
 			ClientWorldNetworkManager.d_TriggerUnloadWorld += ClearWorld;
 			GameClient.d_TEST_WorldClear += ClearWorld;
 		}
 
-		public void AddChunkView(ClientWorldChunkView chunkView)
+		public void AddChunkView(int2 pos, ClientWorldChunkView chunkView)
 		{
-			m_WorldChunkViews.Add(chunkView);
+			m_WorldChunkViews.Add(pos, chunkView);
 		}
 
-		public void RemoveChunkView(byte chunkX, byte chunkY)
-		{
-			m_WorldChunkViews.RemoveAll(chunkView => chunkX == chunkView.ChunkX && chunkY == chunkView.ChunkY);
-		}
+		//public void RemoveChunkView(byte chunkX, byte chunkY)
+		//{
+		//	m_WorldChunkViews.RemoveAll(chunkView => chunkX == chunkView.ChunkX && chunkY == chunkView.ChunkY);
+		//}
 
 		public int2 GetChunkIndices(float2 position)
 		{
@@ -57,17 +57,22 @@ namespace FNZ.Client.View.World
 			int cx = GetChunkIndices(position).x;
 			int cy = GetChunkIndices(position).y;
 
-			foreach (var chunkView in m_WorldChunkViews)
-			{
-				if (chunkView == null) continue;
-				if (cx == chunkView.ChunkX && cy == chunkView.ChunkY)
-					return chunkView;
-			}
+			if(m_WorldChunkViews.ContainsKey(new int2(cx, cy)))
+            {
+				return m_WorldChunkViews[new int2(cx, cy)];
+            }
+
+			//foreach (var chunkView in m_WorldChunkViews)
+			//{
+			//	if (chunkView == null) continue;
+			//	if (cx == chunkView.ChunkX && cy == chunkView.ChunkY)
+			//		return chunkView;
+			//}
 
 			return null;
 		}
 
-		private void OnChunkUnloaded()
+		private void OnChunkUnloaded(int2 chunkPos)
 		{
 			if (m_GameObjectViews.Count > 0)
 			{
@@ -102,8 +107,7 @@ namespace FNZ.Client.View.World
 				m_EntitySubViews.Clear();
 			}
 
-			foreach(var view in m_WorldChunkViews)
-				GameObject.Destroy(view.gameObject);
+			GameObject.Destroy(m_WorldChunkViews[chunkPos].gameObject);
 		}
 
 		public void AddGameObject(GameObject go)
@@ -171,10 +175,12 @@ namespace FNZ.Client.View.World
 				m_EntitySubViews.Clear();
 			}
 
-			foreach (var chunkView in m_WorldChunkViews)
+			foreach (var chunkView in m_WorldChunkViews.Values)
             {
 				GameObject.Destroy(chunkView.gameObject);
             }
+
+			m_WorldChunkViews.Clear();
 
 		}
 	}
