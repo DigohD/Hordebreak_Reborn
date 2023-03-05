@@ -84,9 +84,7 @@ namespace FNZ.Server.Net.NetworkManager
 
 			playerComp.HomeLocation = newPlayer.Position;
 			GameServer.NetAPI.Player_SpawnLocal_STC(newPlayer, clientConnection);
-			GameServer.NetAPI.Player_SpawnRemote_BO(newPlayer, clientConnection);
-			GameServer.NetAPI.Effect_SpawnEffect_BOR(EffectIdConstants.TELEPORT, newPlayer.Position, 0, clientConnection);
-			
+
 			var chunk = mainWorld.GetWorldChunk<ServerWorldChunk>();
 			var netBuffer = new NetBuffer();
 			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
@@ -182,8 +180,29 @@ namespace FNZ.Server.Net.NetworkManager
 				newWorldInstance.AddPlayerEntity(player);
 				newWorldInstance.AddTickableEntity(player);
 				player.WorldInstanceIndex = index;
+
+				
 			}
-			
+
+			var mainWorldConns = GameServer.NetConnector.GetWorldPlayerConnections(mainWorld);
+			var newWorldConns = GameServer.NetConnector.GetWorldPlayerConnections(newWorldInstance);
+
+			foreach (var player in playersToTransfer)
+			{
+				GameServer.NetAPI.Player_RemoveRemote_BTC(
+					player,
+					mainWorldConns.Where(x => x != GameServer.NetConnector.GetConnectionFromPlayer(player)).ToList()
+				);
+
+				GameServer.NetAPI.Player_SpawnRemote_BTC(
+					player,
+					newWorldConns.Where(x => x != GameServer.NetConnector.GetConnectionFromPlayer(player)).ToList()
+				);
+			}
+
+				
+
+
 			playersToTransfer.Clear();
 		}
 

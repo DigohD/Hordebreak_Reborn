@@ -1,5 +1,6 @@
 using FNZ.Shared.Model.Entity;
 using Lidgren.Network;
+using System.Collections.Generic;
 using Unity.Mathematics;
 
 namespace FNZ.Server.Net.API
@@ -27,6 +28,12 @@ namespace FNZ.Server.Net.API
 			Broadcast_All(message);
 		}
 
+		public void Player_RemoveRemote_BTC(FNEEntity player, List<NetConnection> conns)
+		{
+			var message = m_PlayerMessageFactory.CreateRemoveRemotePlayerMessage(player);
+			Broadcast_To_Clients(message, conns);
+		}
+
 		/// <summary>
 		///		Net API module: Player
 		///		NetMessage Type: SpawnRemotePlayer
@@ -40,6 +47,12 @@ namespace FNZ.Server.Net.API
 		{
 			var message = m_PlayerMessageFactory.CreateSpawnRemotePlayerMessage(player);
 			Broadcast_Other(message, clientConnection);
+		}
+
+		public void Player_SpawnRemote_BTC(FNEEntity player, List<NetConnection> conns)
+		{
+			var message = m_PlayerMessageFactory.CreateSpawnRemotePlayerMessage(player);
+			Broadcast_To_Clients(message, conns);
 		}
 
 		/// <summary>

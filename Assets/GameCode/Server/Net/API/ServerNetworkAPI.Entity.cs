@@ -157,6 +157,18 @@ namespace FNZ.Server.Net.API
 			Broadcast_All_Relevant(message, toDestroy.Position);
 		}
 
+		public void Entity_DestroyEntity_STC(FNEEntity toDestroy, NetConnection conn)
+		{
+			var message = m_EntityMessageFactory.CreateDestroyEntityMessage(toDestroy);
+			SendToClient(message, conn);
+		}
+
+		public void Entity_DestroyEntity_BO(FNEEntity toDestroy, NetConnection conn)
+		{
+			var message = m_EntityMessageFactory.CreateDestroyEntityMessage(toDestroy);
+			Broadcast_Other(message, conn);
+		}
+
 		public void Entity_DestroyHordeEntity_Batched_BAR(List<HordeEntityDestroyData> entitiesToDestroy)
 		{
 			var message = m_HordeEntityMessageFactory.CreateDestroyHordeEntityBatchMessage(entitiesToDestroy);
