@@ -32,12 +32,13 @@ namespace FNZ.Client.Net.Messages
 			};
 		}
 
-		public NetMessage CreateRequestWorldInstanceSpawnMessage(Guid id)
+		public NetMessage CreateRequestWorldInstanceSpawnMessage(Guid id, string siteId)
 		{
 			var sendBuffer = m_NetClient.CreateMessage();
 			
 			sendBuffer.Write((byte)NetMessageType.REQUEST_WORLD_INSTANCE);
 			sendBuffer.Write(id.ToString());
+			sendBuffer.Write(siteId);
 
 			return new NetMessage
 			{	

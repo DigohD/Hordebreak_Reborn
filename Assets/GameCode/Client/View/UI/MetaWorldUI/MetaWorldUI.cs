@@ -289,7 +289,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				entry.eventID = EventTriggerType.PointerClick;
 				entry.callback.AddListener((data) =>
 				{
-					GameClient.NetAPI.CMD_World_RequestWorldInstanceSpawn(place.Id);
+					GameClient.NetAPI.CMD_World_RequestWorldInstanceSpawn(place.Id, place.SiteId);
 				});
 				trigger.triggers.Add(entry);
 

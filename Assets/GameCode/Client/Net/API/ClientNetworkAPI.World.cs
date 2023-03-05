@@ -14,9 +14,9 @@ namespace FNZ.Client.Net.API
 			Command(message);
 		}
 		
-		public void CMD_World_RequestWorldInstanceSpawn(Guid worldInstanceId)
+		public void CMD_World_RequestWorldInstanceSpawn(Guid worldInstanceId, string siteId)
 		{
-			var message = m_WorldMessageFactory.CreateRequestWorldInstanceSpawnMessage(worldInstanceId);
+			var message = m_WorldMessageFactory.CreateRequestWorldInstanceSpawnMessage(worldInstanceId, siteId);
 			Command(message);
 		}
 

@@ -40,6 +40,7 @@ namespace FNZ.Shared.Model.World
 
 		public ChunkCellData GetChunkCellData(int worldX, int worldY)
 		{
+			if (m_Chunk == null) return null;
 			return m_Chunk.ChunkCells[worldX, worldY];
 		}
 

@@ -9,6 +9,7 @@ using FNZ.Server.Services;
 using FNZ.Server.Services.QuestManager;
 using FNZ.Shared.Model;
 using FNZ.Shared.Model.Entity;
+using FNZ.Shared.Model.World.Site;
 using FNZ.Shared.Net;
 using FNZ.Shared.Net.Dto.Hordes;
 using FNZ.Shared.Utils;
@@ -141,14 +142,24 @@ namespace FNZ.Server.Net.NetworkManager
 			// End update player's world map state
 		}
 		
+		static int RoundUp(int numToRound, int multiple) 
+		{
+			return ((numToRound + multiple - 1) / multiple) * multiple;
+		}
+		
 		private void OnRequestWorldInstanceSpawnPacketRecieved(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
 			var worldInstanceId = Guid.Parse(incMsg.ReadString());
+			var siteId = incMsg.ReadString();
+
+			var site = DataBank.Instance.GetData<SiteData>(siteId);
 			
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
 			var seedY = FNERandom.GetRandomIntInRange(0, 1600000);
+
+			Debug.Log("Site width rounded up: " + RoundUp(site.width, 32));
 			
-			var newWorldInstance = new ServerWorld(512, 512)
+			var newWorldInstance = new ServerWorld(RoundUp(site.width, 32) + 32, RoundUp(site.height, 32) + 32)
 			{
 				SeedX = seedX,
 				SeedY = seedY
@@ -158,7 +169,7 @@ namespace FNZ.Server.Net.NetworkManager
 			newWorldInstance.WorldInstanceIndex = index;
 			
 			GameServer.WorldGen.GenerateWorld(newWorldInstance, false);
-			
+
 			var chunk = newWorldInstance.GetWorldChunk<ServerWorldChunk>();
 			var netBuffer = new NetBuffer();
 			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
@@ -170,7 +181,9 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			foreach (var player in playersToTransfer)
 			{
-				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, GameServer.NetConnector.GetConnectionFromPlayer(player));
+				var conn = GameServer.NetConnector.GetConnectionFromPlayer(player);
+				GameServer.NetAPI.World_UnloadChunk_STC(mainWorld.GetWorldChunk<ServerWorldChunk>(), conn);
+				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, conn);
 				mainWorld.RemoveTickableEntity(player);
 				newWorldInstance.AddPlayerEntity(player);
 				newWorldInstance.AddTickableEntity(player);
