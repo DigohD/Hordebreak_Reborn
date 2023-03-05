@@ -53,6 +53,7 @@ namespace FNZ.Client.Systems
             {
                 m_Queue.TryDequeue(out var data);
                 InitChunk(data);
+                OnPlayerChangeChunk();
             }
 
 
