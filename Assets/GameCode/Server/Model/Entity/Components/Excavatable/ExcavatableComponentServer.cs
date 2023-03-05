@@ -10,6 +10,7 @@ namespace FNZ.Server.Model.Entity.Components.Excavatable
 		
 		public override void Init()
 		{
+			base.Init();
 			_world = GameServer.WorldInstanceManager.GetWorldInstance(ParentEntity.WorldInstanceIndex);
 		}
 		
