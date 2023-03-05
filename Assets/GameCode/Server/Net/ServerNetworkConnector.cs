@@ -1,5 +1,6 @@
 ﻿using FNZ.Server.Model.Entity.Components.Name;
 using FNZ.Server.Model.Entity.Components.Player;
+using FNZ.Server.Model.World;
 using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Net;
 using Lidgren.Network;
@@ -142,6 +143,18 @@ namespace FNZ.Server.Net
 				return m_ConnectedClients[player];
 
 			return null;
+		}
+
+		public List<NetConnection> GetWorldPlayerConnections(ServerWorld world)
+		{
+			var playerConnList = new List<NetConnection>();
+			foreach(var player in world.GetAllPlayers())
+            {
+				if (m_ConnectedClients.ContainsKey(player))
+					playerConnList.Add(m_ConnectedClients[player]);
+			}
+
+			return playerConnList;
 		}
 
 		public long GetUniqueIdFromConnection(NetConnection playerConnection)

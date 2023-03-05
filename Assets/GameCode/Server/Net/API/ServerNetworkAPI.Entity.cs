@@ -1,3 +1,4 @@
+using FNZ.Server.Model.World;
 using FNZ.Shared.Model.Entity;
 using FNZ.Shared.Model.Entity.Components;
 using FNZ.Shared.Net;
@@ -123,6 +124,13 @@ namespace FNZ.Server.Net.API
 			var message = m_EntityMessageFactory.CreateUpdateComponentMessage(component);
 			Broadcast_All_Relevant(message, component.ParentEntity.Position);
 		}
+
+		public void Entity_UpdateComponent_BAIP(FNEComponent component, ServerWorld world)
+		{
+			var message = m_EntityMessageFactory.CreateUpdateComponentMessage(component);
+			Broadcast_All_InProximity(world, message, component.ParentEntity.Position, 60);
+		}
+
 		public void Entity_UpdateComponent_BAR_Batched(FNEComponent[] components)
 		{
 			var positions = new NativeArray<float2>(components.Length, Allocator.TempJob);
@@ -147,6 +155,18 @@ namespace FNZ.Server.Net.API
 		{
 			var message = m_EntityMessageFactory.CreateDestroyEntityMessage(toDestroy);
 			Broadcast_All_Relevant(message, toDestroy.Position);
+		}
+
+		public void Entity_DestroyEntity_STC(FNEEntity toDestroy, NetConnection conn)
+		{
+			var message = m_EntityMessageFactory.CreateDestroyEntityMessage(toDestroy);
+			SendToClient(message, conn);
+		}
+
+		public void Entity_DestroyEntity_BO(FNEEntity toDestroy, NetConnection conn)
+		{
+			var message = m_EntityMessageFactory.CreateDestroyEntityMessage(toDestroy);
+			Broadcast_Other(message, conn);
 		}
 
 		public void Entity_DestroyHordeEntity_Batched_BAR(List<HordeEntityDestroyData> entitiesToDestroy)

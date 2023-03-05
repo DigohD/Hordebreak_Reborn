@@ -31,6 +31,12 @@ namespace FNZ.Client.Systems
         private List<int2> m_ChunksToBeLoaded = new List<int2>();
         private float2 lastPlayerPos = new float2(-1, -1);
 
+        public void ClearChunkCache()
+        {
+            m_LoadedChunks.Clear();
+            m_ChunksToBeLoaded.Clear();
+        }
+
         protected override void OnCreate()
         {
             m_Queue = new ConcurrentQueue<SyncEntitiesOnChunkData>();
@@ -47,6 +53,7 @@ namespace FNZ.Client.Systems
             {
                 m_Queue.TryDequeue(out var data);
                 InitChunk(data);
+                OnPlayerChangeChunk();
             }
 
 

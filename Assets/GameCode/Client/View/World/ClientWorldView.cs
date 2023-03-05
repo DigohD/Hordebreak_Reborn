@@ -1,6 +1,7 @@
 using FNZ.Client.Model.World;
 using FNZ.Client.Net.NetworkManager;
 using System.Collections.Generic;
+using FNZ.Client.Systems;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
@@ -182,6 +183,8 @@ namespace FNZ.Client.View.World
 
 			m_WorldChunkViews.Clear();
 
-		}
+			GameClient.ECS_ClientWorld.GetExistingSystem<ClientWorldChunkManagerSystem>().ClearChunkCache();
+
+        }
 	}
 }

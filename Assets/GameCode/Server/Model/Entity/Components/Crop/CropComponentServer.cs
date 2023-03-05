@@ -26,7 +26,8 @@ namespace FNZ.Server.Model.Entity.Components
 
 		public void Tick(float dt)
 		{
-			GrowCrop();
+			if(FNERandom.GetRandomIntInRange(0, 100) == 1)
+				GrowCrop();
 		}
 
 		private void GrowCrop()
@@ -44,12 +45,12 @@ namespace FNZ.Server.Model.Entity.Components
 
 			if(Data.environmentSpans.Count == 0)
             {
-				growth += 1f;
+				growth += 100f;
 				growthStatus = GrowthStatus.Optimal;
 			}
 			else if (room == null)
 			{
-                growth += 0.01f;
+                growth += 1f;
                 growthStatus = GrowthStatus.Dormant;
             }
 			else
@@ -71,8 +72,8 @@ namespace FNZ.Server.Model.Entity.Components
 
                 if(totalGrowthMod > 0)
                 {
-                    growth += 0.02f + (0.18f * totalGrowthMod);
-                    if (totalGrowthMod > 0.9f)
+                    growth += 2f + (18f * totalGrowthMod);
+                    if (totalGrowthMod > 90f)
                     {
                         growthStatus = GrowthStatus.Optimal;
                     }
@@ -83,7 +84,7 @@ namespace FNZ.Server.Model.Entity.Components
                 }
                 else
                 {
-                    growth += 0.01f;
+                    growth += 1f;
                     growthStatus = GrowthStatus.Dormant;
                 }
             }
@@ -99,7 +100,7 @@ namespace FNZ.Server.Model.Entity.Components
                 growth = Data.growthTimeTicks;
             }
 
-            GameServer.NetAPI.Entity_UpdateComponent_BAR(this);
+            GameServer.NetAPI.Entity_UpdateComponent_BAIP(this, _world);
         }
 
 		private bool TryMatureTransformation()

@@ -39,9 +39,9 @@ namespace FNZ.Server
 		public static ServerFilePaths FilePaths;
 		public static ServerMetaWorld MetaWorld;
 		public static ServerRoomManager RoomManager;
-		public static ServerItemsOnGroundManager ItemsOnGroundManager;
+		public static ServerItemsOnGroundManager ItemsOnGroundManager = new ServerItemsOnGroundManager();
 		public static EntityAPI EntityAPI;
-		public static WorldEventManager EventManager;
+		public static WorldEventManager EventManager = new WorldEventManager();
 
 		public static float DeltaTime;
 
@@ -90,13 +90,13 @@ namespace FNZ.Server
 				SeedY = seedY
 			};
 			EntityAPI = new EntityAPI();
-
+			
+			world.WorldInstanceIndex = WorldInstanceManager.AddWorldInstance(Guid.NewGuid(), world);
+			
 			var baseWorld = WorldGen.GenerateWorld(
 				world,
 				true
 			);
-			
-			baseWorld.WorldInstanceIndex = WorldInstanceManager.AddWorldInstance(Guid.NewGuid(), baseWorld);
 
 			var roomManager = FNEService.File.LoadRoomManagerFromFile(FilePaths.GetBaseFilePath());
 			if (roomManager == null)
@@ -106,10 +106,6 @@ namespace FNZ.Server
 				RoomManager = roomManager;
 			}
 			
-			ItemsOnGroundManager = new ServerItemsOnGroundManager();
-
-			EventManager = new WorldEventManager();
-
 			if (!SharedConfigs.IsNewGame)
 			{
 				var path = FilePaths.GetQuestsFilePath();
