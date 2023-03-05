@@ -1429,6 +1429,7 @@ namespace FNZ.Server.Model.World
 			var entity = GameServer.EntityAPI.CreateEntityImmediate(
 				id,
 				position,
+				world.WorldInstanceIndex,
 				FNERandom.GetRandomIntInRange(0, 4) * 90
 			);
 
@@ -1578,6 +1579,7 @@ namespace FNZ.Server.Model.World
 							enemy = "default_zombie";
 					}
 
+					// TODO(Anders): World instance index needs to be passed in here
 					var modelEntity = GameServer.EntityAPI.CreateEntityImmediate(enemy, spawnPos, spawnRotation);
 					
 					//chunk.MovingEntitiesToSync.Add(modelEntity);

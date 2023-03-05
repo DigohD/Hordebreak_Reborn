@@ -143,6 +143,7 @@ namespace FNZ.Server.Net.NetworkManager
 		
 		private void OnRequestWorldInstanceSpawnPacketRecieved(ServerNetworkConnector net, NetIncomingMessage incMsg)
 		{
+			Debug.Log("Request world instance spawn");
 			var worldInstanceId = Guid.Parse(incMsg.ReadString());
 			
 			var seedX = FNERandom.GetRandomIntInRange(0, 1600000);
@@ -159,6 +160,8 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			GameServer.WorldGen.GenerateWorld(newWorldInstance, false);
 			
+			Debug.Log("New world instance genereated");
+			
 			var chunk = newWorldInstance.GetWorldChunk<ServerWorldChunk>();
 			var netBuffer = new NetBuffer();
 			netBuffer.EnsureBufferSize(chunk.TotalBitsNetBuffer());
@@ -171,7 +174,9 @@ namespace FNZ.Server.Net.NetworkManager
 			foreach (var player in playersToTransfer)
 			{
 				var conn = GameServer.NetConnector.GetConnectionFromPlayer(player);
+				Debug.Log("Main world unload for client");
 				GameServer.NetAPI.World_UnloadChunk_STC(mainWorld.GetWorldChunk<ServerWorldChunk>(), conn);
+				Debug.Log("New world load for client");
 				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, conn);
 				mainWorld.RemoveTickableEntity(player);
 				newWorldInstance.AddPlayerEntity(player);
