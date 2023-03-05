@@ -170,7 +170,9 @@ namespace FNZ.Server.Net.NetworkManager
 			
 			foreach (var player in playersToTransfer)
 			{
-				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, GameServer.NetConnector.GetConnectionFromPlayer(player));
+				var conn = GameServer.NetConnector.GetConnectionFromPlayer(player);
+				GameServer.NetAPI.World_UnloadChunk_STC(mainWorld.GetWorldChunk<ServerWorldChunk>(), conn);
+				GameServer.NetAPI.World_LoadChunk_STC(chunk, netBuffer.Data, conn);
 				mainWorld.RemoveTickableEntity(player);
 				newWorldInstance.AddPlayerEntity(player);
 				newWorldInstance.AddTickableEntity(player);
