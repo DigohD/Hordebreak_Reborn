@@ -27,12 +27,16 @@ namespace FNZ.Client.View.World
 
 			m_ChunkModel = chunkModel;
 
-			m_ChunkModel.d_OnGenerateUVsEvent += () =>
+			m_ChunkModel.d_OnGenerateUVsEvent += (int tileX, int tileY) =>
 			{
-				BuildTileSheetMeshes();
-				GenerateUVs();
-				BuildOverlapMesh();
-				ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel, ChunkX, ChunkY);
+				if(IsTilePartOfChunkView(tileX, tileY))
+                {
+					Debug.LogWarning("RENDER CHUNK " + chunkX + " : " + chunkY);
+					BuildTileSheetMeshes();
+					GenerateUVs();
+					BuildOverlapMesh();
+					ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel, ChunkX, ChunkY);
+				}
 			};
 
 			m_OverlapMesh = new Mesh();
@@ -55,6 +59,11 @@ namespace FNZ.Client.View.World
 			Profiler.BeginSample("GenerateTileEdgeMeshes");
 			ViewUtils.GenerateTileEdgeMeshes(m_ChunkModel, chunkX, chunkY);
 			Profiler.EndSample();
+		}
+
+		public bool IsTilePartOfChunkView(int tileX, int tileY)
+        {
+			return tileX > ChunkX * 32 && tileX < ChunkX * 32 + 32 && tileY > ChunkY * 32 && tileY < ChunkY * 32 + 32;
 		}
 
 		public void GenerateUVs()

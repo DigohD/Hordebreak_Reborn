@@ -3,7 +3,6 @@ using FNZ.Shared.Model.World.MetaWorld;
 using FNZ.Shared.Model.World.Site;
 using FNZ.Shared.Utils;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -52,7 +51,7 @@ namespace FNZ.Server.Model.MetaWorld
 
 			var site = possibleSites[FNERandom.GetRandomIntInRange(0, possibleSites.Count)];
 
-			Place place = new Place(pos, "PLACE: " + Guid.NewGuid().ToString(), site.Id);
+			var place = new Place(pos, Guid.NewGuid(), site.Id);
 
 			return place;
         }

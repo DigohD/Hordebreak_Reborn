@@ -17,8 +17,12 @@ using FNZ.Client.Model.MetaWorld;
 
 namespace FNZ.Client
 {
+	public delegate void TEST_WorldClear();
+
 	public class GameClient : MonoBehaviour
 	{
+		public static TEST_WorldClear d_TEST_WorldClear;
+
 		public static volatile bool APPLICATION_RUNNING = true;
 
 		public static World ECS_ClientWorld;
@@ -75,6 +79,11 @@ namespace FNZ.Client
 			Profiler.BeginSample("RealEffectManager");
 			RealEffectManager?.Update();
 			Profiler.EndSample();
+
+            if (Input.GetKeyDown(KeyCode.F9))
+            {
+				d_TEST_WorldClear?.Invoke();
+			}
 		}
 
 		public void OnApplicationQuit()

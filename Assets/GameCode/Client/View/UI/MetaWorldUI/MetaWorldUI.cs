@@ -210,7 +210,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				var newX = place.Coords.x * 10;
 				var newY = place.Coords.y * 10;
 
-				m_PlaceMarkers[place.Name].Item2.transform.localPosition = (Vector2)new float2(newX, newY) * m_MarkerTranspose;
+				m_PlaceMarkers[place.Id.ToString()].Item2.transform.localPosition = (Vector2)new float2(newX, newY) * m_MarkerTranspose;
 
 				if (newX > m_AllowedBoundingBox.x + m_AllowedBoundingBox.width)
 				{
@@ -262,8 +262,10 @@ namespace FNZ.Client.View.UI.MetaWorld
 				newMarker.transform.SetParent(T_PlacesParent, false);
 				newMarker.GetComponent<Image>().color = new Color(1f, 1f, 1f);
 
-				//var siteData = DataBank.Instance.GetData<SiteData>(site.SiteId);
+				var siteData = DataBank.Instance.GetData<SiteData>(place.SiteId);
 				//isSite = siteData.width >= 32 || siteData.height >= 32;
+
+
 
 				EventTrigger trigger = newMarker.GetComponentInChildren<EventTrigger>();
 				EventTrigger.Entry entry = new EventTrigger.Entry();
@@ -271,7 +273,7 @@ namespace FNZ.Client.View.UI.MetaWorld
 				entry.callback.AddListener((data) =>
 				{
                     //UIManager.HoverBoxGen.CreateSimpleTextHoverBox("Testhover " + place.Name);
-                    UIManager.HoverBoxGen.CreateSiteHoverBox(DataBank.Instance.GetData<SiteData>(place.SiteId));
+                    UIManager.HoverBoxGen.CreateSiteHoverBox(siteData);
                 });
 				trigger.triggers.Add(entry);
 
@@ -283,8 +285,17 @@ namespace FNZ.Client.View.UI.MetaWorld
 				});
 				trigger.triggers.Add(entry);
 
-				m_PlaceMarkers.Add(place.Name, new Tuple<Place, GameObject>(place, newMarker));
-				newMarker.name = place.Name;
+				entry = new EventTrigger.Entry();
+				entry.eventID = EventTriggerType.PointerClick;
+				entry.callback.AddListener((data) =>
+				{
+					GameClient.NetAPI.CMD_World_RequestWorldInstanceSpawn(place.Id);
+				});
+				trigger.triggers.Add(entry);
+
+				m_PlaceMarkers.Add(place.Id.ToString(), new Tuple<Place, GameObject>(place, newMarker));
+				newMarker.name = siteData.siteName;
+
 				newMarker.GetComponent<Image>().sprite = m_PlaceMarkerSprite;
 			}
 		}

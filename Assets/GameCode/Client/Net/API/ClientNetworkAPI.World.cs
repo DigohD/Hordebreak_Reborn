@@ -14,9 +14,9 @@ namespace FNZ.Client.Net.API
 			Command(message);
 		}
 		
-		public void CMD_World_RequestWorldInstanceSpawn(Guid worldInstanceId, List<string> players)
+		public void CMD_World_RequestWorldInstanceSpawn(Guid worldInstanceId)
 		{
-			var message = m_WorldMessageFactory.CreateRequestWorldInstanceSpawnMessage(worldInstanceId, players);
+			var message = m_WorldMessageFactory.CreateRequestWorldInstanceSpawnMessage(worldInstanceId);
 			Command(message);
 		}
 

@@ -1,4 +1,5 @@
 using FNZ.Client.Model.World;
+using FNZ.Client.Net.NetworkManager;
 using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -20,6 +21,9 @@ namespace FNZ.Client.View.World
 		{
 			m_WorldModel = worldModel;
 			m_WorldChunkViews = new List<ClientWorldChunkView>();
+
+			ClientWorldNetworkManager.d_TriggerUnloadWorld += ClearWorld;
+			GameClient.d_TEST_WorldClear += ClearWorld;
 		}
 
 		public void AddChunkView(ClientWorldChunkView chunkView)
@@ -67,13 +71,22 @@ namespace FNZ.Client.View.World
 		{
 			if (m_GameObjectViews.Count > 0)
 			{
-				GameClient.ViewAPI.QueueGameObjectsForDeactivation(m_GameObjectViews);
+				//GameClient.ViewAPI.QueueGameObjectsForDeactivation(m_GameObjectViews);
+				foreach(var gameObject in m_GameObjectViews)
+                {
+					GameObject.Destroy(gameObject);
+				}
+				
 				m_GameObjectViews.Clear();
 			}
 
 			if (m_GameObjectSubViews.Count > 0)
 			{
-				GameClient.SubViewAPI.QueueSubViewGameObjectsForDeactivation(m_GameObjectSubViews);
+				//GameClient.SubViewAPI.QueueSubViewGameObjectsForDeactivation(m_GameObjectSubViews);
+				foreach (var gameObject in m_GameObjectSubViews)
+				{
+					GameObject.Destroy(gameObject);
+				}
 				m_GameObjectSubViews.Clear();
 			}
 
@@ -121,6 +134,48 @@ namespace FNZ.Client.View.World
 		public void RemoveEntity(Entity e)
 		{
 			m_EntityViews.Remove(e);
+		}
+
+		private void ClearWorld()
+        {
+			if (m_GameObjectViews.Count > 0)
+			{
+				//GameClient.ViewAPI.QueueGameObjectsForDeactivation(m_GameObjectViews);
+				foreach (var gameObject in m_GameObjectViews)
+				{
+					GameObject.Destroy(gameObject);
+				}
+
+				m_GameObjectViews.Clear();
+			}
+
+			if (m_GameObjectSubViews.Count > 0)
+			{
+				//GameClient.SubViewAPI.QueueSubViewGameObjectsForDeactivation(m_GameObjectSubViews);
+				foreach (var gameObject in m_GameObjectSubViews)
+				{
+					GameObject.Destroy(gameObject);
+				}
+				m_GameObjectSubViews.Clear();
+			}
+
+			if (m_EntityViews.Count > 0)
+			{
+				GameClient.ViewAPI.DestroyViewEntities(m_EntityViews);
+				m_EntityViews.Clear();
+			}
+
+			if (m_EntitySubViews.Count > 0)
+			{
+				GameClient.ViewAPI.DestroyViewEntities(m_EntitySubViews);
+				m_EntitySubViews.Clear();
+			}
+
+			foreach (var chunkView in m_WorldChunkViews)
+            {
+				GameObject.Destroy(chunkView.gameObject);
+            }
+
 		}
 	}
 }
