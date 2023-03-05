@@ -113,5 +113,24 @@ namespace FNZ.Client.Net
 		{
 			GameClient.NetAPI.CMD_Server_Ping_Response();
 		}
+
+		public List<NetEntityWrapper> GetAllEntitiesOnViewChunk(int chunkX, int chunkY)
+        {
+			List<NetEntityWrapper> toReturn =  new List<NetEntityWrapper>();
+			foreach(var entity in m_NetEntities.list)
+            {
+				if (entity.fneEntity == null)
+					continue;
+
+				if (entity.fneEntity.EntityType != EntityType.TILE_OBJECT && entity.fneEntity.EntityType != EntityType.EDGE_OBJECT)
+					continue;
+
+				var isInsideX = entity.fneEntity.Position.x >= chunkX * 32 && entity.fneEntity.Position.x < (chunkX + 1) * 32;
+				var isInsideY = entity.fneEntity.Position.y >= chunkY * 32 && entity.fneEntity.Position.y < (chunkY + 1) * 32;
+				if(isInsideX && isInsideY)
+					toReturn.Add(entity);
+			}
+			return toReturn;
+		}
 	}
 }

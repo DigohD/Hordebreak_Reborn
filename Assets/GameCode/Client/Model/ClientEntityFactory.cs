@@ -204,8 +204,12 @@ namespace FNZ.Client.Model
 
 		public void ReplaceEntityView(FNEEntity entityToReplace, string newViewRef)
 		{
-			DestroyEntityView(entityToReplace);
-			GameClient.ViewAPI.QueueViewForSpawn(entityToReplace, newViewRef);
+            if (GameClient.WorldView.GetChunkView(entityToReplace.Position) != null)
+            {
+				DestroyEntityView(entityToReplace);
+				GameClient.ViewAPI.QueueViewForSpawn(entityToReplace, newViewRef);
+			}
+			
 		}
 
 		private void DestroyEntityView(FNEEntity entityToDestroy)

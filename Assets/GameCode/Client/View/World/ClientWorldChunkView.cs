@@ -31,7 +31,6 @@ namespace FNZ.Client.View.World
 			{
 				if(IsTilePartOfChunkView(tileX, tileY))
                 {
-					Debug.LogWarning("RENDER CHUNK " + chunkX + " : " + chunkY);
 					BuildTileSheetMeshes();
 					GenerateUVs();
 					BuildOverlapMesh();
